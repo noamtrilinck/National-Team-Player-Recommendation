@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.log
+.streamlit/secrets.toml
+
+# Superseded by match_level_stats.parquet (see optimize_match_level_storage.py) -- kept locally
+# as the regeneration source, but the 75MB long-format CSV has no reason to live in the repo.
+data/match_level_stats.csv

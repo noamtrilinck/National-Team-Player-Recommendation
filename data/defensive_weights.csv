@@ -1,0 +1,43 @@
+position,ability,weight_pct
+Centre Back,Aerial Duels,40
+Centre Back,Defensive Ball-Winning,35
+Centre Back,Ground Duels & Physical Contests,25
+Full-Back,Defensive Ball-Winning,40
+Full-Back,Ground Duels & Physical Contests,35
+Full-Back,Aerial Duels,25
+Defensive Midfield,Defensive Ball-Winning,50
+Defensive Midfield,Ground Duels & Physical Contests,30
+Defensive Midfield,Aerial Duels,20
+Central Midfield,Defensive Ball-Winning,45
+Central Midfield,Ground Duels & Physical Contests,35
+Central Midfield,Aerial Duels,20
+Attacking Midfield,Defensive Ball-Winning,50
+Attacking Midfield,Ground Duels & Physical Contests,35
+Attacking Midfield,Aerial Duels,15
+Winger,Defensive Ball-Winning,50
+Winger,Ground Duels & Physical Contests,35
+Winger,Aerial Duels,15
+Wide Midfielder,Defensive Ball-Winning,50
+Wide Midfielder,Ground Duels & Physical Contests,35
+Wide Midfielder,Aerial Duels,15
+Centre Forward,Aerial Duels,35
+Centre Forward,Ground Duels & Physical Contests,30
+Centre Forward,Defensive Ball-Winning,35
+Right Back,Defensive Ball-Winning,40
+Right Back,Ground Duels & Physical Contests,35
+Right Back,Aerial Duels,25
+Left Back,Defensive Ball-Winning,40
+Left Back,Ground Duels & Physical Contests,35
+Left Back,Aerial Duels,25
+Right Winger,Defensive Ball-Winning,50
+Right Winger,Ground Duels & Physical Contests,35
+Right Winger,Aerial Duels,15
+Left Winger,Defensive Ball-Winning,50
+Left Winger,Ground Duels & Physical Contests,35
+Left Winger,Aerial Duels,15
+Right Midfielder,Defensive Ball-Winning,50
+Right Midfielder,Ground Duels & Physical Contests,35
+Right Midfielder,Aerial Duels,15
+Left Midfielder,Defensive Ball-Winning,50
+Left Midfielder,Ground Duels & Physical Contests,35
+Left Midfielder,Aerial Duels,15

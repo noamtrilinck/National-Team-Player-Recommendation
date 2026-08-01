@@ -1,0 +1,337 @@
+position,philosophy,rank,ability,weight_pct
+Attacking Midfield,Control,1,Chance Creation,38.6
+Attacking Midfield,Control,2,Progressive Passing,15.7
+Attacking Midfield,Control,3,Ball Retention & Security,14.7
+Attacking Midfield,Control,4,Ball Carrying / Dribbling,12.1
+Attacking Midfield,Control,5,Finishing / Shot Threat,7.3
+Attacking Midfield,Control,6,Long Distribution,4.8
+Attacking Midfield,Control,7,Crossing / Wide Delivery,3.6
+Attacking Midfield,Control,8,Build-Up Involvement,3.2
+Attacking Midfield,Direct,1,Chance Creation,24.4
+Attacking Midfield,Direct,2,Ball Carrying / Dribbling,22.2
+Attacking Midfield,Direct,3,Finishing / Shot Threat,13.3
+Attacking Midfield,Direct,4,Ball Retention & Security,13.3
+Attacking Midfield,Direct,5,Progressive Passing,11.1
+Attacking Midfield,Direct,6,Crossing / Wide Delivery,8.9
+Attacking Midfield,Direct,7,Build-Up Involvement,4.4
+Attacking Midfield,Direct,8,Long Distribution,2.2
+Attacking Midfield,Progression,1,Progressive Passing,31.5
+Attacking Midfield,Progression,2,Chance Creation,24.8
+Attacking Midfield,Progression,3,Ball Carrying / Dribbling,13.5
+Attacking Midfield,Progression,4,Ball Retention & Security,12.6
+Attacking Midfield,Progression,5,Finishing / Shot Threat,7.9
+Attacking Midfield,Progression,6,Build-Up Involvement,5.2
+Attacking Midfield,Progression,7,Long Distribution,3.3
+Attacking Midfield,Progression,8,Crossing / Wide Delivery,1.1
+Central Midfield,Control,1,Progressive Passing,22.0
+Central Midfield,Control,2,Chance Creation,19.7
+Central Midfield,Control,3,Ball Retention & Security,18.5
+Central Midfield,Control,4,Ball Carrying / Dribbling,16.5
+Central Midfield,Control,5,Build-Up Involvement,8.1
+Central Midfield,Control,6,Long Distribution,7.6
+Central Midfield,Control,7,Crossing / Wide Delivery,4.3
+Central Midfield,Control,8,Finishing / Shot Threat,3.2
+Central Midfield,Direct,1,Ball Carrying / Dribbling,26.1
+Central Midfield,Direct,2,Chance Creation,21.7
+Central Midfield,Direct,3,Progressive Passing,19.6
+Central Midfield,Direct,4,Ball Retention & Security,10.9
+Central Midfield,Direct,5,Long Distribution,10.9
+Central Midfield,Direct,6,Build-Up Involvement,5.4
+Central Midfield,Direct,7,Crossing / Wide Delivery,3.3
+Central Midfield,Direct,8,Finishing / Shot Threat,2.2
+Central Midfield,Progression,1,Progressive Passing,26.1
+Central Midfield,Progression,2,Ball Carrying / Dribbling,21.7
+Central Midfield,Progression,3,Chance Creation,17.4
+Central Midfield,Progression,4,Ball Retention & Security,15.2
+Central Midfield,Progression,5,Build-Up Involvement,8.7
+Central Midfield,Progression,6,Long Distribution,5.4
+Central Midfield,Progression,7,Crossing / Wide Delivery,3.3
+Central Midfield,Progression,8,Finishing / Shot Threat,2.2
+Centre Back,Control,1,Progressive Passing,28.2
+Centre Back,Control,2,Long Distribution,19.7
+Centre Back,Control,3,Ball Retention & Security,18.1
+Centre Back,Control,4,Ball Carrying / Dribbling,11.3
+Centre Back,Control,5,Build-Up Involvement,8.7
+Centre Back,Control,6,Chance Creation,7.0
+Centre Back,Control,7,Finishing / Shot Threat,4.2
+Centre Back,Control,8,Crossing / Wide Delivery,2.8
+Centre Back,Direct,1,Long Distribution,39.8
+Centre Back,Direct,2,Build-Up Involvement,13.9
+Centre Back,Direct,3,Ball Retention & Security,12.0
+Centre Back,Direct,4,Progressive Passing,11.4
+Centre Back,Direct,5,Ball Carrying / Dribbling,9.1
+Centre Back,Direct,6,Chance Creation,5.7
+Centre Back,Direct,7,Finishing / Shot Threat,4.5
+Centre Back,Direct,8,Crossing / Wide Delivery,3.5
+Centre Back,Progression,1,Progressive Passing,35.5
+Centre Back,Progression,2,Long Distribution,22.1
+Centre Back,Progression,3,Ball Retention & Security,13.9
+Centre Back,Progression,4,Build-Up Involvement,12.0
+Centre Back,Progression,5,Ball Carrying / Dribbling,9.9
+Centre Back,Progression,6,Chance Creation,4.4
+Centre Back,Progression,7,Finishing / Shot Threat,1.1
+Centre Back,Progression,8,Crossing / Wide Delivery,1.1
+Centre Forward,Control,1,Finishing / Shot Threat,39.4
+Centre Forward,Control,2,Chance Creation,14.8
+Centre Forward,Control,3,Ball Carrying / Dribbling,11.1
+Centre Forward,Control,4,Ball Retention & Security,9.9
+Centre Forward,Control,5,Build-Up Involvement,8.8
+Centre Forward,Control,6,Progressive Passing,7.5
+Centre Forward,Control,7,Crossing / Wide Delivery,4.9
+Centre Forward,Control,8,Long Distribution,3.6
+Centre Forward,Direct,1,Finishing / Shot Threat,46.0
+Centre Forward,Direct,2,Chance Creation,13.8
+Centre Forward,Direct,3,Ball Carrying / Dribbling,13.8
+Centre Forward,Direct,4,Build-Up Involvement,12.6
+Centre Forward,Direct,5,Ball Retention & Security,5.7
+Centre Forward,Direct,6,Long Distribution,3.4
+Centre Forward,Direct,7,Crossing / Wide Delivery,2.3
+Centre Forward,Direct,8,Progressive Passing,2.3
+Centre Forward,Progression,1,Finishing / Shot Threat,36.4
+Centre Forward,Progression,2,Chance Creation,20.3
+Centre Forward,Progression,3,Ball Retention & Security,10.5
+Centre Forward,Progression,4,Ball Carrying / Dribbling,10.2
+Centre Forward,Progression,5,Build-Up Involvement,8.0
+Centre Forward,Progression,6,Progressive Passing,6.8
+Centre Forward,Progression,7,Crossing / Wide Delivery,4.5
+Centre Forward,Progression,8,Long Distribution,3.3
+Defensive Midfield,Control,1,Progressive Passing,29.3
+Defensive Midfield,Control,2,Long Distribution,17.5
+Defensive Midfield,Control,3,Ball Retention & Security,16.6
+Defensive Midfield,Control,4,Ball Carrying / Dribbling,10.3
+Defensive Midfield,Control,5,Build-Up Involvement,10.2
+Defensive Midfield,Control,6,Chance Creation,7.4
+Defensive Midfield,Control,7,Finishing / Shot Threat,4.4
+Defensive Midfield,Control,8,Crossing / Wide Delivery,4.4
+Defensive Midfield,Direct,1,Long Distribution,47.8
+Defensive Midfield,Direct,2,Ball Retention & Security,13.9
+Defensive Midfield,Direct,3,Build-Up Involvement,12.0
+Defensive Midfield,Direct,4,Progressive Passing,11.4
+Defensive Midfield,Direct,5,Ball Carrying / Dribbling,8.0
+Defensive Midfield,Direct,6,Chance Creation,3.5
+Defensive Midfield,Direct,7,Finishing / Shot Threat,2.3
+Defensive Midfield,Direct,8,Crossing / Wide Delivery,1.2
+Defensive Midfield,Progression,1,Progressive Passing,34.7
+Defensive Midfield,Progression,2,Long Distribution,20.8
+Defensive Midfield,Progression,3,Build-Up Involvement,13.4
+Defensive Midfield,Progression,4,Ball Retention & Security,12.5
+Defensive Midfield,Progression,5,Ball Carrying / Dribbling,9.3
+Defensive Midfield,Progression,6,Chance Creation,5.8
+Defensive Midfield,Progression,7,Finishing / Shot Threat,2.3
+Defensive Midfield,Progression,8,Crossing / Wide Delivery,1.2
+Full-Back,Control,1,Progressive Passing,28.6
+Full-Back,Control,2,Ball Retention & Security,19.3
+Full-Back,Control,3,Chance Creation,14.2
+Full-Back,Control,4,Ball Carrying / Dribbling,14.2
+Full-Back,Control,5,Crossing / Wide Delivery,11.9
+Full-Back,Control,6,Build-Up Involvement,7.0
+Full-Back,Control,7,Long Distribution,3.6
+Full-Back,Control,8,Finishing / Shot Threat,1.2
+Full-Back,Direct,1,Crossing / Wide Delivery,28.0
+Full-Back,Direct,2,Ball Carrying / Dribbling,20.0
+Full-Back,Direct,3,Progressive Passing,16.0
+Full-Back,Direct,4,Ball Retention & Security,12.0
+Full-Back,Direct,5,Chance Creation,9.0
+Full-Back,Direct,6,Long Distribution,7.0
+Full-Back,Direct,7,Build-Up Involvement,4.9
+Full-Back,Direct,8,Finishing / Shot Threat,3.0
+Full-Back,Progression,1,Ball Carrying / Dribbling,23.9
+Full-Back,Progression,2,Progressive Passing,21.7
+Full-Back,Progression,3,Ball Retention & Security,17.4
+Full-Back,Progression,4,Crossing / Wide Delivery,15.2
+Full-Back,Progression,5,Chance Creation,9.8
+Full-Back,Progression,6,Build-Up Involvement,6.5
+Full-Back,Progression,7,Long Distribution,4.3
+Full-Back,Progression,8,Finishing / Shot Threat,1.1
+Wide Midfielder,Control,1,Chance Creation,30.3
+Wide Midfielder,Control,2,Ball Carrying / Dribbling,25.3
+Wide Midfielder,Control,3,Crossing / Wide Delivery,15.1
+Wide Midfielder,Control,4,Ball Retention & Security,11.5
+Wide Midfielder,Control,5,Progressive Passing,7.6
+Wide Midfielder,Control,6,Build-Up Involvement,6.5
+Wide Midfielder,Control,7,Long Distribution,2.5
+Wide Midfielder,Control,8,Finishing / Shot Threat,1.2
+Wide Midfielder,Direct,1,Crossing / Wide Delivery,25.9
+Wide Midfielder,Direct,2,Ball Carrying / Dribbling,21.5
+Wide Midfielder,Direct,3,Chance Creation,19.4
+Wide Midfielder,Direct,4,Ball Retention & Security,11.3
+Wide Midfielder,Direct,5,Long Distribution,7.5
+Wide Midfielder,Direct,6,Build-Up Involvement,6.8
+Wide Midfielder,Direct,7,Progressive Passing,5.4
+Wide Midfielder,Direct,8,Finishing / Shot Threat,2.2
+Wide Midfielder,Progression,1,Progressive Passing,26.5
+Wide Midfielder,Progression,2,Chance Creation,21.7
+Wide Midfielder,Progression,3,Ball Carrying / Dribbling,19.3
+Wide Midfielder,Progression,4,Crossing / Wide Delivery,12.1
+Wide Midfielder,Progression,5,Ball Retention & Security,11.4
+Wide Midfielder,Progression,6,Build-Up Involvement,6.5
+Wide Midfielder,Progression,7,Long Distribution,2.5
+Wide Midfielder,Progression,8,Finishing / Shot Threat,0.0
+Winger,Control,1,Chance Creation,29.5
+Winger,Control,2,Crossing / Wide Delivery,20.5
+Winger,Control,3,Ball Carrying / Dribbling,18.2
+Winger,Control,4,Finishing / Shot Threat,15.9
+Winger,Control,5,Ball Retention & Security,10.2
+Winger,Control,6,Build-Up Involvement,4.5
+Winger,Control,7,Progressive Passing,1.1
+Winger,Control,8,Long Distribution,0.0
+Winger,Direct,1,Finishing / Shot Threat,27.3
+Winger,Direct,2,Ball Carrying / Dribbling,22.7
+Winger,Direct,3,Crossing / Wide Delivery,18.2
+Winger,Direct,4,Chance Creation,15.9
+Winger,Direct,5,Ball Retention & Security,9.1
+Winger,Direct,6,Build-Up Involvement,5.7
+Winger,Direct,7,Long Distribution,1.1
+Winger,Direct,8,Progressive Passing,0.0
+Winger,Progression,1,Ball Carrying / Dribbling,25.0
+Winger,Progression,2,Chance Creation,22.7
+Winger,Progression,3,Crossing / Wide Delivery,18.2
+Winger,Progression,4,Finishing / Shot Threat,15.9
+Winger,Progression,5,Ball Retention & Security,9.1
+Winger,Progression,6,Progressive Passing,6.8
+Winger,Progression,7,Build-Up Involvement,2.3
+Winger,Progression,8,Long Distribution,0.0
+Right Back,Control,1,Progressive Passing,28.6
+Right Back,Control,2,Ball Retention & Security,19.3
+Right Back,Control,3,Chance Creation,14.2
+Right Back,Control,4,Ball Carrying / Dribbling,14.2
+Right Back,Control,5,Crossing / Wide Delivery,11.9
+Right Back,Control,6,Build-Up Involvement,7.0
+Right Back,Control,7,Long Distribution,3.6
+Right Back,Control,8,Finishing / Shot Threat,1.2
+Right Back,Direct,1,Crossing / Wide Delivery,28.0
+Right Back,Direct,2,Ball Carrying / Dribbling,20.0
+Right Back,Direct,3,Progressive Passing,16.0
+Right Back,Direct,4,Ball Retention & Security,12.0
+Right Back,Direct,5,Chance Creation,9.0
+Right Back,Direct,6,Long Distribution,7.0
+Right Back,Direct,7,Build-Up Involvement,4.9
+Right Back,Direct,8,Finishing / Shot Threat,3.0
+Right Back,Progression,1,Ball Carrying / Dribbling,23.9
+Right Back,Progression,2,Progressive Passing,21.7
+Right Back,Progression,3,Ball Retention & Security,17.4
+Right Back,Progression,4,Crossing / Wide Delivery,15.2
+Right Back,Progression,5,Chance Creation,9.8
+Right Back,Progression,6,Build-Up Involvement,6.5
+Right Back,Progression,7,Long Distribution,4.3
+Right Back,Progression,8,Finishing / Shot Threat,1.1
+Left Back,Control,1,Progressive Passing,28.6
+Left Back,Control,2,Ball Retention & Security,19.3
+Left Back,Control,3,Chance Creation,14.2
+Left Back,Control,4,Ball Carrying / Dribbling,14.2
+Left Back,Control,5,Crossing / Wide Delivery,11.9
+Left Back,Control,6,Build-Up Involvement,7.0
+Left Back,Control,7,Long Distribution,3.6
+Left Back,Control,8,Finishing / Shot Threat,1.2
+Left Back,Direct,1,Crossing / Wide Delivery,28.0
+Left Back,Direct,2,Ball Carrying / Dribbling,20.0
+Left Back,Direct,3,Progressive Passing,16.0
+Left Back,Direct,4,Ball Retention & Security,12.0
+Left Back,Direct,5,Chance Creation,9.0
+Left Back,Direct,6,Long Distribution,7.0
+Left Back,Direct,7,Build-Up Involvement,4.9
+Left Back,Direct,8,Finishing / Shot Threat,3.0
+Left Back,Progression,1,Ball Carrying / Dribbling,23.9
+Left Back,Progression,2,Progressive Passing,21.7
+Left Back,Progression,3,Ball Retention & Security,17.4
+Left Back,Progression,4,Crossing / Wide Delivery,15.2
+Left Back,Progression,5,Chance Creation,9.8
+Left Back,Progression,6,Build-Up Involvement,6.5
+Left Back,Progression,7,Long Distribution,4.3
+Left Back,Progression,8,Finishing / Shot Threat,1.1
+Right Winger,Control,1,Chance Creation,29.5
+Right Winger,Control,2,Crossing / Wide Delivery,20.5
+Right Winger,Control,3,Ball Carrying / Dribbling,18.2
+Right Winger,Control,4,Finishing / Shot Threat,15.9
+Right Winger,Control,5,Ball Retention & Security,10.2
+Right Winger,Control,6,Build-Up Involvement,4.5
+Right Winger,Control,7,Progressive Passing,1.1
+Right Winger,Control,8,Long Distribution,0.0
+Right Winger,Direct,1,Finishing / Shot Threat,27.3
+Right Winger,Direct,2,Ball Carrying / Dribbling,22.7
+Right Winger,Direct,3,Crossing / Wide Delivery,18.2
+Right Winger,Direct,4,Chance Creation,15.9
+Right Winger,Direct,5,Ball Retention & Security,9.1
+Right Winger,Direct,6,Build-Up Involvement,5.7
+Right Winger,Direct,7,Long Distribution,1.1
+Right Winger,Direct,8,Progressive Passing,0.0
+Right Winger,Progression,1,Ball Carrying / Dribbling,25.0
+Right Winger,Progression,2,Chance Creation,22.7
+Right Winger,Progression,3,Crossing / Wide Delivery,18.2
+Right Winger,Progression,4,Finishing / Shot Threat,15.9
+Right Winger,Progression,5,Ball Retention & Security,9.1
+Right Winger,Progression,6,Progressive Passing,6.8
+Right Winger,Progression,7,Build-Up Involvement,2.3
+Right Winger,Progression,8,Long Distribution,0.0
+Left Winger,Control,1,Chance Creation,29.5
+Left Winger,Control,2,Crossing / Wide Delivery,20.5
+Left Winger,Control,3,Ball Carrying / Dribbling,18.2
+Left Winger,Control,4,Finishing / Shot Threat,15.9
+Left Winger,Control,5,Ball Retention & Security,10.2
+Left Winger,Control,6,Build-Up Involvement,4.5
+Left Winger,Control,7,Progressive Passing,1.1
+Left Winger,Control,8,Long Distribution,0.0
+Left Winger,Direct,1,Finishing / Shot Threat,27.3
+Left Winger,Direct,2,Ball Carrying / Dribbling,22.7
+Left Winger,Direct,3,Crossing / Wide Delivery,18.2
+Left Winger,Direct,4,Chance Creation,15.9
+Left Winger,Direct,5,Ball Retention & Security,9.1
+Left Winger,Direct,6,Build-Up Involvement,5.7
+Left Winger,Direct,7,Long Distribution,1.1
+Left Winger,Direct,8,Progressive Passing,0.0
+Left Winger,Progression,1,Ball Carrying / Dribbling,25.0
+Left Winger,Progression,2,Chance Creation,22.7
+Left Winger,Progression,3,Crossing / Wide Delivery,18.2
+Left Winger,Progression,4,Finishing / Shot Threat,15.9
+Left Winger,Progression,5,Ball Retention & Security,9.1
+Left Winger,Progression,6,Progressive Passing,6.8
+Left Winger,Progression,7,Build-Up Involvement,2.3
+Left Winger,Progression,8,Long Distribution,0.0
+Right Midfielder,Control,1,Chance Creation,30.3
+Right Midfielder,Control,2,Ball Carrying / Dribbling,25.3
+Right Midfielder,Control,3,Crossing / Wide Delivery,15.1
+Right Midfielder,Control,4,Ball Retention & Security,11.5
+Right Midfielder,Control,5,Progressive Passing,7.6
+Right Midfielder,Control,6,Build-Up Involvement,6.5
+Right Midfielder,Control,7,Long Distribution,2.5
+Right Midfielder,Control,8,Finishing / Shot Threat,1.2
+Right Midfielder,Direct,1,Crossing / Wide Delivery,25.9
+Right Midfielder,Direct,2,Ball Carrying / Dribbling,21.5
+Right Midfielder,Direct,3,Chance Creation,19.4
+Right Midfielder,Direct,4,Ball Retention & Security,11.3
+Right Midfielder,Direct,5,Long Distribution,7.5
+Right Midfielder,Direct,6,Build-Up Involvement,6.8
+Right Midfielder,Direct,7,Progressive Passing,5.4
+Right Midfielder,Direct,8,Finishing / Shot Threat,2.2
+Right Midfielder,Progression,1,Progressive Passing,26.5
+Right Midfielder,Progression,2,Chance Creation,21.7
+Right Midfielder,Progression,3,Ball Carrying / Dribbling,19.3
+Right Midfielder,Progression,4,Crossing / Wide Delivery,12.1
+Right Midfielder,Progression,5,Ball Retention & Security,11.4
+Right Midfielder,Progression,6,Build-Up Involvement,6.5
+Right Midfielder,Progression,7,Long Distribution,2.5
+Right Midfielder,Progression,8,Finishing / Shot Threat,0.0
+Left Midfielder,Control,1,Chance Creation,30.3
+Left Midfielder,Control,2,Ball Carrying / Dribbling,25.3
+Left Midfielder,Control,3,Crossing / Wide Delivery,15.1
+Left Midfielder,Control,4,Ball Retention & Security,11.5
+Left Midfielder,Control,5,Progressive Passing,7.6
+Left Midfielder,Control,6,Build-Up Involvement,6.5
+Left Midfielder,Control,7,Long Distribution,2.5
+Left Midfielder,Control,8,Finishing / Shot Threat,1.2
+Left Midfielder,Direct,1,Crossing / Wide Delivery,25.9
+Left Midfielder,Direct,2,Ball Carrying / Dribbling,21.5
+Left Midfielder,Direct,3,Chance Creation,19.4
+Left Midfielder,Direct,4,Ball Retention & Security,11.3
+Left Midfielder,Direct,5,Long Distribution,7.5
+Left Midfielder,Direct,6,Build-Up Involvement,6.8
+Left Midfielder,Direct,7,Progressive Passing,5.4
+Left Midfielder,Direct,8,Finishing / Shot Threat,2.2
+Left Midfielder,Progression,1,Progressive Passing,26.5
+Left Midfielder,Progression,2,Chance Creation,21.7
+Left Midfielder,Progression,3,Ball Carrying / Dribbling,19.3
+Left Midfielder,Progression,4,Crossing / Wide Delivery,12.1
+Left Midfielder,Progression,5,Ball Retention & Security,11.4
+Left Midfielder,Progression,6,Build-Up Involvement,6.5
+Left Midfielder,Progression,7,Long Distribution,2.5
+Left Midfielder,Progression,8,Finishing / Shot Threat,0.0
