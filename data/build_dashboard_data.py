@@ -22,9 +22,13 @@ here):
 Each sprint extends this export only as far as that sprint's own UI actually needs, mirroring
 how the data pipeline itself was built in validated stages rather than all at once.
 """
+import sys
 from pathlib import Path
 
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from src.position_alias import POSITION_ALIAS_FOR_WEIGHTS
 
 ROOT = Path(r"C:\Users\נועם\Desktop\Football Data\National Team Model")
 MASTER = ROOT / "production" / "master_dataset" / "results_master" / "master_player_dataset.csv"
@@ -75,21 +79,6 @@ ABILITY_FOLDER = {
     "Ground Duels & Physical Contests": "results_ground_duels_ability", "Aerial Duels": "results_aerial_duels_ability",
 }
 
-# Real, confirmed mismatch between master_player_dataset.csv's primary_detailed_position
-# spelling and the position labels used in ability_weighting_v1.csv / position_defensive_
-# weights.csv -- the SAME class of bug philosophy_contribution.py's own docstring already
-# documents once (Attacking Midfielder vs Attacking Midfield). Checked directly rather than
-# assumed: master uses "Left Wing"/"Right Wing"/"Left Midfield"/"Right Midfield"/"Secondary
-# Striker"; the weighting tables use "Left Winger"/"Right Winger"/"Left Midfielder"/
-# "Right Midfielder", and have no "Secondary Striker" row at all (Centre Forward covers it --
-# consistent with build_final_report_data.py's own "Centre Forward + Secondary Striker remain
-# merged" note).
-POSITION_ALIAS_FOR_WEIGHTS = {
-    "Left Wing": "Left Winger", "Right Wing": "Right Winger",
-    "Left Midfield": "Left Midfielder", "Right Midfield": "Right Midfielder",
-    "Secondary Striker": "Centre Forward",
-}
-
 
 def afn(a):
     return a.replace(" / ", "_").replace(" & ", "_").replace(" ", "_")
@@ -119,9 +108,17 @@ def main():
     # position_group_broad drives the Broad Position filter (All/Defence/Midfield/Attack);
     # primary_detailed_position drives the Specific Position filter, dynamically scoped to
     # whichever broad group is selected.
+    #
+    # date_of_birth (not the static, season-start-relative `age` column) is exported so the
+    # dashboard can compute each player's real CURRENT age at render time -- see
+    # src/cards.py's _current_age(). The master dataset's own `age` is deliberately computed
+    # as of each season's start date (see build_master_player_dataset.py's compute_age
+    # docstring) -- correct for that analytical table, but not what a user checking the
+    # dashboard today wants to see. date_of_birth has the exact same missingness as `age`
+    # (age is itself derived from it), so nothing is lost by exporting the one and not the other.
     keep_cols = JOIN_KEY + [
         "player_name", "nationality", "season_club", "league_label",
-        "primary_detailed_position", "position_group_broad", "age", "minutes_played",
+        "primary_detailed_position", "position_group_broad", "date_of_birth", "minutes_played",
         "phil_control", "phil_progression", "phil_direct", "final_defensive_score",
     ]
     df = df[keep_cols].round({

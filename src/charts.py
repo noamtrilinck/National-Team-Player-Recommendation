@@ -18,6 +18,16 @@ JOIN_KEY = ["player_id", "season_id", "team_id"]
 REF_MARKER_COLOR = "#8A9088"
 
 
+def _display_label(row):
+    """player_name alone isn't a safe chart identity -- 95 confirmed pairs of genuinely different
+    players (different player_id) share the same displayed name in this database (e.g. three
+    different "A. Keita"s from three different countries). Used as a bare category/legend label,
+    that collision would visually merge two different people onto the same row or legend entry.
+    Appending the club disambiguates using the same convention already used in the player-picker
+    dropdowns (f"{name} — {club}")."""
+    return f'{row["player_name"]} ({row["season_club"]})' if pd.notna(row.get("season_club")) else row["player_name"]
+
+
 def philosophy_comparison_figure(selected_rows, reference_df, reference_label):
     """selected_rows: list of player rows (dict-like, from players.csv) to compare.
     reference_df: players.csv rows defining the reference population (position-scoped).
@@ -45,7 +55,7 @@ def philosophy_comparison_figure(selected_rows, reference_df, reference_label):
         xs = [row[PHIL_COLS[p]] for p in philosophies]
         fig.add_trace(go.Scatter(
             x=xs, y=philosophies, mode="markers", marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
-            name=row["player_name"],
+            name=_display_label(row),
             customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"]]] * 3,
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>"
@@ -129,7 +139,7 @@ def metric_range_figure(metric, metric_label, chart_rows, reference_df, mstats, 
         return None
 
     fig = go.Figure()
-    names = [p[0]["player_name"] for p in points]
+    names = [_display_label(p[0]) for p in points]
     fig.add_trace(go.Scatter(
         x=[avg] * len(names), y=names, mode="markers",
         marker=dict(symbol="line-ns", size=22, line=dict(width=3, color=REF_MARKER_COLOR)),
@@ -142,9 +152,9 @@ def metric_range_figure(metric, metric_label, chart_rows, reference_df, mstats, 
     ))
     for row, val, color in points:
         fig.add_trace(go.Scatter(
-            x=[val], y=[row["player_name"]], mode="markers",
+            x=[val], y=[_display_label(row)], mode="markers",
             marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
-            name=row["player_name"],
+            name=_display_label(row),
             customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], val]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"
@@ -191,7 +201,7 @@ def scatter_metric_figure(metric_x, metric_y, label_x, label_y, chart_rows, refe
         color = PLAYER_COLORS[i % len(PLAYER_COLORS)]
         fig.add_trace(go.Scatter(
             x=[x], y=[y], mode="markers", marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
-            name=row["player_name"],
+            name=_display_label(row),
             customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], x, y]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"
@@ -244,7 +254,7 @@ def bubble_metric_figure(metric_x, metric_y, metric_size, label_x, label_y, labe
         fig.add_trace(go.Scatter(
             x=[x], y=[y], mode="markers",
             marker=dict(size=size_px, color=color, line=dict(width=1.5, color="white"), opacity=0.85),
-            name=row["player_name"],
+            name=_display_label(row),
             customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], x, y, z]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"

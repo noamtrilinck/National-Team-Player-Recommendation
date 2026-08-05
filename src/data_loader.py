@@ -36,9 +36,12 @@ METRIC_LABELS = {
 
 MATCH_FILTERS = {
     "Full Season": "full_season", "Home": "home", "Away": "away",
-    "Last 3 Months": "last_3_months", "Last 6 Months": "last_6_months",
     "Top Opponents": "top_opponents", "Bottom Opponents": "bottom_opponents",
 }
+# "Last 3/6 Months" were removed from the UI by explicit request -- for some players that
+# window is thin enough to leave a real minutes gap, which made the comparison less useful
+# than it was worth. The underlying filter_key data still exists in match_level_stats.parquet
+# (harmless, unused) in case this is ever revisited.
 
 DISPLAY_MODE_COLUMN = {"Raw": "raw_value", "Per 90": "per90_value", "Percentile": "percentile_value"}
 

@@ -15,15 +15,9 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+from src.position_alias import POSITION_ALIAS_FOR_WEIGHTS
 
-# Real, confirmed position-spelling mismatch between master_player_dataset.csv and the
-# weighting tables -- see build_dashboard_data.py's own note for the full explanation.
-POSITION_ALIAS_FOR_WEIGHTS = {
-    "Left Wing": "Left Winger", "Right Wing": "Right Winger",
-    "Left Midfield": "Left Midfielder", "Right Midfield": "Right Midfielder",
-    "Secondary Striker": "Centre Forward",
-}
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 # One neutral, factual line per Ability -- what it measures, not player-specific commentary.
 ABILITY_DESCRIPTIONS = {
@@ -74,8 +68,17 @@ def player_abilities(player_id, season_id, team_id):
 
 
 def top_bottom_abilities(abilities, n=3):
+    """Top-n strongest and bottom-n weakest, by score. When a player has fewer than 2n scored
+    Abilities (325 player-seasons are missing at least one of the 11 -- see build_dashboard_data.py),
+    naively taking the top n and bottom n of a short list would double-count the middle entries,
+    showing the exact same Ability in both Strengths and Weaknesses. Splitting the list in half
+    instead guarantees the two lists never overlap, at the cost of showing fewer than n on each
+    side when data is thin -- which is what "not enough data" should look like, not a duplicate."""
     ranked = sorted(abilities.items(), key=lambda kv: kv[1], reverse=True)
-    return ranked[:n], list(reversed(ranked[-n:])) if len(ranked) >= n else list(reversed(ranked))
+    if len(ranked) >= 2 * n:
+        return ranked[:n], list(reversed(ranked[-n:]))
+    half = len(ranked) // 2
+    return ranked[:half], list(reversed(ranked[half:]))
 
 
 def _weights_for_position(position, philosophy=None):

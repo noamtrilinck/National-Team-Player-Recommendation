@@ -1,6 +1,7 @@
 """Result row + detail panel rendering -- custom HTML so it matches the design spec exactly
 (no Streamlit widget stands between the data and the pixels here)."""
 import html
+from datetime import date
 
 import pandas as pd
 
@@ -14,6 +15,21 @@ PHIL_COLOR_VAR = {
 PHIL_SCORE_COL = {"Control": "phil_control", "Progression": "phil_progression", "Direct": "phil_direct"}
 
 
+def _current_age(dob):
+    """Whole years old as of today -- computed fresh on every call (never cached, never baked
+    into the data export), so displayed age advances automatically with no data rebuild. Returns
+    None when date_of_birth is missing, which the caller renders as the existing 'age n/a'
+    fallback -- same disclosed-gap behavior as every other optional field on this card."""
+    if pd.isna(dob):
+        return None
+    dob = pd.Timestamp(dob).date()
+    today = date.today()
+    years = today.year - dob.year
+    if (today.month, today.day) < (dob.month, dob.day):
+        years -= 1
+    return years
+
+
 def render_result_row(rank, row, philosophy):
     phil_col = PHIL_SCORE_COL[philosophy]
     phil_score = row[phil_col]
@@ -21,12 +37,15 @@ def render_result_row(rank, row, philosophy):
     color = PHIL_COLOR_VAR[philosophy]
 
     name = html.escape(str(row["player_name"]))
-    nationality = html.escape(str(row["nationality"]))
+    nationality = html.escape(str(row["nationality"])) if pd.notna(row["nationality"]) else "nationality n/a"
     position = html.escape(str(row["primary_detailed_position"]))
     club = html.escape(str(row["season_club"])) if pd.notna(row["season_club"]) else "—"
-    league = html.escape(str(row["league_label"]))
-    age = f"{row['age']:.0f}y" if pd.notna(row["age"]) else "age n/a"
+    league = html.escape(str(row["league_label"])) if pd.notna(row["league_label"]) else "—"
+    age_years = _current_age(row["date_of_birth"])
+    age = f"{age_years}y" if age_years is not None else "age n/a"
     minutes = f"{row['minutes_played']:,.0f} min" if pd.notna(row["minutes_played"]) else "min n/a"
+    phil_score = 0.0 if pd.isna(phil_score) else phil_score
+    def_score = 0.0 if pd.isna(def_score) else def_score
 
     return f"""
     <div class="ntpr-drow">
