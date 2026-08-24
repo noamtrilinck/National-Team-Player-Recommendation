@@ -42,6 +42,23 @@ _LABEL_PATTERN = re.compile(r"^(?P<country>.+) (?P<division>\d+) - (?P<league>.+
 # provider-internal codes -- see the reference project's own league_coverage.py docstring for the
 # full per-league reasoning (same league names, same conclusion). Kept as the one centralized place
 # to add a rename later, rather than hand-editing call sites.
+
+
+def country_from_league_label(label: str | None) -> str | None:
+    """Extracts just the country component from a raw `league_label` string (e.g. "Belgium 1 -
+    Pro League" -> "Belgium"), for callers (cards.py) that want to prepend a flag to the league
+    text WITHOUT altering the displayed text itself (Part 4/9 of the flag-consistency request --
+    "Portugal 1" must stay "Portugal 1", not become "Liga Portugal"). This is the one centralized
+    place league-flag resolution lives -- card-rendering code must never hand-parse a label itself.
+
+    Deliberately lenient, unlike `parse_league_labels()`: this is called per-row at render time,
+    where a malformed/unexpected label must degrade to "no flag" (None), never crash a player's
+    card. `parse_league_labels()` remains the strict, raise-loudly path used for the Leagues
+    Covered section's own data-integrity check at load time."""
+    if not label or not isinstance(label, str):
+        return None
+    m = _LABEL_PATTERN.match(label)
+    return m.group("country") if m else None
 LEAGUE_DISPLAY_NAME_OVERRIDES: dict[str, str] = {}
 
 

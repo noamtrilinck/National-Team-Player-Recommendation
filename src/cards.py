@@ -7,6 +7,7 @@ import pandas as pd
 
 from src import analysis
 from src.nationality_flags import get_flag_html
+from src.league_coverage import country_from_league_label
 
 PHIL_COLOR_VAR = {
     "Control": "var(--control)",
@@ -45,7 +46,17 @@ def render_result_row(rank, row, philosophy):
         nationality = "nationality n/a"
     position = html.escape(str(row["primary_detailed_position"]))
     club = html.escape(str(row["season_club"])) if pd.notna(row["season_club"]) else "—"
-    league = html.escape(str(row["league_label"])) if pd.notna(row["league_label"]) else "—"
+    if pd.notna(row["league_label"]):
+        league_value = str(row["league_label"])
+        # Flag derived from the label's own country component (league -> country -> existing
+        # flag), never a separate per-league mapping -- see country_from_league_label(). Text
+        # itself is unchanged ("Belgium 1 - Pro League" stays exactly that), only a flag is
+        # prepended. A genuinely unparseable label still degrades to plain text, never an error.
+        league_country = country_from_league_label(league_value)
+        league_flag = get_flag_html(league_country) if league_country else ""
+        league = f'{league_flag} {html.escape(league_value)}' if league_flag else html.escape(league_value)
+    else:
+        league = "—"
     age_years = _current_age(row["date_of_birth"])
     age = f"{age_years}y" if age_years is not None else "age n/a"
     minutes = f"{row['minutes_played']:,.0f} min" if pd.notna(row["minutes_played"]) else "min n/a"
