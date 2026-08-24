@@ -99,6 +99,16 @@ def build_css():
   .ntpr-notthis .no {{ color:var(--ink-faint); text-decoration:line-through; font-weight:500; }}
   .ntpr-notthis .yes {{ color:var(--accent); font-weight:600; }}
 
+  /* ---- Leagues Covered (ported alongside src/league_coverage.py -- compact, informational,
+     directly under the hero, deliberately styled close to the Database Scope panel below it
+     (same mono-uppercase label treatment) so the two feel like one family of "about the data"
+     elements, not a bolted-on new component language). ---- */
+  .ntpr-leaguecov-label {{ font-family: var(--font-mono); font-size:12.5px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--ink-faint); margin-top:20px; margin-bottom:8px; }}
+  .ntpr-leaguecov {{ margin-bottom:4px; }}
+  .ntpr-leaguecov-line {{ font-size:12.5px; line-height:1.7; color:var(--ink-muted); }}
+  .ntpr-leaguecov-line b {{ color:var(--ink); font-weight:600; }}
+
   /* ---- Database scope panel ---- */
   .ntpr-scope {{ display:flex; gap:12px; padding:14px 16px; border:1px solid var(--border); background:var(--surface); margin:22px 0; }}
   .ntpr-scope .ic {{ flex:none; font-size:17px; line-height:1.3; color:var(--ink-faint); }}

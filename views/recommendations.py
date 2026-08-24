@@ -14,6 +14,7 @@ Post-launch: added the Age eligibility filter (Senior/U-21), removed the Last 3/
 filters, and switched every chart's default display mode from Raw to Per 90 -- see
 dashboard/docs/roadmap.md.
 """
+import html
 import sys
 from pathlib import Path
 
@@ -31,6 +32,8 @@ from src.charts import (
     scatter_metric_figure, bubble_metric_figure,
 )
 from src.nav import render_nav
+from src.league_coverage import parse_league_labels, prepare_league_coverage_display, render_league_coverage
+from src.nationality_flags import get_flag_html
 
 MAX_METRIC_CHART_PLAYERS = 8  # PLAYER_COLORS has 8 distinct colours; beyond this a chart reads as clutter, not comparison.
 MAX_DISPLAYED_ROWS = 150  # Each row renders 2 real Streamlit widgets (checkbox + toggle) on top of
@@ -41,6 +44,8 @@ MAX_DISPLAYED_ROWS = 150  # Each row renders 2 real Streamlit widgets (checkbox 
 # rather than silently truncating.
 
 render_nav("rec")
+
+players = load_players()
 
 # ---------------- Hero ----------------
 st.markdown("""
@@ -54,6 +59,15 @@ plus one fixed defensive standard. A recommendation always means <b>"fits the st
   <div><div class="lbl">What this is</div><div class="yes">A style-fit recommendation, with evidence</div></div>
 </div>
 """, unsafe_allow_html=True)
+
+# ---------------- Leagues Covered ----------------
+# Directly under the hero title/subtitle, above the Database Scope prose -- see
+# src/league_coverage.py's docstring for the port rationale. Derived live from this project's own
+# players.csv on every load (via the cached load_players() above), never hand-typed -- the
+# audit that produced tests/test_methodology_alignment.py already burned this project once on a
+# stale hand-typed league count ("32 European leagues"), so this section is built to never repeat
+# that mistake.
+render_league_coverage(prepare_league_coverage_display(parse_league_labels(players["league_label"])))
 
 # ---------------- Database scope ----------------
 st.markdown("""
@@ -89,7 +103,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------- Control bar ----------------
-players = load_players()
+# `players` was already loaded above (before the hero) so the Leagues Covered section could use
+# it -- st.cache_data means calling load_players() again here would be free anyway, but reusing
+# the same reference avoids the appearance of two separate loads.
 
 U21_CUTOFF = pd.Timestamp("2004-01-01")  # UEFA U-21 Euro eligibility: born strictly after this date.
 
@@ -97,6 +113,10 @@ with st.container(border=True):
     row1 = st.columns([1.1, 1.1, 1.3, 1.1, 0.9])
     with row1[0]:
         st.markdown('<div class="ntpr-controlbar-label">Nationality</div>', unsafe_allow_html=True)
+        # Deliberately plain text -- a native st.selectbox cannot render an <img> inside its own
+        # option list, and a fragile HTML hack forcing one in is exactly what the flag system's
+        # own design explicitly avoids. The chosen nationality gets its flag once it's rendered
+        # into an HTML-capable area (the context bar below, once a search runs).
         nationality = st.selectbox("Nationality", nationality_options(), label_visibility="collapsed")
     with row1[1]:
         st.markdown('<div class="ntpr-controlbar-label">Broad position</div>', unsafe_allow_html=True)
@@ -180,10 +200,15 @@ else:
     age_note = " · <b>U-21 eligible only</b>" if query["age_eligibility"] == "U-21 National Team" else ""
     cap_note = (f' &nbsp;·&nbsp; <span style="color:var(--direct)">showing the top {MAX_DISPLAYED_ROWS} of {total_matches} '
                 f'— narrow your search (nationality or position) to see the rest</span>') if row_cap_applied else ""
+    # "All Nationalities" is a UI sentinel, not a real country -- no flag for that case (Part 5/6:
+    # never a knowingly-wrong or absent-but-forced flag). A specific nationality already appears
+    # here as text, so it gets the flag immediately before it, same rule as everywhere else.
+    nationality_badge = (f'{get_flag_html(query["nationality"])} {html.escape(query["nationality"])}'
+                          if query["nationality"] != "All Nationalities" else html.escape(query["nationality"]))
     st.markdown(f"""
     <div class="ntpr-contextbar">
       <div>Showing <b>{'All' if query['count']=='All' else 'Top ' + query['count']}</b> ·
-        <b>{query['nationality']}</b> · <b>{pos_label}</b>{age_note} · ranked by <b style="color:{'var(--control)' if query['philosophy']=='Control' else 'var(--progression)' if query['philosophy']=='Progression' else 'var(--direct)'}">{query['philosophy']}</b>
+        <b>{nationality_badge}</b> · <b>{pos_label}</b>{age_note} · ranked by <b style="color:{'var(--control)' if query['philosophy']=='Control' else 'var(--progression)' if query['philosophy']=='Progression' else 'var(--direct)'}">{query['philosophy']}</b>
         &nbsp;·&nbsp; {total_matches} eligible player{'s' if total_matches != 1 else ''} matched{cap_note}</div>
     </div>
     """, unsafe_allow_html=True)

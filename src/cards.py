@@ -6,6 +6,7 @@ from datetime import date
 import pandas as pd
 
 from src import analysis
+from src.nationality_flags import get_flag_html
 
 PHIL_COLOR_VAR = {
     "Control": "var(--control)",
@@ -37,7 +38,11 @@ def render_result_row(rank, row, philosophy):
     color = PHIL_COLOR_VAR[philosophy]
 
     name = html.escape(str(row["player_name"]))
-    nationality = html.escape(str(row["nationality"])) if pd.notna(row["nationality"]) else "nationality n/a"
+    if pd.notna(row["nationality"]):
+        nat_value = str(row["nationality"])
+        nationality = f'{get_flag_html(nat_value)} {html.escape(nat_value)}'
+    else:
+        nationality = "nationality n/a"
     position = html.escape(str(row["primary_detailed_position"]))
     club = html.escape(str(row["season_club"])) if pd.notna(row["season_club"]) else "—"
     league = html.escape(str(row["league_label"])) if pd.notna(row["league_label"]) else "—"
