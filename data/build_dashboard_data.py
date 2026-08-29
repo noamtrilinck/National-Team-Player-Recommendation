@@ -30,7 +30,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.position_alias import POSITION_ALIAS_FOR_WEIGHTS
 
-ROOT = Path(r"C:\Users\נועם\Desktop\Football Data\National Team Model")
+ROOT = Path(r"C:\Users\נועם\Desktop\Football Data\Projects\National Team Selection")
 MASTER = ROOT / "production" / "master_dataset" / "results_master" / "master_player_dataset.csv"
 ABIL = ROOT / "production" / "abilities"
 CC_RESULTS = ROOT / "production" / "competitive_context" / "results"

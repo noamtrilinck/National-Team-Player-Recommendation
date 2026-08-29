@@ -1,9 +1,12 @@
 # National Team Player Recommendation — Dashboard
 
-Streamlit application implementing the approved design specification: a style-fit player
-recommendation engine (Control / Progression / Direct attacking philosophies, plus one fixed
-Defensive score) for national team scouting across 32 European leagues outside the top five.
-Built in reviewable sprints — see `docs/roadmap.md`.
+Streamlit application on the **V2/F50 methodology** (migrated 2026-08-30 from `Agent's Player to
+Club Model`, owner-locked — see `../docs/v2_methodology_CANONICAL.md`): every eligible player is
+rated against every valid **Position → Style → Emphasis** combination (192 total), with a
+Professional Score adjusted for the strength of opposition actually faced (F50 Opponent Context).
+There is deliberately no single universal player rating. The previous V1 methodology (11 Football
+Abilities → Philosophy/Defensive scores → Context Ability blend) is retired and archived at
+`../Archive/production_v1_scoring/` and `../Archive/dashboard_v1/` — not deleted, kept as history.
 
 ## Run locally
 
@@ -13,26 +16,26 @@ streamlit run app.py
 ```
 
 Opens at `http://localhost:8501`. `app.py` is a thin router (`st.navigation`) between the two
-pages in `views/`: `recommendations.py` (search, results, comparison charts, custom chart
-builder) and `methodology.py` (the 7-stage plain-language walkthrough).
+pages in `views/`: `recommendations.py` (Position/Style/Emphasis search, results, comparison
+charts, custom chart builder) and `methodology.py` (the V2/F50 pipeline walkthrough).
 
 ## Project structure
 
 ```
 app.py                    Entry point / page router
 views/
-  recommendations.py      Search, results, comparison charts, custom chart builder
-  methodology.py          The 7-stage methodology walkthrough
+  recommendations.py      Position -> Style -> Emphasis search, results, comparison charts
+  methodology.py          The V2/F50 methodology walkthrough
 src/
   styles.py                Design tokens + all CSS (fonts embedded as base64)
   nav.py                    Shared masthead + top navigation
-  data_loader.py            Cached data loading
-  cards.py                   Result row / detail panel HTML rendering
-  analysis.py                Strengths/weaknesses, "why this score" explanations
-  charts.py                   Plotly figure builders (philosophy + real-metric charts)
+  data_loader.py            Cached loading of match-level stats + real-metric chart labels (reused unchanged from V1)
+  data_loader_v2.py         Cached loading of players.csv / f50_scores.csv / f50_registry.csv (V2)
+  cards_v2.py                Result row / detail panel HTML rendering (Final/Professional Score, Opponent Multiplier)
+  charts.py                   Plotly figure builders (real-metric comparison charts)
 data/
-  build_dashboard_data.py    Exports players.csv / player_abilities.csv / weights from
-                              production/ outputs -- never recomputes a score
+  build_dashboard_data_v2.py  Exports players.csv / f50_scores.csv / f50_registry.csv from
+                               production/player_evaluation_v2 outputs -- never recomputes a score
   optimize_match_level_storage.py   Reshapes match_level_stats.csv into a compact
                                      wide-format Parquet (see below)
   *.csv, *.parquet            The exported data itself
@@ -42,19 +45,18 @@ data/
 
 Everything in `data/*.csv` and `data/*.parquet` is exported from `production/` outputs (the
 locked analytical engine) — nothing is recomputed inside the dashboard. Re-run after the
-underlying master dataset or score files change:
+underlying V2/F50 production output changes:
 
 ```
-python data/build_dashboard_data.py
+python data/build_dashboard_data_v2.py
 python data/optimize_match_level_storage.py
 ```
 
-The first script writes `players.csv`, `player_abilities.csv`, `philosophy_weights.csv`,
-`defensive_weights.csv`, and `match_level_stats.csv`. The second reshapes
-`match_level_stats.csv` (long format, ~75MB) into `match_level_stats.parquet` (wide format,
-~5MB) — a pure storage optimization with a built-in round-trip check; the app reads the Parquet
-file, not the CSV. Both scripts use absolute paths into the parent research repository and are
-not meant to run in a deployed environment — only the exported data files under `data/` are
+The first script writes `players.csv`, `f50_scores.csv`, and `f50_registry.csv`. The second
+reshapes `match_level_stats.csv` (long format) into `match_level_stats.parquet` (wide format) — a
+pure storage optimization with a built-in round-trip check, unchanged from V1; the app reads the
+Parquet file, not the CSV. Both scripts use absolute paths into the parent research repository and
+are not meant to run in a deployed environment — only the exported data files under `data/` are
 needed there.
 
 ## Deploying to Streamlit Community Cloud

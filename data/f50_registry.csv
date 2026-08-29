@@ -1,0 +1,193 @@
+combo_id,position,style,emphasis_set,n_emphasis
+CB_NOSTYLE_NONE,CB,NoStyle,[],0
+CB_CONTROL_NONE,CB,Control,[],0
+CB_PROGRESSION_NONE,CB,Progression,[],0
+CB_DIRECT_NONE,CB,Direct,[],0
+CB_NOSTYLE_AERIAL,CB,NoStyle,['Aerial'],1
+CB_CONTROL_AERIAL,CB,Control,['Aerial'],1
+CB_PROGRESSION_AERIAL,CB,Progression,['Aerial'],1
+CB_DIRECT_AERIAL,CB,Direct,['Aerial'],1
+CB_NOSTYLE_GROUND_DEFENSIVE,CB,NoStyle,['Ground-Defensive'],1
+CB_CONTROL_GROUND_DEFENSIVE,CB,Control,['Ground-Defensive'],1
+CB_PROGRESSION_GROUND_DEFENSIVE,CB,Progression,['Ground-Defensive'],1
+CB_DIRECT_GROUND_DEFENSIVE,CB,Direct,['Ground-Defensive'],1
+CB_NOSTYLE_BALL_PLAYING,CB,NoStyle,['Ball-Playing'],1
+CB_CONTROL_BALL_PLAYING,CB,Control,['Ball-Playing'],1
+CB_PROGRESSION_BALL_PLAYING,CB,Progression,['Ball-Playing'],1
+CB_DIRECT_BALL_PLAYING,CB,Direct,['Ball-Playing'],1
+CB_NOSTYLE_AERIAL_GROUND_DEFENSIVE,CB,NoStyle,"['Aerial', 'Ground-Defensive']",2
+CB_CONTROL_AERIAL_GROUND_DEFENSIVE,CB,Control,"['Aerial', 'Ground-Defensive']",2
+CB_PROGRESSION_AERIAL_GROUND_DEFENSIVE,CB,Progression,"['Aerial', 'Ground-Defensive']",2
+CB_DIRECT_AERIAL_GROUND_DEFENSIVE,CB,Direct,"['Aerial', 'Ground-Defensive']",2
+CB_NOSTYLE_AERIAL_BALL_PLAYING,CB,NoStyle,"['Aerial', 'Ball-Playing']",2
+CB_CONTROL_AERIAL_BALL_PLAYING,CB,Control,"['Aerial', 'Ball-Playing']",2
+CB_PROGRESSION_AERIAL_BALL_PLAYING,CB,Progression,"['Aerial', 'Ball-Playing']",2
+CB_DIRECT_AERIAL_BALL_PLAYING,CB,Direct,"['Aerial', 'Ball-Playing']",2
+CB_NOSTYLE_GROUND_DEFENSIVE_BALL_PLAYING,CB,NoStyle,"['Ground-Defensive', 'Ball-Playing']",2
+CB_CONTROL_GROUND_DEFENSIVE_BALL_PLAYING,CB,Control,"['Ground-Defensive', 'Ball-Playing']",2
+CB_PROGRESSION_GROUND_DEFENSIVE_BALL_PLAYING,CB,Progression,"['Ground-Defensive', 'Ball-Playing']",2
+CB_DIRECT_GROUND_DEFENSIVE_BALL_PLAYING,CB,Direct,"['Ground-Defensive', 'Ball-Playing']",2
+CB_NOSTYLE_AERIAL_GROUND_DEFENSIVE_BALL_PLAYING,CB,NoStyle,"['Aerial', 'Ground-Defensive', 'Ball-Playing']",3
+CB_CONTROL_AERIAL_GROUND_DEFENSIVE_BALL_PLAYING,CB,Control,"['Aerial', 'Ground-Defensive', 'Ball-Playing']",3
+CB_PROGRESSION_AERIAL_GROUND_DEFENSIVE_BALL_PLAYING,CB,Progression,"['Aerial', 'Ground-Defensive', 'Ball-Playing']",3
+CB_DIRECT_AERIAL_GROUND_DEFENSIVE_BALL_PLAYING,CB,Direct,"['Aerial', 'Ground-Defensive', 'Ball-Playing']",3
+FB_NOSTYLE_NONE,FB,NoStyle,[],0
+FB_CONTROL_NONE,FB,Control,[],0
+FB_PROGRESSION_NONE,FB,Progression,[],0
+FB_DIRECT_NONE,FB,Direct,[],0
+FB_NOSTYLE_ATTACKING,FB,NoStyle,['Attacking'],1
+FB_CONTROL_ATTACKING,FB,Control,['Attacking'],1
+FB_PROGRESSION_ATTACKING,FB,Progression,['Attacking'],1
+FB_DIRECT_ATTACKING,FB,Direct,['Attacking'],1
+FB_NOSTYLE_DEFENSIVE,FB,NoStyle,['Defensive'],1
+FB_CONTROL_DEFENSIVE,FB,Control,['Defensive'],1
+FB_PROGRESSION_DEFENSIVE,FB,Progression,['Defensive'],1
+FB_DIRECT_DEFENSIVE,FB,Direct,['Defensive'],1
+FB_NOSTYLE_ATTACKING_DEFENSIVE,FB,NoStyle,"['Attacking', 'Defensive']",2
+FB_CONTROL_ATTACKING_DEFENSIVE,FB,Control,"['Attacking', 'Defensive']",2
+FB_PROGRESSION_ATTACKING_DEFENSIVE,FB,Progression,"['Attacking', 'Defensive']",2
+FB_DIRECT_ATTACKING_DEFENSIVE,FB,Direct,"['Attacking', 'Defensive']",2
+WM_NOSTYLE_NONE,WM,NoStyle,[],0
+WM_CONTROL_NONE,WM,Control,[],0
+WM_PROGRESSION_NONE,WM,Progression,[],0
+WM_DIRECT_NONE,WM,Direct,[],0
+WM_NOSTYLE_CREATOR,WM,NoStyle,['Creator'],1
+WM_CONTROL_CREATOR,WM,Control,['Creator'],1
+WM_PROGRESSION_CREATOR,WM,Progression,['Creator'],1
+WM_DIRECT_CREATOR,WM,Direct,['Creator'],1
+WM_NOSTYLE_BALL_CARRIER,WM,NoStyle,['Ball Carrier'],1
+WM_CONTROL_BALL_CARRIER,WM,Control,['Ball Carrier'],1
+WM_PROGRESSION_BALL_CARRIER,WM,Progression,['Ball Carrier'],1
+WM_DIRECT_BALL_CARRIER,WM,Direct,['Ball Carrier'],1
+WM_NOSTYLE_DEFENSIVE,WM,NoStyle,['Defensive'],1
+WM_CONTROL_DEFENSIVE,WM,Control,['Defensive'],1
+WM_PROGRESSION_DEFENSIVE,WM,Progression,['Defensive'],1
+WM_DIRECT_DEFENSIVE,WM,Direct,['Defensive'],1
+WM_NOSTYLE_CREATOR_BALL_CARRIER,WM,NoStyle,"['Creator', 'Ball Carrier']",2
+WM_CONTROL_CREATOR_BALL_CARRIER,WM,Control,"['Creator', 'Ball Carrier']",2
+WM_PROGRESSION_CREATOR_BALL_CARRIER,WM,Progression,"['Creator', 'Ball Carrier']",2
+WM_DIRECT_CREATOR_BALL_CARRIER,WM,Direct,"['Creator', 'Ball Carrier']",2
+WM_NOSTYLE_CREATOR_DEFENSIVE,WM,NoStyle,"['Creator', 'Defensive']",2
+WM_CONTROL_CREATOR_DEFENSIVE,WM,Control,"['Creator', 'Defensive']",2
+WM_PROGRESSION_CREATOR_DEFENSIVE,WM,Progression,"['Creator', 'Defensive']",2
+WM_DIRECT_CREATOR_DEFENSIVE,WM,Direct,"['Creator', 'Defensive']",2
+WM_NOSTYLE_BALL_CARRIER_DEFENSIVE,WM,NoStyle,"['Ball Carrier', 'Defensive']",2
+WM_CONTROL_BALL_CARRIER_DEFENSIVE,WM,Control,"['Ball Carrier', 'Defensive']",2
+WM_PROGRESSION_BALL_CARRIER_DEFENSIVE,WM,Progression,"['Ball Carrier', 'Defensive']",2
+WM_DIRECT_BALL_CARRIER_DEFENSIVE,WM,Direct,"['Ball Carrier', 'Defensive']",2
+WM_NOSTYLE_CREATOR_BALL_CARRIER_DEFENSIVE,WM,NoStyle,"['Creator', 'Ball Carrier', 'Defensive']",3
+WM_CONTROL_CREATOR_BALL_CARRIER_DEFENSIVE,WM,Control,"['Creator', 'Ball Carrier', 'Defensive']",3
+WM_PROGRESSION_CREATOR_BALL_CARRIER_DEFENSIVE,WM,Progression,"['Creator', 'Ball Carrier', 'Defensive']",3
+WM_DIRECT_CREATOR_BALL_CARRIER_DEFENSIVE,WM,Direct,"['Creator', 'Ball Carrier', 'Defensive']",3
+Winger_NOSTYLE_NONE,Winger,NoStyle,[],0
+Winger_CONTROL_NONE,Winger,Control,[],0
+Winger_PROGRESSION_NONE,Winger,Progression,[],0
+Winger_DIRECT_NONE,Winger,Direct,[],0
+Winger_NOSTYLE_CREATOR_PROVIDER,Winger,NoStyle,['Creator/Provider'],1
+Winger_CONTROL_CREATOR_PROVIDER,Winger,Control,['Creator/Provider'],1
+Winger_PROGRESSION_CREATOR_PROVIDER,Winger,Progression,['Creator/Provider'],1
+Winger_DIRECT_CREATOR_PROVIDER,Winger,Direct,['Creator/Provider'],1
+Winger_NOSTYLE_GOAL_THREAT,Winger,NoStyle,['Goal Threat'],1
+Winger_CONTROL_GOAL_THREAT,Winger,Control,['Goal Threat'],1
+Winger_PROGRESSION_GOAL_THREAT,Winger,Progression,['Goal Threat'],1
+Winger_DIRECT_GOAL_THREAT,Winger,Direct,['Goal Threat'],1
+Winger_NOSTYLE_BALL_CARRIER,Winger,NoStyle,['Ball Carrier'],1
+Winger_CONTROL_BALL_CARRIER,Winger,Control,['Ball Carrier'],1
+Winger_PROGRESSION_BALL_CARRIER,Winger,Progression,['Ball Carrier'],1
+Winger_DIRECT_BALL_CARRIER,Winger,Direct,['Ball Carrier'],1
+Winger_NOSTYLE_CREATOR_PROVIDER_GOAL_THREAT,Winger,NoStyle,"['Creator/Provider', 'Goal Threat']",2
+Winger_CONTROL_CREATOR_PROVIDER_GOAL_THREAT,Winger,Control,"['Creator/Provider', 'Goal Threat']",2
+Winger_PROGRESSION_CREATOR_PROVIDER_GOAL_THREAT,Winger,Progression,"['Creator/Provider', 'Goal Threat']",2
+Winger_DIRECT_CREATOR_PROVIDER_GOAL_THREAT,Winger,Direct,"['Creator/Provider', 'Goal Threat']",2
+Winger_NOSTYLE_CREATOR_PROVIDER_BALL_CARRIER,Winger,NoStyle,"['Creator/Provider', 'Ball Carrier']",2
+Winger_CONTROL_CREATOR_PROVIDER_BALL_CARRIER,Winger,Control,"['Creator/Provider', 'Ball Carrier']",2
+Winger_PROGRESSION_CREATOR_PROVIDER_BALL_CARRIER,Winger,Progression,"['Creator/Provider', 'Ball Carrier']",2
+Winger_DIRECT_CREATOR_PROVIDER_BALL_CARRIER,Winger,Direct,"['Creator/Provider', 'Ball Carrier']",2
+Winger_NOSTYLE_GOAL_THREAT_BALL_CARRIER,Winger,NoStyle,"['Goal Threat', 'Ball Carrier']",2
+Winger_CONTROL_GOAL_THREAT_BALL_CARRIER,Winger,Control,"['Goal Threat', 'Ball Carrier']",2
+Winger_PROGRESSION_GOAL_THREAT_BALL_CARRIER,Winger,Progression,"['Goal Threat', 'Ball Carrier']",2
+Winger_DIRECT_GOAL_THREAT_BALL_CARRIER,Winger,Direct,"['Goal Threat', 'Ball Carrier']",2
+Winger_NOSTYLE_CREATOR_PROVIDER_GOAL_THREAT_BALL_CARRIER,Winger,NoStyle,"['Creator/Provider', 'Goal Threat', 'Ball Carrier']",3
+Winger_CONTROL_CREATOR_PROVIDER_GOAL_THREAT_BALL_CARRIER,Winger,Control,"['Creator/Provider', 'Goal Threat', 'Ball Carrier']",3
+Winger_PROGRESSION_CREATOR_PROVIDER_GOAL_THREAT_BALL_CARRIER,Winger,Progression,"['Creator/Provider', 'Goal Threat', 'Ball Carrier']",3
+Winger_DIRECT_CREATOR_PROVIDER_GOAL_THREAT_BALL_CARRIER,Winger,Direct,"['Creator/Provider', 'Goal Threat', 'Ball Carrier']",3
+DM_NOSTYLE_NONE,DM,NoStyle,[],0
+DM_CONTROL_NONE,DM,Control,[],0
+DM_PROGRESSION_NONE,DM,Progression,[],0
+DM_DIRECT_NONE,DM,Direct,[],0
+DM_NOSTYLE_DEFENSIVE_MIND,DM,NoStyle,['Defensive Mind'],1
+DM_CONTROL_DEFENSIVE_MIND,DM,Control,['Defensive Mind'],1
+DM_PROGRESSION_DEFENSIVE_MIND,DM,Progression,['Defensive Mind'],1
+DM_DIRECT_DEFENSIVE_MIND,DM,Direct,['Defensive Mind'],1
+DM_NOSTYLE_PROGRESSOR,DM,NoStyle,['Progressor'],1
+DM_CONTROL_PROGRESSOR,DM,Control,['Progressor'],1
+DM_PROGRESSION_PROGRESSOR,DM,Progression,['Progressor'],1
+DM_DIRECT_PROGRESSOR,DM,Direct,['Progressor'],1
+DM_NOSTYLE_DEFENSIVE_MIND_PROGRESSOR,DM,NoStyle,"['Defensive Mind', 'Progressor']",2
+DM_CONTROL_DEFENSIVE_MIND_PROGRESSOR,DM,Control,"['Defensive Mind', 'Progressor']",2
+DM_PROGRESSION_DEFENSIVE_MIND_PROGRESSOR,DM,Progression,"['Defensive Mind', 'Progressor']",2
+DM_DIRECT_DEFENSIVE_MIND_PROGRESSOR,DM,Direct,"['Defensive Mind', 'Progressor']",2
+CM_NOSTYLE_NONE,CM,NoStyle,[],0
+CM_CONTROL_NONE,CM,Control,[],0
+CM_PROGRESSION_NONE,CM,Progression,[],0
+CM_DIRECT_NONE,CM,Direct,[],0
+CM_NOSTYLE_BALL_WINNING,CM,NoStyle,['Ball-Winning'],1
+CM_CONTROL_BALL_WINNING,CM,Control,['Ball-Winning'],1
+CM_PROGRESSION_BALL_WINNING,CM,Progression,['Ball-Winning'],1
+CM_DIRECT_BALL_WINNING,CM,Direct,['Ball-Winning'],1
+CM_NOSTYLE_BOX_TO_BOX,CM,NoStyle,['Box-to-Box'],1
+CM_CONTROL_BOX_TO_BOX,CM,Control,['Box-to-Box'],1
+CM_PROGRESSION_BOX_TO_BOX,CM,Progression,['Box-to-Box'],1
+CM_DIRECT_BOX_TO_BOX,CM,Direct,['Box-to-Box'],1
+CM_NOSTYLE_PROGRESSOR,CM,NoStyle,['Progressor'],1
+CM_CONTROL_PROGRESSOR,CM,Control,['Progressor'],1
+CM_PROGRESSION_PROGRESSOR,CM,Progression,['Progressor'],1
+CM_DIRECT_PROGRESSOR,CM,Direct,['Progressor'],1
+CM_NOSTYLE_BALL_WINNING_BOX_TO_BOX,CM,NoStyle,"['Ball-Winning', 'Box-to-Box']",2
+CM_CONTROL_BALL_WINNING_BOX_TO_BOX,CM,Control,"['Ball-Winning', 'Box-to-Box']",2
+CM_PROGRESSION_BALL_WINNING_BOX_TO_BOX,CM,Progression,"['Ball-Winning', 'Box-to-Box']",2
+CM_DIRECT_BALL_WINNING_BOX_TO_BOX,CM,Direct,"['Ball-Winning', 'Box-to-Box']",2
+CM_NOSTYLE_BALL_WINNING_PROGRESSOR,CM,NoStyle,"['Ball-Winning', 'Progressor']",2
+CM_CONTROL_BALL_WINNING_PROGRESSOR,CM,Control,"['Ball-Winning', 'Progressor']",2
+CM_PROGRESSION_BALL_WINNING_PROGRESSOR,CM,Progression,"['Ball-Winning', 'Progressor']",2
+CM_DIRECT_BALL_WINNING_PROGRESSOR,CM,Direct,"['Ball-Winning', 'Progressor']",2
+CM_NOSTYLE_BOX_TO_BOX_PROGRESSOR,CM,NoStyle,"['Box-to-Box', 'Progressor']",2
+CM_CONTROL_BOX_TO_BOX_PROGRESSOR,CM,Control,"['Box-to-Box', 'Progressor']",2
+CM_PROGRESSION_BOX_TO_BOX_PROGRESSOR,CM,Progression,"['Box-to-Box', 'Progressor']",2
+CM_DIRECT_BOX_TO_BOX_PROGRESSOR,CM,Direct,"['Box-to-Box', 'Progressor']",2
+CM_NOSTYLE_BALL_WINNING_BOX_TO_BOX_PROGRESSOR,CM,NoStyle,"['Ball-Winning', 'Box-to-Box', 'Progressor']",3
+CM_CONTROL_BALL_WINNING_BOX_TO_BOX_PROGRESSOR,CM,Control,"['Ball-Winning', 'Box-to-Box', 'Progressor']",3
+CM_PROGRESSION_BALL_WINNING_BOX_TO_BOX_PROGRESSOR,CM,Progression,"['Ball-Winning', 'Box-to-Box', 'Progressor']",3
+CM_DIRECT_BALL_WINNING_BOX_TO_BOX_PROGRESSOR,CM,Direct,"['Ball-Winning', 'Box-to-Box', 'Progressor']",3
+AM_NOSTYLE_NONE,AM,NoStyle,[],0
+AM_CONTROL_NONE,AM,Control,[],0
+AM_PROGRESSION_NONE,AM,Progression,[],0
+AM_DIRECT_NONE,AM,Direct,[],0
+AM_NOSTYLE_CREATOR,AM,NoStyle,['Creator'],1
+AM_CONTROL_CREATOR,AM,Control,['Creator'],1
+AM_PROGRESSION_CREATOR,AM,Progression,['Creator'],1
+AM_DIRECT_CREATOR,AM,Direct,['Creator'],1
+AM_NOSTYLE_GOAL_THREAT,AM,NoStyle,['Goal Threat'],1
+AM_CONTROL_GOAL_THREAT,AM,Control,['Goal Threat'],1
+AM_PROGRESSION_GOAL_THREAT,AM,Progression,['Goal Threat'],1
+AM_DIRECT_GOAL_THREAT,AM,Direct,['Goal Threat'],1
+AM_NOSTYLE_CREATOR_GOAL_THREAT,AM,NoStyle,"['Creator', 'Goal Threat']",2
+AM_CONTROL_CREATOR_GOAL_THREAT,AM,Control,"['Creator', 'Goal Threat']",2
+AM_PROGRESSION_CREATOR_GOAL_THREAT,AM,Progression,"['Creator', 'Goal Threat']",2
+AM_DIRECT_CREATOR_GOAL_THREAT,AM,Direct,"['Creator', 'Goal Threat']",2
+CF_NOSTYLE_NONE,CF,NoStyle,[],0
+CF_CONTROL_NONE,CF,Control,[],0
+CF_PROGRESSION_NONE,CF,Progression,[],0
+CF_DIRECT_NONE,CF,Direct,[],0
+CF_NOSTYLE_FINISHER,CF,NoStyle,['Finisher'],1
+CF_CONTROL_FINISHER,CF,Control,['Finisher'],1
+CF_PROGRESSION_FINISHER,CF,Progression,['Finisher'],1
+CF_DIRECT_FINISHER,CF,Direct,['Finisher'],1
+CF_NOSTYLE_AERIAL_TARGET,CF,NoStyle,['Aerial Target'],1
+CF_CONTROL_AERIAL_TARGET,CF,Control,['Aerial Target'],1
+CF_PROGRESSION_AERIAL_TARGET,CF,Progression,['Aerial Target'],1
+CF_DIRECT_AERIAL_TARGET,CF,Direct,['Aerial Target'],1
+CF_NOSTYLE_FINISHER_AERIAL_TARGET,CF,NoStyle,"['Finisher', 'Aerial Target']",2
+CF_CONTROL_FINISHER_AERIAL_TARGET,CF,Control,"['Finisher', 'Aerial Target']",2
+CF_PROGRESSION_FINISHER_AERIAL_TARGET,CF,Progression,"['Finisher', 'Aerial Target']",2
+CF_DIRECT_FINISHER_AERIAL_TARGET,CF,Direct,"['Finisher', 'Aerial Target']",2
