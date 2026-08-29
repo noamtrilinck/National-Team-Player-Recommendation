@@ -80,6 +80,13 @@ def main():
     pop = pd.read_parquet(cfg.RESULTS_DIR / "pop_with_level.parquet")
     print(f"pop_with_level.parquet: {len(pop)} rows")
 
+    # Apply the same owner-approved manual position override (config.MANUAL_POSITION_OVERRIDES)
+    # used by scoring, to the RAW display position too -- otherwise this one player's side-specific
+    # search/display position (sourced from the raw provider chronology, not the corrected group)
+    # would show "Centre Back" while their scoring group is Winger, a confusing mismatch for a
+    # UI/UX round that specifically exposes side-specific search. Only 1 override currently exists.
+    OVERRIDE_RAW_POSITION = {37743072: "Right Wing"}  # matches config.MANUAL_POSITION_OVERRIDES's "Right Winger"
+
     rows = []
     n_no_chrono = 0
     for _, r in pop.iterrows():
@@ -92,7 +99,7 @@ def main():
             player_id=int(r.player_id), season_id=int(e.season_id), team_id=int(e.team_id),
             season_name=r.season_name, player_name=e.player_name, nationality=e.nationality,
             season_club=e.club_name, league_label=e.league_label,
-            primary_detailed_position=e.primary_detailed_position,
+            primary_detailed_position=OVERRIDE_RAW_POSITION.get(int(r.player_id), e.primary_detailed_position),
             date_of_birth=e.date_of_birth, minutes_played=int(r.minutes_played),
             position_v2=r.reference_position_group,
             position_group_broad=GROUP8_TO_BROAD.get(r.reference_position_group, "Midfield"),
