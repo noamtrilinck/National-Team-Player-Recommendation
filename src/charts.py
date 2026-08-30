@@ -112,6 +112,30 @@ def _reference_stats(mstats, reference_df, metric, filter_key, value_col):
     return sum(values) / len(values), max(values)
 
 
+def missing_data_players(chart_rows, mstats, metrics, filter_key, value_col):
+    """UI/UX Round 4 (points 9-10) -- the generic, position/nationality/filter-agnostic root-cause
+    fix for players silently vanishing from a comparison chart under Top/Bottom Opponents (or any
+    other match filter): _player_points()/its scatter/bubble siblings already correctly keep the
+    underlying comparison population untouched and only drop a player from THIS ONE chart's
+    plotted points when real match-level data for the required metric(s) is genuinely missing
+    under the selected filter_key (e.g. a player who never faced a 'Top Opponents'-bracket
+    opponent that season) -- confirmed by direct trace against match_level_stats.parquet for the
+    reported Israeli Left Winger case (2 of 8 players, each missing a DIFFERENT single filter_key,
+    for an unrelated reason each time -- not a shared bug, not an eligibility/position/merge
+    defect). The actual gap was that this was previously SILENT. This returns exactly which of
+    `chart_rows` will be dropped from a chart needing ALL of `metrics` under this filter/display
+    mode, so the caller can render an explicit, generic note instead of a silent disappearance --
+    works for a range chart (1 metric), scatter (2), or bubble (3), any filter_key, any position."""
+    keys_df = pd.DataFrame([{k: r[k] for k in JOIN_KEY} for r in chart_rows])
+    lookups = [_metric_lookup(mstats, keys_df, m, filter_key, value_col) for m in metrics]
+    missing = []
+    for row in chart_rows:
+        key = tuple(row[k] for k in JOIN_KEY)
+        if any(pd.isna(lu.get(key)) for lu in lookups):
+            missing.append(row)
+    return missing
+
+
 def _player_points(chart_rows, mstats, metric, filter_key, value_col):
     """Returns (row, value, color) for each selected player that actually has a value for this
     metric/filter combination -- players without one (e.g. no Away minutes) are silently dropped

@@ -25,7 +25,7 @@ from src.data_loader_v2 import (
 )
 from src import search_engine_v2 as se
 from src.cards_v3 import render_result_row, render_detail_panel
-from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure
+from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure, missing_data_players, _display_label
 from src.chart_relevance import select_priority_metrics
 from src.charts_v2 import profile_comparison_figure
 from src.explanation_engine_v2 import build_explanation, build_why_fits
@@ -233,7 +233,7 @@ else:
         if same_group and len(chart_df) >= 2:
             st.markdown('<h2 style="font-family: var(--font-display); font-size:22px; margin-top:40px;">Profile comparison</h2>', unsafe_allow_html=True)
             st.markdown(f'<p style="font-size:13px; color:var(--ink-muted); margin-top:6px;">Where does each player perform best across '
-                        f'different Styles? Comparing {scope_note}, each shown at their own single strongest Role Emphasis per Style.</p>', unsafe_allow_html=True)
+                        f'different Styles? Comparing {scope_note}, each shown at their base Style score (no Role Emphasis applied).</p>', unsafe_allow_html=True)
             fig = profile_comparison_figure([r for _, r in chart_df.iterrows()], f50, df["position_v2"].iloc[0], style_display)
             st.plotly_chart(fig, width="stretch", config={"displayModeBar": False})
         elif not same_group and compare_keys:
@@ -251,6 +251,23 @@ else:
         else:
             mstats = load_match_level_stats()
             ref_position_group_df = players[players["position_v2"].isin(df["position_v2"].unique())]
+
+            # UI/UX Round 4 (points 9-10): a chart-specific filter (Top/Bottom Opponents, Home/
+            # Away, etc.) must never silently remove a player from view -- the original search
+            # result stays the comparison population; a player missing real match data for THIS
+            # filter/metric combination is now named explicitly rather than just vanishing from
+            # the plotted points. Generic across every chart type/position/filter/population (see
+            # charts.missing_data_players) -- shared by both the automatic charts and the Custom
+            # Chart Builder below.
+            def _missing_note(rows, metrics, fk, filter_label):
+                missing = missing_data_players(rows, mstats, metrics, fk, "percentile_value")
+                if not missing:
+                    return ""
+                names = ", ".join(_display_label(r) for r in missing)
+                return (f'<p style="font-size:11px; color:var(--ink-faint); margin:2px 0 10px;">'
+                        f'Not shown for <b>{html.escape(filter_label)}</b>: {html.escape(names)} '
+                        f'— no match data available under this filter.</p>')
+
             all_dm = differentiating_metrics(chart_df.head(MAX_METRIC_CHART_PLAYERS), mstats, "full_season", k=50)
             # UI/UX Round 3 (points 4-6): reorder the discriminative-power-ranked pool by
             # profile relevance to the SELECTED Style/Emphasis, one representative per football
@@ -288,15 +305,19 @@ else:
                         sel = st.multiselect("Players in this chart", options=list(candidate_names.keys()),
                                               format_func=lambda k: candidate_names[k], key=f"players_{chart_key}", **ms_kwargs)
                     rows = [r for _, r in df.iterrows() if f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}" in sel]
-                    return MATCH_FILTERS[filter_label], DISPLAY_MODE_COLUMN[mode_label], mode_label, rows
+                    return MATCH_FILTERS[filter_label], DISPLAY_MODE_COLUMN[mode_label], mode_label, rows, filter_label
 
                 no_data_msg = '<div class="ntpr-empty">None of the selected players have data for this metric under the chosen match filter.</div>'
 
-                def _render(fig, chart_key):
+                def _render(fig, chart_key, rows=None, metrics=None, fk=None, filter_label=None):
                     if fig:
                         st.plotly_chart(fig, width="stretch", config={"displayModeBar": False}, key=chart_key)
                     else:
                         st.markdown(no_data_msg, unsafe_allow_html=True)
+                    if rows and metrics and fk and filter_label:
+                        note = _missing_note(rows, metrics, fk, filter_label)
+                        if note:
+                            st.markdown(note, unsafe_allow_html=True)
 
                 # UI/UX Round 3 (point 5): each chart in a batch is now its own independent,
                 # single-metric comparison rather than the old "Signal A, Signal B, A+B combined"
@@ -312,9 +333,10 @@ else:
                     for idx, metric in enumerate(b):
                         title = (f"{FIRST_BATCH_LABELS[idx]}: {METRIC_LABELS.get(metric, metric)}" if labeled and idx < len(FIRST_BATCH_LABELS)
                                   else f"{METRIC_LABELS.get(metric, metric)} — by player")
-                        fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_{idx}", title)
+                        fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
                         if rows:
-                            _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_{idx}")
+                            _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml),
+                                    f"chart_{prefix}_{idx}", rows=rows, metrics=[metric], fk=fk, filter_label=filter_label)
 
                 st.session_state.setdefault("n_auto_batches", 1)
                 n_batches = st.session_state["n_auto_batches"]
@@ -393,3 +415,7 @@ else:
                     st.plotly_chart(custom_fig, width="stretch", config={"displayModeBar": False}, key="chart_custom")
                 else:
                     st.markdown('<div class="ntpr-empty">None of the selected players have data for this metric under the chosen match filter.</div>', unsafe_allow_html=True)
+                custom_metrics = [m for m in (metric_x, metric_y, metric_size) if m]
+                custom_note = _missing_note(custom_rows, custom_metrics, custom_fk, custom_filter_label)
+                if custom_note:
+                    st.markdown(custom_note, unsafe_allow_html=True)

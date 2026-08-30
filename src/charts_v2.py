@@ -1,26 +1,37 @@
 """
 UI/UX Round 2 (2026-08-30) -- Profile Comparison, redesigned as a heatmap.
+UI/UX Round 4 (2026-08-30) -- BUGFIX: each cell must be the player's pure BASE STYLE score (the
+Generic/no-Emphasis combo), never an Emphasis-specific Final Score. The round-2 version picked
+`sub.final_score.idxmax()` across every combo for that Style -- i.e. the player's BEST EMPHASIS
+score for that Style, not the Style score itself (confirmed root cause of the reported "Yair
+Mordechai shows ~88 for Direct" issue: that 88 was actually his Direct + Goal Threat combo).
+Fixed to filter to the single real, existing Generic (`emphasis == "(none)"`) combo per Style --
+same grain the registry itself defines as "the Style with no Emphasis applied" -- never averaged,
+never Emphasis-dependent, and provably invariant to whatever Emphasis is selected in the search
+controls (see tests/test_round4_heatmap_and_comparison.py).
 
 Replaces the round-1 grouped bar chart (too crowded with 5 players x multiple profiles, a large
 player-name legend, rank labels above every bar, and a wasted 0-100 baseline when scores cluster
 high). A heatmap answers the actual question -- "how does each player compare across profiles" --
 more directly: rows are players (identity always visible, no legend needed), columns are the
-Styles genuinely comparable within one scoring group (each shown at that player's own single best
-Emphasis for that Style -- a real, existing combo, never averaged/synthetic), color intensity
-makes each player's strongest/weakest profile jump out immediately, and Global Rank is a small
-in-cell annotation rather than a separate label cluttering the chart.
+Styles genuinely comparable within one scoring group, color intensity makes each player's
+strongest/weakest profile jump out immediately, and Global Rank is a small in-cell annotation
+rather than a separate label cluttering the chart.
 """
 import plotly.graph_objects as go
 
 from src.charts import _display_label
 
 STYLE_ORDER = ["NoStyle", "Control", "Progression", "Direct"]
+GENERIC_EMPHASIS = "(none)"  # same encoding as f50_scores.csv's emphasis column project-wide
 
 
 def profile_comparison_figure(chart_rows, f50_scores, position, style_display):
     """chart_rows: list of player row Series (players.csv rows, must include player_id/season_id/
-    team_id/player_name/season_club). f50_scores: the full f50_scores.csv DataFrame."""
-    pos_scores = f50_scores[f50_scores.position == position]
+    team_id/player_name/season_club). f50_scores: the full f50_scores.csv DataFrame. Each cell is
+    the player's real, existing BASE STYLE (Generic, no-Emphasis) combo for that Style -- never
+    the currently-selected Emphasis, never the player's best-scoring Emphasis, never averaged."""
+    pos_scores = f50_scores[(f50_scores.position == position) & (f50_scores.emphasis == GENERIC_EMPHASIS)]
 
     labels = [_display_label(row) for row in chart_rows]
     columns = [style_display(s) for s in STYLE_ORDER]
@@ -37,7 +48,7 @@ def profile_comparison_figure(chart_rows, f50_scores, position, style_display):
                 z_row.append(None)
                 text_row.append("")
                 continue
-            best = sub.loc[sub.final_score.idxmax()]
+            best = sub.iloc[0]  # exactly one Generic combo per (player, Style) by registry construction
             z_row.append(float(best.final_score))
             text_row.append(f"{best.final_score:.0f}  ·  #{int(best['rank'])}")
         z.append(z_row)
