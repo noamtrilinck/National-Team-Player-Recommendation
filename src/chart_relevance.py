@@ -182,6 +182,49 @@ def select_five_charts(all_dm_ordered, position, style, emphasis_list, chart_row
     return specs, remainder
 
 
+# UI/UX Round 5 -- LOCKED (2026-08-30) Top/Bottom-Opponents chart-metric eligibility allowlist.
+# See dashboard/docs/v2_150min_and_signal_eligibility_decision.md section B for the full evidence
+# (real denominator distributions + match-level bootstrap stability, per Signal, not by Domain
+# name). Only `tackles_won_pct` currently exists as a chart-facing metric among the fragile
+# EXECUTION Signals the lock identifies -- Dribble Success %, Shot Accuracy %, Goal Conversion %,
+# Cross Accuracy %, xG per Shot, and xGOT per Shot on Target are locked ALL-MATCHES-ONLY too, but
+# aren't (yet) exported as standalone CHART_METRICS/PCT_METRICS ratio columns, so this set is
+# short by construction, not because those Signals were judged safe -- if a future export adds
+# one of them as a chart metric, it inherits ALL-MATCHES-ONLY automatically (see the fallback
+# note below). The two "currently unresolved" Signals from the lock (Big Chance Creation
+# Conversion %, Key Pass Conversion %) are likewise not currently chart metrics; if added, treat
+# them as ALL-MATCHES-ONLY (conservative default) until independently evidenced otherwise.
+ALL_MATCHES_ONLY_METRICS = {"tackles_won_pct"}
+
+# Names that, if ever exported as a chart metric, must default to ALL-MATCHES-ONLY per the lock
+# even before this set is updated -- a safety net so a future metric addition can't silently
+# inherit ELIGIBLE by omission. Matched by substring against the metric key.
+_ALL_MATCHES_ONLY_NAME_HINTS = ("dribble_success", "shot_accuracy", "goal_conversion",
+                                 "cross_accuracy", "xg_per_shot", "xgot_per_shot",
+                                 "big_chance_creation_conversion", "key_pass_conversion")
+
+
+def metric_top_bottom_eligible(metric):
+    """UI/UX Round 5 LOCK -- whether one chart metric may offer Top/Bottom Opponents controls at
+    all (independent of the 150-minute player-level floor, which still applies separately to
+    every eligible metric). Volume/count metrics (the vast majority of CHART_METRICS) are
+    eligible by default -- they're governed by minutes (Layer 1), not action-count, per the
+    locked design doc's section 10 finding."""
+    if metric in ALL_MATCHES_ONLY_METRICS:
+        return False
+    key = metric.lower()
+    return not any(hint in key for hint in _ALL_MATCHES_ONLY_NAME_HINTS)
+
+
+def spec_top_bottom_eligible(spec):
+    """UI/UX Round 5 LOCK (point 3/19) -- a chart spec (range or X/Y) supports Top/Bottom only
+    when EVERY metric it uses is eligible; for an X/Y chart this means BOTH axes, never mixing a
+    filtered axis with a season-only one (point 3's explicit requirement)."""
+    if spec["kind"] == "xy":
+        return metric_top_bottom_eligible(spec["metric_x"]) and metric_top_bottom_eligible(spec["metric_y"])
+    return metric_top_bottom_eligible(spec["metric"])
+
+
 def xy_chart_title(domain):
     """UI/UX Round 5 (point 15) -- a question-oriented title derived from the domain's own
     already-locked, football-readable strength label (DOMAIN_INFO), not a hardcoded per-domain

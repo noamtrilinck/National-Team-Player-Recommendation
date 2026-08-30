@@ -26,7 +26,7 @@ from src.data_loader_v2 import (
 from src import search_engine_v2 as se
 from src.cards_v3 import render_result_row, render_detail_panel
 from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure, missing_data_players, missing_data_reason, _display_label
-from src.chart_relevance import select_priority_metrics, select_five_charts, xy_chart_title
+from src.chart_relevance import select_priority_metrics, select_five_charts, xy_chart_title, spec_top_bottom_eligible, metric_top_bottom_eligible
 from src.charts_v2 import profile_comparison_figure
 from src.explanation_engine_v2 import build_explanation, build_why_fits
 from src.nav import render_nav
@@ -327,13 +327,24 @@ else:
             if len(all_dm) < 2:
                 st.markdown('<div class="ntpr-empty">Not enough overlapping data across these players to identify meaningful standout metrics.</div>', unsafe_allow_html=True)
             else:
-                def _metric_chart_controls(chart_key, title):
+                # UI/UX Round 5 LOCK (points 3, 19): a chart offers Top/Bottom controls only when
+                # every metric it uses is eligible (chart_relevance.spec_top_bottom_eligible) --
+                # never a disabled/dead control, the selectbox itself is simply not rendered for
+                # an ineligible chart, which always uses Full Season. See
+                # docs/v2_150min_and_signal_eligibility_decision.md section B for the evidence.
+                def _metric_chart_controls(chart_key, title, eligible_top_bottom=True):
                     if st.session_state.pop(f"_selectall_{chart_key}", False):
                         st.session_state[f"players_{chart_key}"] = list(candidate_names.keys())
                     st.markdown(f'<div style="font-family:var(--font-display); font-weight:600; font-size:15px; margin-top:22px;">{title}</div>', unsafe_allow_html=True)
                     c1, c2, c3 = st.columns([1, 1, 2])
                     with c1:
-                        filter_label = st.selectbox("Match filter", list(MATCH_FILTERS.keys()), key=f"filt_{chart_key}")
+                        if eligible_top_bottom:
+                            filter_label = st.selectbox("Match filter", list(MATCH_FILTERS.keys()), key=f"filt_{chart_key}")
+                        else:
+                            filter_label = "Full Season"
+                            st.markdown('<div style="font-size:11px; color:var(--ink-faint); padding-top:8px;">'
+                                        'All Matches only — Top/Bottom Opponents splits this Signal into '
+                                        'too small a sample to compare reliably.</div>', unsafe_allow_html=True)
                     with c2:
                         mode_label = st.radio("Display mode", list(DISPLAY_MODE_COLUMN.keys()), index=1, horizontal=True, key=f"mode_{chart_key}")
                     with c3:
@@ -371,11 +382,12 @@ else:
                     if not specs:
                         return
                     for idx, spec in enumerate(specs):
+                        eligible = spec_top_bottom_eligible(spec)
                         if spec["kind"] == "xy":
                             label_x, label_y = METRIC_LABELS.get(spec["metric_x"], spec["metric_x"]), METRIC_LABELS.get(spec["metric_y"], spec["metric_y"])
                             base_title = xy_chart_title(spec["domain"])
                             title = f"{FIRST_BATCH_LABELS[idx]}: {base_title}" if labeled and idx < len(FIRST_BATCH_LABELS) else base_title
-                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
+                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title, eligible_top_bottom=eligible)
                             if rows:
                                 fig = scatter_metric_figure(spec["metric_x"], spec["metric_y"], label_x, label_y,
                                                              rows, ref_position_group_df, mstats, fk, vc, ml)
@@ -386,7 +398,7 @@ else:
                             metric = spec["metric"]
                             title = (f"{FIRST_BATCH_LABELS[idx]}: {METRIC_LABELS.get(metric, metric)}" if labeled and idx < len(FIRST_BATCH_LABELS)
                                       else f"{METRIC_LABELS.get(metric, metric)} — by player")
-                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
+                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title, eligible_top_bottom=eligible)
                             if rows:
                                 _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml),
                                         f"chart_{prefix}_{idx}", rows=rows, metrics=[metric], fk=fk, filter_label=filter_label)
@@ -443,9 +455,23 @@ else:
                         metric_size = st.selectbox("Bubble size metric", metric_options, index=2,
                                                     format_func=lambda k: METRIC_LABELS[k], key="custom_metric_size")
 
+            # UI/UX Round 5 LOCK (points 3, 19): the Custom Chart Builder lets a user pick any
+            # metric combination, so eligibility is recomputed live from whichever metrics are
+            # currently selected -- Top/Bottom Opponents options are hidden from the dropdown
+            # entirely (never shown disabled) whenever any selected axis is All-Matches-only.
+            _custom_metrics_selected = [m for m in (metric_x, metric_y, metric_size) if m]
+            _custom_eligible = all(metric_top_bottom_eligible(m) for m in _custom_metrics_selected)
+            _custom_filter_options = list(MATCH_FILTERS.keys()) if _custom_eligible else \
+                [k for k in MATCH_FILTERS if k not in ("Top Opponents", "Bottom Opponents")]
+            if st.session_state.get("filt_custom") not in _custom_filter_options:
+                st.session_state["filt_custom"] = _custom_filter_options[0]
+
             cf1, cf2, cf3 = st.columns([1, 1, 2])
             with cf1:
-                custom_filter_label = st.selectbox("Match filter", list(MATCH_FILTERS.keys()), key="filt_custom")
+                custom_filter_label = st.selectbox("Match filter", _custom_filter_options, key="filt_custom")
+                if not _custom_eligible:
+                    st.markdown('<div style="font-size:11px; color:var(--ink-faint);">'
+                                'Top/Bottom Opponents hidden — one of the selected metrics splits into too small a sample.</div>', unsafe_allow_html=True)
             with cf2:
                 custom_mode_label = st.radio("Display mode", list(DISPLAY_MODE_COLUMN.keys()), index=1, horizontal=True, key="mode_custom")
             with cf3:

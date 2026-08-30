@@ -191,6 +191,39 @@ def load_signal_catalog():
 
 
 @st.cache_data
+def load_signal_denominators():
+    """UI/UX Round 5 LOCK (2026-08-30) -- season-grain action counts behind the locked catalog's
+    fragile EXECUTION Signals (see FRAGILE_SIGNAL_DENOMINATOR), sourced from
+    data/signal_denominators.csv (built from the same real match-level data used throughout the
+    Top/Bottom reliability research -- see docs/v2_two_layer_reliability_architecture_design.md
+    section 11 and docs/v2_150min_and_signal_eligibility_decision.md). Closes the data-
+    availability gap that doc flagged: signal_scores.parquet carries each fragile Signal's __raw
+    VALUE (the percentage itself) but not the underlying attempt count needed to judge whether
+    that percentage is interpretable."""
+    return pd.read_csv(DATA_DIR / "signal_denominators.csv").set_index(["player_id", "season_name"])
+
+
+# UI/UX Round 5 LOCK -- the fragile EXECUTION Signals identified by the reliability audit, and
+# which column of signal_denominators.csv holds each one's real attempt count. xG per Shot and
+# xGOT per Shot on Target share Shooting's shots_total_n (same denominator family as Shot
+# Accuracy %/Goal Conversion %, confirmed in the design doc -- xGOT's true denominator, shots on
+# target, is a subset of shots_total and was not separately exported, so shots_total_n is used as
+# the (slightly more permissive) proxy, disclosed here rather than silently assumed exact).
+FRAGILE_SIGNAL_DENOMINATOR = {
+    "Tackles Won %": "tackles_n",
+    "Dribble Success %": "dribble_attempts_n",
+    "Shot Accuracy %": "shots_total_n",
+    "Goal Conversion %": "shots_total_n",
+    "xG per Shot": "shots_total_n",
+    "xGOT per Shot on Target": "shots_total_n",
+    "Cross Accuracy %": "total_crosses_n",
+}
+MIN_ATTEMPTS_FOR_INTERPRETATION = 5  # empirically validated floor (real match-level bootstrap,
+# see the sensitivity experiment) -- below this, mean deviation from the "true" season value is
+# 15-34 percentage points, i.e. closer to noise than to a descriptive fact.
+
+
+@st.cache_data
 def load_signal_scores_with_league():
     """Signal scores merged with each player-season's league_label from players.csv (display-only
     join -- league-relative ranks/percentiles computed from this are NEVER fed back into any
@@ -279,10 +312,35 @@ def _tier(sig, info_type):
     return "headline" if info_type in ("VOLUME", "EXECUTION") else "obscure"
 
 
+def _fragile_denominator(sig, player_id, season_name, denom_table):
+    """UI/UX Round 5 LOCK -- returns the real attempt count behind a fragile EXECUTION Signal for
+    this player, or None if `sig` isn't one of the fragile Signals (i.e. no guard applies)."""
+    col = FRAGILE_SIGNAL_DENOMINATOR.get(sig)
+    if col is None:
+        return None
+    try:
+        val = denom_table.loc[(player_id, season_name), col]
+    except KeyError:
+        return 0
+    if isinstance(val, pd.Series):  # duplicate index rows -- take the first, shouldn't occur
+        val = val.iloc[0]
+    return 0 if pd.isna(val) else int(val)
+
+
 def _collect_facts(position, style, emphasis_list, row, league_pool, catalog):
     """Builds the full candidate-fact list for this player/profile, each carrying everything
-    needed to score profile-relevance tier, interestingness, and render in any evidence format."""
+    needed to score profile-relevance tier, interestingness, and render in any evidence format.
+
+    UI/UX Round 5 LOCK (points 10-13) -- a fragile EXECUTION Signal (FRAGILE_SIGNAL_DENOMINATOR)
+    below MIN_ATTEMPTS_FOR_INTERPRETATION real attempts is EXCLUDED from candidacy entirely here
+    -- it can never become a headline strength/weakness, a league-rank claim, or a global-
+    percentile claim, exactly mirroring how RESPONSIBILITY/SPECIALISATION Signals are already
+    excluded by _tier() (same mechanism, evidence-based rather than architectural this time).
+    This governs INTERPRETATION only, never scoring -- signal_scores.parquet and the locked Final
+    Score/Style/Emphasis values are never touched by this guard."""
     sig_tiers = _relevant_signal_tiers(position, style, emphasis_list)
+    denom_table = load_signal_denominators()
+    player_id, season_name = row.get("player_id"), row.get("season_name")
     facts = []
     for (sig, safe), tier in sig_tiers.items():
         if sig not in catalog.index:
@@ -290,6 +348,9 @@ def _collect_facts(position, style, emphasis_list, row, league_pool, catalog):
         domain, info_type = catalog.loc[sig, "domain"], catalog.loc[sig, "info_type"]
         if _tier(sig, info_type) != "headline" or domain not in DOMAIN_INFO:
             continue
+        denom = _fragile_denominator(sig, player_id, season_name, denom_table)
+        if denom is not None and denom < MIN_ATTEMPTS_FOR_INTERPRETATION:
+            continue  # fragile Signal, too few real attempts to interpret -- excluded from candidacy
         pctile_col, raw_col = f"{safe}__percentile", f"{safe}__raw"
         if pctile_col not in row.index or pd.isna(row.get(pctile_col)) or pd.isna(row.get(raw_col)):
             continue

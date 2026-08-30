@@ -137,6 +137,7 @@ def main():
     # imported by the deployed app) and exported as plain DATA into dashboard/data/, so the
     # deployed app has zero runtime dependency on production/ code or paths.
     build_signal_explanation_data(players)
+    build_signal_denominators(players)
 
     print("\nposition_v2 distribution:")
     print(players.position_v2.value_counts().to_string())
@@ -225,6 +226,37 @@ def build_signal_explanation_data(players):
     cat = pd.DataFrame(cat_rows)
     cat.to_csv(OUT_DIR / "signal_catalog.csv", index=False)
     print(f"signal_catalog.csv: {len(cat)} rows")
+
+
+def build_signal_denominators(players):
+    """UI/UX Round 5 (LOCK, 2026-08-30) -- signal_denominators.csv: the season-grain action
+    counts behind the locked catalog's fragile EXECUTION Signals (Tackles Won %, Dribble
+    Success %, Shot Accuracy % / Goal Conversion % / xG per Shot / xGOT per Shot on Target,
+    Cross Accuracy %) -- exactly the data-availability gap flagged in
+    dashboard/docs/v2_two_layer_reliability_architecture_design.md section 11:
+    signal_scores.parquet carries each Signal's __raw VALUE (e.g. the percentage itself) but not
+    the underlying attempt count that makes it interpretable. Sourced from the same real,
+    already-computed `player_season_unified_by_filter_with_per90.csv` (full_season filter_key
+    rows only -- explanations always read full-season data, never a filtered subset, per the
+    same design doc) used throughout the Top/Bottom reliability research -- no new computation,
+    just exposing counts that already exist. Keyed by (player_id, season_name) to match
+    signal_scores.parquet exactly."""
+    unified = pd.read_csv(
+        ROOT / "production" / "match_level" / "results" / "player_season_unified_by_filter_with_per90.csv",
+        low_memory=False,
+        usecols=["player_id", "season_id", "team_id", "filter_key", "tackles", "dribble_attempts",
+                  "shots_total", "total_crosses"])
+    full = unified[unified.filter_key == "full_season"]
+    keyed = players[["player_id", "season_id", "team_id", "season_name"]].merge(
+        full, on=["player_id", "season_id", "team_id"], how="left")
+    out = keyed[["player_id", "season_name", "tackles", "dribble_attempts", "shots_total", "total_crosses"]].rename(
+        columns={"tackles": "tackles_n", "dribble_attempts": "dribble_attempts_n",
+                 "shots_total": "shots_total_n", "total_crosses": "total_crosses_n"})
+    out = out.drop_duplicates(subset=["player_id", "season_name"])
+    out.to_csv(OUT_DIR / "signal_denominators.csv", index=False)
+    print(f"\nsignal_denominators.csv: {len(out)} rows "
+          f"(missing tackles_n: {out.tackles_n.isna().sum()}, dribble_attempts_n: {out.dribble_attempts_n.isna().sum()}, "
+          f"shots_total_n: {out.shots_total_n.isna().sum()}, total_crosses_n: {out.total_crosses_n.isna().sum()})")
 
 
 if __name__ == "__main__":
