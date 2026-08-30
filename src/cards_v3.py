@@ -1,11 +1,13 @@
 """
-UI/UX Round 1 (2026-08-30) -- result row + detail panel, redesigned per the round-1 brief:
-headline is the selected profile's Final Score + Global Rank only; Professional Score, Opponent
-Multiplier, Own Club Level contribution and other internal components are NOT shown prominently
-(methodology internals -- see docs/v2_ui_redesign_round1.md). Other valid profiles for the same
-player are shown as a secondary, visually subordinate list. The detail panel adds a football
-scouting explanation (strengths/weaknesses from real Signal data, explanation_engine_v2) instead
-of a mathematical breakdown.
+UI/UX Round 2 (2026-08-30) -- result row + detail panel.
+
+Collapsed row: identity, club/league/minutes, selected-profile Final Score + Global Rank only --
+"Other Profiles" moved into the expanded panel (see render_detail_panel) so the recommendation
+list stays scannable.
+
+Expanded panel hierarchy (per the round-2 brief): A. Selected Profile headline (unchanged) ->
+B. Why he stands out (2-4 scouting insights, headline+evidence+badges from explanation_engine_v2)
+-> C. Areas to Watch (1-3) -> D. Other Profiles (compact table, visually secondary, shown last).
 """
 import html
 from datetime import date
@@ -68,35 +70,56 @@ def render_result_row(rank_in_list, row, score_row, combo_label, position_label)
     """
 
 
-def render_other_profiles(other_rows):
-    """other_rows: list of dicts {label, final_score, rank}. Visually subordinate to the headline
-    result row -- small text, muted color, no gauges."""
+def _render_insight(insight):
+    badges_html = "".join(
+        f'<span style="display:inline-block; font-family:var(--font-mono); font-size:10px; '
+        f'color:var(--ink-faint); border:1px solid var(--rule); border-radius:3px; padding:1px 5px; '
+        f'margin-right:4px;">{html.escape(b)}</span>'
+        for b in insight["badges"]
+    )
+    return (
+        f'<div style="margin-bottom:9px;">'
+        f'<div style="font-weight:600; font-size:13px; color:var(--ink);">{html.escape(insight["headline"])}</div>'
+        f'<div style="font-size:12.5px; color:var(--ink-muted); margin:2px 0 3px;">{html.escape(insight["body"])}</div>'
+        f'{badges_html}'
+        f'</div>'
+    )
+
+
+def render_other_profiles_compact(other_rows):
+    """Compact Other Profiles table for INSIDE the expanded panel (moved out of the collapsed
+    row per the round-2 brief). Style | Emphasis | Final Score | Global Rank, visually secondary."""
     if not other_rows:
         return ""
-    items = "".join(
-        f'<div style="display:flex; justify-content:space-between; padding:3px 0; '
-        f'font-size:12px; color:var(--ink-muted);">'
-        f'<span>{html.escape(r["label"])}</span>'
-        f'<span style="font-family:var(--font-mono);">{r["final_score"]:.1f} &nbsp; #{int(r["rank"])} globally</span>'
-        f'</div>'
+    header = (
+        '<div style="display:grid; grid-template-columns: 1.2fr 1.6fr 0.7fr 1fr; gap:6px; '
+        'font-size:10px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); '
+        'padding-bottom:4px; border-bottom:1px solid var(--rule);">'
+        '<span>Style</span><span>Emphasis</span><span>Score</span><span>Global Rank</span></div>'
+    )
+    rows = "".join(
+        f'<div style="display:grid; grid-template-columns: 1.2fr 1.6fr 0.7fr 1fr; gap:6px; '
+        f'font-size:12px; color:var(--ink-muted); padding:4px 0; border-bottom:1px solid var(--rule);">'
+        f'<span>{html.escape(r["style"])}</span><span>{html.escape(r["emphasis"])}</span>'
+        f'<span style="font-family:var(--font-mono);">{r["final_score"]:.1f}</span>'
+        f'<span style="font-family:var(--font-mono);">#{int(r["rank"])} of {int(r["population"])}</span></div>'
         for r in other_rows
     )
     return f"""
-    <div style="margin: 4px 0 10px 46px; padding: 8px 12px; border-left: 2px solid var(--rule); background: var(--surface-2, transparent);">
-      <div style="font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); margin-bottom:3px;">Other Profiles</div>
-      {items}
+    <div style="margin-top:14px;">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); margin-bottom:6px;">Other Profiles</div>
+      {header}{rows}
     </div>
     """
 
 
-def render_detail_panel(row, score_row, combo_label, explanation):
-    name = html.escape(str(row["player_name"]))
+def render_detail_panel(row, score_row, combo_label, explanation, other_rows):
     pctile = round((1 - (score_row["rank"] - 1) / score_row["population"]) * 100, 1)
 
-    def _bullets(items, empty_msg):
-        if not items:
-            return f'<div class="li"><span style="color:var(--ink-faint);">{empty_msg}</span></div>'
-        return "".join(f'<div class="li"><span>{html.escape(s)}</span></div>' for s in items)
+    strengths_html = "".join(_render_insight(s) for s in explanation["strengths"]) or \
+        '<div style="font-size:12.5px; color:var(--ink-faint);">No standout strengths identified from the data.</div>'
+    weaknesses_html = "".join(_render_insight(w) for w in explanation["weaknesses"]) or \
+        '<div style="font-size:12.5px; color:var(--ink-faint);">No significant weaknesses identified from the data.</div>'
 
     return f"""
     <div class="ntpr-panel">
@@ -109,14 +132,15 @@ def render_detail_panel(row, score_row, combo_label, explanation):
           <div class="fixedtag">of {int(score_row['population'])} eligible players — {pctile:.0f}th percentile</div></div>
       </div>
       <div class="ntpr-dan-cols">
-        <div class="ntpr-dan-block"><h4>Strengths</h4><div class="ntpr-dan-list">{_bullets(explanation['strengths'], "No standout strengths identified from the data.")}</div></div>
-        <div class="ntpr-dan-block"><h4>Areas to watch</h4><div class="ntpr-dan-list">{_bullets(explanation['weaknesses'], "No significant weaknesses identified from the data.")}</div></div>
+        <div class="ntpr-dan-block"><h4>Why he stands out</h4><div class="ntpr-dan-list">{strengths_html}</div></div>
+        <div class="ntpr-dan-block"><h4>Areas to watch</h4><div class="ntpr-dan-list">{weaknesses_html}</div></div>
       </div>
-      <div class="ntpr-dan-note"><b>How this rating works:</b> The final rating evaluates how well {name}
-      performs in the selected football profile while accounting for the competitive environment those
-      performances were produced in. Performances against stronger opposition carry greater weight, and
-      the level of his current club provides additional context. There is no single "best player" score —
-      the same player can rate very differently under a different Style or Role Emphasis, which is exactly
-      the point: this tool matches players to the profile a team actually needs.</div>
+      {render_other_profiles_compact(other_rows)}
+      <div class="ntpr-dan-note" style="margin-top:12px;"><b>How this rating works:</b> The final rating evaluates how
+      well this player performs in the selected football profile while accounting for the competitive environment
+      those performances were produced in. Performances against stronger opposition carry greater weight, and the
+      level of his current club provides additional context. There is no single "best player" score — the same
+      player can rate very differently under a different Style or Role Emphasis, which is exactly the point: this
+      tool matches players to the profile a team actually needs.</div>
     </div>
     """

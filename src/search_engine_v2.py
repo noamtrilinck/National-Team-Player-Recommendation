@@ -141,8 +141,9 @@ def other_profiles(f50_scores, player_row, current_style, registry, exclude_comb
             continue
         best = sub.loc[sub.final_score.idxmax()]
         emph_label = "Generic" if best.emphasis == "(none)" else best.emphasis
-        style_label = "Generic" if style == "NoStyle" else style
-        out.append(dict(label=f"{style_label} · {emph_label}", final_score=best.final_score, rank=best["rank"]))
+        style_label = "Any Style" if style == "NoStyle" else style
+        out.append(dict(style=style_label, emphasis=emph_label, final_score=best.final_score,
+                         rank=best["rank"], population=best.population))
         if len(out) >= max_items:
             break
     return out

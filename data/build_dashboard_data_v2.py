@@ -201,6 +201,19 @@ def build_signal_explanation_data(players):
     rel.to_csv(OUT_DIR / "relevant_signals.csv", index=False)
     print(f"relevant_signals.csv: {len(rel)} rows ({rel.kind.value_counts().to_dict()})")
 
+    # UI/UX Round 2 (2026-08-30): signal_catalog.csv -- (signal_name, safe_name, domain,
+    # info_type) for every Signal, exported so the deployed explanation engine can tier Signals
+    # by how football-readable they are (VOLUME/EXECUTION = intuitive counts/rates/success %;
+    # RESPONSIBILITY = team-share, SPECIALISATION = ratio-of-ratios -- both internal/abstract;
+    # BEHAVIOUR is mixed, judged individually in the deployed engine's own small allowlist) and
+    # group them by domain for redundancy control -- again a plain data lookup, zero runtime
+    # dependency on signal_meta.py.
+    cat_rows = [dict(signal_name=sig, safe_name=meta.safe_name(sig), domain=dom, info_type=itype)
+                for sig, (dom, itype) in meta.SIGNAL_META.items()]
+    cat = pd.DataFrame(cat_rows)
+    cat.to_csv(OUT_DIR / "signal_catalog.csv", index=False)
+    print(f"signal_catalog.csv: {len(cat)} rows")
+
 
 if __name__ == "__main__":
     main()

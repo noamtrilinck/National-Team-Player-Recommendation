@@ -24,7 +24,7 @@ from src.data_loader_v2 import (
     load_players, load_f50_scores, load_f50_registry, nationality_options, style_display, emphasis_display,
 )
 from src import search_engine_v2 as se
-from src.cards_v3 import render_result_row, render_other_profiles, render_detail_panel
+from src.cards_v3 import render_result_row, render_detail_panel
 from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure
 from src.charts_v2 import profile_comparison_figure
 from src.explanation_engine_v2 import build_explanation
@@ -211,13 +211,11 @@ else:
                     st.rerun()
                 st.markdown('</div>', unsafe_allow_html=True)
 
-            other = se.other_profiles(f50, row, query["style"], registry, exclude_combo=row["combo_id"])
-            st.markdown(render_other_profiles(other), unsafe_allow_html=True)
-
             if is_open:
                 explanation = build_explanation(int(row.player_id), row.season_name, row.position_v2, row.style,
                                                  list(row.emphasis.split("+")) if row.emphasis != "(none)" else [])
-                st.markdown(render_detail_panel(row, row, combo_label, explanation), unsafe_allow_html=True)
+                other = se.other_profiles(f50, row, query["style"], registry, exclude_combo=row["combo_id"])
+                st.markdown(render_detail_panel(row, row, combo_label, explanation, other), unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
         same_group = df["position_v2"].nunique() == 1

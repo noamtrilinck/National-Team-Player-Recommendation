@@ -1,0 +1,55 @@
+signal_name,safe_name,domain,info_type
+Passes in Final Third per90,Passes_in_Final_Third_per90,Ball Progression -- Passing,VOLUME
+Accurate Passes %,Accurate_Passes_pct,Ball Progression -- Passing,EXECUTION
+Final Third Pass Share,Final_Third_Pass_Share,Ball Progression -- Passing,RESPONSIBILITY
+Backward Passes per90,Backward_Passes_per90,Ball Retention & Security,VOLUME
+Backward Pass Rate,Backward_Pass_Rate,Ball Retention & Security,BEHAVIOUR
+Backward Pass Share,Backward_Pass_Share,Ball Retention & Security,RESPONSIBILITY
+Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share,Chance Creation,SPECIALISATION
+Tackles per90,Tackles_per90,Tackling,VOLUME
+Tackles Won %,Tackles_Won_pct,Tackling,EXECUTION
+Tackle Share,Tackle_Share,Tackling,RESPONSIBILITY
+Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share,Tackling,SPECIALISATION
+Interceptions per90,Interceptions_per90,Interceptions / Anticipation,VOLUME
+Interception Share,Interception_Share,Interceptions / Anticipation,RESPONSIBILITY
+Ball Recoveries per90,Ball_Recoveries_per90,Ball Recoveries,VOLUME
+Ball Recovery Share,Ball_Recovery_Share,Ball Recoveries,RESPONSIBILITY
+Dribble Attempts per90,Dribble_Attempts_per90,Dribbling / Take-Ons,VOLUME
+Dribble Rate,Dribble_Rate,Dribbling / Take-Ons,BEHAVIOUR
+Dribble Success %,Dribble_Success_pct,Dribbling / Take-Ons,EXECUTION
+Dribble Attempt Share,Dribble_Attempt_Share,Dribbling / Take-Ons,RESPONSIBILITY
+Long Balls per90,Long_Balls_per90,Long-Range Distribution,VOLUME
+Long Ball Rate,Long_Ball_Rate,Long-Range Distribution,BEHAVIOUR
+Long Balls Won %,Long_Balls_Won_pct,Long-Range Distribution,EXECUTION
+Long Ball Share,Long_Ball_Share,Long-Range Distribution,RESPONSIBILITY
+Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90,Physical Contests -- Aerial,VOLUME
+Aerial Duel Success %,Aerial_Duel_Success_pct,Physical Contests -- Aerial,EXECUTION
+Aerial Duel Share,Aerial_Duel_Share,Physical Contests -- Aerial,RESPONSIBILITY
+Ground Duel Attempts per90,Ground_Duel_Attempts_per90,Physical Contests -- Ground,VOLUME
+Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed),Physical Contests -- Ground,EXECUTION
+Ground Duel Attempt Share,Ground_Duel_Attempt_Share,Physical Contests -- Ground,RESPONSIBILITY
+Passes per90,Passes_per90,Possession Involvement,VOLUME
+Pass Share,Pass_Share,Possession Involvement,RESPONSIBILITY
+Pass Share Rel. Touch Share,Pass_Share_Rel_Touch_Share,Possession Involvement,SPECIALISATION
+Shots Total per90,Shots_Total_per90,Shooting,VOLUME
+Shot Rate,Shot_Rate,Shooting,BEHAVIOUR
+Shooting Orientation,Shooting_Orientation,Shooting,BEHAVIOUR
+Shot Accuracy %,Shot_Accuracy_pct,Shooting,EXECUTION
+Goal Conversion %,Goal_Conversion_pct,Shooting,EXECUTION
+xG per Shot,xG_per_Shot,Shooting,EXECUTION
+xGOT per Shot on Target,xGOT_per_Shot_on_Target,Shooting,EXECUTION
+Shot Share,Shot_Share,Shooting,RESPONSIBILITY
+Goal Share Rel. Shot Share,Goal_Share_Rel_Shot_Share,Shooting,SPECIALISATION
+Total Crosses per90,Total_Crosses_per90,Wide Delivery / Crossing,VOLUME
+Cross Rate,Cross_Rate,Wide Delivery / Crossing,BEHAVIOUR
+Cross Accuracy %,Cross_Accuracy_pct,Wide Delivery / Crossing,EXECUTION
+Cross Share,Cross_Share,Wide Delivery / Crossing,RESPONSIBILITY
+Directness Proxy,Directness_Proxy,Ball Progression -- Passing,BEHAVIOUR
+Final Third Pass Rate,Final_Third_Pass_Rate,Ball Progression -- Passing,BEHAVIOUR
+Progressive Passing Preference,Progressive_Passing_Preference,Ball Progression -- Passing,BEHAVIOUR
+Big Chances Created per90,Big_Chances_Created_per90,Chance Creation,VOLUME
+Key Passes per90,Key_Passes_per90,Chance Creation,VOLUME
+Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct,Chance Creation,EXECUTION
+Key Pass Conversion %,Key_Pass_Conversion_pct,Chance Creation,EXECUTION
+Big Chance Created Share,Big_Chance_Created_Share,Chance Creation,RESPONSIBILITY
+Key Pass Share,Key_Pass_Share,Chance Creation,RESPONSIBILITY
