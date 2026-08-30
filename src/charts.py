@@ -136,6 +136,32 @@ def missing_data_players(chart_rows, mstats, metrics, filter_key, value_col):
     return missing
 
 
+def missing_data_reason(row, eligibility, filter_key):
+    """UI/UX Round 5 (points 2-5, data-audit follow-up) -- precise, honest reason a player is
+    missing from a chart under a match filter with its own minimum-minutes gate (home/away/last_3_
+    months/last_6_months/top_opponents/bottom_opponents), sourced from the ALREADY-LOCKED,
+    disclosed filter_eligibility.csv (production/match_level's own minimum-minutes-per-filter
+    rule -- see docs/v2_ui_redesign_round5.md for the full audit confirming this is real,
+    intentional, evidence-based methodology, not a bug). Returns a short clause, e.g. "no minutes
+    recorded against Top Opponents" or "only 184 of the 270 minutes needed vs Top Opponents" --
+    falls back to a generic clause when eligibility data isn't available for this row/filter
+    (e.g. filter_key == "full_season", which has no minimum-minutes gate of its own)."""
+    if eligibility is None or filter_key == "full_season":
+        return "no match data available under this filter"
+    key = tuple(row[k] for k in JOIN_KEY)
+    sub = eligibility[(eligibility.player_id == key[0]) & (eligibility.season_id == key[1]) &
+                       (eligibility.team_id == key[2]) & (eligibility.filter_key == filter_key)]
+    if sub.empty:
+        return "no minutes recorded against this match filter"
+    r = sub.iloc[0]
+    mins, needed = r["minutes_played"], r["min_minutes_required"]
+    if pd.isna(mins) or mins == 0:
+        return "no minutes recorded under this filter"
+    if mins < needed:
+        return f"only {int(mins)} of the {int(needed)} minutes needed under this filter"
+    return "insufficient valid data for this specific metric"  # met the minutes floor but the metric itself is missing/NaN
+
+
 def _player_points(chart_rows, mstats, metric, filter_key, value_col):
     """Returns (row, value, color) for each selected player that actually has a value for this
     metric/filter combination -- players without one (e.g. no Away minutes) are silently dropped

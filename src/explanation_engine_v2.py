@@ -445,12 +445,24 @@ def _render_fact(fact, position, direction, profile_label=None, style_label=None
         if frame:
             body = f"{body} This is {frame}."
 
+    badges = _badges_for(fact, label=None)
+    return dict(headline=headline, body=body, badges=badges)
+
+
+def _badges_for(fact, label=None):
+    """UI/UX Round 5 (point 1) -- builds a fact's rank/percentile badges. `label` is required
+    whenever a badge could otherwise be ambiguous about which Signal it belongs to (i.e. whenever
+    more than one Signal's evidence appears together, as in a combined bullet) -- every numerical
+    badge must have an unambiguous semantic owner. A standalone single-Signal bullet's own
+    headline already establishes ownership, so `label` stays None there."""
+    gp = fact["global_pctile"]
+    league_rank, league_n = fact["league_rank"], fact["league_n"]
+    prefix = f"{label}: " if label else ""
     badges = []
     if league_rank is not None:
-        badges.append(f"#{league_rank} of {league_n} in league")
-    badges.append(f"{_ordinal(round(gp))} global percentile")
-
-    return dict(headline=headline, body=body, badges=badges)
+        badges.append(f"{prefix}#{league_rank} of {league_n} in league")
+    badges.append(f"{prefix}{_ordinal(round(gp))} global percentile")
+    return badges
 
 
 def _combine_top_strengths(chosen, position, profile_label, style_label):
@@ -458,7 +470,12 @@ def _combine_top_strengths(chosen, position, profile_label, style_label):
     groups with a real, disclosed football connection (COMBINE_CONNECTORS), merge them into one
     combined story bullet instead of two isolated facts. Only ever combines facts that were
     ALREADY independently selected as genuine evidence -- never invents a connection. Returns
-    (rendered_list, facts_actually_used) so the caller can track which facts were consumed."""
+    (rendered_list, facts_actually_used) so the caller can track which facts were consumed.
+
+    UI/UX Round 5 (point 1) -- FIX: once two Signals share one combined bullet, every badge from
+    BOTH Signals is now explicitly labeled with which Signal it belongs to (previously only the
+    second Signal's badge got a label -- or none at all -- so e.g. two league-rank badges under
+    one headline were genuinely ambiguous about which Signal each ranked, exactly as reported)."""
     if len(chosen) < 2:
         return None
     a, b = chosen[0], chosen[1]
@@ -466,12 +483,13 @@ def _combine_top_strengths(chosen, position, profile_label, style_label):
     connector = COMBINE_CONNECTORS.get(key)
     if not connector:
         return None
+    label_a, label_b = DOMAIN_INFO[a["domain"]]["strength"], DOMAIN_INFO[b["domain"]]["strength"]
     fact_a = _render_fact(a, position, 1, profile_label, style_label)
     meaning_b = FOOTBALL_MEANING.get(b["domain"], {})
     implication_b = (meaning_b.get("execution") if b.get("info_type") == "EXECUTION" else meaning_b.get("volume")) or meaning_b.get("general") or b["domain"].lower()
-    combined_headline = f'{DOMAIN_INFO[a["domain"]]["strength"]} + {DOMAIN_INFO[b["domain"]]["strength"]}'
+    combined_headline = f'{label_a} + {label_b}'
     combined_body = f'{fact_a["body"]} He {connector} — {implication_b}.'
-    combined_badges = fact_a["badges"] + [f"#{b['league_rank']} of {b['league_n']} in league" if b["league_rank"] is not None else f"{_ordinal(round(b['global_pctile']))} global percentile"]
+    combined_badges = _badges_for(a, label_a) + _badges_for(b, label_b)
     return dict(headline=combined_headline, body=combined_body, badges=combined_badges), [a, b]
 
 

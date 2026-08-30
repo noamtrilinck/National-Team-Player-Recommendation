@@ -69,6 +69,25 @@ def _best_tier_for_domain(domain, sig_tiers):
     return best
 
 
+# UI/UX Round 5 (points 8-15) -- genuine two-dimensional (X/Y) comparisons, built ONLY from
+# domain pairs that already exist as separate CHART_METRICS/PCT_METRICS entries mapped to the
+# SAME locked Signal domain (never an invented cross-domain relationship). Each pair puts a
+# volume/attempt-style metric against a complementary outcome/execution-style metric from that
+# same domain -- "who attempts a lot AND succeeds a lot" is a real, defensible football question,
+# not a manufactured one. Domains with no second CHART_METRICS/PCT_METRICS entry (Aerial/Ground
+# duels only ever export the "won" count, Interceptions/Ball Recoveries/Possession Involvement
+# have no second metric at all) simply have no X/Y candidate and are never forced into one.
+VOLUME_EXECUTION_PAIRS = {
+    "Dribbling / Take-Ons": ("dribble_attempts", "successful_dribbles"),
+    "Tackling": ("tackles", "tackles_won_pct"),
+    "Long-Range Distribution": ("long_balls", "long_balls_won_pct"),
+    "Wide Delivery / Crossing": ("total_crosses", "accurate_crosses"),
+    "Ball Progression -- Passing": ("passes_in_final_third", "accurate_passes_pct"),
+    "Shooting": ("shots_total", "goals"),
+    "Chance Creation": ("key_passes", "big_chances_created"),
+}
+
+
 def select_priority_metrics(all_dm_ordered, position, style, emphasis_list, k=3):
     """Reorders/selects from an already discriminative-power-ordered metric list (from
     charts.differentiating_metrics(), unchanged/reused) by profile-relevance TIER FIRST,
@@ -91,3 +110,81 @@ def select_priority_metrics(all_dm_ordered, position, style, emphasis_list, k=3)
         else:
             remainder.append(m)
     return chosen, remainder
+
+
+MIN_XY_SPREAD = 15.0  # percentile points -- point 14: both axes must show genuine separation
+# among the CURRENT players or the pair is skipped entirely, never forced onto a flat/duplicate
+# relationship. Kept in the same units as the existing differentiating_metrics() spread check.
+MAX_XY_TIER = 3  # only offer an X/Y pair when its domain is at least Style-core relevant --
+# never force a two-dimensional chart onto a profile with no real connection to it.
+
+
+def _percentile_spread(chart_rows, mstats, metric, filter_key="full_season", value_col="percentile_value"):
+    from src.charts import _metric_lookup, JOIN_KEY
+    import pandas as pd
+    keys_df = pd.DataFrame([{k: r[k] for k in JOIN_KEY} for r in chart_rows])
+    lookup = _metric_lookup(mstats, keys_df, metric, filter_key, value_col)
+    vals = [v for v in lookup.values() if pd.notna(v)]
+    return (max(vals) - min(vals)) if len(vals) >= 2 else 0.0
+
+
+def xy_candidate_for_profile(position, style, emphasis_list, chart_rows, mstats, exclude_group=None):
+    """UI/UX Round 5 (points 9, 14) -- the single most profile-relevant VOLUME_EXECUTION_PAIRS
+    domain (Tier<=3: at least Style-core relevant to the SELECTED profile, never an unrelated
+    domain) that also shows genuine separation among the current players on BOTH axes. Returns
+    None -- never a forced/invented relationship -- when no pair clears both bars."""
+    sig_tiers = _relevant_signal_tiers(position, style, emphasis_list)
+    candidates = []
+    for domain, (mx, my) in VOLUME_EXECUTION_PAIRS.items():
+        if domain not in DOMAIN_INFO:
+            continue
+        group = DOMAIN_INFO[domain]["group"]
+        if exclude_group is not None and group == exclude_group:
+            continue
+        tier = _best_tier_for_domain(domain, sig_tiers)
+        if tier <= MAX_XY_TIER:
+            candidates.append((tier, domain, mx, my, group))
+    candidates.sort(key=lambda t: t[0])
+    for tier, domain, mx, my, group in candidates:
+        if _percentile_spread(chart_rows, mstats, mx) >= MIN_XY_SPREAD and \
+           _percentile_spread(chart_rows, mstats, my) >= MIN_XY_SPREAD:
+            return dict(metric_x=mx, metric_y=my, domain=domain, tier=tier, group=group)
+    return None
+
+
+def select_five_charts(all_dm_ordered, position, style, emphasis_list, chart_rows, mstats, k=5):
+    """UI/UX Round 5 (points 8-15) -- up to `k` profile-driven comparison charts with distinct
+    analytical jobs, extending select_priority_metrics (unchanged: tier-first, redundancy-capped)
+    with ONE slot upgraded to a genuine two-dimensional relationship (point 9) when a real,
+    locked-domain-derived pair exists for this profile and shows real separation among the current
+    players (point 14) -- never forced when no such pair qualifies. Redundancy control (point 13)
+    covers the X/Y slot too: it never duplicates the single most central slot's own story, and
+    preferentially replaces whichever single-metric slot already tells the same domain-group
+    story rather than just appending a 6th chart. Returns (chart_specs, remainder): each spec is
+    {'kind':'range','metric':...} or {'kind':'xy','metric_x':...,'metric_y':...,'domain':...}."""
+    chosen, remainder = select_priority_metrics(all_dm_ordered, position, style, emphasis_list, k=k)
+    specs = [dict(kind="range", metric=m) for m in chosen]
+    if not specs:
+        return specs, remainder
+
+    exclude_group = metric_relevance(chosen[0], position, style, emphasis_list)[1]
+    xy = xy_candidate_for_profile(position, style, emphasis_list, chart_rows, mstats, exclude_group=exclude_group)
+    if xy:
+        replace_idx = next((i for i, s in enumerate(specs) if i > 0 and
+                             metric_relevance(s["metric"], position, style, emphasis_list)[1] == xy["group"]), None)
+        if replace_idx is None and len(specs) == k:
+            replace_idx = len(specs) - 1  # no same-story slot to swap -- displace the lowest-priority one
+        xy_spec = dict(kind="xy", metric_x=xy["metric_x"], metric_y=xy["metric_y"], domain=xy["domain"])
+        if replace_idx is not None:
+            specs[replace_idx] = xy_spec
+        elif len(specs) < k:
+            specs.append(xy_spec)
+    return specs, remainder
+
+
+def xy_chart_title(domain):
+    """UI/UX Round 5 (point 15) -- a question-oriented title derived from the domain's own
+    already-locked, football-readable strength label (DOMAIN_INFO), not a hardcoded per-domain
+    marketing-copy library -- the same short label used throughout the explanation engine."""
+    strength = DOMAIN_INFO[domain]["strength"]
+    return f"Who pairs {strength[0].lower() + strength[1:]} with the efficiency to back it up?"

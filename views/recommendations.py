@@ -19,14 +19,14 @@ import pandas as pd
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.data_loader import load_match_level_stats, METRIC_LABELS, MATCH_FILTERS, DISPLAY_MODE_COLUMN
+from src.data_loader import load_match_level_stats, METRIC_LABELS, MATCH_FILTERS, DISPLAY_MODE_COLUMN, load_filter_eligibility
 from src.data_loader_v2 import (
     load_players, load_f50_scores, load_f50_registry, nationality_options, style_display, emphasis_display,
 )
 from src import search_engine_v2 as se
 from src.cards_v3 import render_result_row, render_detail_panel
-from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure, missing_data_players, _display_label
-from src.chart_relevance import select_priority_metrics
+from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure, missing_data_players, missing_data_reason, _display_label
+from src.chart_relevance import select_priority_metrics, select_five_charts, xy_chart_title
 from src.charts_v2 import profile_comparison_figure
 from src.explanation_engine_v2 import build_explanation, build_why_fits
 from src.nav import render_nav
@@ -259,34 +259,70 @@ else:
             # the plotted points. Generic across every chart type/position/filter/population (see
             # charts.missing_data_players) -- shared by both the automatic charts and the Custom
             # Chart Builder below.
+            # UI/UX Round 5 (points 2-5): reopened as a full data audit rather than accepting the
+            # round-4 diagnosis as-is (docs/v2_ui_redesign_round5.md). Confirmed the real, LOCKED
+            # mechanism is production/match_level's own per-filter minimum-minutes gate (270
+            # minutes specifically against Top/Bottom-Opponent-band matches -- a genuinely
+            # different, smaller sample than the player's overall season minutes) -- intentional,
+            # evidence-based, NOT changed here. The note now says precisely why per player (no
+            # minutes at all vs. some minutes short of the floor) using filter_eligibility.csv.
+            filter_eligibility = load_filter_eligibility()
+
             def _missing_note(rows, metrics, fk, filter_label):
                 missing = missing_data_players(rows, mstats, metrics, fk, "percentile_value")
                 if not missing:
                     return ""
-                names = ", ".join(_display_label(r) for r in missing)
-                return (f'<p style="font-size:11px; color:var(--ink-faint); margin:2px 0 10px;">'
-                        f'Not shown for <b>{html.escape(filter_label)}</b>: {html.escape(names)} '
-                        f'— no match data available under this filter.</p>')
+                lines = "".join(
+                    f'<li>{html.escape(_display_label(r))} — {html.escape(missing_data_reason(r, filter_eligibility, fk))}</li>'
+                    for r in missing
+                )
+                return (f'<div style="font-size:11px; color:var(--ink-faint); margin:2px 0 10px;">'
+                        f'Not shown for <b>{html.escape(filter_label)}</b>:'
+                        f'<ul style="margin:2px 0 0 16px; padding:0;">{lines}</ul></div>')
 
             all_dm = differentiating_metrics(chart_df.head(MAX_METRIC_CHART_PLAYERS), mstats, "full_season", k=50)
-            # UI/UX Round 3 (points 4-6): reorder the discriminative-power-ranked pool by
-            # profile relevance to the SELECTED Style/Emphasis, one representative per football
-            # "story" (redundancy group) among the first 3 -- see src/chart_relevance.py and
-            # docs/v2_ui_redesign_round3.md sections 4-6. `all_dm` itself (discriminative order)
-            # is preserved unchanged for the Custom Chart Builder below.
+            # UI/UX Round 3 (points 4-6) + Round 5 (points 8-15): reorder the discriminative-
+            # power-ordered pool by profile relevance to the SELECTED Style/Emphasis, one
+            # representative per football "story" (redundancy group) among the first 5 -- see
+            # src/chart_relevance.py. One of the 5 slots is upgraded to a genuine X/Y relationship
+            # (e.g. attempts vs successes within one locked domain) when a real, relevant,
+            # well-separated pair exists for this profile -- never forced. `all_dm` itself
+            # (discriminative order) is preserved unchanged for the Custom Chart Builder below.
             _query_emphasis = list(query.get("emphasis") or ())
-            _first3, _rest = select_priority_metrics(
-                all_dm, df["position_v2"].iloc[0], query["style"], _query_emphasis, k=3)
-            all_dm_priority = _first3 + _rest  # first batch is profile-priority-ordered +
-            # redundancy-capped; later "+ Show More" batches continue in the pool's original
-            # discriminative order (no further redundancy cap, matching round-2 behaviour there)
+            _position_v2 = df["position_v2"].iloc[0]
+            _xy_chart_rows = [r for _, r in chart_df.head(MAX_METRIC_CHART_PLAYERS).iterrows()]
+            _first5_specs, _rest = select_five_charts(
+                all_dm, _position_v2, query["style"], _query_emphasis, _xy_chart_rows, mstats, k=5)
 
             candidate_names = {
                 f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}": f"{r.player_name} — {r.season_club}"
                 for _, r in df.iterrows()
             }
+
             default_sel = [k for k in candidate_names if k in compare_keys] or \
                           [f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}" for _, r in chart_df.head(MAX_METRIC_CHART_PLAYERS).iterrows()]
+
+            # UI/UX Round 5 (point 6) -- BUGFIX: every "Players in this chart" multiselect is
+            # keyed by a fixed per-chart-slot key (e.g. "players_auto_b1_0") that is REUSED
+            # across different searches, so Streamlit's own persisted widget state could keep a
+            # PREVIOUS search's players selected/visible even after the population genuinely
+            # changed (confirmed reproduction: Scottish Centre Backs -> Spanish Full Backs left
+            # Scottish names in the selector). Detected via a stable signature (the current set of
+            # candidate keys) stored in session_state -- when it changes, every "players_*"
+            # widget's stored selection is pruned down to just the keys still valid in the NEW
+            # population, falling back to the new population's own default_sel only if that
+            # pruning empties it out entirely (never a blind full reset: an unchanged population
+            # leaves existing selections untouched, and a changed one only removes what no longer
+            # belongs, re-seeding only when nothing valid would remain to show).
+            new_population_sig = frozenset(candidate_names.keys())
+            old_population_sig = st.session_state.get("ntpr_population_sig")
+            if old_population_sig is not None and old_population_sig != new_population_sig:
+                for k in list(st.session_state.keys()):
+                    if k.startswith("players_") and isinstance(st.session_state[k], list):
+                        pruned = [v for v in st.session_state[k] if v in new_population_sig]
+                        if pruned != st.session_state[k]:
+                            st.session_state[k] = pruned or list(default_sel)
+            st.session_state["ntpr_population_sig"] = new_population_sig
 
             if len(all_dm) < 2:
                 st.markdown('<div class="ntpr-empty">Not enough overlapping data across these players to identify meaningful standout metrics.</div>', unsafe_allow_html=True)
@@ -319,36 +355,58 @@ else:
                         if note:
                             st.markdown(note, unsafe_allow_html=True)
 
-                # UI/UX Round 3 (point 5): each chart in a batch is now its own independent,
-                # single-metric comparison rather than the old "Signal A, Signal B, A+B combined"
-                # pattern -- three charts = three distinct pieces of information. The FIRST batch
-                # is profile-priority-ordered (chart_relevance.select_priority_metrics, one metric
-                # per relevant football "story" -- point 6); later batches continue through the
-                # remaining discriminative-power-ordered pool.
-                FIRST_BATCH_LABELS = ["Chart 1 — Core Domain", "Chart 2 — Key Signal", "Chart 3 — Complementary Dimension"]
+                # UI/UX Round 3 (point 5) + Round 5 (points 8-15): each chart is its own
+                # independent comparison rather than the old "Signal A, Signal B, A+B combined"
+                # pattern -- 5 charts = 5 distinct analytical jobs, not the same story decomposed
+                # and recombined. The FIRST batch is profile-priority-ordered
+                # (chart_relevance.select_five_charts, one metric per relevant football "story",
+                # with one slot upgraded to a genuine X/Y relationship where a real, relevant,
+                # well-separated pair exists -- point 9); later "+ Show More" batches continue
+                # through the remaining discriminative-power-ordered single-metric pool.
+                FIRST_BATCH_LABELS = ["Chart 1 — Core Profile Domain", "Chart 2 — Key Behaviour",
+                                       "Chart 3 — Complementary Dimension", "Chart 4 — Two-Dimensional Relationship",
+                                       "Chart 5 — Complementary Trait"]
 
-                def _render_batch(prefix, b, labeled=False):
-                    if not b:
+                def _render_batch(prefix, specs, labeled=False):
+                    if not specs:
                         return
-                    for idx, metric in enumerate(b):
-                        title = (f"{FIRST_BATCH_LABELS[idx]}: {METRIC_LABELS.get(metric, metric)}" if labeled and idx < len(FIRST_BATCH_LABELS)
-                                  else f"{METRIC_LABELS.get(metric, metric)} — by player")
-                        fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
-                        if rows:
-                            _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml),
-                                    f"chart_{prefix}_{idx}", rows=rows, metrics=[metric], fk=fk, filter_label=filter_label)
+                    for idx, spec in enumerate(specs):
+                        if spec["kind"] == "xy":
+                            label_x, label_y = METRIC_LABELS.get(spec["metric_x"], spec["metric_x"]), METRIC_LABELS.get(spec["metric_y"], spec["metric_y"])
+                            base_title = xy_chart_title(spec["domain"])
+                            title = f"{FIRST_BATCH_LABELS[idx]}: {base_title}" if labeled and idx < len(FIRST_BATCH_LABELS) else base_title
+                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
+                            if rows:
+                                fig = scatter_metric_figure(spec["metric_x"], spec["metric_y"], label_x, label_y,
+                                                             rows, ref_position_group_df, mstats, fk, vc, ml)
+                                _render(fig, f"chart_{prefix}_{idx}", rows=rows, metrics=[spec["metric_x"], spec["metric_y"]], fk=fk, filter_label=filter_label)
+                                st.markdown(f'<p style="font-size:11px; color:var(--ink-faint); margin-top:-6px;">'
+                                            f'{html.escape(label_x)} (x) vs. {html.escape(label_y)} (y) — dashed lines mark the position average.</p>', unsafe_allow_html=True)
+                        else:
+                            metric = spec["metric"]
+                            title = (f"{FIRST_BATCH_LABELS[idx]}: {METRIC_LABELS.get(metric, metric)}" if labeled and idx < len(FIRST_BATCH_LABELS)
+                                      else f"{METRIC_LABELS.get(metric, metric)} — by player")
+                            fk, vc, ml, rows, filter_label = _metric_chart_controls(f"{prefix}_{idx}", title)
+                            if rows:
+                                _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml),
+                                        f"chart_{prefix}_{idx}", rows=rows, metrics=[metric], fk=fk, filter_label=filter_label)
 
                 st.session_state.setdefault("n_auto_batches", 1)
                 n_batches = st.session_state["n_auto_batches"]
+                _rest_specs = [dict(kind="range", metric=m) for m in _rest]
                 for batch_num in range(1, n_batches + 1):
-                    batch_metrics = all_dm_priority[(batch_num - 1) * 3: batch_num * 3]
-                    if not batch_metrics:
+                    if batch_num == 1:
+                        batch_specs = _first5_specs
+                    else:
+                        start = (batch_num - 2) * 5
+                        batch_specs = _rest_specs[start: start + 5]
+                    if not batch_specs:
                         break
                     if batch_num > 1:
                         st.markdown('<h3 style="font-family: var(--font-display); font-size:17px; margin-top:30px;">More standout metrics</h3>', unsafe_allow_html=True)
-                    _render_batch(f"auto_b{batch_num}", batch_metrics, labeled=(batch_num == 1))
+                    _render_batch(f"auto_b{batch_num}", batch_specs, labeled=(batch_num == 1))
 
-                more_available = len(all_dm_priority) > n_batches * 3
+                more_available = len(_rest_specs) > (n_batches - 1) * 5
                 bcol1, _ = st.columns([1, 3])
                 with bcol1:
                     if more_available:

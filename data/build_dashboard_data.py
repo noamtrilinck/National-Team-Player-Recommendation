@@ -138,6 +138,7 @@ def main():
     build_player_abilities(scope)
     build_weights()
     build_match_level_stats(scope)
+    build_filter_eligibility(scope)
 
 
 def build_player_abilities(scope):
@@ -265,6 +266,28 @@ def build_match_level_stats(scope):
     full_season = out[out.filter_key == "full_season"]
     coverage = full_season[JOIN_KEY].drop_duplicates().shape[0]
     print(f"\nfull_season filter_key coverage: {coverage} of {len(scope)} players.csv player-seasons")
+
+
+def build_filter_eligibility(scope):
+    """UI/UX Round 5 (points 2-5, data audit) -- filter_eligibility.csv: exposes the ALREADY-
+    LOCKED, disclosed per-(player, filter) minimum-minutes gate from
+    production/match_level/build_filtered_eligibility.py (filter_definitions.MIN_MINUTES_BY_FILTER,
+    e.g. 270 minutes specifically against Top/Bottom-Opponent-band matches -- a genuinely
+    different, smaller sample than the player's overall season minutes). This is NOT a new
+    threshold and does NOT change which players are excluded from a filtered chart -- it only lets
+    the dashboard's "not shown" note say WHY precisely (no minutes at all vs that opponent
+    bracket, vs some minutes but below the reliability floor) instead of one generic message.
+    Confirmed via direct audit (docs/v2_ui_redesign_round5.md) that this exact, intentional,
+    evidence-based floor -- not a bug -- is what was previously reported as players having "no
+    match data available"."""
+    elig = pd.read_csv(MATCH_LEVEL / "player_season_filter_eligibility.csv",
+                        usecols=["player_id", "season_id", "team_id", "filter_key",
+                                 "minutes_played", "min_minutes_required", "meets_minimum_sample"])
+    elig = elig.merge(scope, on=JOIN_KEY, how="inner")
+    out_path = OUT_DIR / "filter_eligibility.csv"
+    elig.to_csv(out_path, index=False)
+    print(f"\nWrote {out_path}: {len(elig)} rows ({elig[JOIN_KEY].drop_duplicates().shape[0]} player-seasons "
+          f"x {elig.filter_key.nunique()} filters)")
 
 
 if __name__ == "__main__":

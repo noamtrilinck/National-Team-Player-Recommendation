@@ -69,6 +69,16 @@ def load_match_level_stats():
 
 
 @st.cache_data
+def load_filter_eligibility():
+    """UI/UX Round 5 -- filter_eligibility.csv exposes the already-locked, disclosed per-(player,
+    filter) minimum-minutes gate (production/match_level/filter_definitions.MIN_MINUTES_BY_FILTER)
+    so the dashboard's missing-data note can say precisely why a player isn't plotted under a
+    given match filter (no minutes at all vs. some minutes below the reliability floor), instead
+    of one generic message. See docs/v2_ui_redesign_round5.md for the full audit."""
+    return pd.read_csv(DATA_DIR / "filter_eligibility.csv")
+
+
+@st.cache_data
 def nationality_options():
     df = load_players()
     return ["All Nationalities"] + sorted(df["nationality"].dropna().unique().tolist())
