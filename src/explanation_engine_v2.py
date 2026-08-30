@@ -146,19 +146,57 @@ def relevant_signals_for(position, style, emphasis_list):
     Quality's own weighted Signals, the selected Style's core/supporting Signals, and every
     selected Emphasis's core/supporting Signals. Looked up from precomputed data, zero dependency
     on the production engine at runtime."""
+    return set(_relevant_signal_tiers(position, style, emphasis_list).keys())
+
+
+# UI/UX Round 3 -- the 5-tier profile-relevance hierarchy (docs/v2_ui_redesign_round3.md section 2).
+# Tier 1 is the most specific/central to the SELECTED profile; tier 5 is generic Position Quality.
+# A Signal relevant at more than one tier is ranked at its most specific (lowest-numbered) tier.
+TIER_EMPHASIS_CORE = 1
+TIER_EMPHASIS_SUPPORTING = 2
+TIER_STYLE_CORE = 3
+TIER_STYLE_SUPPORTING = 4
+TIER_POSITION_QUALITY = 5
+
+TIER_STORY = {
+    TIER_EMPHASIS_CORE: "profile_driver",
+    TIER_EMPHASIS_SUPPORTING: "combination",
+    TIER_STYLE_CORE: "identity",
+    TIER_STYLE_SUPPORTING: "supporting_trait",
+    TIER_POSITION_QUALITY: "general",
+}
+
+
+def _relevant_signal_tiers(position, style, emphasis_list):
+    """(signal_name, safe_name) -> tier (1-5), derived only from relevant_signals.csv's kind/role
+    columns -- which are themselves exported directly from meta.STYLE/meta.EMPHASIS's own
+    core/supporting dicts (see build_dashboard_data_v2.py). No invented Signal/profile
+    relationship: every tier assignment traces back to the same dicts the scoring engine reads."""
     rel = load_relevant_signals()
-    sigs = set()
+    tiers = {}
+
+    def _apply(rows, tier):
+        for sig, safe in zip(rows.signal_name, rows.safe_name):
+            key = (sig, safe)
+            if key not in tiers or tier < tiers[key]:
+                tiers[key] = tier
+
     pq = rel[(rel.kind == "position_quality") & (rel.position == position)]
-    sigs |= set(zip(pq.signal_name, pq.safe_name))
+    _apply(pq, TIER_POSITION_QUALITY)
+
     if style and style != "NoStyle":
         st_rows = rel[(rel.kind == "style") & (rel.position == position) & (rel.key == style)]
-        sigs |= set(zip(st_rows.signal_name, st_rows.safe_name))
+        _apply(st_rows[st_rows.role == "core"], TIER_STYLE_CORE)
+        _apply(st_rows[st_rows.role == "supporting"], TIER_STYLE_SUPPORTING)
         recv_rows = rel[(rel.kind == "style_receiving") & (rel.position == position) & (rel.key == style)]
-        sigs |= set(zip(recv_rows.signal_name, recv_rows.safe_name))
+        _apply(recv_rows, TIER_STYLE_CORE)
+
     for e in emphasis_list:
         e_rows = rel[(rel.kind == "emphasis") & (rel.position == position) & (rel.key == e)]
-        sigs |= set(zip(e_rows.signal_name, e_rows.safe_name))
-    return sigs
+        _apply(e_rows[e_rows.role == "core"], TIER_EMPHASIS_CORE)
+        _apply(e_rows[e_rows.role == "supporting"], TIER_EMPHASIS_SUPPORTING)
+
+    return tiers
 
 
 def _league_rank(raw, league_pool, raw_col):
@@ -185,10 +223,10 @@ def _tier(sig, info_type):
 
 def _collect_facts(position, style, emphasis_list, row, league_pool, catalog):
     """Builds the full candidate-fact list for this player/profile, each carrying everything
-    needed to score interestingness and render in any evidence format."""
-    sig_pairs = relevant_signals_for(position, style, emphasis_list)
+    needed to score profile-relevance tier, interestingness, and render in any evidence format."""
+    sig_tiers = _relevant_signal_tiers(position, style, emphasis_list)
     facts = []
-    for sig, safe in sig_pairs:
+    for (sig, safe), tier in sig_tiers.items():
         if sig not in catalog.index:
             continue
         domain, info_type = catalog.loc[sig, "domain"], catalog.loc[sig, "info_type"]
@@ -206,7 +244,7 @@ def _collect_facts(position, style, emphasis_list, row, league_pool, catalog):
             sig=sig, domain=domain, group=DOMAIN_INFO[domain]["group"],
             global_pctile=global_pctile, raw=raw,
             league_rank=league_rank, league_n=league_n,
-            is_profile_signal=True,
+            is_profile_signal=True, tier=tier, story=TIER_STORY[tier],
         ))
     return facts
 
@@ -234,7 +272,29 @@ def _weakness_language(gp, league_rank, league_n):
     return "strong" if (gp <= 10 or (league_rank is not None and league_n and league_rank > league_n - max(1, round(0.1 * league_n)))) else "moderate"
 
 
-def _render_fact(fact, position, direction):
+# UI/UX Round 3 (point 3) -- short, tier-driven "why this matters" lead-ins, layered onto the
+# existing raw-stat/league-rank/percentile evidence sentence rather than replacing it. These read
+# the fact's TIER (an actual locked-architecture relationship, see _relevant_signal_tiers), never
+# an invented causal claim -- "profile_driver" only fires for a genuine Emphasis-core Signal, etc.
+# Conceptual guidance from the brief (PROFILE DRIVER/IDENTITY/COMBINATION/SUPPORTING TRAIT), not
+# literal per-fact templates: only strengths get a story lead-in (Areas to Watch stay plain and
+# unembellished, per the existing "honest" framing).
+def _story_line(story, group, profile_label, style_label):
+    group_noun = {"ball_winning": "ball-winning", "duels": "physical", "progression": "progression",
+                  "creativity": "creative", "dribbling": "carrying", "shooting": "attacking",
+                  "retention": "retention"}.get(group, "attacking")
+    if story == "profile_driver":
+        return f"A major driver of his {profile_label} profile."
+    if story == "combination":
+        return f"Adds another dimension to his {profile_label} game."
+    if story == "identity":
+        return f"One of the clearest features of his {style_label} game."
+    if story == "supporting_trait":
+        return f"Not central to the profile, but gives him an extra {group_noun} option."
+    return None  # tier 5 / Position Quality only -- general quality, no profile-specific story
+
+
+def _render_fact(fact, position, direction, profile_label=None, style_label=None):
     sig, domain = fact["sig"], fact["domain"]
     headline = DOMAIN_INFO[domain]["strength" if direction > 0 else "weakness"]
     gp, raw = fact["global_pctile"], fact["raw"]
@@ -264,15 +324,32 @@ def _render_fact(fact, position, direction):
     else:
         body = f"{raw_evidence or sig.lower()}."
 
+    if direction > 0 and profile_label and style_label:
+        story_line = _story_line(fact.get("story"), fact["group"], profile_label, style_label)
+        if story_line:
+            body = f"{story_line} {body}"
+
     return dict(headline=headline, body=body, badges=badges)
+
+
+def _profile_label(style, emphasis_list):
+    style_label = "Any Style" if style == "NoStyle" else style
+    if emphasis_list:
+        return f"{style_label} / {' + '.join(emphasis_list)}", style_label
+    return f"{style_label} / Generic", style_label
 
 
 def build_explanation(player_id, season_name, position, style, emphasis_list,
                        n_strengths_max=4, n_weaknesses_max=3):
-    """Returns dict(strengths=[{headline,body,badges}...], weaknesses=[...]). Selection is driven
-    by interestingness (extremeness + league-rank quality), capped at one representative per
-    redundancy group, football-readable Signals only (VOLUME/EXECUTION tier). Weaknesses are
-    omitted, not manufactured, when nothing genuinely stands out."""
+    """Returns dict(strengths=[{headline,body,badges}...], weaknesses=[...]). UI/UX Round 3:
+    selection is now PRIMARILY driven by profile-relevance tier (Emphasis core > Emphasis
+    supporting > Style core > Style supporting > Position Quality only -- see
+    docs/v2_ui_redesign_round3.md section 2), with interestingness (extremeness + league-rank
+    quality) breaking ties within a tier -- i.e. "why did this player score highly specifically in
+    the selected Style + Emphasis" rather than "what is this player statistically good at."
+    Still capped at one representative per redundancy group, football-readable Signals only
+    (VOLUME/EXECUTION tier). Weaknesses are omitted, not manufactured, when nothing genuinely
+    stands out, and keep the plain (non-story) rendering used since round 2."""
     df = load_signal_scores_with_league()
     catalog = load_signal_catalog()
     row_df = df[(df.player_id == player_id) & (df.season_name == season_name)]
@@ -284,10 +361,16 @@ def build_explanation(player_id, season_name, position, style, emphasis_list,
     league_pool = pos_pool[pos_pool.league_label == league_label] if pd.notna(league_label) else None
 
     facts = _collect_facts(position, style, emphasis_list, row, league_pool, catalog)
+    profile_label, style_label = _profile_label(style, emphasis_list)
 
     def select(direction, cap):
         candidates = [f for f in facts if (f["global_pctile"] >= 60 if direction > 0 else f["global_pctile"] <= 40)]
-        scored = sorted(((f, _interestingness(f, direction)) for f in candidates), key=lambda t: -t[1])
+        # Primary sort: profile-relevance tier (lower = more central to the SELECTED profile).
+        # Secondary: interestingness, within that tier only -- general interestingness decides
+        # between similarly-relevant candidates, it never lets a peripheral Signal (higher tier
+        # number) outrank one genuinely tied to the selected Style/Emphasis.
+        scored = sorted(((f, _interestingness(f, direction)) for f in candidates),
+                         key=lambda t: (t[0]["tier"], -t[1]))
         chosen, used_groups = [], set()
         for f, _score in scored:
             if f["group"] in used_groups:
@@ -298,6 +381,47 @@ def build_explanation(player_id, season_name, position, style, emphasis_list,
                 break
         return chosen
 
-    strengths = [_render_fact(f, position, 1) for f in select(1, n_strengths_max)]
+    strengths = [_render_fact(f, position, 1, profile_label, style_label) for f in select(1, n_strengths_max)]
     weaknesses = [_render_fact(f, position, -1) for f in select(-1, n_weaknesses_max)]
-    return dict(strengths=strengths, weaknesses=weaknesses)
+    return dict(strengths=strengths, weaknesses=weaknesses, facts=facts, profile_label=profile_label, style_label=style_label)
+
+
+def build_why_fits(position, style, emphasis_list, facts, profile_label, style_label,
+                    current_final_score, alternatives, meaningful_gap=3.0):
+    """UI/UX Round 3 (point 2) -- 'Why He Fits [Emphasis]', distinct from 'Why He Stands Out':
+    scoped ONLY to Tier 1 (Emphasis core) and Tier 2 (Emphasis supporting) evidence -- the Signals
+    the locked EMPHASIS definition itself ties to this exact role, not the player's general
+    strengths. Uses the player's own real, existing same-Style/other-Emphasis combos (never
+    averaged/synthetic -- search_engine_v2.emphasis_alternatives) only to decide WHETHER the
+    selected Emphasis is a genuine standout worth framing that way; a small/no gap suppresses the
+    leader framing rather than forcing a comparison that isn't really there (per the explicit
+    instruction not to force comparisons with no meaningful distinction). Returns None when there
+    isn't enough genuine Emphasis-specific evidence to tell a distinct story from 'Why He Stands
+    Out' -- never manufactured."""
+    if style == "NoStyle" or not emphasis_list:
+        return None
+    candidates = [f for f in facts if f["tier"] <= 2 and f["global_pctile"] >= 55]
+    scored = sorted(((f, _interestingness(f, 1)) for f in candidates), key=lambda t: (t[0]["tier"], -t[1]))
+    chosen, used_groups = [], set()
+    for f, _score in scored:
+        if f["group"] in used_groups:
+            continue
+        chosen.append(f)
+        used_groups.add(f["group"])
+        if len(chosen) >= 3:
+            break
+    if len(chosen) < 2:
+        return None
+
+    gap = None
+    if alternatives:
+        best_alt = max(a["final_score"] for a in alternatives)
+        gap = current_final_score - best_alt
+    is_clear_leader = gap is not None and gap >= meaningful_gap
+
+    intro = None
+    if is_clear_leader:
+        intro = f"His clearest use of {style_label} football — {gap:.1f} points clear of his next-best Role Emphasis in this Style."
+
+    bullets = [dict(label=DOMAIN_INFO[f["domain"]]["strength"], **_render_fact(f, position, 1)) for f in chosen]
+    return dict(title=f"Why he fits {profile_label}", intro=intro, bullets=bullets, is_clear_leader=is_clear_leader)

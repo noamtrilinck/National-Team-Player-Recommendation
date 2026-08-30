@@ -26,8 +26,9 @@ from src.data_loader_v2 import (
 from src import search_engine_v2 as se
 from src.cards_v3 import render_result_row, render_detail_panel
 from src.charts import differentiating_metrics, metric_range_figure, scatter_metric_figure, bubble_metric_figure
+from src.chart_relevance import select_priority_metrics
 from src.charts_v2 import profile_comparison_figure
-from src.explanation_engine_v2 import build_explanation
+from src.explanation_engine_v2 import build_explanation, build_why_fits
 from src.nav import render_nav
 from src.league_coverage import parse_league_labels, prepare_league_coverage_display, render_league_coverage
 from src.nationality_flags import get_flag_html
@@ -212,10 +213,15 @@ else:
                 st.markdown('</div>', unsafe_allow_html=True)
 
             if is_open:
+                row_emphasis_list = list(row.emphasis.split("+")) if row.emphasis != "(none)" else []
                 explanation = build_explanation(int(row.player_id), row.season_name, row.position_v2, row.style,
-                                                 list(row.emphasis.split("+")) if row.emphasis != "(none)" else [])
+                                                 row_emphasis_list)
                 other = se.other_profiles(f50, row, query["style"], registry, exclude_combo=row["combo_id"])
-                st.markdown(render_detail_panel(row, row, combo_label, explanation, other), unsafe_allow_html=True)
+                alternatives = se.emphasis_alternatives(f50, row, row.style, exclude_combo=row["combo_id"])
+                why_fits = build_why_fits(row.position_v2, row.style, row_emphasis_list, explanation["facts"],
+                                           explanation["profile_label"], explanation["style_label"],
+                                           row["final_score"], alternatives)
+                st.markdown(render_detail_panel(row, row, combo_label, explanation, other, why_fits), unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
         same_group = df["position_v2"].nunique() == 1
@@ -246,6 +252,17 @@ else:
             mstats = load_match_level_stats()
             ref_position_group_df = players[players["position_v2"].isin(df["position_v2"].unique())]
             all_dm = differentiating_metrics(chart_df.head(MAX_METRIC_CHART_PLAYERS), mstats, "full_season", k=50)
+            # UI/UX Round 3 (points 4-6): reorder the discriminative-power-ranked pool by
+            # profile relevance to the SELECTED Style/Emphasis, one representative per football
+            # "story" (redundancy group) among the first 3 -- see src/chart_relevance.py and
+            # docs/v2_ui_redesign_round3.md sections 4-6. `all_dm` itself (discriminative order)
+            # is preserved unchanged for the Custom Chart Builder below.
+            _query_emphasis = list(query.get("emphasis") or ())
+            _first3, _rest = select_priority_metrics(
+                all_dm, df["position_v2"].iloc[0], query["style"], _query_emphasis, k=3)
+            all_dm_priority = _first3 + _rest  # first batch is profile-priority-ordered +
+            # redundancy-capped; later "+ Show More" batches continue in the pool's original
+            # discriminative order (no further redundancy cap, matching round-2 behaviour there)
 
             candidate_names = {
                 f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}": f"{r.player_name} — {r.season_club}"
@@ -281,38 +298,35 @@ else:
                     else:
                         st.markdown(no_data_msg, unsafe_allow_html=True)
 
-                def _render_batch(prefix, b):
+                # UI/UX Round 3 (point 5): each chart in a batch is now its own independent,
+                # single-metric comparison rather than the old "Signal A, Signal B, A+B combined"
+                # pattern -- three charts = three distinct pieces of information. The FIRST batch
+                # is profile-priority-ordered (chart_relevance.select_priority_metrics, one metric
+                # per relevant football "story" -- point 6); later batches continue through the
+                # remaining discriminative-power-ordered pool.
+                FIRST_BATCH_LABELS = ["Chart 1 — Core Domain", "Chart 2 — Key Signal", "Chart 3 — Complementary Dimension"]
+
+                def _render_batch(prefix, b, labeled=False):
                     if not b:
                         return
-                    fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_1", f"{METRIC_LABELS.get(b[0], b[0])} — by player")
-                    if rows:
-                        _render(metric_range_figure(b[0], METRIC_LABELS.get(b[0], b[0]), rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_1")
-                    if len(b) >= 2:
-                        fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_2", f"{METRIC_LABELS.get(b[1], b[1])} — by player")
+                    for idx, metric in enumerate(b):
+                        title = (f"{FIRST_BATCH_LABELS[idx]}: {METRIC_LABELS.get(metric, metric)}" if labeled and idx < len(FIRST_BATCH_LABELS)
+                                  else f"{METRIC_LABELS.get(metric, metric)} — by player")
+                        fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_{idx}", title)
                         if rows:
-                            _render(metric_range_figure(b[1], METRIC_LABELS.get(b[1], b[1]), rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_2")
-                        fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_scatter", f"{METRIC_LABELS.get(b[0], b[0])} vs. {METRIC_LABELS.get(b[1], b[1])}")
-                        if rows:
-                            _render(scatter_metric_figure(b[0], b[1], METRIC_LABELS.get(b[0], b[0]), METRIC_LABELS.get(b[1], b[1]),
-                                                           rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_scatter")
-                    if len(b) >= 3:
-                        x, y, sz = b[-2], b[-1], b[0]
-                        fk, vc, ml, rows = _metric_chart_controls(f"{prefix}_bubble", f"{METRIC_LABELS.get(x, x)} vs. {METRIC_LABELS.get(y, y)} (bubble size: {METRIC_LABELS.get(sz, sz)})")
-                        if rows:
-                            _render(bubble_metric_figure(x, y, sz, METRIC_LABELS.get(x, x), METRIC_LABELS.get(y, y), METRIC_LABELS.get(sz, sz),
-                                                          rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_bubble")
+                            _render(metric_range_figure(metric, METRIC_LABELS.get(metric, metric), rows, ref_position_group_df, mstats, fk, vc, ml), f"chart_{prefix}_{idx}")
 
                 st.session_state.setdefault("n_auto_batches", 1)
                 n_batches = st.session_state["n_auto_batches"]
                 for batch_num in range(1, n_batches + 1):
-                    batch_metrics = all_dm[(batch_num - 1) * 4: batch_num * 4]
+                    batch_metrics = all_dm_priority[(batch_num - 1) * 3: batch_num * 3]
                     if not batch_metrics:
                         break
                     if batch_num > 1:
                         st.markdown('<h3 style="font-family: var(--font-display); font-size:17px; margin-top:30px;">More standout metrics</h3>', unsafe_allow_html=True)
-                    _render_batch(f"auto_b{batch_num}", batch_metrics)
+                    _render_batch(f"auto_b{batch_num}", batch_metrics, labeled=(batch_num == 1))
 
-                more_available = len(all_dm) > n_batches * 4
+                more_available = len(all_dm_priority) > n_batches * 3
                 bcol1, _ = st.columns([1, 3])
                 with bcol1:
                     if more_available:

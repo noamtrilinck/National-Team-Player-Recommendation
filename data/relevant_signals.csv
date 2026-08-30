@@ -1,368 +1,368 @@
-kind,position,key,signal_name,safe_name
-position_quality,CB,,Tackles per90,Tackles_per90
-position_quality,CB,,Tackles Won %,Tackles_Won_pct
-position_quality,CB,,Tackle Share,Tackle_Share
-position_quality,CB,,Interceptions per90,Interceptions_per90
-position_quality,CB,,Interception Share,Interception_Share
-position_quality,CB,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,CB,,Ball Recovery Share,Ball_Recovery_Share
-position_quality,CB,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,CB,,Dribble Rate,Dribble_Rate
-position_quality,CB,,Dribble Success %,Dribble_Success_pct
-position_quality,CB,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,CB,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,CB,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,CB,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,CB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,CB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,CB,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-style,CB,Control,Backward Pass Rate,Backward_Pass_Rate
-style,CB,Control,Backward Pass Share,Backward_Pass_Share
-style,CB,Control,Pass Share,Pass_Share
-style,CB,Control,Accurate Passes %,Accurate_Passes_pct
-style,CB,Control,Passes per90,Passes_per90
-style,CB,Control,Backward Passes per90,Backward_Passes_per90
-style,CB,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,CB,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,CB,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,CB,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,CB,Direct,Long Ball Rate,Long_Ball_Rate
-style,CB,Direct,Long Ball Share,Long_Ball_Share
-style,CB,Direct,Directness Proxy,Directness_Proxy
-style,CB,Direct,Long Balls per90,Long_Balls_per90
-style,CB,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,FB,,Tackles per90,Tackles_per90
-position_quality,FB,,Tackle Share,Tackle_Share
-position_quality,FB,,Interceptions per90,Interceptions_per90
-position_quality,FB,,Interception Share,Interception_Share
-position_quality,FB,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,FB,,Ball Recovery Share,Ball_Recovery_Share
-position_quality,FB,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,FB,,Dribble Rate,Dribble_Rate
-position_quality,FB,,Dribble Success %,Dribble_Success_pct
-position_quality,FB,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,FB,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,FB,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,FB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,FB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,FB,,Total Crosses per90,Total_Crosses_per90
-position_quality,FB,,Cross Rate,Cross_Rate
-position_quality,FB,,Cross Accuracy %,Cross_Accuracy_pct
-position_quality,FB,,Cross Share,Cross_Share
-position_quality,FB,,Key Passes per90,Key_Passes_per90
-style,FB,Control,Backward Pass Rate,Backward_Pass_Rate
-style,FB,Control,Backward Pass Share,Backward_Pass_Share
-style,FB,Control,Pass Share,Pass_Share
-style,FB,Control,Accurate Passes %,Accurate_Passes_pct
-style,FB,Control,Passes per90,Passes_per90
-style,FB,Control,Backward Passes per90,Backward_Passes_per90
-style,FB,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,FB,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,FB,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,FB,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,FB,Direct,Long Ball Rate,Long_Ball_Rate
-style,FB,Direct,Long Ball Share,Long_Ball_Share
-style,FB,Direct,Directness Proxy,Directness_Proxy
-style,FB,Direct,Long Balls per90,Long_Balls_per90
-style,FB,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,WM,,Tackles per90,Tackles_per90
-position_quality,WM,,Tackle Share,Tackle_Share
-position_quality,WM,,Interceptions per90,Interceptions_per90
-position_quality,WM,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,WM,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,WM,,Dribble Rate,Dribble_Rate
-position_quality,WM,,Dribble Success %,Dribble_Success_pct
-position_quality,WM,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,WM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,WM,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,WM,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,WM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,WM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,WM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-position_quality,WM,,Shots Total per90,Shots_Total_per90
-position_quality,WM,,Shot Rate,Shot_Rate
-position_quality,WM,,Shooting Orientation,Shooting_Orientation
-position_quality,WM,,Shot Accuracy %,Shot_Accuracy_pct
-position_quality,WM,,Goal Conversion %,Goal_Conversion_pct
-position_quality,WM,,xG per Shot,xG_per_Shot
-position_quality,WM,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
-position_quality,WM,,Shot Share,Shot_Share
-position_quality,WM,,Goal Share Rel. Shot Share,Goal_Share_Rel_Shot_Share
-position_quality,WM,,Total Crosses per90,Total_Crosses_per90
-position_quality,WM,,Cross Rate,Cross_Rate
-position_quality,WM,,Cross Accuracy %,Cross_Accuracy_pct
-position_quality,WM,,Cross Share,Cross_Share
-position_quality,WM,,Key Passes per90,Key_Passes_per90
-position_quality,WM,,Key Pass Share,Key_Pass_Share
-style,WM,Control,Backward Pass Rate,Backward_Pass_Rate
-style,WM,Control,Backward Pass Share,Backward_Pass_Share
-style,WM,Control,Pass Share,Pass_Share
-style,WM,Control,Accurate Passes %,Accurate_Passes_pct
-style,WM,Control,Passes per90,Passes_per90
-style,WM,Control,Backward Passes per90,Backward_Passes_per90
-style,WM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,WM,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,WM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,WM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,WM,Direct,Long Ball Rate,Long_Ball_Rate
-style,WM,Direct,Long Ball Share,Long_Ball_Share
-style,WM,Direct,Directness Proxy,Directness_Proxy
-style,WM,Direct,Long Balls per90,Long_Balls_per90
-style,WM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-style_receiving,WM,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-style_receiving,WM,Direct,Aerial Duel Share,Aerial_Duel_Share
-position_quality,Winger,,Tackles per90,Tackles_per90
-position_quality,Winger,,Tackles Won %,Tackles_Won_pct
-position_quality,Winger,,Tackle Share,Tackle_Share
-position_quality,Winger,,Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share
-position_quality,Winger,,Interceptions per90,Interceptions_per90
-position_quality,Winger,,Interception Share,Interception_Share
-position_quality,Winger,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,Winger,,Ball Recovery Share,Ball_Recovery_Share
-position_quality,Winger,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,Winger,,Dribble Success %,Dribble_Success_pct
-position_quality,Winger,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,Winger,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,Winger,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,Winger,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,Winger,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,Winger,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,Winger,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-position_quality,Winger,,Shots Total per90,Shots_Total_per90
-position_quality,Winger,,Shot Rate,Shot_Rate
-position_quality,Winger,,Goal Conversion %,Goal_Conversion_pct
-position_quality,Winger,,Shot Share,Shot_Share
-position_quality,Winger,,Total Crosses per90,Total_Crosses_per90
-position_quality,Winger,,Cross Rate,Cross_Rate
-position_quality,Winger,,Cross Accuracy %,Cross_Accuracy_pct
-position_quality,Winger,,Cross Share,Cross_Share
-position_quality,Winger,,Big Chances Created per90,Big_Chances_Created_per90
-position_quality,Winger,,Key Passes per90,Key_Passes_per90
-style,Winger,Control,Backward Pass Rate,Backward_Pass_Rate
-style,Winger,Control,Backward Pass Share,Backward_Pass_Share
-style,Winger,Control,Pass Share,Pass_Share
-style,Winger,Control,Accurate Passes %,Accurate_Passes_pct
-style,Winger,Control,Passes per90,Passes_per90
-style,Winger,Control,Backward Passes per90,Backward_Passes_per90
-style,Winger,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,Winger,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,Winger,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,Winger,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,Winger,Direct,Long Ball Rate,Long_Ball_Rate
-style,Winger,Direct,Long Ball Share,Long_Ball_Share
-style,Winger,Direct,Directness Proxy,Directness_Proxy
-style,Winger,Direct,Long Balls per90,Long_Balls_per90
-style,Winger,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-style_receiving,Winger,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-style_receiving,Winger,Direct,Aerial Duel Share,Aerial_Duel_Share
-position_quality,DM,,Tackles per90,Tackles_per90
-position_quality,DM,,Tackle Share,Tackle_Share
-position_quality,DM,,Interceptions per90,Interceptions_per90
-position_quality,DM,,Interception Share,Interception_Share
-position_quality,DM,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,DM,,Ball Recovery Share,Ball_Recovery_Share
-position_quality,DM,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,DM,,Dribble Rate,Dribble_Rate
-position_quality,DM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,DM,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,DM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,DM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,DM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-style,DM,Control,Backward Pass Rate,Backward_Pass_Rate
-style,DM,Control,Backward Pass Share,Backward_Pass_Share
-style,DM,Control,Pass Share,Pass_Share
-style,DM,Control,Accurate Passes %,Accurate_Passes_pct
-style,DM,Control,Passes per90,Passes_per90
-style,DM,Control,Backward Passes per90,Backward_Passes_per90
-style,DM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,DM,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,DM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,DM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,DM,Direct,Long Ball Rate,Long_Ball_Rate
-style,DM,Direct,Long Ball Share,Long_Ball_Share
-style,DM,Direct,Directness Proxy,Directness_Proxy
-style,DM,Direct,Long Balls per90,Long_Balls_per90
-style,DM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,CM,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
-position_quality,CM,,Tackles per90,Tackles_per90
-position_quality,CM,,Tackle Share,Tackle_Share
-position_quality,CM,,Interceptions per90,Interceptions_per90
-position_quality,CM,,Interception Share,Interception_Share
-position_quality,CM,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,CM,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,CM,,Dribble Rate,Dribble_Rate
-position_quality,CM,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,CM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,CM,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,CM,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,CM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,CM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,CM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-position_quality,CM,,Shots Total per90,Shots_Total_per90
-position_quality,CM,,Shot Rate,Shot_Rate
-position_quality,CM,,Big Chances Created per90,Big_Chances_Created_per90
-position_quality,CM,,Key Passes per90,Key_Passes_per90
-position_quality,CM,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
-position_quality,CM,,Key Pass Conversion %,Key_Pass_Conversion_pct
-position_quality,CM,,Big Chance Created Share,Big_Chance_Created_Share
-position_quality,CM,,Key Pass Share,Key_Pass_Share
-style,CM,Control,Backward Pass Rate,Backward_Pass_Rate
-style,CM,Control,Backward Pass Share,Backward_Pass_Share
-style,CM,Control,Pass Share,Pass_Share
-style,CM,Control,Accurate Passes %,Accurate_Passes_pct
-style,CM,Control,Passes per90,Passes_per90
-style,CM,Control,Backward Passes per90,Backward_Passes_per90
-style,CM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,CM,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,CM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,CM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,CM,Direct,Long Ball Rate,Long_Ball_Rate
-style,CM,Direct,Long Ball Share,Long_Ball_Share
-style,CM,Direct,Directness Proxy,Directness_Proxy
-style,CM,Direct,Long Balls per90,Long_Balls_per90
-style,CM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,AM,,Tackles per90,Tackles_per90
-position_quality,AM,,Tackles Won %,Tackles_Won_pct
-position_quality,AM,,Tackle Share,Tackle_Share
-position_quality,AM,,Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share
-position_quality,AM,,Interceptions per90,Interceptions_per90
-position_quality,AM,,Interception Share,Interception_Share
-position_quality,AM,,Ball Recoveries per90,Ball_Recoveries_per90
-position_quality,AM,,Ball Recovery Share,Ball_Recovery_Share
-position_quality,AM,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,AM,,Dribble Rate,Dribble_Rate
-position_quality,AM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,AM,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,AM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,AM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,AM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-position_quality,AM,,Shots Total per90,Shots_Total_per90
-position_quality,AM,,Shot Rate,Shot_Rate
-position_quality,AM,,Goal Conversion %,Goal_Conversion_pct
-position_quality,AM,,Shot Share,Shot_Share
-position_quality,AM,,Big Chances Created per90,Big_Chances_Created_per90
-position_quality,AM,,Key Passes per90,Key_Passes_per90
-position_quality,AM,,Key Pass Share,Key_Pass_Share
-style,AM,Control,Backward Pass Rate,Backward_Pass_Rate
-style,AM,Control,Backward Pass Share,Backward_Pass_Share
-style,AM,Control,Pass Share,Pass_Share
-style,AM,Control,Accurate Passes %,Accurate_Passes_pct
-style,AM,Control,Passes per90,Passes_per90
-style,AM,Control,Backward Passes per90,Backward_Passes_per90
-style,AM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,AM,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,AM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,AM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,AM,Direct,Long Ball Rate,Long_Ball_Rate
-style,AM,Direct,Long Ball Share,Long_Ball_Share
-style,AM,Direct,Directness Proxy,Directness_Proxy
-style,AM,Direct,Long Balls per90,Long_Balls_per90
-style,AM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,CF,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
-position_quality,CF,,Dribble Attempts per90,Dribble_Attempts_per90
-position_quality,CF,,Dribble Rate,Dribble_Rate
-position_quality,CF,,Dribble Success %,Dribble_Success_pct
-position_quality,CF,,Dribble Attempt Share,Dribble_Attempt_Share
-position_quality,CF,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-position_quality,CF,,Aerial Duel Success %,Aerial_Duel_Success_pct
-position_quality,CF,,Aerial Duel Share,Aerial_Duel_Share
-position_quality,CF,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-position_quality,CF,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
-position_quality,CF,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
-position_quality,CF,,Shots Total per90,Shots_Total_per90
-position_quality,CF,,Shot Rate,Shot_Rate
-position_quality,CF,,Shot Accuracy %,Shot_Accuracy_pct
-position_quality,CF,,Goal Conversion %,Goal_Conversion_pct
-position_quality,CF,,xG per Shot,xG_per_Shot
-position_quality,CF,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
-position_quality,CF,,Big Chances Created per90,Big_Chances_Created_per90
-position_quality,CF,,Key Passes per90,Key_Passes_per90
-position_quality,CF,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
-position_quality,CF,,Key Pass Conversion %,Key_Pass_Conversion_pct
-position_quality,CF,,Big Chance Created Share,Big_Chance_Created_Share
-position_quality,CF,,Key Pass Share,Key_Pass_Share
-style,CF,Control,Backward Pass Rate,Backward_Pass_Rate
-style,CF,Control,Backward Pass Share,Backward_Pass_Share
-style,CF,Control,Pass Share,Pass_Share
-style,CF,Control,Accurate Passes %,Accurate_Passes_pct
-style,CF,Control,Passes per90,Passes_per90
-style,CF,Control,Backward Passes per90,Backward_Passes_per90
-style,CF,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
-style,CF,Progression,Final Third Pass Share,Final_Third_Pass_Share
-style,CF,Progression,Progressive Passing Preference,Progressive_Passing_Preference
-style,CF,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
-style,CF,Direct,Long Ball Rate,Long_Ball_Rate
-style,CF,Direct,Long Ball Share,Long_Ball_Share
-style,CF,Direct,Directness Proxy,Directness_Proxy
-style,CF,Direct,Long Balls per90,Long_Balls_per90
-style,CF,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
-style_receiving,CF,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-style_receiving,CF,Direct,Aerial Duel Share,Aerial_Duel_Share
-emphasis,CB,Aerial,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-emphasis,CB,Aerial,Aerial Duel Share,Aerial_Duel_Share
-emphasis,CB,Aerial,Aerial Duel Success %,Aerial_Duel_Success_pct
-emphasis,CB,Ground-Defensive,Tackles per90,Tackles_per90
-emphasis,CB,Ground-Defensive,Interceptions per90,Interceptions_per90
-emphasis,CB,Ground-Defensive,Ball Recoveries per90,Ball_Recoveries_per90
-emphasis,CB,Ground-Defensive,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-emphasis,CB,Ball-Playing,Passes per90,Passes_per90
-emphasis,CB,Ball-Playing,Pass Share,Pass_Share
-emphasis,CB,Ball-Playing,Long Balls Won %,Long_Balls_Won_pct
-emphasis,CB,Ball-Playing,Final Third Pass Rate,Final_Third_Pass_Rate
-emphasis,FB,Attacking,Total Crosses per90,Total_Crosses_per90
-emphasis,FB,Attacking,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,FB,Attacking,Final Third Pass Rate,Final_Third_Pass_Rate
-emphasis,FB,Attacking,Key Passes per90,Key_Passes_per90
-emphasis,FB,Defensive,Tackles per90,Tackles_per90
-emphasis,FB,Defensive,Interceptions per90,Interceptions_per90
-emphasis,FB,Defensive,Ball Recoveries per90,Ball_Recoveries_per90
-emphasis,FB,Defensive,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-emphasis,WM,Creator,Key Passes per90,Key_Passes_per90
-emphasis,WM,Creator,Total Crosses per90,Total_Crosses_per90
-emphasis,WM,Creator,Key Pass Share,Key_Pass_Share
-emphasis,WM,Creator,Cross Share,Cross_Share
-emphasis,WM,Ball Carrier,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,WM,Ball Carrier,Dribble Rate,Dribble_Rate
-emphasis,WM,Ball Carrier,Dribble Attempt Share,Dribble_Attempt_Share
-emphasis,WM,Defensive,Tackles per90,Tackles_per90
-emphasis,WM,Defensive,Interceptions per90,Interceptions_per90
-emphasis,WM,Defensive,Ball Recoveries per90,Ball_Recoveries_per90
-emphasis,Winger,Creator/Provider,Key Passes per90,Key_Passes_per90
-emphasis,Winger,Creator/Provider,Total Crosses per90,Total_Crosses_per90
-emphasis,Winger,Creator/Provider,Big Chances Created per90,Big_Chances_Created_per90
-emphasis,Winger,Creator/Provider,Cross Accuracy %,Cross_Accuracy_pct
-emphasis,Winger,Goal Threat,Shots Total per90,Shots_Total_per90
-emphasis,Winger,Goal Threat,Shot Rate,Shot_Rate
-emphasis,Winger,Goal Threat,Shot Share,Shot_Share
-emphasis,Winger,Goal Threat,Goal Conversion %,Goal_Conversion_pct
-emphasis,Winger,Ball Carrier,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,Winger,Ball Carrier,Dribble Rate,Dribble_Rate
-emphasis,Winger,Ball Carrier,Dribble Success %,Dribble_Success_pct
-emphasis,DM,Defensive Mind,Tackles per90,Tackles_per90
-emphasis,DM,Defensive Mind,Interceptions per90,Interceptions_per90
-emphasis,DM,Defensive Mind,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-emphasis,DM,Defensive Mind,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
-emphasis,DM,Progressor,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,DM,Progressor,Final Third Pass Rate,Final_Third_Pass_Rate
-emphasis,DM,Progressor,Dribble Rate,Dribble_Rate
-emphasis,CM,Ball-Winning,Tackles per90,Tackles_per90
-emphasis,CM,Ball-Winning,Interceptions per90,Interceptions_per90
-emphasis,CM,Ball-Winning,Ball Recoveries per90,Ball_Recoveries_per90
-emphasis,CM,Box-to-Box,Tackles per90,Tackles_per90
-emphasis,CM,Box-to-Box,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,CM,Box-to-Box,Shots Total per90,Shots_Total_per90
-emphasis,CM,Progressor,Dribble Attempts per90,Dribble_Attempts_per90
-emphasis,CM,Progressor,Final Third Pass Rate,Final_Third_Pass_Rate
-emphasis,CM,Progressor,Dribble Rate,Dribble_Rate
-emphasis,AM,Creator,Key Passes per90,Key_Passes_per90
-emphasis,AM,Creator,Big Chances Created per90,Big_Chances_Created_per90
-emphasis,AM,Creator,Key Pass Share,Key_Pass_Share
-emphasis,AM,Goal Threat,Shots Total per90,Shots_Total_per90
-emphasis,AM,Goal Threat,Shot Rate,Shot_Rate
-emphasis,AM,Goal Threat,Shot Share,Shot_Share
-emphasis,CF,Finisher,Shots Total per90,Shots_Total_per90
-emphasis,CF,Finisher,Shot Rate,Shot_Rate
-emphasis,CF,Finisher,Goal Conversion %,Goal_Conversion_pct
-emphasis,CF,Aerial Target,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
-emphasis,CF,Aerial Target,Aerial Duel Share,Aerial_Duel_Share
-emphasis,CF,Aerial Target,Aerial Duel Success %,Aerial_Duel_Success_pct
+kind,role,position,key,signal_name,safe_name
+position_quality,core,CB,,Tackles per90,Tackles_per90
+position_quality,core,CB,,Tackles Won %,Tackles_Won_pct
+position_quality,core,CB,,Tackle Share,Tackle_Share
+position_quality,core,CB,,Interceptions per90,Interceptions_per90
+position_quality,core,CB,,Interception Share,Interception_Share
+position_quality,core,CB,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,CB,,Ball Recovery Share,Ball_Recovery_Share
+position_quality,core,CB,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,CB,,Dribble Rate,Dribble_Rate
+position_quality,core,CB,,Dribble Success %,Dribble_Success_pct
+position_quality,core,CB,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,CB,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,CB,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,CB,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,CB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,CB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,CB,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+style,core,CB,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,CB,Control,Backward Pass Share,Backward_Pass_Share
+style,core,CB,Control,Pass Share,Pass_Share
+style,supporting,CB,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,CB,Control,Passes per90,Passes_per90
+style,supporting,CB,Control,Backward Passes per90,Backward_Passes_per90
+style,core,CB,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,CB,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,CB,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,CB,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,CB,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,CB,Direct,Long Ball Share,Long_Ball_Share
+style,core,CB,Direct,Directness Proxy,Directness_Proxy
+style,supporting,CB,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,CB,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,FB,,Tackles per90,Tackles_per90
+position_quality,core,FB,,Tackle Share,Tackle_Share
+position_quality,core,FB,,Interceptions per90,Interceptions_per90
+position_quality,core,FB,,Interception Share,Interception_Share
+position_quality,core,FB,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,FB,,Ball Recovery Share,Ball_Recovery_Share
+position_quality,core,FB,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,FB,,Dribble Rate,Dribble_Rate
+position_quality,core,FB,,Dribble Success %,Dribble_Success_pct
+position_quality,core,FB,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,FB,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,FB,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,FB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,FB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,FB,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,FB,,Cross Rate,Cross_Rate
+position_quality,core,FB,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,FB,,Cross Share,Cross_Share
+position_quality,core,FB,,Key Passes per90,Key_Passes_per90
+style,core,FB,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,FB,Control,Backward Pass Share,Backward_Pass_Share
+style,core,FB,Control,Pass Share,Pass_Share
+style,supporting,FB,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,FB,Control,Passes per90,Passes_per90
+style,supporting,FB,Control,Backward Passes per90,Backward_Passes_per90
+style,core,FB,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,FB,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,FB,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,FB,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,FB,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,FB,Direct,Long Ball Share,Long_Ball_Share
+style,core,FB,Direct,Directness Proxy,Directness_Proxy
+style,supporting,FB,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,FB,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,WM,,Tackles per90,Tackles_per90
+position_quality,core,WM,,Tackle Share,Tackle_Share
+position_quality,core,WM,,Interceptions per90,Interceptions_per90
+position_quality,core,WM,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,WM,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,WM,,Dribble Rate,Dribble_Rate
+position_quality,core,WM,,Dribble Success %,Dribble_Success_pct
+position_quality,core,WM,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,WM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,WM,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,WM,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,WM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,WM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,WM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,WM,,Shots Total per90,Shots_Total_per90
+position_quality,core,WM,,Shot Rate,Shot_Rate
+position_quality,core,WM,,Shooting Orientation,Shooting_Orientation
+position_quality,core,WM,,Shot Accuracy %,Shot_Accuracy_pct
+position_quality,core,WM,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,WM,,xG per Shot,xG_per_Shot
+position_quality,core,WM,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
+position_quality,core,WM,,Shot Share,Shot_Share
+position_quality,core,WM,,Goal Share Rel. Shot Share,Goal_Share_Rel_Shot_Share
+position_quality,core,WM,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,WM,,Cross Rate,Cross_Rate
+position_quality,core,WM,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,WM,,Cross Share,Cross_Share
+position_quality,core,WM,,Key Passes per90,Key_Passes_per90
+position_quality,core,WM,,Key Pass Share,Key_Pass_Share
+style,core,WM,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,WM,Control,Backward Pass Share,Backward_Pass_Share
+style,core,WM,Control,Pass Share,Pass_Share
+style,supporting,WM,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,WM,Control,Passes per90,Passes_per90
+style,supporting,WM,Control,Backward Passes per90,Backward_Passes_per90
+style,core,WM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,WM,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,WM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,WM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,WM,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,WM,Direct,Long Ball Share,Long_Ball_Share
+style,core,WM,Direct,Directness Proxy,Directness_Proxy
+style,supporting,WM,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,WM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+style_receiving,core,WM,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+style_receiving,core,WM,Direct,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,Winger,,Tackles per90,Tackles_per90
+position_quality,core,Winger,,Tackles Won %,Tackles_Won_pct
+position_quality,core,Winger,,Tackle Share,Tackle_Share
+position_quality,core,Winger,,Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share
+position_quality,core,Winger,,Interceptions per90,Interceptions_per90
+position_quality,core,Winger,,Interception Share,Interception_Share
+position_quality,core,Winger,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,Winger,,Ball Recovery Share,Ball_Recovery_Share
+position_quality,core,Winger,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,Winger,,Dribble Success %,Dribble_Success_pct
+position_quality,core,Winger,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,Winger,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,Winger,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,Winger,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,Winger,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,Winger,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,Winger,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,Winger,,Shots Total per90,Shots_Total_per90
+position_quality,core,Winger,,Shot Rate,Shot_Rate
+position_quality,core,Winger,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,Winger,,Shot Share,Shot_Share
+position_quality,core,Winger,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,Winger,,Cross Rate,Cross_Rate
+position_quality,core,Winger,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,Winger,,Cross Share,Cross_Share
+position_quality,core,Winger,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,Winger,,Key Passes per90,Key_Passes_per90
+style,core,Winger,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,Winger,Control,Backward Pass Share,Backward_Pass_Share
+style,core,Winger,Control,Pass Share,Pass_Share
+style,supporting,Winger,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,Winger,Control,Passes per90,Passes_per90
+style,supporting,Winger,Control,Backward Passes per90,Backward_Passes_per90
+style,core,Winger,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,Winger,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,Winger,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,Winger,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,Winger,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,Winger,Direct,Long Ball Share,Long_Ball_Share
+style,core,Winger,Direct,Directness Proxy,Directness_Proxy
+style,supporting,Winger,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,Winger,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+style_receiving,core,Winger,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+style_receiving,core,Winger,Direct,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,DM,,Tackles per90,Tackles_per90
+position_quality,core,DM,,Tackle Share,Tackle_Share
+position_quality,core,DM,,Interceptions per90,Interceptions_per90
+position_quality,core,DM,,Interception Share,Interception_Share
+position_quality,core,DM,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,DM,,Ball Recovery Share,Ball_Recovery_Share
+position_quality,core,DM,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,DM,,Dribble Rate,Dribble_Rate
+position_quality,core,DM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,DM,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,DM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,DM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,DM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+style,core,DM,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,DM,Control,Backward Pass Share,Backward_Pass_Share
+style,core,DM,Control,Pass Share,Pass_Share
+style,supporting,DM,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,DM,Control,Passes per90,Passes_per90
+style,supporting,DM,Control,Backward Passes per90,Backward_Passes_per90
+style,core,DM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,DM,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,DM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,DM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,DM,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,DM,Direct,Long Ball Share,Long_Ball_Share
+style,core,DM,Direct,Directness Proxy,Directness_Proxy
+style,supporting,DM,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,DM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,CM,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
+position_quality,core,CM,,Tackles per90,Tackles_per90
+position_quality,core,CM,,Tackle Share,Tackle_Share
+position_quality,core,CM,,Interceptions per90,Interceptions_per90
+position_quality,core,CM,,Interception Share,Interception_Share
+position_quality,core,CM,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,CM,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,CM,,Dribble Rate,Dribble_Rate
+position_quality,core,CM,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,CM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,CM,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,CM,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,CM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,CM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,CM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,CM,,Shots Total per90,Shots_Total_per90
+position_quality,core,CM,,Shot Rate,Shot_Rate
+position_quality,core,CM,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,CM,,Key Passes per90,Key_Passes_per90
+position_quality,core,CM,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
+position_quality,core,CM,,Key Pass Conversion %,Key_Pass_Conversion_pct
+position_quality,core,CM,,Big Chance Created Share,Big_Chance_Created_Share
+position_quality,core,CM,,Key Pass Share,Key_Pass_Share
+style,core,CM,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,CM,Control,Backward Pass Share,Backward_Pass_Share
+style,core,CM,Control,Pass Share,Pass_Share
+style,supporting,CM,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,CM,Control,Passes per90,Passes_per90
+style,supporting,CM,Control,Backward Passes per90,Backward_Passes_per90
+style,core,CM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,CM,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,CM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,CM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,CM,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,CM,Direct,Long Ball Share,Long_Ball_Share
+style,core,CM,Direct,Directness Proxy,Directness_Proxy
+style,supporting,CM,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,CM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,AM,,Tackles per90,Tackles_per90
+position_quality,core,AM,,Tackles Won %,Tackles_Won_pct
+position_quality,core,AM,,Tackle Share,Tackle_Share
+position_quality,core,AM,,Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share
+position_quality,core,AM,,Interceptions per90,Interceptions_per90
+position_quality,core,AM,,Interception Share,Interception_Share
+position_quality,core,AM,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,AM,,Ball Recovery Share,Ball_Recovery_Share
+position_quality,core,AM,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,AM,,Dribble Rate,Dribble_Rate
+position_quality,core,AM,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,AM,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,AM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,AM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,AM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,AM,,Shots Total per90,Shots_Total_per90
+position_quality,core,AM,,Shot Rate,Shot_Rate
+position_quality,core,AM,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,AM,,Shot Share,Shot_Share
+position_quality,core,AM,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,AM,,Key Passes per90,Key_Passes_per90
+position_quality,core,AM,,Key Pass Share,Key_Pass_Share
+style,core,AM,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,AM,Control,Backward Pass Share,Backward_Pass_Share
+style,core,AM,Control,Pass Share,Pass_Share
+style,supporting,AM,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,AM,Control,Passes per90,Passes_per90
+style,supporting,AM,Control,Backward Passes per90,Backward_Passes_per90
+style,core,AM,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,AM,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,AM,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,AM,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,AM,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,AM,Direct,Long Ball Share,Long_Ball_Share
+style,core,AM,Direct,Directness Proxy,Directness_Proxy
+style,supporting,AM,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,AM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,CF,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
+position_quality,core,CF,,Dribble Attempts per90,Dribble_Attempts_per90
+position_quality,core,CF,,Dribble Rate,Dribble_Rate
+position_quality,core,CF,,Dribble Success %,Dribble_Success_pct
+position_quality,core,CF,,Dribble Attempt Share,Dribble_Attempt_Share
+position_quality,core,CF,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+position_quality,core,CF,,Aerial Duel Success %,Aerial_Duel_Success_pct
+position_quality,core,CF,,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,CF,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+position_quality,core,CF,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,CF,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,CF,,Shots Total per90,Shots_Total_per90
+position_quality,core,CF,,Shot Rate,Shot_Rate
+position_quality,core,CF,,Shot Accuracy %,Shot_Accuracy_pct
+position_quality,core,CF,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,CF,,xG per Shot,xG_per_Shot
+position_quality,core,CF,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
+position_quality,core,CF,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,CF,,Key Passes per90,Key_Passes_per90
+position_quality,core,CF,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
+position_quality,core,CF,,Key Pass Conversion %,Key_Pass_Conversion_pct
+position_quality,core,CF,,Big Chance Created Share,Big_Chance_Created_Share
+position_quality,core,CF,,Key Pass Share,Key_Pass_Share
+style,core,CF,Control,Backward Pass Rate,Backward_Pass_Rate
+style,core,CF,Control,Backward Pass Share,Backward_Pass_Share
+style,core,CF,Control,Pass Share,Pass_Share
+style,supporting,CF,Control,Accurate Passes %,Accurate_Passes_pct
+style,supporting,CF,Control,Passes per90,Passes_per90
+style,supporting,CF,Control,Backward Passes per90,Backward_Passes_per90
+style,core,CF,Progression,Final Third Pass Rate,Final_Third_Pass_Rate
+style,core,CF,Progression,Final Third Pass Share,Final_Third_Pass_Share
+style,core,CF,Progression,Progressive Passing Preference,Progressive_Passing_Preference
+style,supporting,CF,Progression,Passes in Final Third per90,Passes_in_Final_Third_per90
+style,core,CF,Direct,Long Ball Rate,Long_Ball_Rate
+style,core,CF,Direct,Long Ball Share,Long_Ball_Share
+style,core,CF,Direct,Directness Proxy,Directness_Proxy
+style,supporting,CF,Direct,Long Balls per90,Long_Balls_per90
+style,supporting,CF,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
+style_receiving,core,CF,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+style_receiving,core,CF,Direct,Aerial Duel Share,Aerial_Duel_Share
+emphasis,core,CB,Aerial,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+emphasis,core,CB,Aerial,Aerial Duel Share,Aerial_Duel_Share
+emphasis,supporting,CB,Aerial,Aerial Duel Success %,Aerial_Duel_Success_pct
+emphasis,core,CB,Ground-Defensive,Tackles per90,Tackles_per90
+emphasis,core,CB,Ground-Defensive,Interceptions per90,Interceptions_per90
+emphasis,core,CB,Ground-Defensive,Ball Recoveries per90,Ball_Recoveries_per90
+emphasis,supporting,CB,Ground-Defensive,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+emphasis,core,CB,Ball-Playing,Passes per90,Passes_per90
+emphasis,core,CB,Ball-Playing,Pass Share,Pass_Share
+emphasis,supporting,CB,Ball-Playing,Long Balls Won %,Long_Balls_Won_pct
+emphasis,supporting,CB,Ball-Playing,Final Third Pass Rate,Final_Third_Pass_Rate
+emphasis,core,FB,Attacking,Total Crosses per90,Total_Crosses_per90
+emphasis,core,FB,Attacking,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,core,FB,Attacking,Final Third Pass Rate,Final_Third_Pass_Rate
+emphasis,supporting,FB,Attacking,Key Passes per90,Key_Passes_per90
+emphasis,core,FB,Defensive,Tackles per90,Tackles_per90
+emphasis,core,FB,Defensive,Interceptions per90,Interceptions_per90
+emphasis,core,FB,Defensive,Ball Recoveries per90,Ball_Recoveries_per90
+emphasis,supporting,FB,Defensive,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+emphasis,core,WM,Creator,Key Passes per90,Key_Passes_per90
+emphasis,core,WM,Creator,Total Crosses per90,Total_Crosses_per90
+emphasis,supporting,WM,Creator,Key Pass Share,Key_Pass_Share
+emphasis,supporting,WM,Creator,Cross Share,Cross_Share
+emphasis,core,WM,Ball Carrier,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,core,WM,Ball Carrier,Dribble Rate,Dribble_Rate
+emphasis,core,WM,Ball Carrier,Dribble Attempt Share,Dribble_Attempt_Share
+emphasis,core,WM,Defensive,Tackles per90,Tackles_per90
+emphasis,core,WM,Defensive,Interceptions per90,Interceptions_per90
+emphasis,core,WM,Defensive,Ball Recoveries per90,Ball_Recoveries_per90
+emphasis,core,Winger,Creator/Provider,Key Passes per90,Key_Passes_per90
+emphasis,core,Winger,Creator/Provider,Total Crosses per90,Total_Crosses_per90
+emphasis,supporting,Winger,Creator/Provider,Big Chances Created per90,Big_Chances_Created_per90
+emphasis,supporting,Winger,Creator/Provider,Cross Accuracy %,Cross_Accuracy_pct
+emphasis,core,Winger,Goal Threat,Shots Total per90,Shots_Total_per90
+emphasis,core,Winger,Goal Threat,Shot Rate,Shot_Rate
+emphasis,supporting,Winger,Goal Threat,Shot Share,Shot_Share
+emphasis,supporting,Winger,Goal Threat,Goal Conversion %,Goal_Conversion_pct
+emphasis,core,Winger,Ball Carrier,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,core,Winger,Ball Carrier,Dribble Rate,Dribble_Rate
+emphasis,supporting,Winger,Ball Carrier,Dribble Success %,Dribble_Success_pct
+emphasis,core,DM,Defensive Mind,Tackles per90,Tackles_per90
+emphasis,core,DM,Defensive Mind,Interceptions per90,Interceptions_per90
+emphasis,core,DM,Defensive Mind,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+emphasis,supporting,DM,Defensive Mind,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
+emphasis,core,DM,Progressor,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,core,DM,Progressor,Final Third Pass Rate,Final_Third_Pass_Rate
+emphasis,supporting,DM,Progressor,Dribble Rate,Dribble_Rate
+emphasis,core,CM,Ball-Winning,Tackles per90,Tackles_per90
+emphasis,core,CM,Ball-Winning,Interceptions per90,Interceptions_per90
+emphasis,core,CM,Ball-Winning,Ball Recoveries per90,Ball_Recoveries_per90
+emphasis,core,CM,Box-to-Box,Tackles per90,Tackles_per90
+emphasis,core,CM,Box-to-Box,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,supporting,CM,Box-to-Box,Shots Total per90,Shots_Total_per90
+emphasis,core,CM,Progressor,Dribble Attempts per90,Dribble_Attempts_per90
+emphasis,core,CM,Progressor,Final Third Pass Rate,Final_Third_Pass_Rate
+emphasis,supporting,CM,Progressor,Dribble Rate,Dribble_Rate
+emphasis,core,AM,Creator,Key Passes per90,Key_Passes_per90
+emphasis,core,AM,Creator,Big Chances Created per90,Big_Chances_Created_per90
+emphasis,supporting,AM,Creator,Key Pass Share,Key_Pass_Share
+emphasis,core,AM,Goal Threat,Shots Total per90,Shots_Total_per90
+emphasis,core,AM,Goal Threat,Shot Rate,Shot_Rate
+emphasis,supporting,AM,Goal Threat,Shot Share,Shot_Share
+emphasis,core,CF,Finisher,Shots Total per90,Shots_Total_per90
+emphasis,core,CF,Finisher,Shot Rate,Shot_Rate
+emphasis,supporting,CF,Finisher,Goal Conversion %,Goal_Conversion_pct
+emphasis,core,CF,Aerial Target,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
+emphasis,core,CF,Aerial Target,Aerial Duel Share,Aerial_Duel_Share
+emphasis,supporting,CF,Aerial Target,Aerial Duel Success %,Aerial_Duel_Success_pct

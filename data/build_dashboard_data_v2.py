@@ -178,23 +178,35 @@ def build_signal_explanation_data(players):
     print(f"\nsignal_scores.parquet: {len(trimmed)} rows, {len(trimmed.columns)} columns "
           f"(trimmed from {len(src.columns)})")
 
+    # UI/UX Round 3 (2026-08-30): `role` (core/supporting) is now exported alongside `kind`,
+    # read directly from the SAME locked meta.STYLE["core"/"supporting"] and
+    # meta.EMPHASIS[...]["core"/"supporting"] dicts scoring itself uses -- not an invented
+    # split. This lets the deployed app rank a profile's relevant Signals by how directly the
+    # LOCKED architecture ties them to the selected Style/Emphasis (core=defining, supporting=
+    # contributing) instead of treating every relevant Signal as equally central.
     rows = []
     for posn in meta.POSITIONS:
         for sig, w in de.position_quality_weights(posn).items():
             if w > 0:
-                rows.append(dict(kind="position_quality", position=posn, key=None,
+                rows.append(dict(kind="position_quality", role="core", position=posn, key=None,
                                   signal_name=sig, safe_name=meta.safe_name(sig)))
         for style, st_def in meta.STYLE.items():
-            for sig in st_def["core"] + st_def.get("supporting", []):
-                rows.append(dict(kind="style", position=posn, key=style,
+            for sig in st_def["core"]:
+                rows.append(dict(kind="style", role="core", position=posn, key=style,
+                                  signal_name=sig, safe_name=meta.safe_name(sig)))
+            for sig in st_def.get("supporting", []):
+                rows.append(dict(kind="style", role="supporting", position=posn, key=style,
                                   signal_name=sig, safe_name=meta.safe_name(sig)))
             if style == "Direct" and posn in meta.DIRECT_RECEIVING_POSITIONS:
                 for sig in st_def.get("core_receiving", []):
-                    rows.append(dict(kind="style_receiving", position=posn, key=style,
+                    rows.append(dict(kind="style_receiving", role="core", position=posn, key=style,
                                       signal_name=sig, safe_name=meta.safe_name(sig)))
     for (posn, emph), def_ in meta.EMPHASIS.items():
-        for sig in def_["core"] + def_.get("supporting", []):
-            rows.append(dict(kind="emphasis", position=posn, key=emph,
+        for sig in def_["core"]:
+            rows.append(dict(kind="emphasis", role="core", position=posn, key=emph,
+                              signal_name=sig, safe_name=meta.safe_name(sig)))
+        for sig in def_.get("supporting", []):
+            rows.append(dict(kind="emphasis", role="supporting", position=posn, key=emph,
                               signal_name=sig, safe_name=meta.safe_name(sig)))
 
     rel = pd.DataFrame(rows).drop_duplicates()

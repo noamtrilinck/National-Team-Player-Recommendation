@@ -113,7 +113,29 @@ def render_other_profiles_compact(other_rows):
     """
 
 
-def render_detail_panel(row, score_row, combo_label, explanation, other_rows):
+def _render_why_fits(why_fits):
+    """UI/UX Round 3 -- 'Why He Fits [Emphasis]', shown only when build_why_fits() found genuine
+    Emphasis-specific (Tier 1/2) evidence; omitted entirely otherwise (never forced)."""
+    if not why_fits:
+        return ""
+    intro_html = f'<div style="font-size:12.5px; color:var(--ink-muted); margin-bottom:8px;">{html.escape(why_fits["intro"])}</div>' \
+        if why_fits.get("intro") else ""
+    bullets_html = "".join(
+        f'<div style="margin-bottom:9px;">'
+        f'<div style="font-weight:600; font-size:13px; color:var(--ink);">{html.escape(b["label"])}</div>'
+        f'<div style="font-size:12.5px; color:var(--ink-muted); margin:2px 0;">{html.escape(b["body"])}</div>'
+        f'</div>'
+        for b in why_fits["bullets"]
+    )
+    return f"""
+    <div style="margin-top:16px; padding:12px 14px; border:1px solid var(--rule); border-radius:6px; background:var(--progression-tint);">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.04em; color:{SCORE_COLOR}; margin-bottom:6px; font-weight:600;">{html.escape(why_fits["title"])}</div>
+      {intro_html}{bullets_html}
+    </div>
+    """
+
+
+def render_detail_panel(row, score_row, combo_label, explanation, other_rows, why_fits=None):
     pctile = round((1 - (score_row["rank"] - 1) / score_row["population"]) * 100, 1)
 
     strengths_html = "".join(_render_insight(s) for s in explanation["strengths"]) or \
@@ -131,6 +153,7 @@ def render_detail_panel(row, score_row, combo_label, explanation, other_rows):
           <div class="num">#{int(score_row['rank'])}</div>
           <div class="fixedtag">of {int(score_row['population'])} eligible players — {pctile:.0f}th percentile</div></div>
       </div>
+      {_render_why_fits(why_fits)}
       <div class="ntpr-dan-cols">
         <div class="ntpr-dan-block"><h4>Why he stands out</h4><div class="ntpr-dan-list">{strengths_html}</div></div>
         <div class="ntpr-dan-block"><h4>Areas to watch</h4><div class="ntpr-dan-list">{weaknesses_html}</div></div>

@@ -149,6 +149,27 @@ def other_profiles(f50_scores, player_row, current_style, registry, exclude_comb
     return out
 
 
+def emphasis_alternatives(f50_scores, player_row, style, exclude_combo=None):
+    """UI/UX Round 3 -- for 'Why He Fits [Emphasis]': every real, existing combo for this player's
+    own scoring group at the SAME Style, across every Emphasis the registry defines for it
+    (including Generic/no-Emphasis) -- never averaged/synthetic, same rule as other_profiles().
+    Used to tell whether the selected Emphasis is a genuine leader among the player's own
+    alternatives for that Style, or one of several similarly-scoring options."""
+    g8 = player_row["position_v2"]
+    mine = f50_scores[(f50_scores.player_id == player_row["player_id"]) &
+                       (f50_scores.season_id == player_row["season_id"]) &
+                       (f50_scores.team_id == player_row["team_id"]) &
+                       (f50_scores.position == g8) & (f50_scores["style"] == style)]
+    if exclude_combo is not None:
+        mine = mine[mine.combo_id != exclude_combo]
+    out = []
+    for _, r in mine.iterrows():
+        out.append(dict(emphasis="Generic" if r.emphasis == "(none)" else r.emphasis,
+                         final_score=r.final_score, rank=r["rank"], population=r.population,
+                         combo_id=r.combo_id))
+    return sorted(out, key=lambda d: -d["final_score"])
+
+
 def apply_side_filter(df, plan):
     """df: a DataFrame with columns player_id/position_v2/primary_detailed_position already
     merged in. Filters to exactly the players the plan's side selection implies, per group8."""
