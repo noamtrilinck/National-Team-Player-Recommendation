@@ -128,6 +128,16 @@ def main():
     reg.to_csv(OUT_DIR / "f50_registry.csv", index=False)
     print(f"f50_registry.csv: {len(reg)} rows (192 expected)")
 
+    # ---------------- signal_scores.parquet + relevant_signals.csv ----------------
+    # DEPLOYMENT FIX (2026-08-30): explanation_engine_v2.py previously imported signal_meta/
+    # decomposed_engine directly from production/player_evaluation_v2/engine at RUNTIME, and read
+    # PRODUCTION_signal_scores.parquet via an absolute production/ path -- both outside the
+    # dashboard's own deployed repository, which broke on Streamlit Cloud (ModuleNotFoundError).
+    # Both are now precomputed here (build time, dev environment only -- this script is never
+    # imported by the deployed app) and exported as plain DATA into dashboard/data/, so the
+    # deployed app has zero runtime dependency on production/ code or paths.
+    build_signal_explanation_data(players)
+
     print("\nposition_v2 distribution:")
     print(players.position_v2.value_counts().to_string())
     print("\nAny row in players.csv missing from f50_scores.csv (should be 0 -- every player-season "
@@ -135,6 +145,61 @@ def main():
     have_scores = set(f50[JOIN_KEY].drop_duplicates().itertuples(index=False, name=None))
     have_players = set(players[JOIN_KEY].drop_duplicates().itertuples(index=False, name=None))
     print(len(have_players - have_scores))
+
+
+def build_signal_explanation_data(players):
+    """Exports two self-contained DATA files for the deployed explanation_engine_v2.py:
+      - signal_scores.parquet: trimmed PRODUCTION_signal_scores (player_id, season_name,
+        reference_position_group, + every Signal's __raw/__percentile column -- __Z/__shrunk/
+        __SignalScore dropped, not needed for explanations).
+      - relevant_signals.csv: (kind, position, key, signal_name, safe_name) rows -- kind is
+        'position_quality' | 'style' | 'style_receiving' | 'emphasis'; key is the style name or
+        emphasis name; signal_name is the original ("Tackles per90"), safe_name is the parquet
+        column prefix. Lets the deployed app compute "which Signals matter for this profile"
+        via a plain data lookup, with zero dependency on signal_meta.py/decomposed_engine.py at
+        runtime.
+    Reads signal_meta/decomposed_engine here ONLY (build time, dev environment) -- this script is
+    never imported by the deployed app itself.
+    """
+    sys.path.insert(0, str(V2 / "engine"))
+    import signal_meta as meta
+    import decomposed_engine as de
+
+    src = pd.read_parquet(cfg.RESULTS_DIR / "PRODUCTION_signal_scores.parquet")
+    keep_cols = ["player_id", "season_name", "reference_position_group"]
+    for sig in meta.ALL_SIGNALS:
+        safe = meta.safe_name(sig)
+        for suffix in ("__raw", "__percentile"):
+            col = f"{safe}{suffix}"
+            if col in src.columns:
+                keep_cols.append(col)
+    trimmed = src[keep_cols]
+    trimmed.to_parquet(OUT_DIR / "signal_scores.parquet", index=False)
+    print(f"\nsignal_scores.parquet: {len(trimmed)} rows, {len(trimmed.columns)} columns "
+          f"(trimmed from {len(src.columns)})")
+
+    rows = []
+    for posn in meta.POSITIONS:
+        for sig, w in de.position_quality_weights(posn).items():
+            if w > 0:
+                rows.append(dict(kind="position_quality", position=posn, key=None,
+                                  signal_name=sig, safe_name=meta.safe_name(sig)))
+        for style, st_def in meta.STYLE.items():
+            for sig in st_def["core"] + st_def.get("supporting", []):
+                rows.append(dict(kind="style", position=posn, key=style,
+                                  signal_name=sig, safe_name=meta.safe_name(sig)))
+            if style == "Direct" and posn in meta.DIRECT_RECEIVING_POSITIONS:
+                for sig in st_def.get("core_receiving", []):
+                    rows.append(dict(kind="style_receiving", position=posn, key=style,
+                                      signal_name=sig, safe_name=meta.safe_name(sig)))
+    for (posn, emph), def_ in meta.EMPHASIS.items():
+        for sig in def_["core"] + def_.get("supporting", []):
+            rows.append(dict(kind="emphasis", position=posn, key=emph,
+                              signal_name=sig, safe_name=meta.safe_name(sig)))
+
+    rel = pd.DataFrame(rows).drop_duplicates()
+    rel.to_csv(OUT_DIR / "relevant_signals.csv", index=False)
+    print(f"relevant_signals.csv: {len(rel)} rows ({rel.kind.value_counts().to_dict()})")
 
 
 if __name__ == "__main__":

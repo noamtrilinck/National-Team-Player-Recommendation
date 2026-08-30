@@ -7,23 +7,23 @@ actual underlying Signal values, using three kinds of evidence (global percentil
 percentile, raw stat), choosing whichever tells the story best rather than repeating all three for
 every fact. League-relative percentile is DISPLAY ONLY -- never fed back into any score.
 
-Data source: production/player_evaluation_v2/results/PRODUCTION_signal_scores.parquet, which
-already carries `{signal}__percentile` (position-relative, i.e. the "global percentile" this
-module reports) and `{signal}__raw` for all 54 Signals -- these are read as-is, never recomputed.
+DEPLOYMENT FIX (2026-08-30): this module previously imported signal_meta/decomposed_engine
+directly from production/player_evaluation_v2/engine at runtime, and read
+PRODUCTION_signal_scores.parquet via an absolute production/ path -- both live OUTSIDE this
+project's own deployed repository (National-Team-Player-Recommendation), which broke the
+Streamlit Cloud deployment (ModuleNotFoundError: No module named 'signal_meta'). This module is
+now fully self-contained: it reads only files committed inside dashboard/data/
+(signal_scores.parquet, relevant_signals.csv), both precomputed at BUILD time by
+data/build_dashboard_data_v2.py (which runs only in the dev environment, never deployed, and is
+the one place still allowed to import the production/ engine directly). No production/ import, no
+absolute filesystem path, and no sys.path modification exist anywhere in this module.
 """
-import sys
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import streamlit as st
 
-V2_ENGINE = Path(r"C:\Users\נועם\Desktop\Football Data\Projects\National Team Selection\production\player_evaluation_v2\engine")
-V2_RESULTS = Path(r"C:\Users\נועם\Desktop\Football Data\Projects\National Team Selection\production\player_evaluation_v2\results")
-if str(V2_ENGINE) not in sys.path:
-    sys.path.insert(0, str(V2_ENGINE))
-import signal_meta as meta  # noqa: E402
-import decomposed_engine as de  # noqa: E402
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 # ---------------- football-readable phrase templates ----------------
 # {v} = raw value already formatted by the caller. Only signals actually reachable by some
@@ -112,16 +112,19 @@ def phrase_for(sig, raw):
 
 @st.cache_data
 def load_signal_scores():
-    return pd.read_parquet(V2_RESULTS / "PRODUCTION_signal_scores.parquet")
+    return pd.read_parquet(DATA_DIR / "signal_scores.parquet")
+
+
+@st.cache_data
+def load_relevant_signals():
+    return pd.read_csv(DATA_DIR / "relevant_signals.csv")
 
 
 @st.cache_data
 def load_signal_scores_with_league():
     """Signal scores merged with each player-season's league_label from players.csv (display-only
     join -- league-relative percentiles computed from this are NEVER fed back into any score)."""
-    from pathlib import Path
-    players = pd.read_csv(Path(__file__).resolve().parent.parent / "data" / "players.csv",
-                           usecols=["player_id", "season_name", "league_label"])
+    players = pd.read_csv(DATA_DIR / "players.csv", usecols=["player_id", "season_name", "league_label"])
     df = load_signal_scores().merge(players, on=["player_id", "season_name"], how="left")
     return df
 
@@ -129,18 +132,24 @@ def load_signal_scores_with_league():
 def relevant_signals_for(position, style, emphasis_list):
     """Union of Signals that actually matter for this exact profile: Position Quality's own
     weighted Signals for this position, plus the selected Style's core/supporting Signals, plus
-    every selected Emphasis's core/supporting Signals. This is what makes the explanation specific
-    to the profile being viewed, not a generic dump of all 54 Signals."""
-    sigs = set(s for s, w in de.position_quality_weights(position).items() if w > 0)
+    every selected Emphasis's core/supporting Signals -- looked up from the precomputed
+    relevant_signals.csv (no production/ code dependency). Returns {(signal_name, safe_name)}."""
+    rel = load_relevant_signals()
+    sigs = set()
+
+    pq = rel[(rel.kind == "position_quality") & (rel.position == position)]
+    sigs |= set(zip(pq.signal_name, pq.safe_name))
+
     if style and style != "NoStyle":
-        st_def = meta.STYLE[style]
-        sigs |= set(st_def["core"]) | set(st_def.get("supporting", []))
-        if style == "Direct" and position in meta.DIRECT_RECEIVING_POSITIONS:
-            sigs |= set(st_def.get("core_receiving", []))
+        st_rows = rel[(rel.kind == "style") & (rel.position == position) & (rel.key == style)]
+        sigs |= set(zip(st_rows.signal_name, st_rows.safe_name))
+        recv_rows = rel[(rel.kind == "style_receiving") & (rel.position == position) & (rel.key == style)]
+        sigs |= set(zip(recv_rows.signal_name, recv_rows.safe_name))
+
     for e in emphasis_list:
-        key = (position, e)
-        if key in meta.EMPHASIS:
-            sigs |= set(meta.EMPHASIS[key]["core"]) | set(meta.EMPHASIS[key].get("supporting", []))
+        e_rows = rel[(rel.kind == "emphasis") & (rel.position == position) & (rel.key == e)]
+        sigs |= set(zip(e_rows.signal_name, e_rows.safe_name))
+
     return sigs
 
 
@@ -160,10 +169,9 @@ def build_explanation(player_id, season_name, position, style, emphasis_list,
     pos_pool = df[df.reference_position_group == position]
     league_pool = pos_pool[pos_pool.league_label == league_label] if pd.notna(league_label) else None
 
-    sigs = sorted(relevant_signals_for(position, style, emphasis_list))
+    sig_pairs = sorted(relevant_signals_for(position, style, emphasis_list))
     facts = []
-    for sig in sigs:
-        safe = meta.safe_name(sig)
+    for sig, safe in sig_pairs:
         pctile_col, raw_col = f"{safe}__percentile", f"{safe}__raw"
         if pctile_col not in df.columns or pd.isna(row.get(pctile_col)) or pd.isna(row.get(raw_col)):
             continue
