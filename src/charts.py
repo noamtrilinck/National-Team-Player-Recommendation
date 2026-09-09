@@ -157,8 +157,8 @@ def missing_data_players(chart_rows, mstats, metrics, filter_key, value_col):
 
 def missing_data_reason(row, eligibility, filter_key):
     """UI/UX Round 5 (points 2-5, data-audit follow-up) -- precise, honest reason a player is
-    missing from a chart under a match filter with its own minimum-minutes gate (home/away/last_3_
-    months/last_6_months/top_opponents/bottom_opponents), sourced from the ALREADY-LOCKED,
+    missing from a chart under a match filter with its own minimum-minutes gate (home/away/
+    second_half_of_season/top_opponents/bottom_opponents), sourced from the ALREADY-LOCKED,
     disclosed filter_eligibility.csv (production/match_level's own minimum-minutes-per-filter
     rule -- see docs/v2_ui_redesign_round5.md for the full audit confirming this is real,
     intentional, evidence-based methodology, not a bug). Returns a short clause, e.g. "no minutes

@@ -19,7 +19,7 @@ import pandas as pd
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.data_loader import load_match_level_stats, METRIC_LABELS, MATCH_FILTERS, DISPLAY_MODE_COLUMN, load_filter_eligibility
+from src.data_loader import load_match_level_stats, METRIC_LABELS, MATCH_FILTERS, MATCH_FILTER_EXPLANATIONS, DISPLAY_MODE_COLUMN, load_filter_eligibility
 from src.data_loader_v2 import (
     load_players, load_f50_scores, load_f50_registry, nationality_options, style_display, emphasis_display,
     league_options, TOP5_LEAGUE_LABELS,
@@ -442,6 +442,8 @@ else:
                     with c1:
                         if eligible_top_bottom:
                             filter_label = st.selectbox("Match filter", list(MATCH_FILTERS.keys()), key=f"filt_{chart_key}")
+                            st.markdown(f'<div style="font-size:10px; color:var(--ink-faint); padding-top:2px;">'
+                                        f'{html.escape(MATCH_FILTER_EXPLANATIONS.get(filter_label, ""))}</div>', unsafe_allow_html=True)
                         else:
                             filter_label = "Full Season"
                             st.markdown('<div style="font-size:11px; color:var(--ink-faint); padding-top:8px;">'
@@ -571,6 +573,8 @@ else:
             cf1, cf2, cf3 = st.columns([1, 1, 2])
             with cf1:
                 custom_filter_label = st.selectbox("Match filter", _custom_filter_options, key="filt_custom")
+                st.markdown(f'<div style="font-size:10px; color:var(--ink-faint); padding-top:2px;">'
+                            f'{html.escape(MATCH_FILTER_EXPLANATIONS.get(custom_filter_label, ""))}</div>', unsafe_allow_html=True)
                 if not _custom_eligible:
                     st.markdown('<div style="font-size:11px; color:var(--ink-faint);">'
                                 'Top/Bottom Opponents hidden — one of the selected metrics splits into too small a sample.</div>', unsafe_allow_html=True)

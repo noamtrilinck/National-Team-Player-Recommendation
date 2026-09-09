@@ -36,12 +36,36 @@ METRIC_LABELS = {
 
 MATCH_FILTERS = {
     "Full Season": "full_season", "Home": "home", "Away": "away",
+    "Second Half of Season": "second_half_of_season",
     "Top Opponents": "top_opponents", "Bottom Opponents": "bottom_opponents",
 }
-# "Last 3/6 Months" were removed from the UI by explicit request -- for some players that
-# window is thin enough to leave a real minutes gap, which made the comparison less useful
-# than it was worth. The underlying filter_key data still exists in match_level_stats.parquet
-# (harmless, unused) in case this is ever revisited.
+# "Last 3/6 Months" were removed from the UI by explicit request (pre-existing, before this
+# session) -- for some players that rolling window was thin enough to leave a real minutes gap,
+# which made the comparison less useful than it was worth. DEPRECATED for real 2026-09-09
+# (addendum "Filter Methodology Update"): production/match_level/filter_definitions.py no longer
+# computes these two filter_keys at all (see its own DEPRECATED note) -- confirming they were
+# genuinely dead here is what triggered removing them upstream too, rather than leaving an
+# always-unused pipeline stage around indefinitely.
+#
+# "Second Half of Season" (added 2026-09-09) replaces them: a FIXED season-period filter (not a
+# rolling window) -- matches from January 1 onward for a cross-year season ("2025/2026"), or from
+# that league-season's own chronological fixture-calendar midpoint onward for a calendar-year
+# season ("2025" -- Scandinavia, MLS, Japan, Brazil, etc., where Jan 1 would wrongly select nearly
+# the whole season). See production/match_level/build_match_qualification.py's
+# season_half_boundary() for the exact rule. Minimum sample: 450 minutes INSIDE this period only
+# (a player's Full Season minutes can never satisfy this threshold) -- see
+# filter_definitions.MIN_MINUTES_BY_FILTER.
+MATCH_FILTER_EXPLANATIONS = {
+    "Full Season": "Every eligible match in the player's season, across every contributing club.",
+    "Home": "Home matches only.",
+    "Away": "Away matches only.",
+    "Second Half of Season": "Matches played from January 1 onward in the selected season (or, "
+        "for a calendar-year league/season, from that season's own chronological midpoint "
+        "onward). Requires at least 450 minutes in this period -- Full Season minutes cannot "
+        "satisfy this threshold.",
+    "Top Opponents": "Matches against this club's own Top 3 opponents for the season.",
+    "Bottom Opponents": "Matches against this club's own Bottom 3 opponents for the season.",
+}
 
 DISPLAY_MODE_COLUMN = {"Raw": "raw_value", "Per 90": "per90_value", "Percentile": "percentile_value"}
 
