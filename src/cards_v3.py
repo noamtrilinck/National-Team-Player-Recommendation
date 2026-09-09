@@ -20,6 +20,17 @@ from src.league_coverage import country_from_league_label
 SCORE_COLOR = "var(--progression)"
 
 
+def _ordinal(n: int) -> str:
+    """1st/2nd/3rd/4th... -- found during the 2026-09 owner-review sanity check always rendering
+    a hardcoded "th" (e.g. "91th pctile", "1th percentile"); cosmetic UI text only, no data or
+    score involved."""
+    if 10 <= n % 100 <= 20:
+        suffix = "th"
+    else:
+        suffix = {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
 def _current_age(dob):
     if pd.isna(dob):
         return None
@@ -64,7 +75,7 @@ def render_result_row(rank_in_list, row, score_row, combo_label, position_label)
       <div class="ntpr-meta"><div class="l1">{club} · {league}</div><div>{minutes}</div></div>
       <div class="ntpr-gauge"><div class="num" style="color:{SCORE_COLOR}">{final_score:.0f}</div><div class="lab">Final Score</div>
         <div class="track"><div class="fill" style="width:{final_score:.0f}%; background:{SCORE_COLOR}"></div></div></div>
-      <div class="ntpr-gauge"><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{pctile:.0f}th pctile</div>
+      <div class="ntpr-gauge"><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{_ordinal(int(round(pctile)))} pctile</div>
         <div class="track"><div class="fill" style="width:{pctile:.0f}%; background:var(--defensive)"></div></div></div>
     </div>
     """
@@ -151,7 +162,7 @@ def render_detail_panel(row, score_row, combo_label, explanation, other_rows, wh
           <div class="num">{score_row['final_score']:.1f}</div></div>
         <div class="ntpr-dan-score fixed"><div class="lab">Global Rank</div>
           <div class="num">#{int(score_row['rank'])}</div>
-          <div class="fixedtag">of {int(score_row['population'])} eligible players — {pctile:.0f}th percentile</div></div>
+          <div class="fixedtag">of {int(score_row['population'])} eligible players — {_ordinal(int(round(pctile)))} percentile</div></div>
       </div>
       {_render_why_fits(why_fits)}
       <div class="ntpr-dan-cols">
