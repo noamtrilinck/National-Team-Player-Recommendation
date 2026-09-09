@@ -75,7 +75,7 @@ def render_result_row(rank_in_list, row, score_row, combo_label, position_label)
       <div class="ntpr-meta"><div class="l1">{club} · {league}</div><div>{minutes}</div></div>
       <div class="ntpr-gauge"><div class="num" style="color:{SCORE_COLOR}">{final_score:.0f}</div><div class="lab">Final Score</div>
         <div class="track"><div class="fill" style="width:{final_score:.0f}%; background:{SCORE_COLOR}"></div></div></div>
-      <div class="ntpr-gauge"><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{_ordinal(int(round(pctile)))} pctile</div>
+      <div class="ntpr-gauge" title="Global Rank/Percentile: compares this player with every eligible player rated for this exact position + Style + Role Emphasis profile."><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{_ordinal(int(round(pctile)))} pctile</div>
         <div class="track"><div class="fill" style="width:{pctile:.0f}%; background:var(--defensive)"></div></div></div>
     </div>
     """
@@ -160,9 +160,10 @@ def render_detail_panel(row, score_row, combo_label, explanation, other_rows, wh
         <div class="ntpr-dan-score" style="border-color:{SCORE_COLOR}; background:var(--progression-tint);">
           <div class="lab" style="color:{SCORE_COLOR}">Final Score — {html.escape(combo_label)}</div>
           <div class="num">{score_row['final_score']:.1f}</div></div>
-        <div class="ntpr-dan-score fixed"><div class="lab">Global Rank</div>
+        <div class="ntpr-dan-score fixed" title="Global Rank compares the player with every eligible player rated for this exact profile — the same position, Style, and Role Emphasis combination — not the whole database or just this position.">
+          <div class="lab">Global Rank</div>
           <div class="num">#{int(score_row['rank'])}</div>
-          <div class="fixedtag">of {int(score_row['population'])} eligible players — {_ordinal(int(round(pctile)))} percentile</div></div>
+          <div class="fixedtag">of {int(score_row['population'])} eligible players rated for this exact profile ({html.escape(combo_label)}) — {_ordinal(int(round(pctile)))} percentile</div></div>
       </div>
       {_render_why_fits(why_fits)}
       <div class="ntpr-dan-cols">

@@ -40,7 +40,8 @@ st.markdown(f"""
   <div class="ic">🛈</div>
   <div>
     <b>Player pool, measured from the current data export</b>
-    <p><b>{N_PLAYER_SEASONS:,}</b> player-seasons across <b>{N_LEAGUES}</b> European leagues, evaluated across
+    <p><b>{N_PLAYER_SEASONS:,}</b> player-seasons across <b>{N_LEAGUES}</b> leagues (the traditional European "Top 5"
+    plus a broad range of other European and non-European competitions), evaluated across
     <b>{N_COMBOS}</b> valid Player Profiles. Goalkeepers are out of scope entirely; every remaining outfield
     player needs at least 900 minutes played for that club in that season to be included.</p>
   </div>
@@ -63,7 +64,7 @@ STAGES = [
      "Foundation", None),
 
     ("03", "Match statistics",
-     "54 individual match statistics are measured per 90 minutes or as a rate/share, grouped into footballing "
+     "57 individual match statistics (Signals) are measured per 90 minutes or as a rate/share, grouped into footballing "
      "concepts (passing, tackling, dribbling, aerial duels, shooting, crossing, and more). Each statistic is "
      "compared only against other players in the same position, so a Centre Back's tackle numbers are judged "
      "against other Centre Backs, not the whole player pool.",

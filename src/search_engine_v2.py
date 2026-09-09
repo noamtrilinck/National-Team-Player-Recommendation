@@ -42,8 +42,8 @@ ALL_GROUP8 = ["CB", "FB", "WM", "Winger", "DM", "CM", "AM", "CF"]
 # grouping are provably the same rule, not two independently-typed lists.
 BROAD_GROUPS = {
     "Defence": ["Centre Back", "Right Back", "Left Back"],
-    "Midfield": ["Defensive Midfielder", "Central Midfielder", "Right Midfielder",
-                 "Left Midfielder", "Attacking Midfielder"],
+    "Midfield": ["Defensive Midfielder", "Central Midfielder", "Attacking Midfielder",
+                 "Right Midfielder", "Left Midfielder"],
     "Attack": ["Right Winger", "Left Winger", "Centre Forward"],
 }
 BROAD_GROUP_ORDER = ["All Positions", "Defence", "Midfield", "Attack"]

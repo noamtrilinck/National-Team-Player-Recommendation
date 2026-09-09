@@ -34,6 +34,28 @@ from src.nav import render_nav
 from src.league_coverage import parse_league_labels, prepare_league_coverage_display, render_league_coverage
 from src.nationality_flags import get_flag_html
 
+# Item 2: concise, plain-football explanations of each Style, grounded in the CORE signals that
+# actually define it in the locked production engine (production/player_evaluation_v2/engine/
+# signal_meta.py STYLE dict) -- not invented. Control = Backward Pass Rate/Share + Pass Share
+# (patient circulation, a high share of the team's own passing). Progression = Final Third Pass
+# Rate/Share + Progressive Passing Preference (passing that purposefully advances into the final
+# third). Direct = Long Ball Rate/Share + Directness Proxy, plus (for CF/Winger/WM) the
+# receiving-side Aerial Duel Attempts/Share (vertical, fast forward play aimed at getting the ball
+# forward quickly, often in the air).
+STYLE_EXPLANATIONS = {
+    "NoStyle": "No Style preference applied -- the player is rated on Position Quality and Role "
+               "Emphasis alone, without rewarding or penalising any particular attacking approach.",
+    "Control": "Patient possession play. Rewards players who help their team retain and circulate "
+               "the ball -- a high share of the team's own passing, with a real willingness to play "
+               "backward/sideways to keep possession rather than force it forward.",
+    "Progression": "Purposeful advancement through the lines. Rewards players whose passing "
+                    "actively moves the ball into the final third, rather than just retaining it "
+                    "-- progressing play up the pitch pass by pass.",
+    "Direct": "Vertical, fast forward play. Rewards players built around long, direct passing that "
+              "skips the midfield build-up -- and, for forwards/wide players/wide midfielders, the "
+              "aerial duels that come with receiving that kind of ball.",
+}
+
 MAX_METRIC_CHART_PLAYERS = 8
 MAX_DISPLAYED_ROWS = 150
 U21_CUTOFF = pd.Timestamp("2004-01-01")
@@ -72,11 +94,6 @@ st.markdown("""
 # ================================================================================================
 # SEARCH PANEL -- Nationality -> Position(s) -> Style -> Emphasis -> Age -> Count
 # ================================================================================================
-if "pos_slot_ids" not in st.session_state:
-    st.session_state["pos_slot_ids"] = [0]
-    st.session_state["pos_slot_next_id"] = 1
-    st.session_state["pos_slot_0"] = se.SIDE_POSITION_ORDER[0]
-
 ALL_LEAGUES = league_options()
 
 with st.container(border=True):
@@ -108,63 +125,52 @@ with st.container(border=True):
                             label_visibility="collapsed", key="v2_broad_group")
 
     # A broad-group change must never leave a stale narrowing selection from a DIFFERENT group
-    # behind (item 6: "specific-position options shown beneath should only contain the selected
-    # group's positions" -- and duplicate/contradictory selection must remain impossible).
+    # behind -- and duplicate/contradictory selection must remain impossible.
     if st.session_state.get("v2_broad_group_prev") != broad_group:
-        st.session_state["pos_slot_ids"] = [0]
-        st.session_state["pos_slot_next_id"] = 1
-        st.session_state["v2_narrow"] = False
         st.session_state["v2_broad_group_prev"] = broad_group
+        st.session_state.pop("v2_narrow_sel", None)  # reseed to this group's "All ..." default below
 
     is_all_group = (broad_group == "All Positions")
     # Narrowing pool: within the selected broad group (Defence/Midfield/Attack), or -- under "All
     # Positions" -- the full 11-way taxonomy, which is exactly the pre-existing cross-group
-    # multi-position search (item 6: "existing multi-position search must remain available").
+    # multi-position search.
     group_positions = se.SIDE_POSITION_ORDER if is_all_group else se.BROAD_GROUPS[broad_group]
-    narrow_label = ("Narrow to specific position(s)" if is_all_group
-                    else f"Narrow to specific position(s) within {broad_group}")
+    all_option = "All Positions" if is_all_group else f"All {broad_group}"
 
-    selected_ui_positions = list(group_positions)  # default: the whole group (or all 11) is searched as-is
-    narrow = st.checkbox(narrow_label, key="v2_narrow")
-    if narrow:
-        selected_ui_positions = []
-        slot_ids = st.session_state["pos_slot_ids"]
-        for i, sid in enumerate(list(slot_ids)):
-            other_vals = {st.session_state.get(f"pos_slot_{other}") for other in slot_ids if other != sid}
-            opts = [p for p in group_positions if p not in other_vals]
-            # A slot's stored value can be stale/invalid here (wrong group after switching broad
-            # groups, or a duplicate freed up by another slot changing) -- reseed to the first
-            # still-available option rather than ever rendering a value outside `opts` (which
-            # Streamlit would silently reject) or letting a duplicate slip back in.
-            if st.session_state.get(f"pos_slot_{sid}") not in opts:
-                st.session_state[f"pos_slot_{sid}"] = opts[0] if opts else group_positions[0]
-            pc, rc = st.columns([5, 1])
-            with pc:
-                val = st.selectbox(f"Position {i+1}", opts, key=f"pos_slot_{sid}", label_visibility="collapsed")
-                selected_ui_positions.append(val)
-            with rc:
-                if len(slot_ids) > 1:
-                    if st.button("✕", key=f"pos_remove_{sid}", help="Remove this position"):
-                        st.session_state["pos_slot_ids"] = [s for s in slot_ids if s != sid]
-                        st.rerun()
-        if len(selected_ui_positions) < len(group_positions):
-            if st.button("+ Add Position", key="pos_add"):
-                new_id = st.session_state["pos_slot_next_id"]
-                st.session_state["pos_slot_next_id"] += 1
-                st.session_state["pos_slot_ids"].append(new_id)
-                st.rerun()
+    # UI/UX Round 7 (item 1): the narrowing checkbox is gone -- a specific-position dropdown is
+    # always shown directly beneath the broad-group choice, defaulting to the whole group
+    # ("All Defence" / "All Midfield" / "All Attack", or "All Positions" under the top-level
+    # default). The user only interacts with it to narrow; multi-position selection (the
+    # pre-existing cross-group search) is preserved via multiselect.
+    st.markdown('<div class="ntpr-controlbar-label" style="margin-top:10px; font-size:12px;">Specific position(s)</div>', unsafe_allow_html=True)
+    dropdown_options = [all_option] + list(group_positions)
+    # A stored selection can go stale (positions from a group that's no longer selected), or be
+    # entirely absent (first run -- st.multiselect defaults to an empty list with no `default`,
+    # which would render as "nothing selected" rather than the "All ..." default). Always
+    # (re)seed session_state explicitly before the widget renders, rather than only when it
+    # differs from a same-shaped fallback -- an unconditional seed is the only way that is
+    # guaranteed to actually populate the key on the very first render.
+    _stored = st.session_state.get("v2_narrow_sel", [all_option])
+    _cleaned = [v for v in _stored if v in dropdown_options] or [all_option]
+    st.session_state["v2_narrow_sel"] = _cleaned
+    narrow_sel = st.multiselect("Specific position(s)", dropdown_options, key="v2_narrow_sel",
+                                 label_visibility="collapsed",
+                                 help="Defaults to the whole group. Pick one or more specific positions to narrow; "
+                                      f"picking \"{all_option}\" (alone) searches the whole group again.")
+    narrowed = bool(narrow_sel) and all_option not in narrow_sel
+    selected_ui_positions = list(narrow_sel) if narrowed else list(group_positions)
+    if narrowed:
         st.markdown(f'<div style="font-size:11px; color:var(--ink-faint); margin-top:2px;">'
                     f'Searching {html.escape(" + ".join(selected_ui_positions))} only.</div>', unsafe_allow_html=True)
     else:
         group_desc = "every position" if is_all_group else f"all of {broad_group} ({', '.join(group_positions)})"
         st.markdown(f'<div style="font-size:11px; color:var(--ink-faint); margin-top:2px;">'
-                    f'Searching {html.escape(group_desc)}. Tick the box above to narrow to one or more specific '
-                    f'positions.</div>', unsafe_allow_html=True)
+                    f'Searching {html.escape(group_desc)}.</div>', unsafe_allow_html=True)
 
     # True "All Positions" (no scoring-group restriction at all) only applies when the broad group
     # is All Positions AND no narrowing was chosen -- any narrowing, or any specific broad group,
     # always resolves through the same side-specific plan_search logic used before this redesign.
-    all_positions_mode = is_all_group and not narrow
+    all_positions_mode = is_all_group and not narrowed
 
     plan = se.plan_search(selected_ui_positions, all_positions_mode)
 
@@ -172,7 +178,12 @@ with st.container(border=True):
     with row2[0]:
         st.markdown('<div class="ntpr-controlbar-label">Style</div>', unsafe_allow_html=True)
         style = st.selectbox("Style", se.style_options_for_plan(plan, registry), format_func=style_display,
-                              label_visibility="collapsed", key="v2_style")
+                              label_visibility="collapsed", key="v2_style",
+                              help="What kind of player does this Style describe?")
+        # Item 2: dynamic, concise explanation of the SELECTED Style, so a football user can tell
+        # the practical difference between them before picking one.
+        st.markdown(f'<div style="font-size:11px; color:var(--ink-faint); margin-top:2px;">'
+                    f'{html.escape(STYLE_EXPLANATIONS.get(style, ""))}</div>', unsafe_allow_html=True)
     with row2[1]:
         if plan.mode == "single_full":
             st.markdown('<div class="ntpr-controlbar-label">Role Emphasis</div>', unsafe_allow_html=True)
@@ -276,11 +287,13 @@ else:
             position_label = next((ui for ui, (g8, _) in se.SIDE_POSITIONS.items()
                                     if g8 == row["position_v2"] and row["primary_detailed_position"] in se.SIDE_POSITIONS[ui][1]), row["position_v2"])
 
-            rcol, ccol, bcol = st.columns([0.68, 0.11, 0.21])
+            # Item 7: the old per-row "Compare" checkbox is gone -- every player returned by the
+            # search automatically enters the graph comparison population below. The "Players in
+            # this chart" control inside each chart is now the ONLY reduction mechanism (remove
+            # individuals there for a cleaner comparison).
+            rcol, bcol = st.columns([0.79, 0.21])
             with rcol:
                 st.markdown(render_result_row(i + 1, row, row, combo_label, position_label), unsafe_allow_html=True)
-            with ccol:
-                st.checkbox("Compare", key=f"cmp_{row_key}", label_visibility="collapsed", help="Add to comparison charts")
             with bcol:
                 # UI/UX Round 6 (2026-09-08, item 7): replaced the unlabeled ▲/▾-only square with a
                 # clearly-worded, icon+text call to action -- same underlying expand/collapse
@@ -305,9 +318,13 @@ else:
         st.markdown('</div>', unsafe_allow_html=True)
 
         same_group = df["position_v2"].nunique() == 1
-        compare_keys = {k for k in row_keys_this_search if st.session_state.get(f"cmp_{k}")}
-        chart_df = df[df.apply(lambda r: f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}" in compare_keys, axis=1)] if compare_keys else df.head(MAX_METRIC_CHART_PLAYERS)
-        scope_note = f"{len(chart_df)} selected player{'s' if len(chart_df) != 1 else ''}" if compare_keys else f"the top {len(chart_df)} shown recommendation{'s' if len(chart_df) != 1 else ''} (no players selected for comparison)"
+        # Item 7: the default graph population is now ALL players returned by this search (capped
+        # only for the automatic profile-comparison/discriminative-metric POOL below, purely for
+        # chart readability -- the "Players in this chart" multiselect further down always offers
+        # every returned player as an option, per-chart, and that remains the only removal
+        # mechanism).
+        chart_df = df.head(MAX_METRIC_CHART_PLAYERS)
+        scope_note = f"the {len(chart_df)} shown recommendation{'s' if len(chart_df) != 1 else ''}"
 
         # ---------------- Profile comparison (same scoring group only) ----------------
         if same_group and len(chart_df) >= 2:
@@ -316,18 +333,18 @@ else:
                         f'different Styles? Comparing {scope_note}, each shown at their base Style score (no Role Emphasis applied).</p>', unsafe_allow_html=True)
             fig = profile_comparison_figure([r for _, r in chart_df.iterrows()], f50, df["position_v2"].iloc[0], style_display)
             st.plotly_chart(fig, width="stretch", config={"displayModeBar": False})
-        elif not same_group and compare_keys:
-            st.markdown('<p style="font-size:12px; color:var(--ink-faint); margin-top:24px;">Profile comparison is not shown because the selected '
+        elif not same_group:
+            st.markdown('<p style="font-size:12px; color:var(--ink-faint); margin-top:24px;">Profile comparison is not shown because the returned '
                         'players are evaluated in different position groups — comparing their Final Scores across Styles would not be meaningful.</p>', unsafe_allow_html=True)
 
         # ---------------- Standout real-metric charts ----------------
         st.markdown('<h2 style="font-family: var(--font-display); font-size:22px; margin-top:36px;">Standout metrics</h2>', unsafe_allow_html=True)
         st.markdown(f'<p style="font-size:13px; color:var(--ink-muted); margin-top:6px;">Automatically identified: the real football stats where '
-                    f'{"the selected players" if compare_keys else "any player in this recommendation list"} stand out most — not restricted to the '
+                    f'any player in this recommendation list stands out most — not restricted to the '
                     f'top-ranked recommendation. Comparing {scope_note}.</p>', unsafe_allow_html=True)
 
         if len(chart_df) < 2:
-            st.markdown('<div class="ntpr-empty">Select at least 2 players (tick "Compare" above) to see standout-metric charts.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="ntpr-empty">This search returned fewer than 2 players, so there is nothing to compare in a chart.</div>', unsafe_allow_html=True)
         else:
             mstats = load_match_level_stats()
             ref_position_group_df = players[players["position_v2"].isin(df["position_v2"].unique())]
@@ -341,8 +358,9 @@ else:
             # Chart Builder below.
             # UI/UX Round 5 (points 2-5): reopened as a full data audit rather than accepting the
             # round-4 diagnosis as-is (docs/v2_ui_redesign_round5.md). Confirmed the real, LOCKED
-            # mechanism is production/match_level's own per-filter minimum-minutes gate (270
-            # minutes specifically against Top/Bottom-Opponent-band matches -- a genuinely
+            # mechanism is production/match_level's own per-filter minimum-minutes gate (150
+            # minutes specifically against Top/Bottom-Opponent-band matches, per the 2026-08-30
+            # 150-minute floor decision in production/match_level/filter_definitions.py -- a genuinely
             # different, smaller sample than the player's overall season minutes) -- intentional,
             # evidence-based, NOT changed here. The note now says precisely why per player (no
             # minutes at all vs. some minutes short of the floor) using filter_eligibility.csv.
@@ -379,8 +397,9 @@ else:
                 for _, r in df.iterrows()
             }
 
-            default_sel = [k for k in candidate_names if k in compare_keys] or \
-                          [f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}" for _, r in chart_df.head(MAX_METRIC_CHART_PLAYERS).iterrows()]
+            # Item 7: every player returned by the search is in the graph population by default --
+            # "Players in this chart" (below, per chart) is the only way to remove individuals.
+            default_sel = list(candidate_names.keys())
 
             # UI/UX Round 5 (point 6) -- BUGFIX: every "Players in this chart" multiselect is
             # keyed by a fixed per-chart-slot key (e.g. "players_auto_b1_0") that is REUSED

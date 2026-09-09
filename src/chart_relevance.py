@@ -4,7 +4,7 @@ UI/UX Round 3 (2026-08-30) -- profile-relevant chart selection + redundancy cont
 Mirrors the explanation engine's 5-tier profile-relevance hierarchy (see
 explanation_engine_v2.py and docs/v2_ui_redesign_round3.md section 2) for the "standout metrics"
 charts, which draw from a DIFFERENT, older identifier space (CHART_METRICS/PCT_METRICS raw
-match-level keys in data/build_dashboard_data.py) than the 54 Signal names the tier hierarchy is
+match-level keys in data/build_dashboard_data.py) than the 57 Signal names the tier hierarchy is
 built from. CHART_METRIC_DOMAIN is the disclosed, manual mapping bridging the two -- see
 docs/v2_ui_redesign_round3.md section 4 for the full table and the confidence/rationale of each
 entry. A chart metric with no defensible locked-domain match (clearances, fouls_drawn) is left
