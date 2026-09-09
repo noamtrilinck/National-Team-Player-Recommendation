@@ -15,6 +15,7 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 PLAYERS_PATH = DATA_DIR / "players.csv"
 F50_SCORES_PATH = DATA_DIR / "f50_scores.csv"
 F50_REGISTRY_PATH = DATA_DIR / "f50_registry.csv"
+MULTI_CLUB_PATH = DATA_DIR / "multi_club_lineage.csv"
 
 POSITION_LABELS = {
     "CB": "Centre Back", "FB": "Full Back", "WM": "Wide Midfielder", "Winger": "Winger",
@@ -25,7 +26,31 @@ POSITION_ORDER = ["CB", "FB", "WM", "Winger", "DM", "CM", "AM", "CF"]
 
 @st.cache_data
 def load_players():
-    return pd.read_csv(PLAYERS_PATH)
+    """UI/UX multi-club lineage pass (2026-09-09): merges in `multi_club_lineage.csv` (see
+    `production/match_level/build_multi_club_lineage.py` -- traces exactly which club stints
+    actually contributed to a player-season's score, from the canonical pre-merge evidence file)
+    as DISPLAY-ONLY additions -- `season_club`/`league_label` themselves are left completely
+    UNCHANGED (still the single primary club/league every filter, TOP5 check, and league dropdown
+    already keys off) so no filtering/scope logic anywhere is affected. Consumers that want the
+    multi-club-aware label use the new `season_club_display`/`league_label_display`/
+    `is_multi_club`/`cross_league` columns; every other consumer that just reads `season_club`/
+    `league_label` behaves exactly as before."""
+    df = pd.read_csv(PLAYERS_PATH)
+    df["season_club_display"] = df["season_club"]
+    df["league_label_display"] = df["league_label"]
+    df["is_multi_club"] = False
+    df["cross_league"] = False
+    if MULTI_CLUB_PATH.exists():
+        mc = pd.read_csv(MULTI_CLUB_PATH)
+        mc = mc.set_index(["player_id", "season_name"])
+        keyed = df.set_index(["player_id", "season_name"])
+        matched = keyed.index.isin(mc.index)
+        if matched.any():
+            df.loc[matched, "season_club_display"] = keyed.index[matched].map(mc["clubs_ordered"]).values
+            df.loc[matched, "league_label_display"] = keyed.index[matched].map(mc["leagues_ordered"]).values
+            df.loc[matched, "is_multi_club"] = True
+            df.loc[matched, "cross_league"] = keyed.index[matched].map(mc["cross_league"]).values
+    return df
 
 
 @st.cache_data

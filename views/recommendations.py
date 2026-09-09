@@ -6,7 +6,7 @@ Count (see search_engine_v2.py for the position-resolution rules). Side-specific
 Back vs Left Back, etc.) is a display/filter distinction only -- the locked V2 8-group scoring
 architecture is unchanged; see docs/v2_ui_redesign_round1.md.
 
-Card presentation now leads with Final Score + Global Rank for the selected profile only; internal
+Card presentation now leads with Final Score + Profile Rank for the selected profile only; internal
 components (Professional Score, Opponent Level, Own Club Level) are not shown prominently.
 Player explanations are built from real Signal data in football language (explanation_engine_v2.py)
 rather than model-engineering contribution breakdowns.
@@ -393,7 +393,10 @@ else:
                 all_dm, _position_v2, query["style"], _query_emphasis, _xy_chart_rows, mstats, k=5)
 
             candidate_names = {
-                f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}": f"{r.player_name} — {r.season_club}"
+                # Multi-club lineage (2026-09-09): season_club_display shows every club that
+                # actually contributed evidence to this player-season (falls back to season_club
+                # unchanged for single-club rows) -- see data_loader_v2.load_players().
+                f"{int(r.player_id)}_{int(r.season_id)}_{int(r.team_id)}": f"{r.player_name} — {r.get('season_club_display', r.season_club)}"
                 for _, r in df.iterrows()
             }
 

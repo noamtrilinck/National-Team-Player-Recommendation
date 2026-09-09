@@ -15,11 +15,24 @@ Design (see docs/v2_ui_redesign_round2.md for the full record):
     rank quality) rather than picked by percentile alone.
   - Facts are grouped into redundancy groups (e.g. Tackling/Interceptions/Ball Recoveries all
     compete as "the ball-winning story") so at most one representative per group is shown.
-  - Evidence format (raw-stat / league-rank / global-context) is chosen per fact, not fixed --
+  - Evidence format (raw-stat / league-rank / position-context) is chosen per fact, not fixed --
     league rank is preferred when the player has a genuinely notable position in a real, validated
     comparison population (same league + same locked scoring position + the project's existing
-    900-minute qualification floor + a minimum pool size); global percentile is kept as supporting
-    evidence (a badge), not the headline sentence.
+    900-minute qualification floor + a minimum pool size); the wider "position percentile" is kept
+    as supporting evidence (a badge), not the headline sentence.
+
+  - GLOBAL-PERCENTILE AUDIT (2026-09-09): the `__percentile` columns this module reads from
+    signal_scores.parquet are NOT computed against the whole database irrespective of position --
+    tracing `production/player_evaluation_v2/pipeline/25_stage_m2_production.py`, each Signal's
+    percentile is computed within that Signal's own `group8` (the 8-way broad position taxonomy:
+    CB/FB/WM/Winger/DM/CM/AM/CF), i.e. "all eligible players at this broad position, across every
+    league in the database" -- NOT the combo_id (position + Style + Role Emphasis) population that
+    "Profile Rank" uses, and NOT scoped to a single league. The prior UI text ("percentile of the
+    full eligible population") was accurate about scope (the whole database) but silent about the
+    position restriction, which invited confusion with an unfiltered global comparison. Every
+    user-facing string built from these columns in this module says "position" (never "global"),
+    naming the broad position group explicitly -- see _comparison_clause()/_badges_for(). The
+    percentile CALCULATION itself is unchanged; only the label/description was corrected.
   - Language intensity (e.g. "one of the league's best" vs "among the better") is gated by how
     extreme the underlying rank/percentile actually is -- never asserted independent of the numbers.
 """
@@ -141,6 +154,41 @@ PHRASES = {
     "Key Passes per90": "{v} key passes per 90",
     "Big Chance Creation Conversion %": "{v}% of his big chances created are converted",
     "Key Pass Conversion %": "{v}% of his key passes are converted",
+    "xGOT Minus xG per90": "{v} xGOT minus xG per 90",
+}
+
+# UI/UX explanation-engine redesign (2026-09-09), item 3 -- per-Signal meaning overrides for
+# Signals whose football meaning genuinely differs from their domain's generic volume/execution
+# phrase (FOOTBALL_MEANING is keyed by DOMAIN, but "Shooting" alone holds several distinct EXECUTION
+# Signals -- Shot Accuracy %, Goal Conversion %, xGOT per Shot on Target, xGOT Minus xG per90 --
+# that do not all mean the same thing). Checked BEFORE the domain-level dict in _render_fact.
+# xGOT-minus-xG specifically: it compares shot-PLACEMENT quality (xGOT, which credits where on
+# goal/target the shot was struck) against the underlying CHANCE quality (xG, which only credits
+# the chance itself) -- a positive value says the player's finishing/placement outperforms what an
+# average finisher would generate from the same chances; it is NOT "he creates good chances" (that
+# is xG itself) and is deliberately not overstated into a standalone "clinical" scouting verdict.
+SIGNAL_MEANING_OVERRIDE = {
+    "xGOT Minus xG per90": (
+        "places his shots better than the raw quality of his chances alone would predict -- his "
+        "shot placement (xGOT) is beating the underlying chance quality (xG)"
+    ),
+}
+
+# UI/UX explanation-engine redesign (2026-09-09), item 3 (Areas to Watch) -- a low percentile on a
+# domain does not automatically mean "fundamental weakness"; it can just as easily reflect a role/
+# volume/tendency difference (a low-volume Signal for a player whose profile simply doesn't call
+# for that action often). One brief, honest qualifier per domain group, appended to the plain
+# evidence sentence -- never claims which explanation applies for THIS player (that would be an
+# unsupported causal leap), just names the real possibilities so a low number isn't read as an
+# automatic flaw.
+WEAKNESS_CONTEXT = {
+    "ball_winning": "this can reflect a deeper or more positionally cautious defensive role rather than an inability to win the ball.",
+    "duels": "this can reflect fewer physical contests being asked of his role, rather than a physical shortcoming.",
+    "progression": "this can reflect a role that relies on others to progress the ball, rather than a technical limitation.",
+    "creativity": "this can reflect a role focused elsewhere in the team's structure, rather than a lack of creative quality.",
+    "dribbling": "this can reflect a more direct/passing-first role rather than an inability to beat a man.",
+    "shooting": "this can reflect fewer shooting opportunities in his role, rather than poor finishing quality alone.",
+    "retention": "this can reflect a higher-risk, more progressive passing profile rather than carelessness on the ball.",
 }
 
 POSITION_LABEL = {
@@ -420,14 +468,19 @@ def _comparison_clause(fact, position, direction, intensity):
     has_league = fact["league_rank"] is not None
     both_meaningful = has_league and abs(global_info - league_info) < 0.15 and max(global_info, league_info) >= 0.3
 
+    # NOTE (Global Percentile audit, 2026-09-09): `gp` is this Signal's percentile among all
+    # eligible players at this player's broad POSITION group (group8), across every league in the
+    # database -- not the whole database irrespective of position, and not the narrower Profile
+    # Rank (combo_id = position + Style + Role Emphasis) population. Phrased as "position" below,
+    # never "global", so it can't be misread as either of those two other populations.
     if direction > 0:
         league_phrase = ("one of the league's best" if intensity == "strong" else "among the better") + f" eligible {pos_label}s in his league"
-        global_phrase = (f"inside the top {max(1, 100 - round(gp))}% of the full eligible population"
-                          if gp >= 90 else f"in the {_ordinal(round(gp))} percentile of the full eligible population")
+        global_phrase = (f"inside the top {max(1, 100 - round(gp))}% of all eligible {pos_label}s in the database"
+                          if gp >= 90 else f"in the {_ordinal(round(gp))} percentile of all eligible {pos_label}s in the database")
     else:
         league_phrase = ("one of the league's weaker" if intensity == "strong" else "below the league average among") + f" eligible {pos_label}s"
-        global_phrase = (f"inside the bottom {max(1, round(gp))}% of the full eligible population"
-                          if gp <= 10 else f"in only the {_ordinal(round(gp))} percentile of the full eligible population")
+        global_phrase = (f"inside the bottom {max(1, round(gp))}% of all eligible {pos_label}s in the database"
+                          if gp <= 10 else f"in only the {_ordinal(round(gp))} percentile of all eligible {pos_label}s in the database")
 
     if both_meaningful:
         return f"{league_phrase}, and {global_phrase.replace('inside the', 'inside').replace('in the', 'also in the')}"
@@ -456,7 +509,7 @@ def _frame(fact, profile_label, style_label, comparison_used_global):
     tier, story = fact["tier"], fact.get("story")
     if story == "profile_driver":
         return f"a core part of what makes him fit {profile_label}" if not comparison_used_global \
-            else f"a core part of his {profile_label} profile, and rare enough to stand out across the whole database"
+            else f"a core part of his {profile_label} profile, and rare enough to stand out among eligible players at his position"
     if story == "combination":
         return f"another real contributor to his {profile_label} profile"
     if story == "identity":
@@ -466,7 +519,69 @@ def _frame(fact, profile_label, style_label, comparison_used_global):
     return None  # tier 5 / Position Quality -- no profile-specific frame, implication stands alone
 
 
-def _render_fact(fact, position, direction, profile_label=None, style_label=None):
+def _companion_fact(fact, all_facts):
+    """UI/UX explanation-engine redesign (2026-09-09), item 4 -- Complementary Metrics: find this
+    fact's volume<->efficiency companion Signal within the SAME domain (e.g. "Aerial Duel Attempts
+    per90" <-> "Aerial Duel Success %"), if it was ALSO collected as a candidate fact for this
+    player (i.e. it independently passed every existing gate -- relevant tier, real value present,
+    fragile-denominator floor). Returns None when no companion exists in the data (never invents
+    one) -- e.g. a player with a real volume value but too few attempts for a reliable success rate
+    (already excluded from `all_facts` upstream), or a domain with only one info_type at all
+    (general-only domains such as "Ball Retention & Security" have no companion by construction)."""
+    domain = fact["domain"]
+    info_type = fact.get("info_type")
+    if info_type not in ("VOLUME", "EXECUTION"):
+        return None
+    want_type = "EXECUTION" if info_type == "VOLUME" else "VOLUME"
+    for f in all_facts:
+        if f["domain"] == domain and f.get("info_type") == want_type and f["sig"] != fact["sig"]:
+            return f
+    return None
+
+
+def _level_phrase(gp, direction=1):
+    """Compact, honest characterization of a position percentile -- used only for the
+    complementary-metric companion sentence (never the headline evidence itself, which already has
+    its own calibrated _strength_language/_weakness_language/_comparison_clause)."""
+    if direction > 0:
+        if gp >= 80: return "well above average"
+        if gp >= 60: return "above average"
+        if gp <= 20: return "well below average"
+        if gp <= 40: return "below average"
+        return "roughly average"
+    else:
+        if gp <= 20: return "well below average"
+        if gp <= 40: return "below average"
+        if gp >= 80: return "well above average"
+        if gp >= 60: return "above average"
+        return "roughly average"
+
+
+def _companion_clause(fact, companion, position):
+    """Layer 3 (complementary context): a volume fact alone (a count/rate of attempts) can't be
+    interpreted as a genuine strength or weakness without its efficiency counterpart, and vice
+    versa for a bare efficiency % with no sense of how often it's actually attempted. Builds ONE
+    plain-language sentence pairing them, proportional to the companion's OWN real value/percentile
+    -- never assumed to move in lockstep with the primary fact's direction (a high-volume, low-
+    success player is exactly the case this guards against silently implying)."""
+    pos_label = POSITION_LABEL.get(position, position)
+    comp_raw = _raw_phrase(companion["sig"], companion["raw"])
+    if not comp_raw:
+        return None
+    comp_gp = companion["global_pctile"]
+    if companion.get("info_type") == "EXECUTION":
+        level = _level_phrase(comp_gp, 1)
+        return (f"He converts that into {comp_raw}, {level} for eligible {pos_label}s. "
+                f"That volume is therefore backed by {'genuine' if comp_gp >= 55 else 'below-average'} "
+                f"success, not activity alone.")
+    else:  # companion is the VOLUME side of an EXECUTION headline fact
+        level = _level_phrase(comp_gp, 1)
+        return (f"He gets there from {comp_raw}, {level} for eligible {pos_label}s -- so this "
+                f"success rate reflects a {'real, repeated' if comp_gp >= 40 else 'smaller'} sample, "
+                f"not a handful of attempts.")
+
+
+def _render_fact(fact, position, direction, profile_label=None, style_label=None, all_facts=None):
     """UI/UX Round 4 (points 1-2-7): the football IMPLICATION of the Signal leads the sentence
     (what the player can actually do, causality-guarded to what the domain literally measures);
     the evidence (raw stat + whichever comparison population is genuinely informative) backs it
@@ -491,7 +606,8 @@ def _render_fact(fact, position, direction, profile_label=None, style_label=None
         # risk the brief warns about. Weaknesses stay evidence-only (below), never a capability claim.
         meaning = FOOTBALL_MEANING.get(domain, {})
         info_type = fact.get("info_type")
-        implication = (meaning.get("execution") if info_type == "EXECUTION" else meaning.get("volume")) or meaning.get("general")
+        implication = SIGNAL_MEANING_OVERRIDE.get(sig) or \
+            (meaning.get("execution") if info_type == "EXECUTION" else meaning.get("volume")) or meaning.get("general")
         if implication:
             implication_sentence = implication[0].upper() + implication[1:] + "."
             evidence_clause = f" {raw_evidence} —" if raw_evidence else ""
@@ -500,12 +616,29 @@ def _render_fact(fact, position, direction, profile_label=None, style_label=None
             body = f"{raw_evidence or sig.lower()}" + (f" — {comparison}." if comparison else ".")
     else:
         body = f"{raw_evidence or sig.lower()}" + (f" — {comparison}." if comparison else ".")
+        weakness_note = WEAKNESS_CONTEXT.get(fact["group"])
+        if weakness_note:
+            body = f"{body} A low number here doesn't necessarily mean a fundamental flaw -- {weakness_note}"
+
+    # Layer 3 -- complementary context (explanation-engine redesign, item 4): a volume fact needs
+    # its efficiency companion (and vice versa) to be genuinely interpretable, per the locked
+    # Volume+Efficiency mapping. Only appended when the companion Signal was itself independently
+    # collected as a real, gated fact for this player -- never fabricated or assumed.
+    companion = _companion_fact(fact, all_facts) if all_facts is not None else None
+    if companion is not None:
+        comp_clause = _companion_clause(fact, companion, position)
+        if comp_clause:
+            body = f"{body} {comp_clause}"
 
     if direction > 0 and profile_label and style_label:
         frame = _frame(fact, profile_label, style_label, comparison_used_global)
         if frame:
             body = f"{body} This is {frame}."
 
+    # Badges stay scoped to the PRIMARY fact only (UI/UX Round 5 LOCK: a standalone bullet's own
+    # headline already establishes ownership, so no per-badge label is added there) -- the
+    # companion Signal's own number is already carried in the prose sentence above via
+    # _companion_clause(), not duplicated as a second, potentially ambiguous badge here.
     badges = _badges_for(fact, label=None)
     return dict(headline=headline, body=body, badges=badges)
 
@@ -522,11 +655,14 @@ def _badges_for(fact, label=None):
     badges = []
     if league_rank is not None:
         badges.append(f"{prefix}#{league_rank} of {league_n} in league")
-    badges.append(f"{prefix}{_ordinal(round(gp))} global percentile")
+    # "position percentile" (not "global"): see the Global Percentile audit note in this module's
+    # header -- this is the Signal's percentile among all eligible players at this broad position
+    # group (group8) in the database, not an unfiltered whole-database comparison.
+    badges.append(f"{prefix}{_ordinal(round(gp))} position percentile")
     return badges
 
 
-def _combine_top_strengths(chosen, position, profile_label, style_label):
+def _combine_top_strengths(chosen, position, profile_label, style_label, all_facts=None):
     """UI/UX Round 4 (point 6) -- if the two most relevant selected strengths belong to a pair of
     groups with a real, disclosed football connection (COMBINE_CONNECTORS), merge them into one
     combined story bullet instead of two isolated facts. Only ever combines facts that were
@@ -545,7 +681,7 @@ def _combine_top_strengths(chosen, position, profile_label, style_label):
     if not connector:
         return None
     label_a, label_b = DOMAIN_INFO[a["domain"]]["strength"], DOMAIN_INFO[b["domain"]]["strength"]
-    fact_a = _render_fact(a, position, 1, profile_label, style_label)
+    fact_a = _render_fact(a, position, 1, profile_label, style_label, all_facts=all_facts)
     meaning_b = FOOTBALL_MEANING.get(b["domain"], {})
     implication_b = (meaning_b.get("execution") if b.get("info_type") == "EXECUTION" else meaning_b.get("volume")) or meaning_b.get("general") or b["domain"].lower()
     combined_headline = f'{label_a} + {label_b}'
@@ -606,14 +742,14 @@ def build_explanation(player_id, season_name, position, style, emphasis_list,
     chosen_strengths = select(1, n_strengths_max)
     # UI/UX Round 4 (point 6): try combining the two most relevant strengths into one connected
     # football story before rendering the rest individually -- see _combine_top_strengths.
-    combined = _combine_top_strengths(chosen_strengths, position, profile_label, style_label)
+    combined = _combine_top_strengths(chosen_strengths, position, profile_label, style_label, all_facts=facts)
     if combined:
         combined_bullet, used_facts = combined
         remaining = [f for f in chosen_strengths if f not in used_facts]
-        strengths = [combined_bullet] + [_render_fact(f, position, 1, profile_label, style_label) for f in remaining]
+        strengths = [combined_bullet] + [_render_fact(f, position, 1, profile_label, style_label, all_facts=facts) for f in remaining]
     else:
-        strengths = [_render_fact(f, position, 1, profile_label, style_label) for f in chosen_strengths]
-    weaknesses = [_render_fact(f, position, -1) for f in select(-1, n_weaknesses_max)]
+        strengths = [_render_fact(f, position, 1, profile_label, style_label, all_facts=facts) for f in chosen_strengths]
+    weaknesses = [_render_fact(f, position, -1, all_facts=facts) for f in select(-1, n_weaknesses_max)]
     return dict(strengths=strengths, weaknesses=weaknesses, facts=facts, profile_label=profile_label, style_label=style_label)
 
 
@@ -654,5 +790,5 @@ def build_why_fits(position, style, emphasis_list, facts, profile_label, style_l
     if is_clear_leader:
         intro = f"His clearest use of {style_label} football — {gap:.1f} points clear of his next-best Role Emphasis in this Style."
 
-    bullets = [dict(label=DOMAIN_INFO[f["domain"]]["strength"], **_render_fact(f, position, 1)) for f in chosen]
+    bullets = [dict(label=DOMAIN_INFO[f["domain"]]["strength"], **_render_fact(f, position, 1, all_facts=facts)) for f in chosen]
     return dict(title=f"Why he fits {profile_label}", intro=intro, bullets=bullets, is_clear_leader=is_clear_leader)

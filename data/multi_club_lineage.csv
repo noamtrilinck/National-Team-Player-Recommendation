@@ -1,0 +1,1746 @@
+﻿player_id,season_name,n_clubs,n_leagues,chronology_known,clubs_ordered,leagues_ordered,cross_league
+261,2025/2026,2,2,True,Hibernian FC → Swindon Town,Premiership → League Two,True
+339,2025/2026,2,2,True,Derby County → Rapid Vienna,Championship → Admiral Bundesliga,True
+340,2025/2026,2,1,True,Sheffield Wednesday → Millwall FC,Championship,False
+795,2025/2026,2,2,True,Oxford United → Stevenage FC,Championship → League One,True
+827,2025/2026,2,1,True,Al Duhail → Al Wakrah,Stars League,False
+871,2025/2026,2,1,True,Bandırmaspor → Iğdır FK,1. Lig,False
+1022,2025/2026,2,1,True,Sheffield United → Birmingham City,Championship,False
+1155,2025/2026,2,1,True,West Ham United → Burnley,Premier League,False
+1193,2025/2026,2,2,True,Al Ittihad → Fenerbahce,Pro League → Super Lig,True
+1452,2025,2,1,True,River Plate → Vélez Sarsfield,Liga Profesional de Fútbol,False
+1625,2025/2026,2,2,True,Fatih Karagümrük → Port Vale FC,Super Lig → League One,True
+1651,2025/2026,2,2,True,Real Oviedo → Pachuca,La Liga → Liga MX,True
+1673,2025/2026,2,1,True,Birmingham City → Portsmouth FC,Championship,False
+1685,2025/2026,2,1,True,Queens Park Rangers → Norwich City,Championship,False
+1876,2025,2,1,True,Boca Juniors → Racing Club,Liga Profesional de Fútbol,False
+2536,2025/2026,2,1,True,Tranmere Rovers → Bristol Rovers,League Two,False
+2712,2025/2026,2,2,True,Southampton FC → Western Sydney Wanderers,Championship → A-League Men,True
+2951,2025/2026,2,2,True,Southampton FC → Wolverhampton Wanderers,Championship → Premier League,True
+2999,2025/2026,2,1,True,Luton Town → Wycombe Wanderers,League One,False
+3043,2025/2026,2,1,True,Wrexham AFC → Charlton Athletic,Championship,False
+3139,2025/2026,2,2,True,Besiktas JK → Aston Villa,Super Lig → Premier League,True
+3230,2025/2026,2,2,False,Stockport County + Derby County,League One + Championship,True
+3267,2025/2026,2,2,True,Hull City → Luton Town,Championship → League One,True
+3300,2025/2026,2,1,False,West Bromwich Albion + Southampton FC,Championship,False
+3385,2025/2026,2,2,True,Levadiakos → Kilmarnock FC,Super League → Premiership,True
+3398,2025/2026,2,2,True,Oxford United → Barnsley FC,Championship → League One,True
+3433,2025/2026,2,1,True,Chesterfield → Accrington Stanley,League Two,False
+3665,2025/2026,2,2,True,Sakaryaspor → AE Larisa,1. Lig → Super League,True
+4107,2025/2026,2,2,False,Doncaster Rovers + Wrexham AFC,League One + Championship,True
+4207,2025/2026,2,2,False,Burton Albion + Wrexham AFC,League One + Championship,True
+4277,2025/2026,2,2,True,Sunderland → Birmingham City,Premier League → Championship,True
+4317,2025,2,1,True,Cincinnati → Real Salt Lake,Major League Soccer,False
+4439,2025/2026,2,1,False,Deportivo Alavés + Villarreal,La Liga,False
+4479,2025/2026,2,2,False,CD Tondela + Alanyaspor,Liga Portugal + Super Lig,True
+4507,2025/2026,2,1,True,West Bromwich Albion → Ipswich Town,Championship,False
+4583,2025/2026,2,2,False,Hibernian FC + Middlesbrough FC,Premiership + Championship,True
+4637,2025/2026,2,2,True,Nice → Juventus,Ligue 1 → Serie A,True
+4842,2025/2026,2,2,False,Galatasaray + Manchester City,Super Lig + Premier League,True
+4978,2025/2026,2,1,True,Stockport County → Exeter City,League One,False
+5071,2025/2026,2,2,True,Union Saint-Gilloise → Le Havre,Pro League → Ligue 1,True
+5321,2025/2026,2,2,True,Atalanta → Atlético de Madrid,Serie A → La Liga,True
+5558,2025/2026,2,1,True,Grimsby Town → Barrow,League Two,False
+5935,2025/2026,2,1,True,Blackpool FC → Bradford City,League One,False
+6042,2025/2026,2,1,True,Real Zaragoza → Cultural Leonesa,La Liga 2,False
+6087,2025/2026,2,2,False,FC Midtjylland + AFC Bournemouth,Superliga + Premier League,True
+6230,2025/2026,2,2,True,Eintracht Braunschweig → FK Partizan Belgrade,2. Bundesliga → Super Liga,True
+6301,2025/2026,2,2,True,Rennes → FC Porto,Ligue 1 → Liga Portugal,True
+6361,2025/2026,2,2,True,Kocaelispor → Iğdır FK,Super Lig → 1. Lig,True
+6377,2025/2026,2,2,True,Luton Town → Sheffield Wednesday,League One → Championship,True
+6470,2025/2026,2,2,True,Derby County → Reading FC,Championship → League One,True
+6513,2025/2026,2,1,True,Charlton Athletic → Southampton FC,Championship,False
+6649,2025/2026,2,1,True,Swindon Town → Newport County,League Two,False
+7055,2025/2026,2,2,True,CD Tondela → FC Zürich,Liga Portugal → Super League,True
+7206,2025,2,2,True,Kuopion Palloseura → FK Haugesund,Veikkausliiga → Eliteserien,True
+7250,2025/2026,2,1,True,Bristol City → Wrexham AFC,Championship,False
+7309,2025/2026,2,1,True,Wycombe Wanderers → AFC Wimbledon,League One,False
+7316,2025/2026,2,1,True,Bolton Wanderers → Stockport County,League One,False
+7570,2025/2026,2,1,True,Stockport County → Barnsley FC,League One,False
+7636,2025/2026,2,1,True,Blackburn Rovers → Derby County,Championship,False
+7643,2025/2026,2,1,True,Crystal Palace → Arsenal,Premier League,False
+7835,2025/2026,2,1,False,Derby County + Southampton FC,Championship,False
+7909,2025/2026,2,2,True,Derby County → Milton Keynes Dons,Championship → League Two,True
+7958,2025/2026,2,2,True,Sheffield United → Brøndby IF,Championship → Superliga,True
+8047,2025/2026,2,1,False,West Bromwich Albion + Birmingham City,Championship,False
+8688,2025/2026,2,2,True,Plymouth Argyle → AC Horsens,League One → First Division,True
+8740,2025/2026,2,1,True,Ipswich Town → Derby County,Championship,False
+8872,2025/2026,2,2,True,Cheltenham Town → Doncaster Rovers,League Two → League One,True
+8900,2025/2026,2,2,True,Bradford City → Grimsby Town,League One → League Two,True
+8934,2025/2026,3,2,False,Port Vale FC + Luton Town + West Bromwich Albion,League One + Championship,True
+9138,2025/2026,2,1,True,Bradford City → Doncaster Rovers,League One,False
+9529,2025/2026,2,1,True,Bolton Wanderers → Wycombe Wanderers,League One,False
+9555,2025/2026,2,1,True,Crawley Town → Barnet,League Two,False
+9557,2025/2026,2,1,True,Oldham Athletic → Bristol Rovers,League Two,False
+9658,2025/2026,2,2,False,Barnsley FC + Wrexham AFC,League One + Championship,True
+10897,2025/2026,2,2,True,Wycombe Wanderers → Salford City,League One → League Two,True
+12139,2025/2026,2,1,True,Wigan Athletic → Bradford City,League One,False
+12216,2025/2026,2,1,True,Ipswich Town → Portsmouth FC,Championship,False
+12227,2025/2026,2,2,True,Bradford City → Dundee FC,League One → Premiership,True
+12445,2025/2026,2,2,True,Leyton Orient → Gillingham,League One → League Two,True
+12483,2025/2026,2,2,True,Derby County → Bradford City,Championship → League One,True
+12514,2025/2026,2,2,True,Leicester City → Leeds United,Championship → Premier League,True
+13489,2025/2026,2,1,True,Blackburn Rovers → Wrexham AFC,Championship,False
+13887,2025/2026,2,1,True,Cambridge United → Crawley Town,League Two,False
+14302,2025/2026,2,2,True,Doncaster Rovers → Aberdeen FC,League One → Premiership,True
+15128,2025/2026,2,1,True,Derby County → Portsmouth FC,Championship,False
+19821,2025/2026,2,1,True,Puskás Akadémia FC → Diósgyőri VTK,NB I,False
+20401,2025/2026,2,1,True,Barnet → Notts County,League Two,False
+20506,2025/2026,2,2,True,Millwall FC → Plymouth Argyle,Championship → League One,True
+21995,2025/2026,2,1,True,Walsall → Barrow,League Two,False
+22660,2025/2026,2,1,True,Shrewsbury Town → Newport County,League Two,False
+24840,2025/2026,2,1,True,Iğdır FK → Serik Belediyespor,1. Lig,False
+25081,2025/2026,2,2,True,Livingston FC → Kayserispor,Premiership → Super Lig,True
+25096,2025/2026,2,1,True,Atlas → Monterrey,Liga MX,False
+25120,2025/2026,2,1,True,Genoa → Cremonese,Serie A,False
+25123,2025/2026,2,2,True,Le Havre → PEC Zwolle,Ligue 1 → Eredivisie,True
+25146,2025/2026,2,2,True,Kocaelispor → Sivasspor,Super Lig → 1. Lig,True
+25160,2025/2026,2,2,True,Al Kholood → Al-Ahli Doha,Pro League → Stars League,True
+25162,2025/2026,2,2,True,Osasuna → FSV Mainz 05,La Liga → Bundesliga,True
+25234,2025/2026,2,1,True,Basaksehir FK → Konyaspor,Super Lig,False
+25414,2025/2026,2,2,True,FC Twente Enschede → FC Arouca,Eredivisie → Liga Portugal,True
+25489,2025/2026,2,2,True,Fenerbahce → Real Betis,Super Lig → La Liga,True
+25515,2025/2026,2,2,True,Gaziantep F.K. → FC Volendam,Super Lig → Eredivisie,True
+25609,2025/2026,2,2,False,Angers SCO + Ajax Amsterdam,Ligue 1 + Eredivisie,True
+25610,2025/2026,2,1,False,SG Dynamo Dresden + Fortuna Düsseldorf,2. Bundesliga,False
+25709,2025/2026,2,2,True,VfL Wolfsburg → Besiktas JK,Bundesliga → Super Lig,True
+25734,2025/2026,2,2,True,NEC Nijmegen → LOSC Lille,Eredivisie → Ligue 1,True
+25796,2025/2026,2,1,True,Bodrum FK → Çorum FK,1. Lig,False
+25826,2025/2026,2,1,True,FC Twente Enschede → Sparta Rotterdam,Eredivisie,False
+26033,2025/2026,2,2,True,RSC Anderlecht → Ajax Amsterdam,Pro League → Eredivisie,True
+26687,2025/2026,2,2,True,Nice → FC Porto,Ligue 1 → Liga Portugal,True
+26895,2025/2026,2,2,True,Cremonese → Palermo FC,Serie A → Serie B,True
+26955,2025/2026,2,2,True,Leicester City → Monaco,Championship → Ligue 1,True
+27234,2025/2026,2,2,True,Blackpool FC → Excelsior Rotterdam,League One → Eredivisie,True
+28212,2025/2026,2,1,True,NEC Nijmegen → Sparta Rotterdam,Eredivisie,False
+28288,2025/2026,2,1,True,Diósgyőri VTK → Ferencvárosi TC,NB I,False
+28570,2025/2026,2,1,True,İstanbulspor → Iğdır FK,1. Lig,False
+28646,2025/2026,2,1,True,FC Rapid 1923 → CFR Cluj,Superliga,False
+30107,2025/2026,2,1,True,Go Ahead Eagles → Feyenoord Rotterdam,Eredivisie,False
+30264,2025/2026,2,2,True,1.FC Magdeburg → St. Pauli,2. Bundesliga → Bundesliga,True
+30618,2025/2026,2,1,True,Panserraikos → AE Kifisia,Super League,False
+31346,2025/2026,2,1,True,1.FC Nuremberg → Arminia Bielefeld,2. Bundesliga,False
+31439,2025/2026,2,2,True,Napoli → Galatasaray,Serie A → Super Lig,True
+31504,2025/2026,2,2,True,Borussia Dortmund → Brighton & Hove Albion,Bundesliga → Premier League,True
+31532,2025/2026,2,2,True,West Ham United → AC Milan,Premier League → Serie A,True
+31854,2025/2026,2,1,True,Eyüpspor → Kasimpasa,Super Lig,False
+31876,2025/2026,2,1,True,SC Paderborn 07 → 1.FC Nuremberg,2. Bundesliga,False
+32116,2025/2026,2,2,True,FC Zürich → Levadiakos,Super League,True
+32141,2025/2026,2,2,False,FK Partizan Belgrade + KAA Gent,Super Liga + Pro League,True
+32159,2025/2026,2,2,True,Bologna → Paris,Serie A → Ligue 1,True
+32272,2025/2026,2,2,True,Eyüpspor → Iğdır FK,Super Lig → 1. Lig,True
+32361,2025/2026,2,2,True,Brøndby IF → FC Augsburg,Superliga → Bundesliga,True
+32390,2025/2026,2,2,True,Olympique Marseille → Sassuolo,Ligue 1 → Serie A,True
+32395,2025/2026,2,2,True,VfL Bochum → Hibernian FC,2. Bundesliga → Premiership,True
+32482,2025/2026,2,2,True,Panathinaikos → Fatih Karagümrük,Super League → Super Lig,True
+32508,2025/2026,2,2,True,América → Lens,Liga MX → Ligue 1,True
+32535,2025/2026,2,2,True,Real Oviedo → Hertha BSC,La Liga → 2. Bundesliga,True
+32579,2025/2026,2,2,True,Hamburger SV → Holstein Kiel,Bundesliga → 2. Bundesliga,True
+32776,2025/2026,2,1,True,KV Mechelen → Royal Charleroi SC,Pro League,False
+33770,2025/2026,3,2,False,FSV Mainz 05 + Como + Bologna,Bundesliga + Serie A,True
+33850,2025,2,2,True,New York City → Molde FK,Major League Soccer → Eliteserien,True
+34098,2025/2026,2,2,True,Konyaspor → Çorum FK,Super Lig → 1. Lig,True
+35218,2025/2026,2,1,True,FC Augsburg → FSV Mainz 05,Bundesliga,False
+35305,2025/2026,2,2,True,Hatayspor → Kayserispor,1. Lig → Super Lig,True
+35574,2025/2026,2,2,True,Inter → Olympique Marseille,Serie A → Ligue 1,True
+35873,2025/2026,2,2,True,Red Bull Salzburg  → 1.FC Kaiserslautern,Admiral Bundesliga → 2. Bundesliga,True
+41547,2025,2,1,False,Minnesota United + Inter Miami,Major League Soccer,False
+42980,2025/2026,2,2,True,Eyüpspor → Sakaryaspor,Super Lig → 1. Lig,True
+46695,2025,2,1,True,Kashiwa Reysol → Sanfrecce Hiroshima,J1 League,False
+47584,2025/2026,2,1,True,Sakaryaspor → Çorum FK,1. Lig,False
+49186,2025/2026,2,1,True,Hapoel Petah Tikva → Ihud Bnei Sakhnin,Ligat ha'Al,False
+52294,2025/2026,2,2,True,LASK → FC Zürich,Admiral Bundesliga → Super League,True
+52639,2025/2026,2,2,True,Kocaelispor → Amed SK,Super Lig → 1. Lig,True
+52645,2025/2026,2,2,True,1.FC Slovacko → Nyíregyháza Spartacus,Chance Liga → NB I,True
+52731,2025/2026,2,1,True,Puskás Akadémia FC → Újpest FC,NB I,False
+52792,2025/2026,2,1,True,Shabab Al Ahli Dubai → Bani Yas,UAE Pro League,False
+52801,2025/2026,2,1,True,NK Istra 1961 → HNK Hajduk Split,1. HNL,False
+52903,2025/2026,2,2,True,Ferencvárosi TC → AEK Athens,NB I → Super League,True
+53557,2025/2026,2,2,True,Kasimpasa → Pogon Szczecin,Super Lig → Ekstraklasa,True
+54042,2025/2026,2,2,True,FC St. Gallen 1879 → SK Sturm Graz,Super League → Admiral Bundesliga,True
+55342,2025/2026,2,1,True,SCR Altach → TSV Hartberg,Admiral Bundesliga,False
+61072,2025/2026,2,1,True,KV Mechelen → Union Saint-Gilloise,Pro League,False
+61365,2025/2026,2,2,True,FC Lausanne-Sport → Oud-Heverlee Leuven,Super League → Pro League,True
+62024,2025/2026,2,1,True,FCSB → FCV Farul Constanta,Superliga,False
+62181,2025/2026,2,2,False,Paris + Real Sociedad,Ligue 1 + La Liga,True
+62368,2025/2026,2,2,True,KV Mechelen → Antalyaspor,Pro League → Super Lig,True
+62468,2025,2,1,True,River Plate → Estudiantes,Liga Profesional de Fútbol,False
+62701,2025/2026,2,1,True,Zeleziarne Podbrezova → MFK Skalica,Niké Liga,False
+62871,2025/2026,2,2,True,Sevilla → SL Benfica,La Liga → Liga Portugal,True
+62896,2025,2,2,True,Malmö FF → Urawa Reds,Allsvenskan → J1 League,True
+62898,2025/2026,2,2,True,FC Copenhagen → Widzew Lodz,Superliga → Ekstraklasa,True
+62908,2025/2026,2,2,True,Kasimpasa → Bandırmaspor,Super Lig → 1. Lig,True
+62963,2025/2026,2,2,True,Eyüpspor → Çorum FK,Super Lig → 1. Lig,True
+62989,2025/2026,2,2,False,Al Riyadh + Real Valladolid CF,Pro League + La Liga 2,True
+63166,2025/2026,2,1,True,KAA Gent → Cercle Brugge,Pro League,False
+63213,2025/2026,2,2,False,Rio Ave FC + Aris Thessaloniki,Liga Portugal + Super League,True
+64188,2025/2026,2,2,True,Red Star Belgrade → Samsunspor,Super Liga → Super Lig,True
+65386,2025/2026,2,2,True,RWDM Brussels → FCV Dender EH,Challenger Pro League → Pro League,True
+67948,2025/2026,2,2,False,Hull City + Besiktas JK,Championship + Super Lig,True
+73844,2025/2026,2,1,True,NK Varazdin → Slaven Belupo Koprivnica,1. HNL,False
+73932,2025/2026,2,1,True,HNK Hajduk Split → NK Osijek,1. HNL,False
+75226,2025/2026,2,2,True,Vitória Guimarães SC → Samsunspor,Liga Portugal → Super Lig,True
+79920,2025/2026,2,1,True,Bohemians Prague 1905 → FK Mlada Boleslav,Chance Liga,False
+80151,2025/2026,2,1,True,Spartak Trnava → MFK Skalica,Niké Liga,False
+80228,2025/2026,2,2,True,KRC Genk → FC Viktoria Plzen,Pro League → Chance Liga,True
+80261,2025/2026,2,1,True,FC Viktoria Plzen → Bohemians Prague 1905,Chance Liga,False
+80590,2025/2026,2,1,True,FK Teplice → FC Hradec Kralove,Chance Liga,False
+80619,2025/2026,2,2,True,AC Sparta Prague → Górnik Zabrze,Chance Liga → Ekstraklasa,True
+80691,2025/2026,2,1,True,FK Jablonec → 1.FC Slovacko,Chance Liga,False
+80813,2025/2026,2,1,True,FC Hradec Kralove → FK Teplice,Chance Liga,False
+80890,2025/2026,2,2,True,1.FC Nuremberg → FK Mlada Boleslav,2. Bundesliga → Chance Liga,True
+80902,2025/2026,2,2,True,Girona → Wolverhampton Wanderers,La Liga → Premier League,True
+81598,2025/2026,2,1,True,FK Jablonec → SK Sigma Olomouc,Chance Liga,False
+81983,2025/2026,2,1,True,FC Slovan Liberec → FK Pardubice,Chance Liga,False
+82080,2025/2026,2,1,True,FC Banik Ostrava → Bohemians Prague 1905,Chance Liga,False
+82370,2025/2026,2,2,True,Caykur Rizespor → FC Banik Ostrava,Super Lig → Chance Liga,True
+84225,2025/2026,2,1,True,Boldklubben af 1893 → Lyngby Boldklub,First Division,False
+84491,2025/2026,2,2,True,Union Saint-Gilloise → St. Pauli,Pro League → Bundesliga,True
+84602,2025/2026,2,1,True,Aarhus GF → FC Copenhagen,Superliga,False
+85609,2025/2026,2,1,True,Nyíregyháza Spartacus → Diósgyőri VTK,NB I,False
+87122,2025/2026,2,1,True,Hillerød Fodbold → AC Horsens,First Division,False
+89038,2025/2026,2,1,True,Bohemians Prague 1905 → FC Banik Ostrava,Chance Liga,False
+91599,2025,2,1,True,Ilves Tampere → FC KTP,Veikkausliiga,False
+93948,2025/2026,2,1,True,Al Ittihad → Al Hilal,Pro League,False
+95597,2025/2026,2,2,True,Eyüpspor → Çorum FK,Super Lig → 1. Lig,True
+95694,2025/2026,2,2,True,Olympique Marseille → AC Milan,Ligue 1 → Serie A,True
+95896,2025/2026,2,2,True,Fenerbahce → Spartak Moscow,Super Lig → Premier League,True
+95932,2025/2026,2,1,True,Amed SK → Sarıyer SK,1. Lig,False
+96113,2025/2026,2,1,True,Red Star FC → SC Bastia,Ligue 2,False
+96417,2025/2026,2,2,True,Queens Park Rangers → Grasshopper Club Zurich,Championship → Super League,True
+96571,2025/2026,2,2,True,Stade Reims → CD Tondela,Ligue 2 → Liga Portugal,True
+96612,2025/2026,2,2,True,CFR Cluj → Hapoel Tel Aviv,Superliga → Ligat ha'Al,True
+96635,2025/2026,2,1,True,Al Sailiya → Al Shamal SC,Stars League,False
+96661,2025/2026,2,2,True,Al Fateh → Al-Arabi SC,Pro League → Stars League,True
+96691,2025/2026,2,2,False,Basaksehir FK + Olympique Marseille,Super Lig + Ligue 1,True
+96792,2025/2026,2,2,True,Crystal Palace → Lens,Premier League → Ligue 1,True
+96826,2025/2026,2,1,True,Brest → Paris,Ligue 1,False
+96962,2025/2026,2,2,True,FSV Mainz 05 → Rennes,Bundesliga → Ligue 1,True
+96964,2025/2026,2,2,True,Petrolul Ploiesti → Eyüpspor,Superliga → Super Lig,True
+97087,2025/2026,2,2,True,Lazio → Fenerbahce,Serie A → Super Lig,True
+97255,2025,2,2,True,América de Cali → River Plate,Liga BetPlay → Liga Profesional de Fútbol,True
+98885,2025/2026,2,2,True,Almere City FC → USL Dunkerque,Eerste Divisie → Ligue 2,True
+99019,2025/2026,2,1,True,FC Universitatea Cluj → FCSB,Superliga,False
+99060,2025/2026,2,2,True,Kocaelispor → Sivasspor,Super Lig → 1. Lig,True
+99173,2025/2026,2,2,False,KAA Gent + Nantes,Pro League + Ligue 1,True
+100379,2025/2026,2,2,True,VfL Bochum → Nantes,2. Bundesliga → Ligue 1,True
+100590,2025/2026,2,2,True,CFR Cluj → Panetolikos,Superliga → Super League,True
+101641,2025/2026,2,2,True,Stade Reims → Standard Liège,Ligue 2 → Pro League,True
+101987,2025/2026,2,1,True,Stade Reims → Amiens SC,Ligue 2,False
+102633,2025/2026,2,1,True,FC Dinamo 1948 → UTA Arad,Superliga,False
+103140,2025/2026,2,1,True,FCV Dender EH → Royal Charleroi SC,Pro League,False
+108656,2025/2026,2,2,True,Slovan Bratislava → Wisla Plock,Niké Liga → Ekstraklasa,True
+108988,2025/2026,2,1,True,AE Larisa → Asteras Aktor,Super League,False
+112979,2025/2026,2,2,True,FK Csikszereda Miercurea Ciuc → Kazincbarcikai SC,Superliga → NB I,True
+114115,2025/2026,2,1,True,Paksi FC → Ferencvárosi TC,NB I,False
+114179,2025,2,1,True,Philadelphia Union → Columbus Crew,Major League Soccer,False
+114937,2025/2026,2,1,True,MTK Budapest → Paksi FC,NB I,False
+118648,2025/2026,2,2,True,Cracovia → AE Larisa,Ekstraklasa → Super League,True
+118726,2025,2,2,True,Halmstads BK → KA Akureyri,Allsvenskan → Besta deild,True
+119027,2025/2026,2,2,True,Birmingham City → Go Ahead Eagles,Championship → Eredivisie,True
+119637,2025/2026,2,2,True,Preston North End → Hannover 96,Championship → 2. Bundesliga,True
+121791,2025/2026,2,1,True,Port Vale FC → Plymouth Argyle,League One,False
+124015,2025/2026,2,1,True,Hapoel Beer Sheva → Hapoel Haifa,Ligat ha'Al,False
+125149,2025/2026,2,2,True,Granada CF → FC Blau-Weiss Linz,La Liga 2 → Admiral Bundesliga,True
+125482,2025/2026,3,3,False,Fiorentina + Villarreal + Tottenham Hotspur,Serie A + La Liga + Premier League,True
+125561,2025/2026,2,1,True,Hapoel Tel Aviv → Hapoel Haifa,Ligat ha'Al,False
+125609,2025,2,1,True,Gamba Osaka → Machida Zelvia,J1 League,False
+125677,2025/2026,2,1,True,Ihud Bnei Sakhnin → Maccabi Bnei Reineh,Ligat ha'Al,False
+126554,2025/2026,2,1,True,Maccabi Bnei Reineh → Hapoel Haifa,Ligat ha'Al,False
+126725,2025,2,1,False,Sport Recife + Ceará,Serie A,False
+128545,2025/2026,2,1,True,KSC Lokeren → Patro Eisden Maasmechelen,Challenger Pro League,False
+129010,2025/2026,2,2,False,Spezia Calcio + Cremonese,Serie B + Serie A,True
+129515,2025/2026,2,1,True,AC Monza → US Avellino 1912,Serie B,False
+129658,2025/2026,2,1,True,América → Tigres UANL,Liga MX,False
+129790,2025/2026,2,2,True,Mazatlán → Al Najma,Liga MX → Pro League,True
+129812,2025/2026,2,2,True,Al Sharjah → Sivasspor,UAE Pro League → 1. Lig,True
+129968,2025/2026,2,1,True,Cagliari → Cremonese,Serie A,False
+130120,2025/2026,2,1,True,Real Sociedad → Valencia,La Liga,False
+130154,2025/2026,2,1,True,Mantova 1911 → SSC Bari,Serie B,False
+130184,2025/2026,2,2,True,Cremonese → Modena FC,Serie A → Serie B,True
+130198,2025/2026,2,2,True,Besiktas JK → AEK Athens,Super Lig → Super League,True
+130216,2025/2026,2,2,True,Frosinone Calcio → Fatih Karagümrük,Serie B → Super Lig,True
+131943,2025/2026,2,1,True,SSC Bari → Cesena FC,Serie B,False
+131963,2025/2026,2,2,False,Cesena FC + Cremonese,Serie B + Serie A,True
+132004,2025/2026,2,2,False,Cesena FC + Como,Serie B + Serie A,True
+132027,2025/2026,2,1,True,SSC Bari → AC Reggiana 1919,Serie B,False
+132231,2025/2026,2,1,True,Modena FC → Calcio Padova,Serie B,False
+132249,2025/2026,2,1,True,Lecce → Cremonese,Serie A,False
+132303,2025/2026,2,2,False,Spezia Calcio + Cremonese,Serie B + Serie A,True
+132680,2025/2026,2,1,True,UC Sampdoria → Spezia Calcio,Serie B,False
+133031,2025/2026,2,1,True,Carrarese Calcio 1908 → UC Sampdoria,Serie B,False
+133035,2025/2026,2,1,True,Spezia Calcio → SSC Bari,Serie B,False
+133127,2025/2026,2,2,True,Galatasaray → Udinese,Super Lig → Serie A,True
+133364,2025/2026,2,2,True,Olympiacos Piraeus → Parma,Super League → Serie A,True
+133708,2025/2026,2,1,True,Spezia Calcio → UC Sampdoria,Serie B,False
+133805,2025/2026,3,2,False,AC Monza + Parma + Como,Serie B + Serie A,True
+133975,2025/2026,2,1,True,Modena FC → FC Empoli,Serie B,False
+142218,2025/2026,2,1,True,Iğdır FK → Sivasspor,1. Lig,False
+142463,2025/2026,2,1,True,SK Sigma Olomouc → 1.FC Slovacko,Chance Liga,False
+151073,2025,2,1,True,Molde FK → Viking FK,Eliteserien,False
+151127,2025,2,2,True,Vancouver Whitecaps → Sarpsborg 08 FF,Major League Soccer → Eliteserien,True
+151319,2025,2,2,True,Tromsø IL → IFK Värnamo,Eliteserien → Allsvenskan,True
+151452,2025,2,1,True,SJ Earthquakes → San Diego,Major League Soccer,False
+153021,2025,2,1,True,FK Bodø/Glimt → Sarpsborg 08 FF,Eliteserien,False
+153412,2025,2,1,True,Bryne FK → Kristiansund BK,Eliteserien,False
+155460,2025/2026,2,2,True,FC Midtjylland → Udinese,Superliga → Serie A,True
+155643,2025/2026,2,1,True,Zaglebie Lubin → GKS Katowice,Ekstraklasa,False
+156180,2025/2026,2,2,True,Fenerbahce → Rennes,Super Lig → Ligue 1,True
+156888,2025/2026,2,2,True,Genclerbirligi Ankara → Serik Belediyespor,Super Lig → 1. Lig,True
+157831,2025/2026,2,2,True,Újpest FC → GKS Katowice,NB I → Ekstraklasa,True
+159402,2025/2026,2,2,True,Besiktas JK → SL Benfica,Super Lig → Liga Portugal,True
+159435,2025/2026,2,2,True,Vitória Guimarães SC → Al Rayyan,Liga Portugal → Stars League,True
+159756,2025/2026,2,2,True,Gaziantep F.K. → Hapoel Tel Aviv,Super Lig → Ligat ha'Al,True
+159868,2025,2,1,True,ADT → Melgar,Primera Division,False
+159895,2025,2,1,True,Santos → Sport Recife,Serie A,False
+160219,2025,2,1,True,Rionegro Águilas → Junior FC,Liga BetPlay,False
+160249,2025/2026,2,1,True,Serik Belediyespor → Bandırmaspor,1. Lig,False
+160956,2025/2026,2,2,True,Al Hilal → FC Barcelona,Pro League → La Liga,True
+162101,2025/2026,2,1,True,Amed SK → Erzurumspor FK,1. Lig,False
+162216,2025/2026,2,2,True,América → Fatih Karagümrük,Liga MX → Super Lig,True
+162841,2025/2026,2,2,True,Moreirense FC → AE Kifisia,Liga Portugal → Super League,True
+163046,2025/2026,2,2,True,CD Santa Clara → Radomiak Radom,Liga Portugal → Ekstraklasa,True
+163210,2025/2026,2,2,True,SL Benfica → Burnley,Liga Portugal → Premier League,True
+164918,2025/2026,2,1,True,AFC Unirea 04 Slobozia → FC Metaloglobus Bucharest,Superliga,False
+165211,2025/2026,2,2,True,Universitatea Craiova → Panserraikos,Superliga → Super League,True
+165633,2025/2026,2,2,True,FCSB → Al Ain,Superliga → UAE Pro League,True
+165648,2025/2026,2,1,True,Eyüpspor → Gaziantep F.K.,Super Lig,False
+165702,2025/2026,2,2,True,Aris Thessaloniki → FC Rapid 1923,Super League → Superliga,True
+167149,2025/2026,2,1,True,SC Otelul Galati → FK Csikszereda Miercurea Ciuc,Superliga,False
+167914,2025/2026,2,1,True,AFC Unirea 04 Slobozia → FC Hermannstadt,Superliga,False
+169972,2025/2026,2,2,True,FC Zürich → OFK Beograd,Super League → Super Liga,True
+170211,2025/2026,2,1,True,Lokomotiv Moscow → CSKA Moscow,Premier League,False
+171966,2025/2026,2,2,True,PAOK Thessaloniki → Kayserispor,Super League → Super Lig,True
+172232,2025/2026,2,2,True,Parma → AC Monza,Serie A → Serie B,True
+173059,2025/2026,2,2,True,Millwall FC → Aberdeen FC,Championship → Premiership,True
+174199,2025/2026,2,1,True,Stockport County → Wigan Athletic,League One,False
+174296,2025/2026,2,1,True,Birmingham City → Charlton Athletic,Championship,False
+177654,2025/2026,2,1,True,Levadiakos → Levadiakos,Super League,False
+177744,2025/2026,2,2,True,Raków Częstochowa → FC Banik Ostrava,Ekstraklasa → Chance Liga,True
+178069,2025/2026,2,1,True,Zeleziarne Podbrezova → FC Tatran Presov,Niké Liga,False
+179740,2025/2026,2,2,True,AE Larisa → FK Radnicki 1923 Kragujevac,Super League → Super Liga,True
+181049,2025/2026,2,1,True,SK Sigma Olomouc → 1.FC Slovacko,Chance Liga,False
+181218,2025/2026,2,1,True,Piast Gliwice → GKS Katowice,Ekstraklasa,False
+181308,2025/2026,2,2,True,FC Rapid 1923 → DAC Dunajska Streda,Superliga → Niké Liga,True
+181490,2025/2026,2,2,True,Górnik Zabrze → DAC Dunajska Streda,Ekstraklasa → Niké Liga,True
+182905,2025/2026,2,2,True,Alanyaspor → Slovan Bratislava,Super Lig → Niké Liga,True
+183344,2025/2026,2,2,True,Ajman → Bodrum FK,UAE Pro League → 1. Lig,True
+183503,2025/2026,2,2,True,Al Okhdoud → Konyaspor,Pro League → Super Lig,True
+186159,2025/2026,2,2,True,Fiorentina → Al Hilal,Serie A → Pro League,True
+186354,2025/2026,2,1,True,Granada CF → Real Zaragoza,La Liga 2,False
+186475,2025/2026,2,1,True,Tigres UANL → Juárez,Liga MX,False
+186741,2025/2026,2,2,True,Maccabi Haifa → Jagiellonia Bialystok,Ligat ha'Al → Ekstraklasa,True
+186982,2025/2026,2,2,True,Fenerbahce → Al Ittihad,Super Lig → Pro League,True
+187074,2025/2026,2,2,True,Granada CF → Aris Thessaloniki,La Liga 2 → Super League,True
+189286,2025/2026,2,1,True,Celta de Vigo → Girona,La Liga,False
+189937,2025/2026,2,1,False,Radomiak Radom + Jagiellonia Bialystok,Ekstraklasa,False
+190049,2025/2026,2,1,True,Atlético de Madrid → Osasuna,La Liga,False
+190998,2025/2026,2,1,True,Panathinaikos → PAOK Thessaloniki,Super League,False
+191264,2025/2026,3,3,False,Aberdeen FC + FC Utrecht + Bologna,Premiership + Eredivisie + Serie A,True
+192045,2025,2,1,True,IF Elfsborg → Halmstads BK,Allsvenskan,False
+192858,2025,2,1,True,Cienciano → Alianza Universidad,Primera Division,False
+198062,2025/2026,2,2,False,Inter + Manchester City,Serie A + Premier League,True
+198424,2025/2026,2,2,True,BSC Young Boys → Valencia,Super League → La Liga,True
+199482,2025/2026,2,1,True,1.FC Kaiserslautern → SpVgg Greuther Fürth,2. Bundesliga,False
+200135,2025/2026,2,2,True,Antalyaspor → Iğdır FK,Super Lig → 1. Lig,True
+201148,2025/2026,2,2,True,Hatayspor → Kasimpasa,1. Lig → Super Lig,True
+201232,2025/2026,2,1,True,Çorum FK → Sarıyer SK,1. Lig,False
+201444,2025/2026,2,1,True,Fenerbahce → Kasimpasa,Super Lig,False
+201503,2025/2026,3,2,True,Kocaelispor → Çorum FK → Vanspor FK,Super Lig → 1. Lig,True
+201676,2025/2026,2,1,True,Gaziantep F.K. → Kayserispor,Super Lig,False
+201712,2025/2026,2,1,True,Konyaspor → Trabzonspor,Super Lig,False
+202002,2025/2026,2,1,True,Fenerbahce → Besiktas JK,Super Lig,False
+202503,2025/2026,2,2,True,Göztepe → Çorum FK,Super Lig → 1. Lig,True
+202620,2025/2026,2,1,True,Eyüpspor → Gaziantep F.K.,Super Lig,False
+202738,2025/2026,2,1,True,Besiktas JK → Gaziantep F.K.,Super Lig,False
+203385,2025/2026,2,1,True,Serik Belediyespor → Vanspor FK,1. Lig,False
+203404,2025/2026,2,2,True,Genclerbirligi Ankara → Çorum FK,Super Lig → 1. Lig,True
+203462,2025/2026,2,1,True,Kayserispor → Besiktas JK,Super Lig,False
+203965,2025/2026,2,1,True,Hatayspor → Bandırmaspor,1. Lig,False
+203978,2025/2026,2,1,True,Hatayspor → Bandırmaspor,1. Lig,False
+205343,2025,2,1,True,Cruzeiro → Atlético Mineiro,Serie A,False
+212928,2025,2,1,True,San Antonio Bulo Bulo → Aurora,Liga De Futbol Prof,False
+213144,2025,2,2,True,San Martín San Juan → Rionegro Águilas,Liga Profesional de Fútbol → Liga BetPlay,True
+213434,2025,2,1,True,The Strongest → Always Ready,Liga De Futbol Prof,False
+213949,2025,2,1,True,Nacional Potosí → Club Bolívar,Liga De Futbol Prof,False
+214722,2025,2,1,True,Unión La Calera → Unión Española,Primera Division,False
+214977,2025,2,1,True,River Plate → Vélez Sarsfield,Liga Profesional de Fútbol,False
+215082,2025,2,1,True,Tigre → Huracán,Liga Profesional de Fútbol,False
+215256,2025,2,1,True,Talleres Córdoba → Unión Santa Fe,Liga Profesional de Fútbol,False
+215360,2025,2,1,True,Racing Club → River Plate,Liga Profesional de Fútbol,False
+215430,2025,2,1,True,Gimnasia La Plata → Belgrano,Liga Profesional de Fútbol,False
+215532,2025/2026,2,2,True,Juventus → Atlético de Madrid,Serie A → La Liga,True
+216686,2025,2,2,True,Instituto → Club Bolívar,Liga Profesional de Fútbol → Liga De Futbol Prof,True
+217005,2025,2,1,True,Palmeiras → Grêmio,Serie A,False
+218138,2025,2,2,True,Defensa y Justicia → Rionegro Águilas,Liga Profesional de Fútbol → Liga BetPlay,True
+218446,2025,2,1,True,Yokohama F. Marinos → Kashima Antlers,J1 League,False
+218597,2025,2,1,True,Palmeiras → Santos,Serie A,False
+219722,2025/2026,2,1,True,Atlético San Luis → América,Liga MX,False
+223664,2025,2,1,True,Cruzeiro → Grêmio,Serie A,False
+225000,2025/2026,2,1,True,Nottingham Forest → Aston Villa,Premier League,False
+225238,2025/2026,2,1,True,Fenerbahce → Kasimpasa,Super Lig,False
+230293,2025,2,1,True,Shonan Bellmare → Yokohama,J1 League,False
+231753,2025/2026,2,2,True,CSKA Moscow → Al Jazira,Premier League → UAE Pro League,True
+231850,2025/2026,2,2,True,Göztepe → Sakaryaspor,Super Lig → 1. Lig,True
+235454,2025,2,1,True,Internacional de Bogotá → Alianza Petrolera,Liga BetPlay,False
+236366,2025,2,1,True,Deportes Tolima → Deportivo Cali,Liga BetPlay,False
+236379,2025,2,1,True,Deportivo Cali → Llaneros,Liga BetPlay,False
+236554,2025,2,1,True,Universitario de Vinto → Nacional Potosí,Liga De Futbol Prof,False
+236775,2025,2,1,True,Internacional de Bogotá → Deportivo Cali,Liga BetPlay,False
+237014,2025,2,1,True,Deportivo Pasto → Deportivo Pereira,Liga BetPlay,False
+237036,2025,2,1,True,Deportivo Cali → Deportivo Pereira,Liga BetPlay,False
+237145,2025,2,1,True,Rionegro Águilas → Deportivo Cali,Liga BetPlay,False
+237188,2025,2,1,True,Deportivo Pasto → Once Caldas,Liga BetPlay,False
+237204,2025,2,1,True,Rionegro Águilas → Junior FC,Liga BetPlay,False
+237229,2025,2,1,True,Santa Fe → Deportivo Pereira,Liga BetPlay,False
+237301,2025,2,1,True,Deportivo Cali → Independiente Medellín,Liga BetPlay,False
+237316,2025/2026,2,1,True,Lens → Nantes,Ligue 1,False
+237318,2025,2,1,True,Deportes Tolima → Millonarios,Liga BetPlay,False
+237366,2025,2,1,True,Boyacá Chicó → Rionegro Águilas,Liga BetPlay,False
+237684,2025,2,1,True,Santa Fe → Deportivo Pereira,Liga BetPlay,False
+237735,2025,2,1,True,Deportivo Cali → Deportivo Pereira,Liga BetPlay,False
+237751,2025,2,1,True,Universitario de Vinto → Nacional Potosí,Liga De Futbol Prof,False
+237789,2025,2,2,True,Unión Magdalena → Nacional Potosí,Liga BetPlay → Liga De Futbol Prof,True
+237880,2025/2026,2,2,True,Mazatlán → UD Las Palmas,Liga MX → La Liga 2,True
+237982,2025,2,2,True,Millonarios → Club Bolívar,Liga BetPlay → Liga De Futbol Prof,True
+238104,2025,2,1,True,Deportivo Pereira → Junior FC,Liga BetPlay,False
+238142,2025,2,2,True,Llaneros → San Antonio Bulo Bulo,Liga BetPlay → Liga De Futbol Prof,True
+238144,2025,2,2,True,América de Cali → Racing Club,Liga BetPlay → Liga Profesional de Fútbol,True
+238159,2025,2,1,True,Atlético Bucaramanga → Deportivo Pasto,Liga BetPlay,False
+238195,2025/2026,2,2,True,Burgos CF → Rubin Kazan,La Liga 2 → Premier League,True
+238657,2025,2,1,True,Deportivo Pasto → Deportivo Pereira,Liga BetPlay,False
+239700,2025,2,1,True,Atlético Nacional → Atlético Bucaramanga,Liga BetPlay,False
+239730,2025,2,1,True,Deportivo Pasto → Atlético Bucaramanga,Liga BetPlay,False
+240086,2025,2,1,True,Millonarios → Llaneros,Liga BetPlay,False
+240322,2025,2,1,True,Deportes Tolima → Alianza Petrolera,Liga BetPlay,False
+240360,2025,2,1,True,Millonarios → Independiente Medellín,Liga BetPlay,False
+240459,2025,2,2,True,Atlético Bucaramanga → Banfield,Liga BetPlay → Liga Profesional de Fútbol,True
+241172,2025,2,1,True,Deportes Tolima → Llaneros,Liga BetPlay,False
+251652,2025/2026,2,1,True,Hapoel Haifa → Hapoel Beer Sheva,Ligat ha'Al,False
+252509,2025/2026,2,1,True,Cruz Azul → Guadalajara,Liga MX,False
+253204,2025/2026,2,1,True,Monterrey → Atlas,Liga MX,False
+253754,2025/2026,2,2,True,Cruz Azul → PAOK Thessaloniki,Liga MX → Super League,True
+254081,2025/2026,2,2,True,West Ham United → Valencia,Premier League → La Liga,True
+254102,2025/2026,2,1,True,Necaxa → León,Liga MX,False
+254181,2025/2026,2,1,True,Puebla → Santos Laguna,Liga MX,False
+254222,2025/2026,2,1,True,Puebla → Guadalajara,Liga MX,False
+254339,2025/2026,2,1,True,Mazatlán → León,Liga MX,False
+254491,2025/2026,2,1,True,Tigres UANL → Pumas UNAM,Liga MX,False
+257945,2025/2026,2,2,True,Damac FC → Atlético San Luis,Pro League → Liga MX,True
+258070,2025,2,1,True,Aurora → Guabirá,Liga De Futbol Prof,False
+258496,2025,2,1,True,Deportivo Binacional → Alianza Universidad,Primera Division,False
+258724,2025,2,1,True,ADC Juan Pablo II → Alianza Universidad,Primera Division,False
+258880,2025,2,1,True,Cienciano → Alianza Lima,Primera Division,False
+259239,2025,2,2,True,Atlanta United → Sporting Cristal,Major League Soccer → Primera Division,True
+259252,2025,2,1,True,Sport Boys → Cienciano,Primera Division,False
+259338,2025,2,1,True,Comerciantes Unidos → Cienciano,Primera Division,False
+259339,2025,2,1,True,ADT → Alianza Universidad,Primera Division,False
+259374,2025,2,1,True,Universitario → ADT,Primera Division,False
+259424,2025,2,1,True,Deportivo Binacional → Ayacucho,Primera Division,False
+259960,2025,2,1,True,Atlético Grau → Sport Boys,Primera Division,False
+260497,2025,2,1,True,Universidad Chile → Unión Española,Primera Division,False
+260629,2025/2026,2,1,True,Cruz Azul → Tijuana,Liga MX,False
+260879,2025,2,2,True,Everton → Sport Recife,Primera Division → Serie A,True
+260903,2025,2,1,True,New York RB → Portland Timbers,Major League Soccer,False
+261057,2025,2,1,True,Independiente Medellín → Deportivo Cali,Liga BetPlay,False
+262216,2025/2026,2,2,True,Feyenoord Rotterdam → Southampton FC,Eredivisie → Championship,True
+262274,2025/2026,2,2,True,Leeds United → Fiorentina,Premier League → Serie A,True
+262283,2025,2,2,True,Dallas → Fluminense,Major League Soccer → Serie A,True
+288341,2025/2026,2,1,True,Mamelodi Sundowns → Stellenbosch,Premier League,False
+289041,2025/2026,2,1,True,AmaZulu → Orbit College,Premier League,False
+289398,2025/2026,2,2,True,Wolverhampton Wanderers → Paris,Premier League → Ligue 1,True
+293666,2025/2026,2,1,True,Al Ahly → Al Ittihad,Premier League,False
+293892,2025/2026,2,1,True,Haras El Hodood → Pharco,Premier League,False
+302766,2025/2026,2,2,True,Al Dhafra → Al Duhail,UAE Pro League → Stars League,True
+304099,2025/2026,2,1,True,Al Hilal → Al Shabab,Pro League,False
+304106,2025/2026,2,1,True,Al-Qadsiah → Al Taawoun,Pro League,False
+304117,2025/2026,2,1,True,Al Taawoun → Al Hilal,Pro League,False
+309593,2025,2,1,True,Cerezo Osaka → Shonan Bellmare,J1 League,False
+310108,2025,2,1,True,Shonan Bellmare → Shimizu S-Pulse,J1 League,False
+310155,2025,2,1,True,Urawa Reds → Sanfrecce Hiroshima,J1 League,False
+312629,2025,2,1,True,Chengdu Rongcheng → Yunnan Yukun,Super League,False
+318948,2025,2,1,True,Kashiwa Reysol → Albirex Niigata,J1 League,False
+324282,2025/2026,2,1,True,Stellenbosch → Orlando Pirates,Premier League,False
+324539,2025/2026,2,2,True,FK TSC Backa Topola → Wellington Phoenix,Super Liga → A-League Men,True
+328413,2025,2,2,True,Once Caldas → Oriente Petrolero,Liga BetPlay → Liga De Futbol Prof,True
+331385,2025/2026,2,2,False,Milton Keynes Dons + Hibernian FC,League Two + Premiership,True
+332283,2025/2026,2,1,False,Burton Albion + Wycombe Wanderers,League One,False
+333391,2025,2,2,True,Fortaleza → Godoy Cruz,Serie A → Liga Profesional de Fútbol,True
+333481,2025/2026,2,1,True,Tigres UANL → Cruz Azul,Liga MX,False
+333498,2025,2,2,True,Argentinos Juniors → O'Higgins,Liga Profesional de Fútbol → Primera Division,True
+333532,2025/2026,2,1,True,Cruz Azul → Necaxa,Liga MX,False
+333559,2025,2,1,True,Talleres Córdoba → Tigre,Liga Profesional de Fútbol,False
+333609,2025,2,2,True,Santos → Independiente,Serie A → Liga Profesional de Fútbol,True
+333777,2025,2,1,True,Independiente → Belgrano,Liga Profesional de Fútbol,False
+333914,2025,2,1,True,Platense → Central Cordoba SdE,Liga Profesional de Fútbol,False
+333957,2025/2026,2,1,True,Al Jazira → Al Nasr,UAE Pro League,False
+335244,2025,2,1,True,Huracán → Independiente,Liga Profesional de Fútbol,False
+337457,2025/2026,2,1,True,Granada CF → Deportivo de La Coruña,La Liga 2,False
+338208,2025/2026,2,2,True,Hamburger SV → Maccabi Tel Aviv,Bundesliga → Ligat ha'Al,True
+340204,2025/2026,2,1,True,Coventry City → Wrexham AFC,Championship,False
+361090,2025/2026,2,2,True,Brest → AS Saint-Étienne,Ligue 1 → Ligue 2,True
+361906,2025/2026,2,2,False,Royal Charleroi SC + Metz,Pro League + Ligue 1,True
+362741,2025/2026,2,1,True,Hellas Verona → Torino,Serie A,False
+362772,2025/2026,2,2,True,Fortuna Sittard → Servette FC,Eredivisie → Super League,True
+368786,2025/2026,2,1,True,Spezia Calcio → FC Empoli,Serie B,False
+368953,2025/2026,2,1,True,Palermo FC → UC Sampdoria,Serie B,False
+377250,2025/2026,2,1,True,Krylya Sovetov Samara → FC Sochi,Premier League,False
+378629,2025/2026,2,2,True,West Ham United → AC Sparta Prague,Premier League → Chance Liga,True
+378812,2025/2026,2,2,True,Barnsley FC → Wrexham AFC,League One → Championship,True
+380232,2025/2026,2,2,True,Mallorca → CD Leganés,La Liga → La Liga 2,True
+380967,2025/2026,2,2,True,Maccabi Bnei Reineh → Sakaryaspor,Ligat ha'Al → 1. Lig,True
+392420,2025/2026,2,1,True,Iğdır FK → Sarıyer SK,1. Lig,False
+392853,2025/2026,2,1,True,Iğdır FK → Sakaryaspor,1. Lig,False
+394147,2025,2,1,True,Guabirá → Real Tomayapo,Liga De Futbol Prof,False
+397691,2025,2,1,True,Atlético Tucumán → Unión Santa Fe,Liga Profesional de Fútbol,False
+402331,2025,2,2,True,Universidad Católica → Tigre,Primera Division → Liga Profesional de Fútbol,True
+403681,2025,2,1,True,Fortaleza CEIF → Deportivo Pasto,Liga BetPlay,False
+404497,2025,2,1,True,Rionegro Águilas → Junior FC,Liga BetPlay,False
+408981,2025,2,1,True,Cincinnati → San Diego,Major League Soccer,False
+409137,2025,2,1,True,CF Montréal → Chicago Fire,Major League Soccer,False
+412433,2025/2026,2,1,True,HNK Rijeka → HNK Gorica,1. HNL,False
+416927,2025,2,1,True,Cerezo Osaka → Albirex Niigata,J1 League,False
+418253,2025/2026,2,2,True,Eintracht Braunschweig → Grasshopper Club Zurich,2. Bundesliga → Super League,True
+419347,2025,2,1,True,San Antonio Bulo Bulo → Aurora,Liga De Futbol Prof,False
+419625,2025,2,1,True,Guabirá → Real Tomayapo,Liga De Futbol Prof,False
+430143,2025,2,1,True,Yokohama F. Marinos → Vissel Kobe,J1 League,False
+432706,2025/2026,2,1,True,Stade Reims → EA Guingamp,Ligue 2,False
+432720,2025/2026,2,2,True,AS Saint-Étienne → AE Larisa,Ligue 2 → Super League,True
+432782,2025/2026,2,2,True,Sivasspor → Levadiakos,1. Lig → Super League,True
+432832,2025/2026,2,2,True,FC Augsburg → BSC Young Boys,Bundesliga → Super League,True
+432912,2025/2026,2,2,True,Leicester City → Al Duhail,Championship → Stars League,True
+433363,2025/2026,2,2,True,FK IMT Belgrad → Grenoble Foot 38,Super Liga → Ligue 2,True
+433785,2025/2026,2,1,True,Petrolul Ploiesti → CFR Cluj,Superliga,False
+433807,2025/2026,2,1,True,Zaglebie Lubin → Raków Częstochowa,Ekstraklasa,False
+435908,2025/2026,2,1,True,AC Reggiana 1919 → Palermo FC,Serie B,False
+436090,2025/2026,3,1,False,SSC Bari + Mantova 1911 + AC Reggiana 1919,Serie B,False
+436159,2025/2026,2,1,True,Pisa → Sassuolo,Serie A,False
+443528,2025/2026,2,1,True,Necaxa → Cruz Azul,Liga MX,False
+444157,2025,2,1,True,Cienciano → Alianza Lima,Primera Division,False
+446364,2025/2026,2,1,True,CD Leganés → UD Almería,La Liga 2,False
+446999,2025/2026,2,2,True,Asteras Aktor → Krylya Sovetov Samara,Super League → Premier League,True
+447092,2025/2026,2,2,True,América → Real Betis,Liga MX → La Liga,True
+447134,2025/2026,2,2,True,Real Valladolid CF → FC Arouca,La Liga 2 → Liga Portugal,True
+447240,2025/2026,2,2,True,Hellas Verona → Valencia,Serie A → La Liga,True
+448372,2025/2026,2,2,True,GNK Dinamo Zagreb → Elche,1. HNL → La Liga,True
+452786,2025/2026,2,1,True,SV Ried → Grazer AK 1902,Admiral Bundesliga,False
+452932,2025/2026,2,1,True,Zamalek → Pyramids FC,Premier League,False
+452982,2025/2026,2,2,True,Lecce → Elche,Serie A → La Liga,True
+455774,2025,2,2,True,Toronto → FK Bodø/Glimt,Major League Soccer → Eliteserien,True
+456883,2025/2026,2,2,True,Motherwell FC → Bristol Rovers,Premiership → League Two,True
+458682,2025/2026,2,1,True,Wolverhampton Wanderers → Crystal Palace,Premier League,False
+458800,2025/2026,2,1,True,FC Sochi → Rubin Kazan,Premier League,False
+458907,2025/2026,2,1,True,SV 07 Elversberg → SG Dynamo Dresden,2. Bundesliga,False
+460080,2025/2026,2,2,True,OFI Crete → Hapoel Jerusalem,Super League → Ligat ha'Al,True
+460091,2025,2,1,True,Once Caldas → Internacional de Bogotá,Liga BetPlay,False
+460601,2025/2026,2,2,True,FC Orenburg → NK Osijek,Premier League → 1. HNL,True
+461664,2025/2026,2,2,True,Pachuca → Rayo Vallecano,Liga MX → La Liga,True
+463976,2025/2026,2,2,True,Al Riyadh → Sakaryaspor,Pro League → 1. Lig,True
+464014,2025,2,2,True,SJK Seinäjoki → FK Haugesund,Veikkausliiga → Eliteserien,True
+464015,2025/2026,2,1,True,Çorum FK → Sarıyer SK,1. Lig,False
+464190,2025/2026,2,2,True,Aberdeen FC → FK Radnicki 1923 Kragujevac,Premiership → Super Liga,True
+465116,2025,2,1,True,FK Auda → Riga FC,Virsliga,False
+466068,2025/2026,2,1,True,FC Pari Nizhniy Novgorod → FC Krasnodar,Premier League,False
+468451,2025/2026,2,1,True,Necaxa → León,Liga MX,False
+468627,2025,2,1,True,Sporting Cristal → Alianza Lima,Primera Division,False
+470503,2025,2,1,True,América de Cali → Independiente Medellín,Liga BetPlay,False
+470958,2025,2,2,True,Hammarby IF → Albirex Niigata,Allsvenskan → J1 League,True
+472599,2025,2,1,True,Comerciantes Unidos → ADC Juan Pablo II,Primera Division,False
+488070,2025/2026,2,2,True,Wigan Athletic → Milton Keynes Dons,League One → League Two,True
+504866,2025/2026,2,2,False,SS Juve Stabia + Como,Serie B + Serie A,True
+505040,2025/2026,2,1,True,Cesena FC → Spezia Calcio,Serie B,False
+508813,2025/2026,2,2,True,FC Porto → Cagliari,Liga Portugal → Serie A,True
+512560,2025/2026,2,2,True,Olympique Marseille → Besiktas JK,Ligue 1 → Super Lig,True
+516291,2025/2026,2,2,True,West Ham United → Olympique Marseille,Premier League → Ligue 1,True
+518650,2025,2,1,True,Colorado Rapids → Toronto,Major League Soccer,False
+522621,2025,2,1,True,Unión Santa Fe → Racing Club,Liga Profesional de Fútbol,False
+524055,2025/2026,2,2,True,Lazio → West Ham United,Serie A → Premier League,True
+524432,2025,2,1,True,Deportivo Cali → Internacional de Bogotá,Liga BetPlay,False
+524849,2025/2026,2,1,True,Angers SCO → Olympique Marseille,Ligue 1,False
+524852,2025/2026,2,2,True,FC Banik Ostrava → Maccabi Bnei Reineh,Chance Liga → Ligat ha'Al,True
+527274,2025,2,1,True,San Antonio Bulo Bulo → Aurora,Liga De Futbol Prof,False
+529502,2025/2026,2,2,True,Levante → Angers SCO,La Liga → Ligue 1,True
+529553,2025/2026,2,2,True,Royal Charleroi SC → Watford FC,Pro League → Championship,True
+529627,2025/2026,3,3,False,Kisvárda FC + Grenoble Foot 38 + Brest,NB I + Ligue 2 + Ligue 1,True
+530193,2025/2026,2,2,True,Sarıyer SK → FK Radnik Surdulica,1. Lig → Super Liga,True
+530758,2025/2026,2,2,True,Getafe → Granada CF,La Liga → La Liga 2,True
+532358,2025/2026,2,1,True,Sevilla → Elche,La Liga,False
+532822,2025,2,1,True,Real Tomayapo → ABB,Liga De Futbol Prof,False
+533182,2025/2026,2,1,True,Middlesbrough FC → Bristol City,Championship,False
+533761,2025,2,1,True,ABB → Real Oruro,Liga De Futbol Prof,False
+534383,2025/2026,2,2,True,SL Benfica → Fenerbahce,Liga Portugal → Super Lig,True
+535499,2025/2026,2,1,True,Toluca → Pumas UNAM,Liga MX,False
+537027,2025/2026,2,1,True,FK Mlada Boleslav → FK Teplice,Chance Liga,False
+537108,2025/2026,2,2,True,Brentford → Coventry City,Premier League → Championship,True
+537186,2025/2026,2,2,True,Córdoba CF → Widzew Lodz,La Liga 2 → Ekstraklasa,True
+537429,2025/2026,2,2,True,Spartak Moscow → Sporting CP,Premier League → Liga Portugal,True
+537465,2025/2026,2,2,True,Bradford City → Walsall,League One → League Two,True
+537577,2025/2026,2,2,True,Le Mans FC → Volos NFC,Ligue 2 → Super League,True
+537660,2025/2026,2,2,True,Aris Thessaloniki → Juárez,Super League → Liga MX,True
+537758,2025/2026,2,2,True,Aston Villa → Roma,Premier League → Serie A,True
+538449,2025/2026,2,2,True,West Bromwich Albion → Bologna,Championship → Serie A,True
+538457,2025/2026,2,1,False,FK Mladost Lucani + FK Cukaricki,Super Liga,False
+538481,2025/2026,2,1,True,FK Radnicki 1923 Kragujevac → FK Vojvodina Novi Sad,Super Liga,False
+538609,2025/2026,2,1,True,FK Teplice → FK Jablonec,Chance Liga,False
+539554,2025/2026,2,1,True,Huddersfield Town → Plymouth Argyle,League One,False
+540010,2025/2026,2,2,True,Oxford United → Northampton Town,Championship → League One,True
+540248,2025/2026,2,2,True,Al-Arabi SC → Panathinaikos,Stars League → Super League,True
+540290,2025/2026,2,1,True,Millwall FC → Sheffield United,Championship,False
+540482,2025/2026,2,2,True,Lincoln City → Dundee FC,League One → Premiership,True
+540672,2025/2026,2,1,True,Celtic FC → Motherwell FC,Premiership,False
+581043,2025/2026,2,2,True,Sheffield Wednesday → BSC Young Boys,Championship → Super League,True
+581046,2025/2026,2,2,False,Peterborough United + Wrexham AFC,League One + Championship,True
+581062,2025/2026,2,1,True,Ipswich Town → Wrexham AFC,Championship,False
+581142,2025/2026,2,2,True,Auxerre → Cardiff City,Ligue 1 → League One,True
+581154,2025/2026,2,1,True,Notts County → Crawley Town,League Two,False
+581235,2025/2026,2,2,False,Salford City + Leyton Orient,League Two + League One,True
+608285,2025/2026,2,2,True,Olympique Marseille → Wolverhampton Wanderers,Ligue 1 → Premier League,True
+741528,2025/2026,2,2,True,Hamburger SV → SV 07 Elversberg,Bundesliga → 2. Bundesliga,True
+751437,2025/2026,2,2,True,CSKA Moscow → Genclerbirligi Ankara,Premier League → Super Lig,True
+751551,2025/2026,2,2,True,Al Najma → Real Zaragoza,Pro League → La Liga 2,True
+766260,2025/2026,2,1,True,Beitar Jerusalem → FC Ashdod,Ligat ha'Al,False
+784369,2025/2026,2,2,True,Widzew Lodz → NK Osijek,Ekstraklasa → 1. HNL,True
+784557,2025/2026,2,2,True,Antalyaspor → Bodrum FK,Super Lig → 1. Lig,True
+784792,2025/2026,2,2,True,RAAL La Louvière → KSC Lokeren,Pro League → Challenger Pro League,True
+784809,2025,2,1,True,FK Auda → Riga FC,Virsliga,False
+785205,2025/2026,2,2,True,Royal Charleroi SC → Wisla Plock,Pro League → Ekstraklasa,True
+785924,2025/2026,2,2,True,Auxerre → FC Lausanne-Sport,Ligue 1 → Super League,True
+785955,2025/2026,2,2,True,Hillerød Fodbold → Universitatea Craiova,First Division → Superliga,True
+785997,2025/2026,2,2,True,Cracovia → AE Larisa,Ekstraklasa → Super League,True
+786791,2025,2,2,True,Nacional Potosí → Boyacá Chicó,Liga De Futbol Prof → Liga BetPlay,True
+786884,2025,2,1,True,Alianza Petrolera → Once Caldas,Liga BetPlay,False
+896368,2025/2026,2,2,True,Al Riyadh → Al Dhafra,Pro League → UAE Pro League,True
+1122865,2025/2026,2,1,True,Boluspor → Amed SK,1. Lig,False
+1122923,2025/2026,2,2,True,Samsunspor → Sint-Truidense VV,Super Lig → Pro League,True
+1356266,2025/2026,2,1,True,Eyüpspor → Gaziantep F.K.,Super Lig,False
+1452457,2025/2026,2,2,True,GNK Dinamo Zagreb → FC Schalke 04,1. HNL → 2. Bundesliga,True
+1477653,2025/2026,2,2,True,Sarıyer SK → Pau FC,1. Lig → Ligue 2,True
+1479090,2025/2026,2,2,True,KV Mechelen → Venezia FC,Pro League → Serie B,True
+1479701,2025/2026,2,2,True,Újpest FC → FCSB,NB I → Superliga,True
+1480407,2025/2026,2,1,True,Iğdır FK → Sivasspor,1. Lig,False
+1485257,2025/2026,2,1,True,Bodrum FK → Amed SK,1. Lig,False
+1485418,2025/2026,2,2,True,Wisla Plock → Hellas Verona,Ekstraklasa → Serie A,True
+1491606,2025,2,1,True,San Lorenzo → Boca Juniors,Liga Profesional de Fútbol,False
+1494244,2025/2026,2,2,True,Rio Ave FC → Birmingham City,Liga Portugal → Championship,True
+1494245,2025/2026,2,2,True,Atlético de Madrid → Tottenham Hotspur,La Liga → Premier League,True
+1494388,2025/2026,2,1,True,Middlesbrough FC → Southampton FC,Championship,False
+1494444,2025/2026,2,1,True,Fleetwood Town → Bromley,League Two,False
+1494547,2025/2026,2,2,True,Port Vale FC → Fleetwood Town,League One → League Two,True
+1494712,2025/2026,2,2,True,Olympique Marseille → Brighton & Hove Albion,Ligue 1 → Premier League,True
+1495691,2025,2,1,True,Orlando City → Colorado Rapids,Major League Soccer,False
+1503030,2025,2,1,True,Gimnasia La Plata → Lanús,Liga Profesional de Fútbol,False
+1504508,2025/2026,2,1,True,Magesi → Stellenbosch,Premier League,False
+1511345,2025,2,1,True,ABB → Always Ready,Liga De Futbol Prof,False
+1548028,2025/2026,2,2,True,Wolverhampton Wanderers → LASK,Premier League → Admiral Bundesliga,True
+1548377,2025,2,1,True,Bryne FK → Tromsø IL,Eliteserien,False
+1548625,2025/2026,2,1,False,FC Tatran Presov + Spartak Trnava,Niké Liga,False
+1846902,2025/2026,2,1,True,Mazatlán → Atlético San Luis,Liga MX,False
+1872573,2025/2026,2,1,True,Legia Warszawa → GKS Katowice,Ekstraklasa,False
+1872650,2025/2026,2,2,True,Huddersfield Town → Milton Keynes Dons,League One → League Two,True
+2158445,2025/2026,2,1,True,Querétaro → Pumas UNAM,Liga MX,False
+2158634,2025/2026,2,1,True,Al Taawoun → Al-Qadsiah,Pro League,False
+2170278,2025/2026,2,2,True,FC Viktoria Plzen → Slovan Bratislava,Chance Liga → Niké Liga,True
+2178650,2025/2026,2,2,True,FC St. Gallen 1879 → Karlsruher SC,Super League → 2. Bundesliga,True
+2206568,2025/2026,2,2,True,Servette FC → Göztepe,Super League → Super Lig,True
+2206702,2025/2026,2,2,True,Lyngby Boldklub → WSG Tirol,First Division → Admiral Bundesliga,True
+2206983,2025/2026,2,2,True,FC St. Gallen 1879 → Paris,Super League → Ligue 1,True
+2483371,2025/2026,2,1,True,US Avellino 1912 → Delfino Pescara 1936,Serie B,False
+2510835,2025/2026,2,2,True,CF Estrela Amadora → KAS Eupen,Liga Portugal → Challenger Pro League,True
+2510860,2025/2026,2,2,True,AC Sparta Prague → Getafe,Chance Liga → La Liga,True
+2511076,2025/2026,2,1,True,UC Sampdoria → Virtus Entella,Serie B,False
+2816063,2025/2026,2,1,False,Coventry City + Ipswich Town,Championship,False
+2816254,2025/2026,2,1,True,Spartak Moscow → Lokomotiv Moscow,Premier League,False
+2823414,2025/2026,2,2,True,Motherwell FC → Sydney,Premiership → A-League Men,True
+2823500,2025,2,2,True,FK Haugesund → IK Sirius,Eliteserien → Allsvenskan,True
+2823509,2025/2026,2,2,True,Watford FC → Genclerbirligi Ankara,Championship → Super Lig,True
+2823522,2025/2026,2,2,True,Sivasspor → CD Tondela,1. Lig → Liga Portugal,True
+2846627,2025/2026,2,2,True,Vitória Guimarães SC → Mamelodi Sundowns,Liga Portugal → Premier League,True
+2846750,2025/2026,2,1,True,ACSC FC Arges → AFC Unirea 04 Slobozia,Superliga,False
+2846821,2025/2026,2,1,True,NEOM SC → Al Shabab,Pro League,False
+2875981,2025,2,1,True,Defensa y Justicia → Newell's Old Boys,Liga Profesional de Fútbol,False
+3187964,2025/2026,2,2,True,Barnsley FC → Dundee United FC,League One → Premiership,True
+3188047,2025,2,1,True,Galway United FC → Bohemian Football Club,Premier Division,False
+3502673,2025/2026,2,1,True,Pyramids FC → Ceramica Cleopatra,Premier League,False
+3510293,2025/2026,2,2,True,NEC Nijmegen → Real Zaragoza,Eredivisie → La Liga 2,True
+3526191,2025,2,1,True,Banfield → Belgrano,Liga Profesional de Fútbol,False
+3533245,2025/2026,2,1,True,SS Juve Stabia → SSC Bari,Serie B,False
+3533249,2025,2,1,True,Alianza Atlético → Alianza Universidad,Primera Division,False
+3533357,2025/2026,2,2,True,Fatih Karagümrük → Iğdır FK,Super Lig → 1. Lig,True
+3533724,2025/2026,2,1,True,Hannover 96 → Arminia Bielefeld,2. Bundesliga,False
+3533830,2025/2026,2,2,True,Celtic FC → Swansea City,Premiership → Championship,True
+3533990,2025/2026,2,2,True,HNK Hajduk Split → Manisa FK,1. HNL → 1. Lig,True
+3568625,2025/2026,2,2,False,Boluspor + Kocaelispor,1. Lig + Super Lig,True
+3861546,2025/2026,2,2,True,Kayserispor → Eintracht Braunschweig,Super Lig → 2. Bundesliga,True
+3861637,2025/2026,2,2,True,Eintracht Braunschweig → FC Heidenheim,2. Bundesliga → Bundesliga,True
+3861790,2025/2026,2,1,True,Bristol Rovers → Cheltenham Town,League Two,False
+3862494,2025/2026,2,1,True,Austria Vienna → SK Sturm Graz,Admiral Bundesliga,False
+3862589,2025/2026,2,1,True,SV Darmstadt 98 → SpVgg Greuther Fürth,2. Bundesliga,False
+3876667,2025/2026,2,2,True,SK Slavia Prague → KAA Gent,Chance Liga → Pro League,True
+3876966,2025/2026,2,2,True,Zamalek → Al Najma,Premier League → Pro League,True
+4192249,2025/2026,2,2,True,AS Saint-Étienne → AE Larisa,Ligue 2 → Super League,True
+4192333,2025/2026,2,2,True,FC Copenhagen → Kayserispor,Superliga → Super Lig,True
+4536496,2025/2026,2,2,True,Girona → Rangers FC,La Liga → Premiership,True
+4536500,2025/2026,2,1,True,Crystal Palace → Manchester City,Premier League,False
+4536512,2025/2026,2,2,False,Patro Eisden Maasmechelen + FCV Dender EH,Challenger Pro League + Pro League,True
+4536539,2025/2026,2,2,True,Cagliari → UC Sampdoria,Serie A → Serie B,True
+4536540,2025/2026,2,1,True,Fiorentina → Parma,Serie A,False
+4536583,2025/2026,2,2,True,Beerschot VA → Sint-Truidense VV,Challenger Pro League → Pro League,True
+4536588,2025/2026,2,1,True,CFR Cluj → FC Universitatea Cluj,Superliga,False
+4545347,2025/2026,2,2,True,SK Sturm Graz → Bristol City,Admiral Bundesliga → Championship,True
+4545434,2025/2026,2,1,True,Juventus → Bologna,Serie A,False
+4592179,2025,2,1,True,Sligo Rovers → Shamrock Rovers,Premier Division,False
+4598752,2025/2026,2,2,False,Sunderland + RB Leipzig,Premier League + Bundesliga,True
+4977687,2025/2026,2,2,True,Deportivo Alavés → Birmingham City,La Liga → Championship,True
+5283381,2025/2026,2,2,True,Randers FC → VfL Bochum,Superliga → 2. Bundesliga,True
+5332153,2025,2,1,True,Junior FC → Deportivo Cali,Liga BetPlay,False
+5332181,2025/2026,2,2,True,Clermont Foot 63 → Jagiellonia Bialystok,Ligue 2 → Ekstraklasa,True
+5641041,2025,2,1,False,Sport Recife + Grêmio,Serie A,False
+5666457,2025/2026,2,2,True,Trabzonspor → Sevilla,Super Lig → La Liga,True
+5666480,2025/2026,2,2,True,Southampton FC → Werder Bremen,Championship → Bundesliga,True
+6306068,2025/2026,2,2,True,Feyenoord Rotterdam → Olympique Marseille,Eredivisie → Ligue 1,True
+6306111,2025,2,1,True,Rosenborg BK → SK Brann,Eliteserien,False
+6599923,2025/2026,2,1,True,US Catanzaro → Delfino Pescara 1936,Serie B,False
+6642441,2025/2026,2,2,True,FC Zürich → Ferencvárosi TC,Super League → NB I,True
+6984743,2025,2,1,True,Djurgårdens IF → Degerfors IF,Allsvenskan,False
+7026768,2025/2026,2,2,True,Fortuna Düsseldorf → Red Star FC,2. Bundesliga → Ligue 2,True
+7034592,2025/2026,2,2,True,FC Hermannstadt → CF Estrela Amadora,Superliga → Liga Portugal,True
+7330507,2025/2026,2,2,False,Sunderland + Ajax Amsterdam,Premier League + Eredivisie,True
+7689437,2025,2,1,True,São Paulo → Santos,Serie A,False
+7714340,2025/2026,2,1,True,Sheffield United → Queens Park Rangers,Championship,False
+7742181,2025/2026,2,2,True,Hibernian FC → Leyton Orient,Premiership → League One,True
+8403613,2025/2026,2,2,False,FC Porto + Arsenal,Liga Portugal + Premier League,True
+8409959,2025/2026,2,1,True,UC Sampdoria → SSC Bari,Serie B,False
+8417178,2025,2,1,True,FS Jelgava → FC RFS,Virsliga,False
+8417251,2025/2026,2,1,True,Spezia Calcio → UC Sampdoria,Serie B,False
+8456327,2025/2026,2,1,True,CD Mirandés → AD Ceuta FC,La Liga 2,False
+8497895,2025/2026,2,1,True,Bolton Wanderers → Blackpool FC,League One,False
+9279559,2025/2026,2,1,True,Middlesbrough FC → Bristol City,Championship,False
+9302763,2025,2,1,True,São Paulo → Atlético Mineiro,Serie A,False
+9307980,2025/2026,2,1,True,Heracles Almelo → AZ Alkmaar,Eredivisie,False
+9616249,2025/2026,2,2,True,Maccabi Haifa → AE Larisa,Ligat ha'Al → Super League,True
+9616692,2025/2026,2,1,True,Ironi Tiberias → Maccabi Bnei Reineh,Ligat ha'Al,False
+9636175,2025/2026,2,2,True,NK Varazdin → Nyíregyháza Spartacus,1. HNL → NB I,True
+9938963,2025/2026,2,2,True,KAA Gent → Blackburn Rovers,Pro League → Championship,True
+9939024,2025/2026,2,2,True,Slovan Bratislava → Middlesbrough FC,Niké Liga → Championship,True
+9939030,2025/2026,2,1,True,Slovan Bratislava → FC Kosice,Niké Liga,False
+9939204,2025/2026,2,2,True,De Graafschap → CD Tondela,Eerste Divisie → Liga Portugal,True
+10275412,2025/2026,2,2,True,Raków Częstochowa → Preußen Münster,Ekstraklasa → 2. Bundesliga,True
+10966299,2025/2026,2,1,True,Besiktas JK → Trabzonspor,Super Lig,False
+10967328,2025,2,1,True,Albirex Niigata → Shonan Bellmare,J1 League,False
+10967415,2025/2026,2,1,False,Udinese + Napoli,Serie A,False
+10967436,2025/2026,2,2,True,Göztepe → FC Alverca,Super Lig → Liga Portugal,True
+10990678,2025/2026,2,1,True,AFC Bournemouth → Manchester City,Premier League,False
+11298638,2025,2,1,True,Internacional → Vitória,Serie A,False
+11311801,2025/2026,2,1,True,Monterrey → León,Liga MX,False
+11321908,2025,2,1,True,Deportivo Binacional → ADC Juan Pablo II,Primera Division,False
+11353232,2025/2026,2,2,False,FK Radnicki 1923 Kragujevac + ETO FC,Super Liga + NB I,True
+11675726,2025/2026,2,2,True,USL Dunkerque → SC Telstar,Ligue 2 → Eredivisie,True
+11705342,2025/2026,2,1,True,Pyramids FC → Al Ittihad,Premier League,False
+11705425,2025,2,1,True,Atlético Nacional → Deportes Tolima,Liga BetPlay,False
+12016945,2025/2026,2,2,True,Cercle Brugge → Al Kholood,Pro League,True
+12036864,2025/2026,2,2,True,FC Bayern München → Galatasaray,Bundesliga → Super Lig,True
+12066303,2025/2026,2,1,True,Hatayspor → Amed SK,1. Lig,False
+12394109,2025/2026,2,2,False,Deportivo de La Coruña + Sassuolo,La Liga 2 + Serie A,True
+12433161,2025/2026,2,1,True,Plymouth Argyle → Huddersfield Town,League One,False
+12433234,2025/2026,2,1,True,National Bank of Egypt → Al Ittihad,Premier League,False
+12447522,2025,2,1,True,Sanfrecce Hiroshima → Shonan Bellmare,J1 League,False
+12789336,2025/2026,2,2,False,PEC Zwolle + FC Den Bosch,Eredivisie + Eerste Divisie,True
+12844039,2025/2026,2,1,True,FC Banik Ostrava → FK Teplice,Chance Liga,False
+12844226,2025,2,1,True,Riga FC → FK Auda,Virsliga,False
+13155985,2025/2026,2,2,True,Union Saint-Gilloise → Nice,Pro League → Ligue 1,True
+13171220,2025/2026,2,1,True,Slovan Bratislava → KFC Komarno,Niké Liga,False
+13186483,2025/2026,2,2,True,Parma → Kasimpasa,Serie A → Super Lig,True
+13187047,2025/2026,2,1,True,Angers SCO → Rennes,Ligue 1,False
+13238937,2025/2026,2,2,True,Atlético de Madrid → Atalanta,La Liga → Serie A,True
+13590995,2025/2026,2,2,True,BSC Young Boys → Oud-Heverlee Leuven,Super League → Pro League,True
+13591031,2025/2026,2,2,True,Peterborough United → Bristol Rovers,League One → League Two,True
+13591493,2025/2026,2,2,True,Antalyaspor → Celtic FC,Super Lig → Premiership,True
+13963088,2025/2026,2,2,True,Olympique Lyonnais → Villarreal,Ligue 1 → La Liga,True
+13981024,2025/2026,2,2,False,Valencia + Leeds United,La Liga + Premier League,True
+14004586,2025,2,1,True,Vitória → Sport Recife,Serie A,False
+14337101,2025/2026,2,2,True,Al Shahaniya → Bani Yas,Stars League → UAE Pro League,True
+14338021,2025/2026,2,2,True,Hibernian FC → Randers FC,Premiership → Superliga,True
+14338068,2025/2026,2,2,True,Nantes → KAA Gent,Ligue 1 → Pro League,True
+14685026,2025/2026,2,1,True,Fleetwood Town → Salford City,League Two,False
+14726291,2025/2026,2,2,True,Aalborg BK → Blackburn Rovers,First Division → Championship,True
+15061587,2025/2026,2,2,True,Spezia Calcio → Widzew Lodz,Serie B → Ekstraklasa,True
+15074746,2025/2026,2,2,True,FC Metaloglobus Bucharest → FK Radnik Surdulica,Superliga → Super Liga,True
+15170264,2025,2,1,True,KFUM-Kameratene Oslo → Fredrikstad FK,Eliteserien,False
+15426464,2025,2,1,True,Deportivo Binacional → Alianza Atlético,Primera Division,False
+15426471,2025/2026,2,2,True,Esbjerg fB → Viborg FF,First Division → Superliga,True
+15434627,2025/2026,2,2,True,AC Milan → Fulham,Serie A → Premier League,True
+15524632,2025/2026,2,2,True,Cardiff City → Fortuna Düsseldorf,League One → 2. Bundesliga,True
+15764248,2025/2026,2,1,True,CSKA Moscow → Zenit St. Petersburg,Premier League,False
+16144536,2025,2,1,True,Valur Reykjavík → KR Reykjavík,Besta deild,False
+16475808,2025/2026,2,2,True,AC Reggiana 1919 → Samsunspor,Serie B → Super Lig,True
+16475855,2025/2026,2,2,True,Peterborough United → Crawley Town,League One → League Two,True
+16488492,2025/2026,2,2,True,Al Duhail → Cultural Leonesa,Stars League → La Liga 2,True
+16488582,2025/2026,2,2,True,NK Istra 1961 → Deportivo Alavés,1. HNL → La Liga,True
+16496788,2025,2,1,True,Los Chankas → Deportivo Binacional,Primera Division,False
+16837815,2025/2026,2,1,False,Deportivo Alavés + Real Sociedad,La Liga,False
+16838270,2025/2026,2,2,True,Oxford United → Göztepe,Championship → Super Lig,True
+16845790,2025/2026,2,2,True,SV Darmstadt 98 → Grazer AK 1902,2. Bundesliga → Admiral Bundesliga,True
+17168800,2025,2,1,True,Alianza Petrolera → Unión Magdalena,Liga BetPlay,False
+17187752,2025,2,1,True,Cusco FC → Comerciantes Unidos,Primera Division,False
+17544752,2025/2026,2,2,True,EA Guingamp → Rubin Kazan,Ligue 2 → Premier League,True
+17867671,2025/2026,2,2,True,FC Utrecht → Derby County,Eredivisie → Championship,True
+17885696,2025/2026,2,1,True,CFR Cluj → FC Hermannstadt,Superliga,False
+18219320,2025/2026,2,2,True,Dynamo Moscow → Kayserispor,Premier League → Super Lig,True
+18575713,2025,2,1,True,Colo-Colo → Coquimbo Unido,Primera Division,False
+19625676,2025/2026,2,1,True,Club Brugge KV → KAA Gent,Pro League,False
+19960396,2025/2026,2,2,True,León → Real Oviedo,Liga MX → La Liga,True
+19979663,2025/2026,2,2,True,Preston North End → Brøndby IF,Championship → Superliga,True
+19979687,2025/2026,2,2,True,FC Heidenheim → SG Dynamo Dresden,Bundesliga → 2. Bundesliga,True
+19980276,2025/2026,2,1,True,FC Empoli → AC Reggiana 1919,Serie B,False
+19980285,2025/2026,2,2,True,NAC Breda → CF Estrela Amadora,Eredivisie → Liga Portugal,True
+19988729,2025/2026,2,1,True,Albacete Balompié → UD Almería,La Liga 2,False
+19996754,2025/2026,2,2,True,SK Slavia Prague → Górnik Zabrze,Chance Liga → Ekstraklasa,True
+20315934,2025/2026,2,1,True,FK Jablonec → AC Sparta Prague,Chance Liga,False
+20333755,2025/2026,2,1,True,Atalanta → Fiorentina,Serie A,False
+20335120,2025/2026,2,2,True,Montpellier HSC → FC Basel 1893,Ligue 2 → Super League,True
+20335304,2025/2026,2,2,True,Avs Futebol → SD Huesca,Liga Portugal → La Liga 2,True
+20336073,2025/2026,2,1,True,SK Sigma Olomouc → FC Viktoria Plzen,Chance Liga,False
+20357599,2025/2026,2,1,True,Sparta Rotterdam → Fortuna Sittard,Eredivisie,False
+20691946,2025/2026,2,1,True,Eyüpspor → Samsunspor,Super Lig,False
+20693616,2025/2026,2,1,False,Oud-Heverlee Leuven + Union Saint-Gilloise,Pro League,False
+20694581,2025/2026,2,2,True,Pogon Szczecin → CFR Cluj,Ekstraklasa → Superliga,True
+20708321,2025/2026,2,2,True,AFC Wimbledon → Crawley Town,League One → League Two,True
+20708615,2025/2026,2,2,True,Charlton Athletic → Stockport County,Championship → League One,True
+20708618,2025/2026,2,2,True,Port Vale FC → Bromley,League One → League Two,True
+21036790,2025/2026,2,2,True,Jagiellonia Bialystok → Hvidovre IF,Ekstraklasa → First Division,True
+21054928,2025/2026,2,2,True,Ferencvárosi TC → Lechia Gdansk,NB I → Ekstraklasa,True
+21065074,2025/2026,2,1,False,Eintracht Braunschweig + 1.FC Nuremberg,2. Bundesliga,False
+21065097,2025/2026,2,2,True,Cultural Leonesa → FC Rapid 1923,La Liga 2 → Superliga,True
+21072676,2025/2026,2,1,True,Albacete Balompié → Deportivo de La Coruña,La Liga 2,False
+21089949,2025/2026,2,1,True,Sint-Truidense VV → RSC Anderlecht,Pro League,False
+21185478,2025/2026,2,1,True,Santos Laguna → Pumas UNAM,Liga MX,False
+21404427,2025/2026,2,1,False,FK Pardubice + SK Slavia Prague,Chance Liga,False
+21412318,2025/2026,2,1,True,Barnsley FC → Mansfield Town,League One,False
+21763134,2025/2026,3,2,False,Barnsley FC + Blackpool FC + St. Pauli,League One + Bundesliga,True
+21772850,2025/2026,2,2,False,Heracles Almelo + Eintracht Braunschweig,Eredivisie + 2. Bundesliga,True
+21782219,2025/2026,2,1,True,Aston Villa → Crystal Palace,Premier League,False
+21802848,2025,2,2,True,Atlanta United → Millonarios,Major League Soccer → Liga BetPlay,True
+21802858,2025/2026,2,2,True,Bristol City → Reading FC,Championship → League One,True
+21803059,2025/2026,2,2,True,Rennes → Spartak Moscow,Ligue 1 → Premier League,True
+22136636,2025,2,1,True,Sporting KC → Real Salt Lake,Major League Soccer,False
+22136687,2025/2026,2,2,True,Olympic Charleroi → FK Radnicki 1923 Kragujevac,Challenger Pro League → Super Liga,True
+22136830,2025/2026,2,2,True,FC Hermannstadt → Beitar Jerusalem,Superliga → Ligat ha'Al,True
+22144864,2025/2026,2,1,True,Maccabi Bnei Reineh → Ironi Tiberias,Ligat ha'Al,False
+22145369,2025/2026,2,1,True,Al Ain → Bani Yas,UAE Pro League,False
+22514377,2025/2026,2,2,True,Basaksehir FK → Esenler Erokspor,Super Lig → 1. Lig,True
+22536031,2025/2026,2,2,True,Deportivo Alavés → RSC Anderlecht,La Liga → Pro League,True
+22536228,2025/2026,2,1,True,SC Otelul Galati → FCSB,Superliga,False
+22536394,2025,2,1,True,Toronto → CF Montréal,Major League Soccer,False
+22860189,2025/2026,2,1,True,Stellenbosch → Sekhukhune United,Premier League,False
+22860311,2025/2026,2,1,True,Stellenbosch → Richards Bay,Premier League,False
+22889457,2025,2,2,True,Shandong Taishan → Fortaleza,Super League → Serie A,True
+23223429,2025/2026,2,1,True,Sekhukhune United → Siwelele,Premier League,False
+23233054,2025/2026,2,1,True,Fiorentina → Bologna,Serie A,False
+23269590,2025/2026,2,2,True,Cracovia → Pisa,Ekstraklasa → Serie A,True
+23269649,2025/2026,2,2,True,Aberdeen FC → FC Schalke 04,Premiership → 2. Bundesliga,True
+23269650,2025/2026,2,2,True,Nottingham Forest → Eintracht Frankfurt,Premier League → Bundesliga,True
+23269651,2025/2026,2,2,True,Montpellier HSC → Samsunspor,Ligue 2 → Super Lig,True
+23269652,2025/2026,2,2,True,Wolverhampton Wanderers → Sheffield United,Premier League → Championship,True
+23269654,2025/2026,2,2,True,Aberdeen FC → Blackpool FC,Premiership → League One,True
+23269662,2025/2026,2,2,True,Torino → Espanyol,Serie A → La Liga,True
+23269738,2025/2026,2,2,True,FC Lausanne-Sport → AD Ceuta FC,Super League → La Liga 2,True
+23287278,2025/2026,2,2,True,Grasshopper Club Zurich → KAA Gent,Super League → Pro League,True
+23287490,2025/2026,2,1,True,Al-Qadsiah → Al Shabab,Pro League,False
+23287931,2025/2026,2,1,True,Ceramica Cleopatra → Arab Contractors FC,Premier League,False
+23651573,2025/2026,2,2,False,RKC Waalwijk + Heracles Almelo,Eerste Divisie + Eredivisie,True
+23688806,2025/2026,2,1,True,CFR Cluj → FC Metaloglobus Bucharest,Superliga,False
+23688829,2025/2026,2,2,False,Royal Charleroi SC + BSC Young Boys,Pro League + Super League,True
+23697429,2025/2026,2,2,True,Wolfsberger AC → Millwall FC,Admiral Bundesliga → Championship,True
+23697440,2025/2026,2,1,True,Francs Borains → RFC Lüttich,Challenger Pro League,False
+23697504,2025/2026,2,1,False,Helmond Sport + FC Emmen,Eerste Divisie,False
+23697799,2025/2026,2,2,False,Kocaelispor + Parma,Super Lig + Serie A,True
+23697806,2025/2026,2,2,True,Raków Częstochowa → SK Sigma Olomouc,Ekstraklasa → Chance Liga,True
+23697807,2025/2026,2,2,True,MTK Budapest → Pogon Szczecin,NB I → Ekstraklasa,True
+23698076,2025/2026,2,2,True,FC Midtjylland → Parma,Superliga → Serie A,True
+23698162,2025/2026,2,2,True,Montpellier HSC → Brest,Ligue 2 → Ligue 1,True
+23707367,2025/2026,2,2,True,Borussia Mönchengladbach → Nottingham Forest,Bundesliga → Premier League,True
+23715932,2025,2,1,False,Östers IF + AIK,Allsvenskan,False
+23738868,2025,2,1,True,América de Cali → Once Caldas,Liga BetPlay,False
+23739121,2025/2026,2,2,True,Sheffield United → Stockport County,Championship → League One,True
+24082532,2025/2026,2,2,True,FC Basel 1893 → SC Braga,Super League → Liga Portugal,True
+24092545,2025/2026,2,2,True,Ajax Amsterdam → Lazio,Eredivisie → Serie A,True
+24100318,2025/2026,2,2,True,SpVgg Greuther Fürth → Grazer AK 1902,2. Bundesliga → Admiral Bundesliga,True
+24446234,2025/2026,2,1,True,Tijuana → Santos Laguna,Liga MX,False
+24468970,2025/2026,2,2,True,Villarreal → Crystal Palace,La Liga → Premier League,True
+24469162,2025/2026,2,2,True,FC Viktoria Plzen → Olympique Lyonnais,Chance Liga → Ligue 1,True
+24799866,2025/2026,2,2,True,Kocaelispor → Amed SK,Super Lig → 1. Lig,True
+24799947,2025,2,2,True,HJK Helsinki → IFK Värnamo,Veikkausliiga → Allsvenskan,True
+24816822,2025,2,2,True,Millonarios → Instituto,Liga BetPlay → Liga Profesional de Fútbol,True
+24816839,2025/2026,2,2,True,SC Heerenveen → SK Sigma Olomouc,Eredivisie → Chance Liga,True
+24817159,2025,2,1,True,Riga FC → FK Auda,Virsliga,False
+24817160,2025,2,1,True,FK Liepaja → FK Tukums 2000,Virsliga,False
+24817368,2025/2026,2,2,True,Stockport County → Charlton Athletic,League One → Championship,True
+24817439,2025/2026,2,2,True,Rennes → FC Augsburg,Ligue 1 → Bundesliga,True
+24817483,2025/2026,2,2,True,Queens Park Rangers → Aberdeen FC,Championship → Premiership,True
+24817990,2025/2026,2,1,True,SCR Altach → SK Sturm Graz,Admiral Bundesliga,False
+24837955,2025/2026,2,2,True,NK Osijek → 1.FC Nuremberg,1. HNL → 2. Bundesliga,True
+25169144,2025/2026,2,2,False,Racing Santander + Espanyol,La Liga 2 + La Liga,True
+25206181,2025/2026,2,1,True,K Lierse SK → KV Kortrijk,Challenger Pro League,False
+25217725,2025/2026,2,1,True,Birmingham City → Blackburn Rovers,Championship,False
+25558182,2025,2,2,True,Viking FK → Dallas,Eliteserien → Major League Soccer,True
+25567511,2025/2026,2,2,True,FC Volendam → LASK,Eredivisie → Admiral Bundesliga,True
+25567528,2025,2,1,True,Boyacá Chicó → Internacional de Bogotá,Liga BetPlay,False
+25567998,2025,2,1,True,Fortaleza CEIF → Once Caldas,Liga BetPlay,False
+25591395,2025/2026,2,1,True,Palermo FC → SS Juve Stabia,Serie B,False
+25922180,2025/2026,2,1,True,Elche → Celta de Vigo,La Liga,False
+25930721,2025/2026,2,1,True,FK Radnicki Nis → FK TSC Backa Topola,Super Liga,False
+25930790,2025/2026,2,1,True,Tottenham Hotspur → Crystal Palace,Premier League,False
+25954296,2025/2026,2,2,True,Hibernian FC → Hellas Verona,Premiership → Serie A,True
+25954318,2025/2026,2,2,True,FC Dordrecht → FC Slovan Liberec,Eerste Divisie → Chance Liga,True
+25954348,2025,2,2,True,Independiente Medellín → Newell's Old Boys,Liga BetPlay → Liga Profesional de Fútbol,True
+26336984,2025/2026,2,2,True,HNK Rijeka → Slovan Bratislava,1. HNL → Niké Liga,True
+26670084,2025/2026,2,2,True,Zenit St. Petersburg → Red Star Belgrade,Premier League → Super Liga,True
+26689551,2025/2026,2,2,True,Vejle Boldklub → Hvidovre IF,Superliga → First Division,True
+26715354,2025,2,1,True,Talleres Córdoba → River Plate,Liga Profesional de Fútbol,False
+27067450,2025/2026,2,2,True,Petrolul Ploiesti → Eyüpspor,Superliga → Super Lig,True
+28543549,2025/2026,2,2,True,Almere City FC → Servette FC,Eerste Divisie → Super League,True
+28575648,2025/2026,2,1,True,Salford City → Shrewsbury Town,League Two,False
+28575652,2025/2026,2,2,True,SCR Altach → Kolding IF,Admiral Bundesliga → First Division,True
+28575695,2025/2026,2,2,True,Birmingham City → Heart of Midlothian FC,Championship → Premiership,True
+28575697,2025/2026,2,1,True,Port Vale FC → Plymouth Argyle,League One,False
+28575708,2025/2026,2,2,True,Watford FC → Leyton Orient,Championship → League One,True
+28575734,2025/2026,2,1,True,Bristol City → Ipswich Town,Championship,False
+28575743,2025/2026,2,1,True,Leicester City → Ipswich Town,Championship,False
+28912711,2025/2026,2,2,True,Luton Town → Sheffield United,League One → Championship,True
+28912751,2025/2026,2,1,True,Newport County → Gillingham,League Two,False
+28912813,2025/2026,2,1,True,Bristol Rovers → Walsall,League Two,False
+28912974,2025/2026,2,1,True,Birmingham City → Blackburn Rovers,Championship,False
+28913058,2025/2026,2,1,True,West Bromwich Albion → Southampton FC,Championship,False
+28931592,2025,2,1,True,IFK Värnamo → IF Elfsborg,Allsvenskan,False
+29313203,2025/2026,2,1,True,Walsall → Tranmere Rovers,League Two,False
+29674834,2025/2026,2,1,False,Heracles Almelo + FC Twente Enschede,Eredivisie,False
+29674839,2025,2,1,True,Club Bolívar → Oriente Petrolero,Liga De Futbol Prof,False
+29735915,2025/2026,2,2,True,KRC Genk → Besiktas JK,Pro League → Super Lig,True
+30071839,2025,2,1,False,Banfield + Estudiantes,Liga Profesional de Fútbol,False
+30081977,2025,2,1,True,Gimnasia La Plata → Newell's Old Boys,Liga Profesional de Fútbol,False
+30082121,2025/2026,2,2,True,Casa Pia AC → Fortuna Sittard,Liga Portugal → Eredivisie,True
+30105982,2025,2,1,True,Houston Dynamo → Columbus Crew,Major League Soccer,False
+30195919,2025,2,1,True,Junior FC → Deportivo Cali,Liga BetPlay,False
+30446852,2025/2026,2,1,True,Real Sociedad → Espanyol,La Liga,False
+30446976,2025/2026,2,2,True,RSC Anderlecht → FC Schalke 04,Pro League → 2. Bundesliga,True
+30446988,2025/2026,2,2,True,Aarhus GF → Panetolikos,Superliga → Super League,True
+30841455,2025,2,1,True,Drogheda United FC → Bohemian Football Club,Premier Division,False
+30851975,2025/2026,2,2,True,FC Lausanne-Sport → Middlesbrough FC,Super League → Championship,True
+30866021,2025,2,2,True,Argentinos Juniors → Internacional,Liga Profesional de Fútbol → Serie A,True
+30866026,2025,2,2,True,Portland Timbers → Fluminense,Major League Soccer → Serie A,True
+30875566,2025/2026,2,2,True,SD Huesca → Al Kholood,La Liga 2 → Pro League,True
+30878845,2025,2,1,True,Fortaleza CEIF → Alianza Petrolera,Liga BetPlay,False
+31226216,2025/2026,2,2,True,Real Valladolid CF → Rio Ave FC,La Liga 2 → Liga Portugal,True
+31226325,2025/2026,2,2,False,Esenler Erokspor + Genclerbirligi Ankara,1. Lig + Super Lig,True
+31226947,2025/2026,2,1,True,Hatayspor → Serik Belediyespor,1. Lig,False
+31238191,2025/2026,2,2,True,Brentford → Oxford United,Premier League → Championship,True
+31264229,2025,2,1,True,Independiente → Argentinos Juniors,Liga Profesional de Fútbol,False
+31616637,2025/2026,2,2,True,Holstein Kiel → Aarhus GF,2. Bundesliga → Superliga,True
+31616654,2025/2026,2,2,True,AC Sparta Prague → Legia Warszawa,Chance Liga → Ekstraklasa,True
+31625208,2025,2,1,True,CF Montréal → Charlotte,Major League Soccer,False
+31625796,2025/2026,2,1,True,Bandırmaspor → Serik Belediyespor,1. Lig,False
+31626030,2025,2,1,True,Columbus Crew → SJ Earthquakes,Major League Soccer,False
+31627433,2025/2026,2,2,True,Elche → Tijuana,La Liga → Liga MX,True
+31640130,2025/2026,2,2,False,Galatasaray + Monaco,Super Lig + Ligue 1,True
+32011446,2025,2,1,True,Deportes Tolima → Fortaleza CEIF,Liga BetPlay,False
+32013727,2025/2026,2,2,True,PEC Zwolle → Stade Lavallois,Eredivisie → Ligue 2,True
+32387131,2025/2026,2,2,True,Eintracht Frankfurt → Nice,Bundesliga → Ligue 1,True
+32387141,2025/2026,2,2,True,RSC Anderlecht → Getafe,Pro League → La Liga,True
+32404512,2025/2026,2,1,True,Samsunspor → Fenerbahce,Super Lig,False
+32421883,2025,2,1,True,Once Caldas → Unión Magdalena,Liga BetPlay,False
+32422672,2025,2,1,True,Llaneros → Deportivo Pasto,Liga BetPlay,False
+32777402,2025/2026,2,1,False,Al Wakrah + Al Sadd,Stars League,False
+32777430,2025/2026,2,2,True,VfB Stuttgart → Newcastle United,Bundesliga → Premier League,True
+32777443,2025/2026,2,1,True,Delfino Pescara 1936 → Virtus Entella,Serie B,False
+32777472,2025/2026,2,2,True,FC Viktoria Plzen → MTK Budapest,Chance Liga → NB I,True
+32795608,2025/2026,2,2,True,SK Sturm Graz → Rangers FC,Admiral Bundesliga → Premiership,True
+32796115,2025/2026,2,2,True,Dundee FC → Harrogate Town,Premiership → League Two,True
+32810192,2025/2026,2,2,True,TOP Oss → Livingston FC,Eerste Divisie → Premiership,True
+32810397,2025/2026,2,1,True,Górnik Zabrze → Lech Poznan,Ekstraklasa,False
+32819166,2025/2026,2,2,True,Ajax Amsterdam → Osasuna,Eredivisie → La Liga,True
+32819178,2025/2026,2,2,True,Holstein Kiel → BSC Young Boys,2. Bundesliga → Super League,True
+33165957,2025/2026,2,2,True,MSK Zilina → Holstein Kiel,Niké Liga → 2. Bundesliga,True
+33186836,2025/2026,3,3,False,West Bromwich Albion + Pisa + Aston Villa,Championship + Serie A + Premier League,True
+33213465,2025/2026,2,2,True,Villarreal → Deportivo de La Coruña,La Liga → La Liga 2,True
+33576939,2025/2026,2,2,True,Silkeborg IF → Norwich City,Superliga → Championship,True
+33587448,2025/2026,2,2,True,Fortuna Düsseldorf → Lecce,2. Bundesliga → Serie A,True
+33587451,2025/2026,2,2,True,Plymouth Argyle → FK Vojvodina Novi Sad,League One → Super Liga,True
+33587733,2025,2,2,True,SJ Earthquakes → Argentinos Juniors,Major League Soccer → Liga Profesional de Fútbol,True
+33991728,2025/2026,2,1,False,Millwall FC + West Bromwich Albion,Championship,False
+33992004,2025/2026,2,2,False,Kolding IF + FC Arouca,First Division + Liga Portugal,True
+33992425,2025,2,1,True,Defensa y Justicia → Sarmiento,Liga Profesional de Fútbol,False
+34016604,2025/2026,2,1,True,Zaglebie Lubin → Jagiellonia Bialystok,Ekstraklasa,False
+34408111,2025,3,2,True,Newell's Old Boys → Defensa y Justicia → O'Higgins,Liga Profesional de Fútbol → Primera Division,True
+34454700,2025/2026,2,2,True,Fortuna Sittard → CD Tondela,Eredivisie → Liga Portugal,True
+34455209,2025/2026,2,2,True,Olympique Marseille → Bologna,Ligue 1 → Serie A,True
+34455847,2025/2026,3,3,False,Caykur Rizespor + Stoke City + Crystal Palace,Super Lig + Championship + Premier League,True
+34898459,2025/2026,2,1,True,Chesterfield → Crawley Town,League Two,False
+35259805,2025,2,1,True,Cruzeiro → Santos,Serie A,False
+35280464,2025,2,2,True,AC Oulu → FK Haugesund,Veikkausliiga → Eliteserien,True
+35281093,2025/2026,2,1,True,SS Juve Stabia → Spezia Calcio,Serie B,False
+35503835,2025/2026,2,2,True,Lecce → Red Star FC,Serie A → Ligue 2,True
+35683622,2025/2026,2,1,True,Rangers FC → Aberdeen FC,Premiership,False
+36083966,2025/2026,2,2,True,SK Sigma Olomouc → Nyíregyháza Spartacus,Chance Liga → NB I,True
+36085406,2025/2026,2,1,True,Ajman → Al Nasr,UAE Pro League,False
+36097548,2025/2026,2,2,True,Sassuolo → FC Empoli,Serie A → Serie B,True
+36470086,2025/2026,2,2,True,Al Jazira → FC Nordsjaelland,UAE Pro League → Superliga,True
+36480865,2025,2,1,True,KR Reykjavík → ÍBV Vestmannaeyjar,Besta deild,False
+37250445,2025,2,1,True,Rosenborg BK → Kristiansund BK,Eliteserien,False
+37251353,2025/2026,2,2,True,FC Basel 1893 → Hamburger SV,Super League → Bundesliga,True
+37253472,2025/2026,2,1,True,FK Jablonec → SK Sigma Olomouc,Chance Liga,False
+37255821,2025/2026,2,2,True,Huddersfield Town → Oxford United,League One → Championship,True
+37255842,2025/2026,2,2,True,Reading FC → Hull City,League One → Championship,True
+37257581,2025/2026,2,2,False,İstanbulspor + Besiktas JK,1. Lig + Super Lig,True
+37257608,2025/2026,2,2,True,Sassuolo → SSC Bari,Serie A → Serie B,True
+37257655,2025/2026,2,1,True,Serik Belediyespor → Sarıyer SK,1. Lig,False
+37257768,2025/2026,2,2,True,Beitar Jerusalem → FC Hermannstadt,Ligat ha'Al → Superliga,True
+37257779,2025/2026,2,1,True,Atalanta → Lazio,Serie A,False
+37259170,2025/2026,2,2,True,Bradford City → Oldham Athletic,League One → League Two,True
+37259178,2025/2026,2,1,True,Trabzonspor → Konyaspor,Super Lig,False
+37259614,2025/2026,2,2,False,FC Emmen + SV 07 Elversberg,Eerste Divisie + 2. Bundesliga,True
+37259630,2025/2026,2,2,True,FC Lausanne-Sport → Auxerre,Super League → Ligue 1,True
+37259885,2025/2026,2,2,True,CF Estrela Amadora → 1.FC Kaiserslautern,Liga Portugal → 2. Bundesliga,True
+37259977,2025/2026,2,2,True,Besiktas JK → SK Slavia Prague,Super Lig → Chance Liga,True
+37260000,2025/2026,2,2,True,Burnley → AC Sparta Prague,Premier League → Chance Liga,True
+37260107,2025/2026,2,1,True,Zalaegerszegi TE FC → Kazincbarcikai SC,NB I,False
+37260110,2025/2026,2,2,True,Eintracht Braunschweig → Zaglebie Lubin,2. Bundesliga → Ekstraklasa,True
+37260189,2025/2026,2,2,True,KAA Gent → Lecce,Pro League → Serie A,True
+37260212,2025/2026,3,1,False,Lecce + Sassuolo + Napoli,Serie A,False
+37260431,2025/2026,2,2,True,KRC Genk → Wolverhampton Wanderers,Pro League → Premier League,True
+37260519,2025,2,1,True,Shelbourne FC → Sligo Rovers,Premier Division,False
+37260533,2025/2026,2,2,True,Lech Poznan → ADO Den Haag,Ekstraklasa → Eerste Divisie,True
+37260720,2025/2026,2,2,True,Nyíregyháza Spartacus → FK Radnicki Nis,NB I → Super Liga,True
+37260790,2025/2026,2,1,True,MFK Karvina → FC Viktoria Plzen,Chance Liga,False
+37261098,2025/2026,2,2,True,Legia Warszawa → Servette FC,Ekstraklasa → Super League,True
+37261254,2025,2,1,True,Vélez Sarsfield → Defensa y Justicia,Liga Profesional de Fútbol,False
+37261434,2025,2,1,True,Llaneros → Unión Magdalena,Liga BetPlay,False
+37261446,2025,2,1,True,Millonarios → Rionegro Águilas,Liga BetPlay,False
+37261496,2025/2026,2,2,True,Bayer 04 Leverkusen → Arsenal,Bundesliga → Premier League,True
+37261839,2025/2026,2,1,True,Petrojet → Al Ahly,Premier League,False
+37261923,2025/2026,2,2,True,Wolverhampton Wanderers → Besiktas JK,Premier League → Super Lig,True
+37262111,2025/2026,2,2,True,Al Taawoun → Kalba,Pro League → UAE Pro League,True
+37262701,2025/2026,2,2,True,Sevilla → Real Valladolid CF,La Liga → La Liga 2,True
+37263769,2025/2026,2,2,True,FC Basel 1893 → Nice,Super League → Ligue 1,True
+37266184,2025/2026,2,1,True,SC Freiburg → FC Heidenheim,Bundesliga,False
+37266238,2025/2026,2,1,True,Hannover 96 → SG Dynamo Dresden,2. Bundesliga,False
+37286732,2025/2026,2,1,True,Manchester City → Fulham,Premier League,False
+37286795,2025/2026,2,2,True,Willem II Tilburg → SC Heerenveen,Eerste Divisie → Eredivisie,True
+37288422,2025/2026,2,1,True,Al Okhdoud → Al Khaleej,Pro League,False
+37289022,2025/2026,2,1,False,Auxerre + Strasbourg,Ligue 1,False
+37295914,2025/2026,2,1,True,1.FC Magdeburg → Eintracht Braunschweig,2. Bundesliga,False
+37295947,2025/2026,2,2,True,Nantes → Karlsruher SC,Ligue 1 → 2. Bundesliga,True
+37297915,2025/2026,2,1,True,FC Südtirol → SS Juve Stabia,Serie B,False
+37297932,2025/2026,2,1,True,Virtus Entella → AC Reggiana 1919,Serie B,False
+37308090,2025/2026,2,2,True,RAAL La Louvière → FC Universitatea Cluj,Pro League → Superliga,True
+37308096,2025/2026,2,1,True,Galatasaray → Basaksehir FK,Super Lig,False
+37308536,2025/2026,2,1,True,Necaxa → Toluca,Liga MX,False
+37315618,2025,2,1,True,Deportivo Pasto → Internacional de Bogotá,Liga BetPlay,False
+37315648,2025,2,1,True,Real Salt Lake → CF Montréal,Major League Soccer,False
+37316220,2025/2026,2,1,True,Al Sharjah → Al Jazira,UAE Pro League,False
+37316351,2025/2026,2,1,False,MFK Karvina + 1.FC Slovacko,Chance Liga,False
+37316457,2025/2026,2,2,True,VfL Bochum → FC St. Gallen 1879,2. Bundesliga → Super League,True
+37316461,2025/2026,2,2,False,Willem II Tilburg + VfL Bochum,Eerste Divisie + 2. Bundesliga,True
+37316517,2025/2026,2,2,False,Real Valladolid CF + Getafe,La Liga 2 + La Liga,True
+37316916,2025/2026,2,2,True,Coventry City → Wigan Athletic,Championship → League One,True
+37317326,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37317375,2025/2026,2,1,True,Fenerbahce → Fatih Karagümrük,Super Lig,False
+37317392,2025/2026,2,2,True,RB Leipzig → Tottenham Hotspur,Bundesliga → Premier League,True
+37317433,2025/2026,2,1,True,Helmond Sport → Willem II Tilburg,Eerste Divisie,False
+37317438,2025/2026,2,2,True,Jong Genk → SC Heerenveen,Challenger Pro League → Eredivisie,True
+37322758,2025/2026,2,2,True,Aberdeen FC → Luton Town,Premiership → League One,True
+37328110,2025,2,1,True,Molde FK → Strømsgodset IF,Eliteserien,False
+37331665,2025/2026,2,2,True,Parma → UC Sampdoria,Serie A → Serie B,True
+37332149,2025/2026,2,2,False,Ipswich Town + Como,Championship + Serie A,True
+37332647,2025/2026,2,2,True,SK Sigma Olomouc → Petrolul Ploiesti,Chance Liga → Superliga,True
+37336215,2025/2026,2,2,True,Parma → Trabzonspor,Serie A → Super Lig,True
+37336218,2025/2026,2,2,True,SK Slavia Prague → PAOK Thessaloniki,Chance Liga → Super League,True
+37336356,2025/2026,2,1,True,Puebla → Pumas UNAM,Liga MX,False
+37336764,2025/2026,2,2,False,FC Dordrecht + NEC Nijmegen,Eerste Divisie + Eredivisie,True
+37336898,2025/2026,2,2,True,KVC Westerlo → Caykur Rizespor,Pro League → Super Lig,True
+37336952,2025/2026,2,2,True,Fortuna Sittard → SK Sturm Graz,Eredivisie → Admiral Bundesliga,True
+37336978,2025/2026,2,1,True,Al Sharjah → Al Nasr,UAE Pro League,False
+37336983,2025/2026,2,1,True,FK Cukaricki → Red Star Belgrade,Super Liga,False
+37336993,2025/2026,2,1,False,Brest + Strasbourg,Ligue 1,False
+37337096,2025/2026,2,2,False,FC Kosice + MTK Budapest,Niké Liga + NB I,True
+37337109,2025/2026,2,2,True,KVC Westerlo → Rangers FC,Pro League → Premiership,True
+37337124,2025/2026,2,2,True,CF Estrela Amadora → Jagiellonia Bialystok,Liga Portugal → Ekstraklasa,True
+37337133,2025/2026,2,2,True,Viborg FF → Al Wasl,Superliga → UAE Pro League,True
+37341761,2025/2026,2,2,True,Barnet → Kilmarnock FC,League Two → Premiership,True
+37341812,2025/2026,2,2,True,UD Almería → Al Najma,La Liga 2 → Pro League,True
+37341887,2025/2026,2,1,False,FC Pari Nizhniy Novgorod + FC Krasnodar,Premier League,False
+37342582,2025/2026,2,2,False,FC Kosice + Real Zaragoza,Niké Liga + La Liga 2,True
+37342617,2025/2026,2,2,True,Red Bull Salzburg  → Le Havre,Admiral Bundesliga → Ligue 1,True
+37342730,2025,2,1,True,Minnesota United → St. Louis City,Major League Soccer,False
+37342751,2025,2,2,True,River Plate → São Paulo,Liga Profesional de Fútbol → Serie A,True
+37344028,2025/2026,2,1,True,FK Novi Pazar → FK Napredak Krusevac,Super Liga,False
+37344084,2025/2026,2,2,False,ETO FC + DAC Dunajska Streda,NB I + Niké Liga,True
+37344222,2025/2026,3,2,False,NEC Nijmegen + Jong Ajax + Ajax Amsterdam,Eredivisie + Eerste Divisie,True
+37344239,2025/2026,2,2,True,Mansfield Town → Oxford United,League One → Championship,True
+37345884,2025/2026,2,1,True,Tranmere Rovers → Cheltenham Town,League Two,False
+37346912,2025/2026,2,2,False,Dundee FC + Swansea City,Premiership + Championship,True
+37350031,2025/2026,2,1,True,Southampton FC → Queens Park Rangers,Championship,False
+37354634,2025/2026,2,1,True,Al Sailiya → Al Rayyan,Stars League,False
+37354790,2025/2026,2,2,True,Leyton Orient → Sheffield Wednesday,League One → Championship,True
+37356259,2025/2026,2,2,True,Slaven Belupo Koprivnica → SD Huesca,1. HNL → La Liga 2,True
+37356526,2025/2026,2,2,True,FK Pardubice → FC Tatran Presov,Chance Liga → Niké Liga,True
+37357222,2025,2,1,True,Independiente Rivadavia → Talleres Córdoba,Liga Profesional de Fútbol,False
+37357406,2025/2026,2,1,True,Carrarese Calcio 1908 → AC Reggiana 1919,Serie B,False
+37357444,2025/2026,2,2,True,Vitória Guimarães SC → Red Star Belgrade,Liga Portugal → Super Liga,True
+37357595,2025/2026,2,1,True,Huddersfield Town → Wigan Athletic,League One,False
+37359803,2025/2026,2,2,True,Randers FC → Norwich City,Superliga → Championship,True
+37360817,2025/2026,2,2,False,ESTAC Troyes + KAA Gent,Ligue 2 + Pro League,True
+37366459,2025/2026,2,2,True,ETO FC → DAC Dunajska Streda,NB I → Niké Liga,True
+37368077,2025/2026,2,2,True,Red Star Belgrade → Al Jazira,Super Liga → UAE Pro League,True
+37369432,2025/2026,2,2,True,Royal Charleroi SC → FC Volendam,Pro League → Eredivisie,True
+37371200,2025/2026,2,2,True,Fiorentina → UC Sampdoria,Serie A → Serie B,True
+37372352,2025/2026,2,2,True,Luton Town → Portsmouth FC,League One → Championship,True
+37373537,2025/2026,2,1,True,Shabab Al Ahli Dubai → Al Sharjah,UAE Pro League,False
+37373575,2025/2026,2,2,True,Bristol Rovers → Dundee FC,League Two → Premiership,True
+37375087,2025,2,2,True,Central Cordoba SdE → Melgar,Liga Profesional de Fútbol → Primera Division,True
+37375228,2025/2026,2,1,True,Serik Belediyespor → Sakaryaspor,1. Lig,False
+37375376,2025/2026,2,1,False,Eyüpspor + Alanyaspor,Super Lig,False
+37375833,2025/2026,2,1,True,FK Mlada Boleslav → MFK Karvina,Chance Liga,False
+37380581,2025/2026,2,1,True,Ceramica Cleopatra → Al Ittihad,Premier League,False
+37380684,2025,2,1,True,BFC Daugavpils → FC RFS,Virsliga,False
+37391182,2025/2026,2,2,True,Bristol Rovers → Lincoln City,League Two → League One,True
+37391203,2025/2026,2,2,False,Plymouth Argyle + Charlton Athletic,League One + Championship,True
+37391415,2025/2026,2,1,True,Bristol Rovers → Walsall,League Two,False
+37391534,2025/2026,2,2,True,Wycombe Wanderers → Bristol City,League One → Championship,True
+37391609,2025/2026,2,2,True,Accrington Stanley → Peterborough United,League Two → League One,True
+37392942,2025/2026,2,1,True,Milton Keynes Dons → Bristol Rovers,League Two,False
+37396571,2025/2026,2,2,True,Olympique Lyonnais → Getafe,Ligue 1 → La Liga,True
+37397110,2025,2,1,True,Independiente Rivadavia → Banfield,Liga Profesional de Fútbol,False
+37397231,2025/2026,2,2,True,Club Brugge KV → Getafe,Pro League → La Liga,True
+37397348,2025,2,1,True,Wilstermann → Always Ready,Liga De Futbol Prof,False
+37400393,2025/2026,2,2,False,Casa Pia AC + Hellas Verona,Liga Portugal + Serie A,True
+37402386,2025/2026,2,2,True,Rio Ave FC → Olympiacos Piraeus,Liga Portugal → Super League,True
+37405012,2025/2026,2,1,True,Norwich City → Ipswich Town,Championship,False
+37407219,2025/2026,2,2,True,Nantes → Stade Reims,Ligue 1 → Ligue 2,True
+37407220,2025/2026,2,2,True,Lecce → Nantes,Serie A → Ligue 1,True
+37409506,2025,2,1,True,San Antonio Bulo Bulo → Aurora,Liga De Futbol Prof,False
+37410369,2025,2,1,True,Alianza Lima → Melgar,Primera Division,False
+37412535,2025/2026,2,1,True,Real Sociedad B → Cultural Leonesa,La Liga 2,False
+37416691,2025/2026,3,3,False,West Bromwich Albion + Blackpool FC + Crystal Palace,Championship + League One + Premier League,True
+37416827,2025/2026,2,2,False,SD Huesca + Mallorca,La Liga 2 + La Liga,True
+37420383,2025/2026,2,1,True,Al Bataeh → Al Sharjah,UAE Pro League,False
+37420434,2025/2026,2,1,True,FK Radnicki 1923 Kragujevac → FK Napredak Krusevac,Super Liga,False
+37421942,2025,2,1,True,San Diego → Philadelphia Union,Major League Soccer,False
+37422926,2025,2,2,True,Alianza Lima → Grêmio,Primera Division → Serie A,True
+37422937,2025/2026,2,2,True,Legia Warszawa → Blackburn Rovers,Ekstraklasa → Championship,True
+37422957,2025/2026,2,1,True,Zenit St. Petersburg → CSKA Moscow,Premier League,False
+37425145,2025/2026,2,2,True,Casa Pia AC → Mantova 1911,Liga Portugal → Serie B,True
+37426989,2025/2026,2,2,True,SD Huesca → Amiens SC,La Liga 2 → Ligue 2,True
+37429017,2025/2026,2,1,True,Legia Warszawa → Widzew Lodz,Ekstraklasa,False
+37430164,2025/2026,2,2,False,MFK Ruzomberok + MFK Karvina,Niké Liga + Chance Liga,True
+37430166,2025/2026,2,1,True,FC Viktoria Plzen → FK Mlada Boleslav,Chance Liga,False
+37430761,2025/2026,2,2,True,FK Vojvodina Novi Sad → Ferencvárosi TC,Super Liga → NB I,True
+37436336,2025,2,1,True,CF Montréal → DC United,Major League Soccer,False
+37436348,2025/2026,2,2,False,Port Vale FC + Everton,League One + Premier League,True
+37437764,2025/2026,2,2,False,Chesterfield + Sheffield United,League Two + Championship,True
+37437784,2025/2026,2,1,True,Millwall FC → Oxford United,Championship,False
+37438756,2025,2,1,True,Santa Fe → Once Caldas,Liga BetPlay,False
+37440603,2025/2026,2,1,True,AZ Alkmaar → PEC Zwolle,Eredivisie,False
+37445076,2025/2026,2,2,True,FC Empoli → Parma,Serie B → Serie A,True
+37445141,2025,2,1,True,Urawa Reds → Shimizu S-Pulse,J1 League,False
+37455133,2025/2026,2,1,True,FC Slovan Liberec → SK Sigma Olomouc,Chance Liga,False
+37457507,2025/2026,2,1,False,MTK Budapest + Puskás Akadémia FC,NB I,False
+37457534,2025,2,1,True,Huracán → Boca Juniors,Liga Profesional de Fútbol,False
+37459022,2025/2026,2,2,True,SL Benfica → Torino,Liga Portugal → Serie A,True
+37459033,2025/2026,2,2,True,FC Porto → FC Utrecht,Liga Portugal → Eredivisie,True
+37459085,2025/2026,2,2,True,Lyngby Boldklub → Standard Liège,First Division → Pro League,True
+37459092,2025/2026,2,2,True,Silkeborg IF → Lyngby Boldklub,Superliga → First Division,True
+37508679,2025/2026,2,1,True,Beitar Jerusalem → Maccabi Haifa,Ligat ha'Al,False
+37514220,2025/2026,2,2,True,Royal Charleroi SC → Lecce,Pro League → Serie A,True
+37515561,2025/2026,2,2,True,Luton Town → SC Heerenveen,League One → Eredivisie,True
+37516978,2025/2026,2,2,True,Sparta Rotterdam → SpVgg Greuther Fürth,Eredivisie → 2. Bundesliga,True
+37518809,2025/2026,2,1,True,Raków Częstochowa → Jagiellonia Bialystok,Ekstraklasa,False
+37518850,2025/2026,2,2,True,FK Spartak Subotica → Al Sharjah,Super Liga → UAE Pro League,True
+37520128,2025/2026,2,1,True,Galatasaray → Konyaspor,Super Lig,False
+37520822,2025/2026,2,1,True,FK Vojvodina Novi Sad → FK Novi Pazar,Super Liga,False
+37525992,2025/2026,2,2,True,Al Ahly → Újpest FC,Premier League → NB I,True
+37526281,2025/2026,2,2,False,Serik Belediyespor + Necaxa,1. Lig + Liga MX,True
+37526467,2025,2,1,True,SK Super Nova → BFC Daugavpils,Virsliga,False
+37527309,2025/2026,2,1,True,CFR Cluj → FC Rapid 1923,Superliga,False
+37527805,2025,2,1,True,Kristiansund BK → Viking FK,Eliteserien,False
+37527850,2025,2,1,True,Riga FC → FK Auda,Virsliga,False
+37528332,2025/2026,2,1,True,Querétaro → Tijuana,Liga MX,False
+37528335,2025/2026,2,1,True,FK Pardubice → SK Sigma Olomouc,Chance Liga,False
+37528559,2025/2026,2,2,False,Zemplin Michalovce + Widzew Lodz,Niké Liga + Ekstraklasa,True
+37528877,2025/2026,2,2,True,SK Sturm Graz → Derby County,Admiral Bundesliga → Championship,True
+37529773,2025/2026,2,1,True,Modern Sport FC → Pharco,Premier League,False
+37529791,2025/2026,2,1,True,Bologna → Fiorentina,Serie A,False
+37529955,2025/2026,2,2,True,NAC Breda → FC Emmen,Eredivisie → Eerste Divisie,True
+37530614,2025/2026,2,1,True,FK Pardubice → FC Slovan Liberec,Chance Liga,False
+37530626,2025/2026,2,1,False,FC Volendam + Sparta Rotterdam,Eredivisie,False
+37530649,2025/2026,2,2,True,Kasimpasa → Amed SK,Super Lig → 1. Lig,True
+37531164,2025/2026,2,1,True,Sint-Truidense VV → Union Saint-Gilloise,Pro League,False
+37531343,2025/2026,2,1,True,FC Emmen → ADO Den Haag,Eerste Divisie,False
+37531515,2025,2,1,True,Real Salt Lake → Cincinnati,Major League Soccer,False
+37532287,2025/2026,2,2,True,Sønderjyske Fodbold → Pogon Szczecin,Superliga → Ekstraklasa,True
+37532344,2025/2026,2,2,True,Strasbourg → Chelsea,Ligue 1 → Premier League,True
+37532635,2025/2026,2,1,True,Petrolul Ploiesti → FC Rapid 1923,Superliga,False
+37532830,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37532950,2025/2026,2,2,True,Torino → Besiktas JK,Serie A → Super Lig,True
+37536353,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37536410,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37536795,2025/2026,2,2,True,Exeter City → Chesterfield,League One → League Two,True
+37536867,2025/2026,2,2,True,Go Ahead Eagles → Willem II Tilburg,Eredivisie → Eerste Divisie,True
+37536910,2025/2026,2,2,True,Walsall → Blackpool FC,League Two → League One,True
+37536953,2025/2026,2,2,True,Rapid Vienna → Lens,Admiral Bundesliga → Ligue 1,True
+37537043,2025/2026,2,2,True,FC Winterthur → FC Schalke 04,Super League → 2. Bundesliga,True
+37537603,2025/2026,2,1,True,SD Huesca → Cádiz CF,La Liga 2,False
+37537755,2025/2026,2,2,True,Oxford United → Wycombe Wanderers,Championship → League One,True
+37537821,2025,2,1,True,Internacional de Bogotá → Envigado,Liga BetPlay,False
+37537876,2025/2026,2,1,True,Cultural Leonesa → Real Zaragoza,La Liga 2,False
+37537922,2025/2026,2,1,True,Holstein Kiel → SG Dynamo Dresden,2. Bundesliga,False
+37537954,2025/2026,2,2,True,SK Sturm Graz → Bayer 04 Leverkusen,Admiral Bundesliga → Bundesliga,True
+37538104,2025/2026,2,2,True,TSG Hoffenheim → Holstein Kiel,Bundesliga → 2. Bundesliga,True
+37538406,2025/2026,2,2,True,Grazer AK 1902 → Lecce,Admiral Bundesliga → Serie A,True
+37538544,2025,2,1,True,Palmeiras → Bragantino,Serie A,False
+37538664,2025/2026,2,1,True,Al Ahli → Al Shabab,Pro League,False
+37539094,2025,2,2,True,FC RFS → HJK Helsinki,Virsliga → Veikkausliiga,True
+37539144,2025/2026,2,2,True,CF Estrela Amadora → Motor Lublin,Liga Portugal → Ekstraklasa,True
+37539418,2025/2026,2,1,True,Red Star Belgrade → OFK Beograd,Super Liga,False
+37539420,2025/2026,2,2,True,FC Basel 1893 → FC Augsburg,Super League → Bundesliga,True
+37539733,2025/2026,2,2,True,SV Darmstadt 98 → Espanyol,2. Bundesliga → La Liga,True
+37539823,2025/2026,2,2,True,1.FC Nuremberg → Southampton FC,2. Bundesliga → Championship,True
+37540396,2025/2026,2,1,True,Nantes → Strasbourg,Ligue 1,False
+37540689,2025/2026,2,2,False,Crewe Alexandra + Wolverhampton Wanderers,League Two + Premier League,True
+37540851,2025/2026,2,2,True,FC Heidenheim → Southampton FC,Bundesliga → Championship,True
+37540866,2025/2026,2,1,True,Dinamo Makhachkala → FC Krasnodar,Premier League,False
+37540897,2025/2026,2,1,True,SC Telstar → Sparta Rotterdam,Eredivisie,False
+37541179,2025/2026,2,2,False,Helmond Sport + FK Pardubice,Eerste Divisie + Chance Liga,True
+37542376,2025/2026,2,1,True,Boluspor → Vanspor FK,1. Lig,False
+37542430,2025/2026,2,1,True,FC Hradec Kralove → SK Sigma Olomouc,Chance Liga,False
+37542711,2025/2026,2,1,True,Atlas → Puebla,Liga MX,False
+37542737,2025/2026,2,1,True,Pachuca → Monterrey,Liga MX,False
+37543251,2025/2026,2,2,True,Huddersfield Town → Middlesbrough FC,League One → Championship,True
+37543407,2025/2026,2,2,True,Celta de Vigo → Racing Santander,La Liga → La Liga 2,True
+37544065,2025/2026,2,2,True,Celta de Vigo → Roma,La Liga → Serie A,True
+37544304,2025/2026,2,2,True,Swansea City → Leyton Orient,Championship → League One,True
+37544385,2025/2026,2,2,True,FSV Mainz 05 → SG Dynamo Dresden,Bundesliga → 2. Bundesliga,True
+37544516,2025/2026,2,2,True,Clermont Foot 63 → Kocaelispor,Ligue 2 → Super Lig,True
+37544963,2025/2026,2,2,True,SD Eibar → Rio Ave FC,La Liga 2 → Liga Portugal,True
+37545357,2025,2,2,True,Deportivo Garcilaso → Club Bolívar,Primera Division → Liga De Futbol Prof,True
+37545771,2025/2026,2,1,True,Newport County → Chesterfield,League Two,False
+37546619,2025/2026,2,2,True,FC Banik Ostrava → Stoke City,Chance Liga → Championship,True
+37547044,2025,2,1,True,Rosario Central → Godoy Cruz,Liga Profesional de Fútbol,False
+37547164,2025/2026,2,2,True,KAA Gent → Maccabi Tel Aviv,Pro League → Ligat ha'Al,True
+37547261,2025/2026,2,2,True,Charlton Athletic → Bolton Wanderers,Championship → League One,True
+37547548,2025/2026,2,2,True,AFC Wimbledon → Bristol Rovers,League One → League Two,True
+37547904,2025,2,1,True,Belgrano → Banfield,Liga Profesional de Fútbol,False
+37548175,2025/2026,2,1,True,Austria Vienna → TSV Hartberg,Admiral Bundesliga,False
+37548599,2025/2026,2,2,True,Watford FC → Manchester City,Championship → Premier League,True
+37548602,2025/2026,2,1,True,Stoke City → Oxford United,Championship,False
+37549175,2025/2026,2,2,True,Zalaegerszegi TE FC → KV Kortrijk,NB I → Challenger Pro League,True
+37549513,2025/2026,2,2,True,Auxerre → Birmingham City,Ligue 1 → Championship,True
+37549955,2025/2026,2,2,True,Swindon Town → Middlesbrough FC,League Two → Championship,True
+37550002,2025,2,1,True,Sarmiento → Argentinos Juniors,Liga Profesional de Fútbol,False
+37550063,2025,2,1,True,Estudiantes → Huracán,Liga Profesional de Fútbol,False
+37550436,2025/2026,2,1,True,Colchester United → Fleetwood Town,League Two,False
+37550477,2025/2026,2,2,True,Ipswich Town → Huddersfield Town,Championship → League One,True
+37550766,2025/2026,2,2,True,SK Beveren → KV Mechelen,Challenger Pro League → Pro League,True
+37550814,2025/2026,2,2,True,FK Napredak Krusevac → Bani Yas,Super Liga → UAE Pro League,True
+37550997,2025/2026,2,1,False,HNK Vukovar 1991 + GNK Dinamo Zagreb,1. HNL,False
+37551107,2025/2026,2,1,True,NK Varazdin → NK Lokomotiva Zagreb,1. HNL,False
+37551245,2025/2026,2,2,True,Bradford City → Bristol Rovers,League One → League Two,True
+37551489,2025/2026,2,2,True,Viborg FF → Zulte-Waregem,Superliga → Pro League,True
+37552077,2025/2026,2,2,True,DAC Dunajska Streda → Red Bull Salzburg ,Niké Liga → Admiral Bundesliga,True
+37552116,2025/2026,2,1,True,FK Mlada Boleslav → AC Sparta Prague,Chance Liga,False
+37552857,2025,2,1,True,Central Cordoba SdE → Talleres Córdoba,Liga Profesional de Fútbol,False
+37553003,2025,2,1,True,Rosario Central → Argentinos Juniors,Liga Profesional de Fútbol,False
+37553012,2025,2,1,True,Independiente → San Martín San Juan,Liga Profesional de Fútbol,False
+37553160,2025/2026,2,2,True,Girona → Cádiz CF,La Liga → La Liga 2,True
+37553515,2025/2026,2,1,True,Stellenbosch → Sekhukhune United,Premier League,False
+37553526,2025/2026,2,2,True,Levadiakos → Odense Boldklub,Super League → Superliga,True
+37554475,2025/2026,2,2,True,Accrington Stanley → Reading FC,League Two → League One,True
+37554541,2025/2026,2,1,True,Jong FC Utrecht → FC Emmen,Eerste Divisie,False
+37554917,2025/2026,2,2,True,Gil Vicente FC → West Ham United,Liga Portugal → Premier League,True
+37555012,2025,2,1,True,Rionegro Águilas → Llaneros,Liga BetPlay,False
+37555036,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37555087,2025/2026,2,2,True,Konyaspor → Sakaryaspor,Super Lig → 1. Lig,True
+37555256,2025,2,2,True,Melgar → Vancouver Whitecaps,Primera Division → Major League Soccer,True
+37555777,2025/2026,2,2,True,Red Bull Salzburg  → Fenerbahce,Admiral Bundesliga → Super Lig,True
+37555816,2025/2026,2,2,True,Sunderland → Monaco,Premier League → Ligue 1,True
+37555865,2025,2,1,True,FK Auda → FK Liepaja,Virsliga,False
+37555964,2025/2026,2,2,True,Fatih Karagümrük → Strasbourg,Super Lig → Ligue 1,True
+37556019,2025/2026,2,2,True,Red Bull Salzburg  → Lazio,Admiral Bundesliga → Serie A,True
+37556433,2025,2,1,True,Albirex Niigata → Kashiwa Reysol,J1 League,False
+37556736,2025/2026,2,2,True,Grenoble Foot 38 → Parma,Ligue 2 → Serie A,True
+37556783,2025,2,2,True,KFUM-Kameratene Oslo → Hammarby IF,Eliteserien → Allsvenskan,True
+37556926,2025/2026,2,2,True,Újpest FC → Mantova 1911,NB I → Serie B,True
+37558511,2025/2026,2,1,True,AFC Unirea 04 Slobozia → FC Hermannstadt,Superliga,False
+37558991,2025/2026,2,2,True,Brighton & Hove Albion → RB Leipzig,Premier League → Bundesliga,True
+37559109,2025/2026,2,2,True,Leicester City → VfB Stuttgart,Championship → Bundesliga,True
+37559113,2025/2026,2,2,True,Excelsior Rotterdam → De Graafschap,Eredivisie → Eerste Divisie,True
+37559583,2025/2026,2,1,True,CF Estrela Amadora → SL Benfica,Liga Portugal,False
+37559772,2025/2026,2,2,False,Leicester City + Rennes,Championship + Ligue 1,True
+37559801,2025/2026,2,2,True,Bromley → Lincoln City,League Two → League One,True
+37560671,2025/2026,2,1,True,AC Sparta Prague → FK Dukla Prague,Chance Liga,False
+37560677,2025/2026,2,2,True,KAA Gent → Stade Reims,Pro League → Ligue 2,True
+37560881,2025/2026,2,2,True,KV Mechelen → Hellas Verona,Pro League → Serie A,True
+37561164,2025/2026,2,2,False,OFK Beograd + Debreceni VSC,Super Liga + NB I,True
+37561281,2025,2,1,True,Banfield → Huracán,Liga Profesional de Fútbol,False
+37561582,2025/2026,2,1,True,HB Køge → Hillerød Fodbold,First Division,False
+37561591,2025/2026,2,2,True,Club NXT → Club Brugge KV,Challenger Pro League → Pro League,True
+37561722,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37561805,2025/2026,2,2,True,Bodrum FK → Göztepe,1. Lig → Super Lig,True
+37561914,2025/2026,2,1,True,Pau FC → Rodez AF,Ligue 2,False
+37561990,2025/2026,2,2,True,Red Star Belgrade → AS Saint-Étienne,Super Liga → Ligue 2,True
+37562127,2025,2,1,True,Talleres Córdoba → River Plate,Liga Profesional de Fútbol,False
+37562213,2025/2026,2,2,True,Volos NFC → Wisla Plock,Super League → Ekstraklasa,True
+37562329,2025/2026,2,1,True,Al Sharjah → Ajman,UAE Pro League,False
+37562822,2025/2026,2,1,True,Sheffield Wednesday → Wrexham AFC,Championship,False
+37562870,2025/2026,2,2,True,FK Vojvodina Novi Sad → Charlton Athletic,Super Liga → Championship,True
+37563154,2025/2026,3,2,True,Besiktas JK → Serik Belediyespor → Sakaryaspor,Super Lig → 1. Lig,True
+37563181,2025/2026,2,1,True,Trabzonspor → Konyaspor,Super Lig,False
+37563663,2025/2026,2,2,False,Pendikspor + Eyüpspor,1. Lig + Super Lig,True
+37563793,2025/2026,2,1,True,TSG Hoffenheim → FC Augsburg,Bundesliga,False
+37563866,2025/2026,2,2,True,Girona → Birmingham City,La Liga → Championship,True
+37563937,2025/2026,2,2,True,Charlton Athletic → Blackpool FC,Championship → League One,True
+37564162,2025/2026,2,2,True,Pumas UNAM → Sydney,Liga MX → A-League Men,True
+37564186,2025,2,1,True,Sporting Cristal → Sport Boys,Primera Division,False
+37564402,2025/2026,2,2,True,Celtic FC → Bolton Wanderers,Premiership → League One,True
+37564616,2025/2026,2,1,True,Zalaegerszegi TE FC → Újpest FC,NB I,False
+37565025,2025/2026,2,1,True,Luton Town → Blackpool FC,League One,False
+37565251,2025/2026,2,1,True,Cagliari → Torino,Serie A,False
+37565350,2025/2026,2,2,True,Aalborg BK → ADO Den Haag,First Division → Eerste Divisie,True
+37565378,2025/2026,2,1,True,Mantova 1911 → SSC Bari,Serie B,False
+37566503,2025/2026,2,1,True,Spartak Trnava → MFK Skalica,Niké Liga,False
+37566511,2025/2026,2,2,True,Grasshopper Club Zurich → Mantova 1911,Super League → Serie B,True
+37566512,2025/2026,2,2,True,Rio Ave FC → OFI Crete,Liga Portugal → Super League,True
+37566514,2025/2026,2,2,True,FC Slovan Liberec → Lincoln City,Chance Liga → League One,True
+37566650,2025/2026,2,2,True,Jong FC Utrecht → FC Utrecht,Eerste Divisie → Eredivisie,True
+37566882,2025/2026,2,2,True,Sporting CP → Napoli,Liga Portugal → Serie A,True
+37566951,2025/2026,2,1,True,Bristol Rovers → Tranmere Rovers,League Two,False
+37567341,2025/2026,2,1,True,HNK Vukovar 1991 → NK Osijek,1. HNL,False
+37567350,2025/2026,2,2,True,RSC Anderlecht → Sunderland,Pro League → Premier League,True
+37568010,2025/2026,3,2,True,Jong AZ → AZ Alkmaar → Heracles Almelo,Eerste Divisie → Eredivisie,True
+37568273,2025/2026,2,2,True,MSK Zilina → FK Pardubice,Niké Liga → Chance Liga,True
+37568411,2025/2026,2,1,True,Al Hazm → Al Shabab,Pro League,False
+37568511,2025/2026,2,2,True,AZ Alkmaar → Bayer 04 Leverkusen,Eredivisie → Bundesliga,True
+37568512,2025/2026,2,2,False,Jong AZ + AZ Alkmaar,Eerste Divisie + Eredivisie,True
+37568513,2025/2026,2,2,True,AZ Alkmaar → Jong AZ,Eredivisie → Eerste Divisie,True
+37568652,2025/2026,2,2,True,Kayserispor → Sakaryaspor,Super Lig → 1. Lig,True
+37568721,2025/2026,2,1,True,Hellas Verona → Napoli,Serie A,False
+37568811,2025/2026,2,1,True,Barnsley FC → Wigan Athletic,League One,False
+37569216,2025/2026,2,1,True,Bohemians Prague 1905 → FC Viktoria Plzen,Chance Liga,False
+37569480,2025,2,1,True,Sporting Cristal → Comerciantes Unidos,Primera Division,False
+37569514,2025/2026,2,2,True,FC Volendam → Almere City FC,Eredivisie → Eerste Divisie,True
+37571016,2025/2026,2,1,False,Querétaro + Pachuca,Liga MX,False
+37571435,2025/2026,2,2,True,Slaven Belupo Koprivnica → Hibernian FC,1. HNL → Premiership,True
+37571858,2025,2,1,True,Estudiantes → River Plate,Liga Profesional de Fútbol,False
+37572227,2025/2026,2,1,True,Göztepe → Besiktas JK,Super Lig,False
+37573493,2025,2,1,True,Tokyo Verdy → Nagoya Grampus,J1 League,False
+37573971,2025/2026,2,2,True,Udinese → Watford FC,Serie A → Championship,True
+37574748,2025,2,1,True,Deportivo Binacional → ADT,Primera Division,False
+37575391,2025/2026,2,2,True,Gaziantep F.K. → Sarıyer SK,Super Lig → 1. Lig,True
+37576062,2025/2026,2,1,True,Baltika Kaliningrad → Akhmat Grozny,Premier League,False
+37576215,2025/2026,2,1,True,Vitória Guimarães SC → Avs Futebol,Liga Portugal,False
+37576441,2025/2026,2,1,True,Gillingham → Cambridge United,League Two,False
+37577112,2025,2,1,True,Godoy Cruz → Tigre,Liga Profesional de Fútbol,False
+37577431,2025/2026,2,2,True,FC Nordsjaelland → Preußen Münster,Superliga → 2. Bundesliga,True
+37577447,2025/2026,2,2,True,Göztepe → Toulouse,Super Lig → Ligue 1,True
+37577768,2025/2026,2,2,False,Amiens SC + FC Schalke 04,Ligue 2 + 2. Bundesliga,True
+37577787,2025/2026,2,1,True,Bohemians Prague 1905 → FK Jablonec,Chance Liga,False
+37577874,2025/2026,2,1,True,AC Sparta Prague → FC Hradec Kralove,Chance Liga,False
+37578364,2025/2026,2,1,True,MSK Zilina → Zeleziarne Podbrezova,Niké Liga,False
+37578836,2025/2026,2,2,True,SC Braga → Al Ittihad,Liga Portugal → Pro League,True
+37578940,2025/2026,2,1,True,Toluca → León,Liga MX,False
+37578943,2025/2026,2,1,True,Diósgyőri VTK → MTK Budapest,NB I,False
+37579645,2025/2026,2,2,True,Rio Ave FC → Olympiacos Piraeus,Liga Portugal → Super League,True
+37579675,2025,2,1,False,Gamba Osaka + Sanfrecce Hiroshima,J1 League,False
+37579757,2025/2026,2,2,True,FC Augsburg → Hannover 96,Bundesliga → 2. Bundesliga,True
+37579793,2025/2026,2,2,True,Rodez AF → Millwall FC,Ligue 2 → Championship,True
+37580681,2025/2026,2,1,True,Aarhus GF → Vejle Boldklub,Superliga,False
+37580790,2025/2026,2,1,True,Aarhus Fremad → Aalborg BK,First Division,False
+37581746,2025/2026,2,1,True,Rotherham United → Port Vale FC,League One,False
+37581761,2025/2026,2,2,True,Livingston FC → Kocaelispor,Premiership → Super Lig,True
+37581766,2025/2026,2,1,True,Hull City → Sheffield Wednesday,Championship,False
+37581800,2025/2026,2,2,False,Odense Boldklub + Fortuna Düsseldorf,Superliga + 2. Bundesliga,True
+37582096,2025/2026,2,2,True,1.FC Nuremberg → Red Bull Salzburg ,2. Bundesliga → Admiral Bundesliga,True
+37582531,2025/2026,3,3,False,Jong PSV + Levante + PSV Eindhoven,Eerste Divisie + La Liga + Eredivisie,True
+37582741,2025/2026,2,2,True,Leyton Orient → Tranmere Rovers,League One → League Two,True
+37583292,2025,2,1,True,AIK → Degerfors IF,Allsvenskan,False
+37583460,2025/2026,2,2,True,Brest → Clermont Foot 63,Ligue 1 → Ligue 2,True
+37583526,2025/2026,3,2,False,Jong AZ + SC Telstar + AZ Alkmaar,Eerste Divisie + Eredivisie,True
+37583696,2025/2026,2,2,True,Jong PSV → PSV Eindhoven,Eerste Divisie → Eredivisie,True
+37583801,2025/2026,2,2,True,Red Star Belgrade → Fatih Karagümrük,Super Liga → Super Lig,True
+37583918,2025/2026,2,1,True,Marumo Gallants FC → Orlando Pirates,Premier League,False
+37584205,2025,2,2,True,Rionegro Águilas → San Antonio Bulo Bulo,Liga BetPlay → Liga De Futbol Prof,True
+37584629,2025/2026,2,1,True,KAS Eupen → Francs Borains,Challenger Pro League,False
+37584657,2025/2026,2,2,True,Stade Reims → 1.FC Kaiserslautern,Ligue 2 → 2. Bundesliga,True
+37584705,2025/2026,2,2,True,AC Milan → AFC Bournemouth,Serie A → Premier League,True
+37584732,2025/2026,2,2,True,Zeleziarne Podbrezova → FK Pardubice,Niké Liga → Chance Liga,True
+37586707,2025/2026,2,1,True,Wycombe Wanderers → Mansfield Town,League One,False
+37587261,2025/2026,2,1,True,Zaglebie Lubin → Lechia Gdansk,Ekstraklasa,False
+37587263,2025/2026,2,1,True,Zaglebie Lubin → Raków Częstochowa,Ekstraklasa,False
+37587454,2025/2026,2,2,True,SD Huesca → Deportivo Alavés,La Liga 2 → La Liga,True
+37587573,2025/2026,2,2,False,Rangers FC + Everton,Premiership + Premier League,True
+37589712,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37590188,2025/2026,2,2,True,Doncaster Rovers → Blackburn Rovers,League One → Championship,True
+37590232,2025,2,1,True,Bohemian Football Club → Sligo Rovers,Premier Division,False
+37590239,2025/2026,2,1,True,Iğdır FK → Sarıyer SK,1. Lig,False
+37590383,2025/2026,2,2,True,Aalborg BK → Silkeborg IF,First Division → Superliga,True
+37590627,2025/2026,2,2,False,Jong KAA Gent + KAA Gent,Challenger Pro League + Pro League,True
+37590639,2025/2026,2,2,True,Club NXT → Lyngby Boldklub,Challenger Pro League → First Division,True
+37590697,2025/2026,2,2,True,Brighton & Hove Albion → Paris,Premier League → Ligue 1,True
+37590907,2025/2026,2,2,False,Pau FC + FC Augsburg,Ligue 2 + Bundesliga,True
+37590934,2025/2026,2,1,True,Bayer 04 Leverkusen → VfL Wolfsburg,Bundesliga,False
+37591826,2025/2026,2,2,True,Olympique Lyonnais → VfL Wolfsburg,Ligue 1 → Bundesliga,True
+37592022,2025/2026,2,2,False,FK Novi Pazar + AFC Bournemouth,Super Liga + Premier League,True
+37592294,2025/2026,2,2,False,WSG Tirol + SG Dynamo Dresden,Admiral Bundesliga + 2. Bundesliga,True
+37592468,2025/2026,2,1,True,Racing Santander → FC Andorra,La Liga 2,False
+37592644,2025/2026,2,2,True,CF Estrela Amadora → Lecce,Liga Portugal → Serie A,True
+37592714,2025/2026,2,1,True,Baltika Kaliningrad → Spartak Moscow,Premier League,False
+37592744,2025/2026,2,2,False,Carrarese Calcio 1908 + Napoli,Serie B + Serie A,True
+37592778,2025,2,1,True,Hamarkameratene → Molde FK,Eliteserien,False
+37592790,2025/2026,2,2,True,UC Sampdoria → UD Las Palmas,Serie B → La Liga 2,True
+37592951,2025/2026,2,2,True,Stade Reims → Cercle Brugge,Ligue 2 → Pro League,True
+37593153,2025/2026,2,2,True,Southampton FC → West Ham United,Championship → Premier League,True
+37593161,2025/2026,2,1,False,Moreirense FC + Sporting CP,Liga Portugal,False
+37593165,2025/2026,2,2,True,FC Utrecht → Jong FC Utrecht,Eredivisie → Eerste Divisie,True
+37593191,2025/2026,2,2,False,FC Universitatea Cluj + UC Sampdoria,Superliga + Serie B,True
+37593264,2025/2026,2,2,True,FC Zürich → Coventry City,Super League → Championship,True
+37594800,2025/2026,2,2,True,Perth Glory → Heracles Almelo,A-League Men → Eredivisie,True
+37595218,2025/2026,2,2,True,1.FC Nuremberg → Toulouse,2. Bundesliga → Ligue 1,True
+37595970,2025/2026,2,2,True,Metz → USL Dunkerque,Ligue 1 → Ligue 2,True
+37596447,2025/2026,2,2,True,HNK Gorica → Pogon Szczecin,1. HNL → Ekstraklasa,True
+37596566,2025,2,1,True,Tromsø IL → Bryne FK,Eliteserien,False
+37596742,2025/2026,2,2,True,Royal Charleroi SC → EA Guingamp,Pro League → Ligue 2,True
+37596980,2025/2026,2,1,True,Al Ahly → Al Masry,Premier League,False
+37597012,2025/2026,2,2,True,K Lierse SK → Zulte-Waregem,Challenger Pro League → Pro League,True
+37597195,2025/2026,2,1,True,FK Jablonec → FK Dukla Prague,Chance Liga,False
+37597391,2025/2026,2,1,True,FC Rapid 1923 → FC Universitatea Cluj,Superliga,False
+37597759,2025/2026,2,1,True,Avs Futebol → FC Alverca,Liga Portugal,False
+37597889,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37597897,2025/2026,2,1,True,Jong AZ → Helmond Sport,Eerste Divisie,False
+37597898,2025/2026,3,2,True,Jong AZ → AZ Alkmaar → FC Volendam,Eerste Divisie → Eredivisie,True
+37597971,2025/2026,2,2,True,Red Star Belgrade → CF Estrela Amadora,Super Liga → Liga Portugal,True
+37599084,2025/2026,2,2,True,LOSC Lille → US Boulogne,Ligue 1 → Ligue 2,True
+37599315,2025/2026,3,2,False,Delfino Pescara 1936 + Cesena FC + Bologna,Serie B + Serie A,True
+37599469,2025/2026,2,2,False,US Avellino 1912 + Sassuolo,Serie B + Serie A,True
+37599597,2025/2026,2,2,True,OFK Beograd → Rio Ave FC,Super Liga → Liga Portugal,True
+37599918,2025/2026,3,3,False,Jong KAA Gent + USL Dunkerque + KAA Gent,Challenger Pro League + Ligue 2 + Pro League,True
+37599990,2025/2026,2,1,True,Delfino Pescara 1936 → Venezia FC,Serie B,False
+37600075,2025/2026,2,2,True,FC Viktoria Plzen → Pisa,Chance Liga → Serie A,True
+37600173,2025/2026,2,2,False,Stockport County + Bristol City,League One + Championship,True
+37600197,2025/2026,2,2,True,Cheltenham Town → Port Vale FC,League Two → League One,True
+37600255,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37600507,2025/2026,2,1,True,FC Rapid 1923 → FC Metaloglobus Bucharest,Superliga,False
+37600577,2025/2026,2,2,True,NK Lokomotiva Zagreb → SK Sigma Olomouc,1. HNL → Chance Liga,True
+37600595,2025/2026,2,2,True,Royal Antwerp FC → Pisa,Pro League → Serie A,True
+37600639,2025/2026,2,1,True,Red Star Belgrade → OFK Beograd,Super Liga,False
+37600810,2025/2026,2,1,False,FC Lausanne-Sport + FC Basel 1893,Super League,False
+37601270,2025/2026,3,2,False,Spezia Calcio + Pisa + Atalanta,Serie B + Serie A,True
+37601923,2025/2026,2,2,True,FC Nordsjaelland → Ipswich Town,Superliga → Championship,True
+37602079,2025/2026,2,1,True,Elche → Atlético de Madrid,La Liga,False
+37602739,2025/2026,2,2,True,De Graafschap → AE Kifisia,Eerste Divisie → Super League,True
+37603288,2025/2026,2,1,True,AE Kifisia → Panathinaikos,Super League,False
+37604659,2025/2026,2,2,True,Servette FC → Red Star FC,Super League → Ligue 2,True
+37604669,2025/2026,2,1,True,Mazatlán → Atlético San Luis,Liga MX,False
+37606984,2025/2026,2,2,True,UD Las Palmas → Preston North End,La Liga 2 → Championship,True
+37609025,2025/2026,2,1,True,OFK Beograd → Red Star Belgrade,Super Liga,False
+37609122,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37609137,2025/2026,2,2,True,Amiens SC → Górnik Zabrze,Ligue 2 → Ekstraklasa,True
+37609158,2025/2026,2,2,False,Swindon Town + Bristol City,League Two + Championship,True
+37609179,2025/2026,2,1,True,Luton Town → AFC Wimbledon,League One,False
+37610686,2025/2026,2,2,False,SV 07 Elversberg + TSG Hoffenheim,2. Bundesliga + Bundesliga,True
+37611704,2025,2,1,True,Shandong Taishan → Henan Songshan Longmen,Super League,False
+37611833,2025/2026,2,2,True,Adana Demirspor → Jong AZ,1. Lig → Eerste Divisie,True
+37611904,2025/2026,2,1,True,Club NXT → K Lierse SK,Challenger Pro League,False
+37611939,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37611981,2025/2026,2,2,True,Oud-Heverlee Leuven → Eintracht Braunschweig,Pro League → 2. Bundesliga,True
+37612108,2025/2026,2,1,True,Al Ahly → National Bank of Egypt,Premier League,False
+37613533,2025/2026,2,2,True,Rennes → FC Basel 1893,Ligue 1 → Super League,True
+37613882,2025/2026,2,2,True,Torino → Mantova 1911,Serie A → Serie B,True
+37614088,2025/2026,2,2,True,Racing Santander → VfB Stuttgart,La Liga 2 → Bundesliga,True
+37614468,2025/2026,2,1,True,Stockport County → Wycombe Wanderers,League One,False
+37614523,2025/2026,2,1,True,FC Midtjylland → FC Fredericia,Superliga,False
+37614687,2025/2026,2,2,True,Peterborough United → Shrewsbury Town,League One → League Two,True
+37615677,2025/2026,2,2,True,Stade Reims → NAC Breda,Ligue 2 → Eredivisie,True
+37616513,2025/2026,2,1,True,MFK Karvina → FK Jablonec,Chance Liga,False
+37616601,2025,2,1,True,Internacional de Bogotá → Millonarios,Liga BetPlay,False
+37616612,2025/2026,2,2,True,Sint-Truidense VV → Sporting Gijón,Pro League → La Liga 2,True
+37617612,2025,2,1,True,Albirex Niigata → Fagiano Okayama,J1 League,False
+37618190,2025/2026,2,2,True,Granada CF → Sporting CP,La Liga 2 → Liga Portugal,True
+37618295,2025/2026,2,2,True,FC Dordrecht → NEC Nijmegen,Eerste Divisie → Eredivisie,True
+37618353,2025/2026,2,2,False,Boluspor + Alanyaspor,1. Lig + Super Lig,True
+37618454,2025,2,2,True,Deportivo Cali → Aldosivi,Liga BetPlay → Liga Profesional de Fútbol,True
+37618925,2025/2026,2,2,True,Metz → Amiens SC,Ligue 1 → Ligue 2,True
+37618974,2025,2,1,True,Junior FC → Unión Magdalena,Liga BetPlay,False
+37619101,2025,2,1,True,Rosario Central → Atlético Tucumán,Liga Profesional de Fútbol,False
+37619216,2025/2026,3,3,True,FC Banik Ostrava → Jong AZ → AZ Alkmaar,Chance Liga → Eerste Divisie → Eredivisie,True
+37619380,2025/2026,2,2,False,K Lierse SK + Royal Charleroi SC,Challenger Pro League + Pro League,True
+37619425,2025,2,2,True,Argentinos Juniors → Fortaleza,Liga Profesional de Fútbol → Serie A,True
+37619977,2025/2026,2,2,True,Zulte-Waregem → Olympique Marseille,Pro League → Ligue 1,True
+37621056,2025/2026,2,1,True,FC Den Bosch → De Graafschap,Eerste Divisie,False
+37621257,2025/2026,2,1,True,MFK Karvina → FC Banik Ostrava,Chance Liga,False
+37621483,2025,2,1,True,Atlético Nacional → Internacional de Bogotá,Liga BetPlay,False
+37622005,2025/2026,2,1,True,Sint-Truidense VV → Royal Antwerp FC,Pro League,False
+37622131,2025/2026,2,2,True,ESTAC Troyes → Samsunspor,Ligue 2 → Super Lig,True
+37622442,2025/2026,2,1,True,Hatayspor → Sivasspor,1. Lig,False
+37622795,2025/2026,2,2,True,Jong FC Utrecht → FC Utrecht,Eerste Divisie → Eredivisie,True
+37623466,2025/2026,2,2,False,AS Nancy-Lorraine + Aston Villa,Ligue 2 + Premier League,True
+37624112,2025/2026,2,1,True,RWDM Brussels → RFC Lüttich,Challenger Pro League,False
+37624135,2025/2026,2,2,True,FK Vojvodina Novi Sad → BSC Young Boys,Super Liga → Super League,True
+37624308,2025/2026,2,2,True,Brøndby IF → Olympique Lyonnais,Superliga → Ligue 1,True
+37624325,2025/2026,2,2,True,Ferencvárosi TC → AFC Bournemouth,NB I → Premier League,True
+37625047,2025/2026,2,1,True,Northampton Town → Bradford City,League One,False
+37625152,2025/2026,2,2,True,FC Fredericia → Hobro IK,Superliga → First Division,True
+37625391,2025/2026,2,2,True,Go Ahead Eagles → Stoke City,Eredivisie → Championship,True
+37625409,2025/2026,2,2,True,Red Bull Salzburg  → VfL Wolfsburg,Admiral Bundesliga → Bundesliga,True
+37625440,2025,2,1,True,FK Haugesund → Tromsø IL,Eliteserien,False
+37625723,2025,2,1,True,Atlético Nacional → Deportes Tolima,Liga BetPlay,False
+37627178,2025,2,1,True,Shandong Taishan → Qingdao Hainiu,Super League,False
+37627285,2025,2,2,True,Racing Club → Inter Miami,Liga Profesional de Fútbol → Major League Soccer,True
+37627306,2025/2026,2,2,True,Avs Futebol → Stade Lavallois,Liga Portugal → Ligue 2,True
+37627450,2025/2026,2,2,True,Sivasspor → SC Otelul Galati,1. Lig → Superliga,True
+37628398,2025/2026,2,2,True,Antalyaspor → Sakaryaspor,Super Lig → 1. Lig,True
+37628426,2025,2,1,True,SJ Earthquakes → San Diego,Major League Soccer,False
+37629262,2025/2026,2,1,True,FK Dukla Prague → FK Mlada Boleslav,Chance Liga,False
+37629344,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37630690,2025/2026,2,2,True,EA Guingamp → KVC Westerlo,Ligue 2 → Pro League,True
+37631118,2025,2,1,True,Aldosivi → Racing Club,Liga Profesional de Fútbol,False
+37631334,2025/2026,2,2,False,Jong Genk + KRC Genk,Challenger Pro League + Pro League,True
+37632001,2025/2026,2,2,True,Odense Boldklub → Jong FC Utrecht,Superliga → Eerste Divisie,True
+37632003,2025/2026,2,2,True,FK Partizan Belgrade → Werder Bremen,Super Liga → Bundesliga,True
+37632013,2025/2026,2,1,False,Eyüpspor + Kayserispor,Super Lig,False
+37632376,2025/2026,2,1,True,FK Mladost Lucani → FK Napredak Krusevac,Super Liga,False
+37632412,2025/2026,2,2,True,Widzew Lodz → NK Osijek,Ekstraklasa → 1. HNL,True
+37633249,2025/2026,2,2,True,FC Basel 1893 → VfL Wolfsburg,Super League → Bundesliga,True
+37633767,2025/2026,2,2,True,Brest → AS Nancy-Lorraine,Ligue 1 → Ligue 2,True
+37633774,2025/2026,2,2,True,USL Dunkerque → Strasbourg,Ligue 2 → Ligue 1,True
+37634227,2025/2026,2,1,True,Ceramica Cleopatra → Al Ahly,Premier League,False
+37634561,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37635010,2025/2026,2,1,True,FC Rapid 1923 → Petrolul Ploiesti,Superliga,False
+37635461,2025/2026,2,2,True,Wolfsberger AC → Trabzonspor,Admiral Bundesliga → Super Lig,True
+37637488,2025/2026,2,2,True,RKC Waalwijk → SK Beveren,Eerste Divisie → Challenger Pro League,True
+37638475,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37639082,2025,2,1,False,Rosario Central + Independiente,Liga Profesional de Fútbol,False
+37639956,2025/2026,2,2,True,CD Castellón → Vanspor FK,La Liga 2 → 1. Lig,True
+37643651,2025,2,1,True,IFK Värnamo → Hammarby IF,Allsvenskan,False
+37643700,2025/2026,2,1,True,Dynamo Moscow → FC Pari Nizhniy Novgorod,Premier League,False
+37644042,2025/2026,2,2,True,Pau FC → Brest,Ligue 2 → Ligue 1,True
+37644885,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37646374,2025,2,2,True,Fredrikstad FK → St. Louis City,Eliteserien → Major League Soccer,True
+37646866,2025/2026,2,1,True,Villarreal → Levante,La Liga,False
+37646965,2025/2026,2,2,True,USL Dunkerque → Cercle Brugge,Ligue 2 → Pro League,True
+37647009,2025/2026,2,2,True,Real Madrid → Olympique Lyonnais,La Liga → Ligue 1,True
+37648572,2025/2026,2,2,True,TS Galaxy → Petrojet,Premier League,True
+37649866,2025/2026,2,2,True,Odense Boldklub → Middelfart Boldklub,Superliga → First Division,True
+37650696,2025/2026,2,2,True,FC Dordrecht → TSG Hoffenheim,Eerste Divisie → Bundesliga,True
+37651091,2025/2026,2,2,False,Bristol Rovers + Tottenham Hotspur,League Two + Premier League,True
+37651108,2025/2026,2,2,False,Falkirk FC + Aston Villa,Premiership + Premier League,True
+37651201,2025/2026,2,1,True,Hapoel Jerusalem → Maccabi Haifa,Ligat ha'Al,False
+37651207,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37651540,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37651569,2025,2,1,True,Cork City FC → Shelbourne FC,Premier Division,False
+37651669,2025/2026,2,2,False,Jong AZ + AZ Alkmaar,Eerste Divisie + Eredivisie,True
+37652381,2025/2026,2,2,True,Roda JC Kerkrade → Esbjerg fB,Eerste Divisie → First Division,True
+37652792,2025/2026,2,2,True,FC Copenhagen → FC Porto,Superliga → Liga Portugal,True
+37652796,2025/2026,2,1,False,Vejle Boldklub + FC Copenhagen,Superliga,False
+37653343,2025/2026,2,2,True,1.FC Nuremberg → FC Utrecht,2. Bundesliga → Eredivisie,True
+37653423,2025/2026,2,2,False,Cambridge United + Millwall FC,League Two + Championship,True
+37655233,2025/2026,2,2,True,Royal Antwerp FC → Al Ittihad,Pro League,True
+37656028,2025/2026,2,1,True,Spezia Calcio → Mantova 1911,Serie B,False
+37656166,2025/2026,2,2,False,Jong FC Utrecht + FC Utrecht,Eerste Divisie + Eredivisie,True
+37656175,2025/2026,2,1,True,FC Hradec Kralove → FC Viktoria Plzen,Chance Liga,False
+37656406,2025/2026,2,1,True,Orlando Pirates → Chippa United,Premier League,False
+37656474,2025/2026,3,2,True,Ajax Amsterdam → Jong Ajax → SC Telstar,Eredivisie → Eerste Divisie,True
+37656475,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37656477,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37656551,2025/2026,2,1,True,HNK Gorica → HNK Vukovar 1991,1. HNL,False
+37656640,2025/2026,2,1,True,Orlando Pirates → Sekhukhune United,Premier League,False
+37656896,2025/2026,2,1,False,Maccabi Bnei Reineh + Maccabi Haifa,Ligat ha'Al,False
+37657032,2025/2026,2,1,True,Rangers FC → Kilmarnock FC,Premiership,False
+37657587,2025/2026,2,2,False,Hamburger SV + Tottenham Hotspur,Bundesliga + Premier League,True
+37657770,2025/2026,2,1,True,Birmingham City → Hull City,Championship,False
+37657971,2025/2026,2,1,True,MFK Karvina → FC Banik Ostrava,Chance Liga,False
+37658956,2025/2026,2,2,False,CD Mirandés + Espanyol,La Liga 2 + La Liga,True
+37659619,2025/2026,2,2,False,Jong Genk + KRC Genk,Challenger Pro League + Pro League,True
+37661731,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37661864,2025/2026,2,1,True,FC Hradec Kralove → FC Viktoria Plzen,Chance Liga,False
+37662242,2025/2026,2,2,True,FC Utrecht → Jong FC Utrecht,Eredivisie → Eerste Divisie,True
+37663391,2025/2026,2,2,True,Wolverhampton Wanderers → Celta de Vigo,Premier League → La Liga,True
+37663889,2025/2026,2,2,False,Beerschot VA + Zulte-Waregem,Challenger Pro League + Pro League,True
+37666445,2025/2026,2,1,False,Al Ittihad + Pyramids FC,Premier League,False
+37666500,2025/2026,2,2,True,Roma → Spezia Calcio,Serie A → Serie B,True
+37667846,2025/2026,2,1,False,FK Radnik Surdulica + FK Vojvodina Novi Sad,Super Liga,False
+37668391,2025/2026,2,2,True,Górnik Zabrze → Brøndby IF,Ekstraklasa → Superliga,True
+37668633,2025/2026,2,2,True,FC Nordsjaelland → Strasbourg,Superliga → Ligue 1,True
+37668740,2025/2026,2,2,True,KAA Gent → Jong KAA Gent,Pro League → Challenger Pro League,True
+37669463,2025/2026,2,2,True,BSC Young Boys → AC Milan,Super League → Serie A,True
+37669790,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37671351,2025/2026,2,2,True,RSCA Futures → RSC Anderlecht,Challenger Pro League → Pro League,True
+37672326,2025/2026,2,1,True,Ironi Kiryat Shmona → Hapoel Beer Sheva,Ligat ha'Al,False
+37674628,2025/2026,2,1,True,Pharco → Arab Contractors FC,Premier League,False
+37675261,2025/2026,2,2,True,Wigan Athletic → Harrogate Town,League One → League Two,True
+37675777,2025/2026,2,1,True,Sheffield Wednesday → Norwich City,Championship,False
+37676502,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37676504,2025/2026,2,1,True,UD Almería → CD Mirandés,La Liga 2,False
+37676562,2025/2026,3,2,True,PSV Eindhoven → Jong PSV → FC Groningen,Eredivisie → Eerste Divisie,True
+37676995,2025/2026,2,1,True,Al Ittihad → Al Okhdoud,Pro League,False
+37677869,2025,2,1,True,Independiente → San Martín San Juan,Liga Profesional de Fútbol,False
+37678224,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37678250,2025/2026,2,2,True,Cesena FC → Rio Ave FC,Serie B → Liga Portugal,True
+37678884,2025/2026,2,2,True,Brøndby IF → Melbourne City,Superliga → A-League Men,True
+37679132,2025/2026,2,1,True,León → Mazatlán,Liga MX,False
+37679253,2025/2026,2,2,True,Celtic FC → FC Köln,Premiership → Bundesliga,True
+37679571,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37680258,2025/2026,2,2,True,Pogon Szczecin → Lazio,Ekstraklasa → Serie A,True
+37680349,2025/2026,2,2,False,AC Reggiana 1919 + Hellas Verona,Serie B + Serie A,True
+37680350,2025/2026,2,2,True,FC Alverca → Genoa,Liga Portugal → Serie A,True
+37680389,2025/2026,2,2,True,Preston North End → Everton,Championship → Premier League,True
+37680579,2025/2026,2,1,True,Paksi FC → Diósgyőri VTK,NB I,False
+37681494,2025/2026,2,2,True,Real Zaragoza → Cracovia,La Liga 2 → Ekstraklasa,True
+37681831,2025/2026,2,2,True,Clermont Foot 63 → AE Kifisia,Ligue 2 → Super League,True
+37682875,2025,2,1,True,HJK Helsinki → IF Gnistan,Veikkausliiga,False
+37683596,2025/2026,2,2,True,Metz → Amiens SC,Ligue 1 → Ligue 2,True
+37684057,2025/2026,2,2,True,Levante → CD Mirandés,La Liga → La Liga 2,True
+37684846,2025/2026,2,2,False,Willem II Tilburg + FC Twente Enschede,Eerste Divisie + Eredivisie,True
+37684847,2025/2026,2,2,True,RSC Anderlecht → RSCA Futures,Pro League → Challenger Pro League,True
+37685381,2025/2026,2,2,True,SV 07 Elversberg → Eintracht Frankfurt,2. Bundesliga → Bundesliga,True
+37685669,2025,2,1,True,FC KTP → SJK Seinäjoki,Veikkausliiga,False
+37686328,2025/2026,2,2,False,Real Sociedad B + Real Sociedad,La Liga 2 + La Liga,True
+37686724,2025,2,2,True,Junior FC → Botafogo,Liga BetPlay → Serie A,True
+37687068,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37687097,2025/2026,2,1,True,Al Wasl → Khorfakkan Club,UAE Pro League,False
+37687496,2025/2026,2,1,True,Jong FC Utrecht → RKC Waalwijk,Eerste Divisie,False
+37687921,2025/2026,2,2,True,Nyíregyháza Spartacus → FK Dukla Prague,NB I → Chance Liga,True
+37687947,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37688142,2025/2026,2,1,False,FC Groningen + Ajax Amsterdam,Eredivisie,False
+37688181,2025/2026,2,1,True,NEOM SC → Al Hilal,Pro League,False
+37688184,2025/2026,2,2,True,Toulouse → Crystal Palace,Ligue 1 → Premier League,True
+37688197,2025/2026,2,2,False,Jong PSV + PSV Eindhoven,Eerste Divisie + Eredivisie,True
+37688661,2025,2,1,True,Toronto → Orlando City,Major League Soccer,False
+37689358,2025/2026,2,2,True,Luton Town → Oxford United,League One → Championship,True
+37689817,2025/2026,2,2,False,VVV-Venlo + Heracles Almelo,Eerste Divisie + Eredivisie,True
+37690218,2025/2026,2,1,True,CD Mirandés → Granada CF,La Liga 2,False
+37690403,2025/2026,3,2,False,Spezia Calcio + US Catanzaro + Como,Serie B + Serie A,True
+37692363,2025/2026,2,2,True,Luton Town → Delfino Pescara 1936,League One → Serie B,True
+37694115,2025/2026,2,2,True,Kolding IF → Silkeborg IF,First Division → Superliga,True
+37694304,2025/2026,2,2,False,Jong KAA Gent + KAA Gent,Challenger Pro League + Pro League,True
+37695330,2025/2026,2,1,True,Tigres UANL → Querétaro,Liga MX,False
+37696417,2025/2026,2,1,False,FK Novi Pazar + FK Partizan Belgrade,Super Liga,False
+37696569,2025/2026,2,1,True,MFK Karvina → SK Slavia Prague,Chance Liga,False
+37697289,2025/2026,2,2,True,NK Istra 1961 → FC Viktoria Plzen,1. HNL → Chance Liga,True
+37697380,2025/2026,2,2,True,RFC Lüttich → Sint-Truidense VV,Challenger Pro League → Pro League,True
+37697417,2025/2026,2,2,True,De Graafschap → Cagliari,Eerste Divisie → Serie A,True
+37697418,2025/2026,3,3,False,Jong PSV + Lommel SK + PSV Eindhoven,Eerste Divisie + Challenger Pro League + Eredivisie,True
+37698005,2025/2026,2,2,True,Sporting CP → RB Leipzig,Liga Portugal → Bundesliga,True
+37699171,2025/2026,2,2,True,Angers SCO → Fenerbahce,Ligue 1 → Super Lig,True
+37700505,2025/2026,2,2,True,Excelsior Rotterdam → FC Dordrecht,Eredivisie → Eerste Divisie,True
+37703250,2025/2026,2,2,False,Jong FC Utrecht + FC Utrecht,Eerste Divisie + Eredivisie,True
+37704641,2025,2,1,True,Deportivo Pasto → Atlético Bucaramanga,Liga BetPlay,False
+37704799,2025/2026,2,2,True,Slaven Belupo Koprivnica → Panathinaikos,1. HNL → Super League,True
+37704804,2025/2026,2,2,True,CD Tondela → Dinamo Makhachkala,Liga Portugal → Premier League,True
+37704919,2025/2026,2,2,True,FK Mlada Boleslav → MFK Ruzomberok,Chance Liga → Niké Liga,True
+37705839,2025/2026,2,2,True,Zemplin Michalovce → FC Banik Ostrava,Niké Liga → Chance Liga,True
+37708558,2025/2026,2,1,True,Al Ahli → Al Riyadh,Pro League,False
+37709264,2025/2026,2,2,True,Jong PSV → PSV Eindhoven,Eerste Divisie → Eredivisie,True
+37709746,2025/2026,2,2,True,RKC Waalwijk → Heart of Midlothian FC,Eerste Divisie → Premiership,True
+37710045,2025/2026,2,2,True,SC Heerenveen → FC Arouca,Eredivisie → Liga Portugal,True
+37710199,2025,2,2,True,FC Inter Turku → AIK,Veikkausliiga → Allsvenskan,True
+37710703,2025/2026,2,1,True,AE Kifisia → Panathinaikos,Super League,False
+37711071,2025/2026,2,1,True,Widzew Lodz → Wisla Plock,Ekstraklasa,False
+37711542,2025/2026,2,2,False,TOP Oss + NAC Breda,Eerste Divisie + Eredivisie,True
+37711755,2025/2026,2,1,False,FC Volendam + Ajax Amsterdam,Eredivisie,False
+37712012,2025/2026,2,2,True,FC Ashdod → Dundee United FC,Ligat ha'Al → Premiership,True
+37712369,2025/2026,2,1,True,Marumo Gallants FC → Orlando Pirates,Premier League,False
+37714126,2025/2026,2,2,True,Pisa → AC Reggiana 1919,Serie A → Serie B,True
+37714553,2025/2026,2,2,True,KAA Gent → Jong KAA Gent,Pro League → Challenger Pro League,True
+37715082,2025/2026,2,1,True,Orlando Pirates → Magesi,Premier League,False
+37715192,2025/2026,2,1,True,Richards Bay → Orbit College,Premier League,False
+37715697,2025/2026,2,1,True,National Bank of Egypt → Al Ittihad,Premier League,False
+37715883,2025/2026,2,2,True,Pau FC → NEOM SC,Ligue 2 → Pro League,True
+37716600,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37716699,2025/2026,2,2,True,KVC Westerlo → Cádiz CF,Pro League → La Liga 2,True
+37716722,2025/2026,2,2,False,CD Mirandés + Espanyol,La Liga 2 + La Liga,True
+37718039,2025/2026,2,2,True,Middlesbrough FC → AS Saint-Étienne,Championship → Ligue 2,True
+37718673,2025/2026,2,2,True,PSV Eindhoven → Jong PSV,Eredivisie → Eerste Divisie,True
+37719239,2025/2026,2,2,True,Real Sociedad → Real Sociedad B,La Liga → La Liga 2,True
+37719250,2025/2026,2,2,False,Real Sociedad B + Real Sociedad,La Liga 2 + La Liga,True
+37719386,2025/2026,2,2,True,PSV Eindhoven → Jong PSV,Eredivisie → Eerste Divisie,True
+37719435,2025/2026,2,2,True,Feyenoord Rotterdam → FC Dordrecht,Eredivisie → Eerste Divisie,True
+37720742,2025/2026,2,2,True,Brøndby IF → Red Bull Salzburg ,Superliga → Admiral Bundesliga,True
+37721019,2025/2026,2,1,True,Al Khaleej → Al Hilal,Pro League,False
+37721104,2025/2026,2,2,True,Jagiellonia Bialystok → FC Porto,Ekstraklasa → Liga Portugal,True
+37721205,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True
+37721206,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37721211,2025/2026,2,2,True,Jong PSV → PSV Eindhoven,Eerste Divisie → Eredivisie,True
+37721278,2025,2,1,True,FK Metta → SK Super Nova,Virsliga,False
+37721337,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True
+37721379,2025/2026,2,1,True,NEOM SC → Al Taawoun,Pro League,False
+37722644,2025/2026,3,3,False,Jong AZ + AZ Alkmaar + Bayer 04 Leverkusen,Eerste Divisie + Eredivisie + Bundesliga,True
+37722784,2025/2026,2,2,True,PSV Eindhoven → Jong PSV,Eredivisie → Eerste Divisie,True
+37722794,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37722795,2025/2026,2,2,True,FC Utrecht → Jong FC Utrecht,Eredivisie → Eerste Divisie,True
+37722914,2025/2026,2,2,True,Jong Ajax → Ajax Amsterdam,Eerste Divisie → Eredivisie,True
+37722931,2025/2026,2,2,False,Jong AZ + AZ Alkmaar,Eerste Divisie + Eredivisie,True
+37722932,2025/2026,2,2,True,Jong AZ → AZ Alkmaar,Eerste Divisie → Eredivisie,True
+37722934,2025/2026,2,2,True,AZ Alkmaar → Jong AZ,Eredivisie → Eerste Divisie,True
+37723121,2025/2026,2,2,False,Rotherham United + Leeds United,League One + Premier League,True
+37723526,2025/2026,2,2,True,Cracovia → MSK Zilina,Ekstraklasa → Niké Liga,True
+37723871,2025/2026,2,2,True,RSC Anderlecht → RSCA Futures,Pro League → Challenger Pro League,True
+37724507,2025/2026,3,2,True,Sparta Rotterdam → Jong AZ → AZ Alkmaar,Eredivisie → Eerste Divisie,True
+37726595,2025/2026,2,2,True,AZ Alkmaar → Jong AZ,Eredivisie → Eerste Divisie,True
+37726622,2025/2026,2,2,True,KAA Gent → Jong KAA Gent,Pro League → Challenger Pro League,True
+37728406,2025/2026,2,2,True,Elche → CD Mirandés,La Liga → La Liga 2,True
+37730032,2025/2026,2,1,True,Panetolikos → Panathinaikos,Super League,False
+37731254,2025/2026,2,2,False,Cultural Leonesa + Espanyol,La Liga 2 + La Liga,True
+37734277,2025/2026,2,2,True,FC Groningen → De Graafschap,Eredivisie → Eerste Divisie,True
+37734717,2025/2026,2,2,True,AS Nancy-Lorraine → FK IMT Belgrad,Ligue 2 → Super Liga,True
+37735347,2025,2,1,True,Always Ready → ABB,Liga De Futbol Prof,False
+37735348,2025/2026,2,2,True,Wycombe Wanderers → Queens Park Rangers,League One → Championship,True
+37736094,2025/2026,2,2,True,Stockport County → Walsall,League One → League Two,True
+37736118,2025/2026,2,2,True,RSCA Futures → SC Telstar,Challenger Pro League → Eredivisie,True
+37736497,2025/2026,2,2,False,Real Sociedad B + Real Sociedad,La Liga 2 + La Liga,True
+37737392,2025,2,2,True,Vélez Sarsfield → Botafogo,Liga Profesional de Fútbol → Serie A,True
+37738877,2025/2026,2,2,True,Ajax Amsterdam → Jong Ajax,Eredivisie → Eerste Divisie,True
+37739152,2025/2026,2,1,True,Patro Eisden Maasmechelen → KSC Lokeren,Challenger Pro League,False
+37741519,2025/2026,2,2,True,RSCA Futures → RSC Anderlecht,Challenger Pro League → Pro League,True
+37743072,2025,2,1,True,FK Liepaja → FK Grobina,Virsliga,False
+37743121,2025/2026,2,2,True,RSCA Futures → RSC Anderlecht,Challenger Pro League → Pro League,True
+37743678,2025/2026,2,2,True,Jong Genk → KRC Genk,Challenger Pro League → Pro League,True
+37743689,2025/2026,2,2,True,Jong PSV → PSV Eindhoven,Eerste Divisie → Eredivisie,True
+37744332,2025,2,2,True,Vancouver Whitecaps → Vaasan Palloseura,Major League Soccer → Veikkausliiga,True
+37744741,2025/2026,2,2,True,Siwelele → Beerschot VA,Premier League → Challenger Pro League,True
+37748161,2025,2,1,True,Central Cordoba SdE → River Plate,Liga Profesional de Fútbol,False
+37748224,2025/2026,2,1,True,HNK Rijeka → HNK Vukovar 1991,1. HNL,False
+37749199,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True
+37750257,2025/2026,2,2,True,Aarhus GF → Aarhus Fremad,Superliga → First Division,True
+37760405,2025,2,1,True,FK Auda → Riga FC,Virsliga,False
+37760511,2025/2026,2,1,True,TS Galaxy → Mamelodi Sundowns,Premier League,False
+37760730,2025/2026,2,2,True,Club Brugge KV → Club NXT,Pro League → Challenger Pro League,True
+37761103,2025/2026,2,2,False,Trabzonspor + SC Bastia,Super Lig + Ligue 2,True
+37762152,2025,2,2,True,Newell's Old Boys → Inter Miami,Liga Profesional de Fútbol → Major League Soccer,True
+37764801,2025/2026,2,1,True,Montpellier HSC → AS Nancy-Lorraine,Ligue 2,False
+37768065,2025/2026,2,2,True,Fatih Karagümrük → Iğdır FK,Super Lig → 1. Lig,True
+37769563,2025/2026,2,2,True,Lecce → Stade Lavallois,Serie A → Ligue 2,True
+37773021,2025/2026,2,1,True,FK Radnik Surdulica → Red Star Belgrade,Super Liga,False
+37773120,2025/2026,2,2,True,K Lierse SK → FCV Dender EH,Challenger Pro League → Pro League,True
+37773415,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True
+37774107,2025/2026,2,2,False,Le Mans FC + LOSC Lille,Ligue 2 + Ligue 1,True
+37779790,2025/2026,2,2,False,Club NXT + Club Brugge KV,Challenger Pro League + Pro League,True
+37780754,2025,2,2,False,UTC Cajamarca + San Lorenzo,Primera Division + Liga Profesional de Fútbol,True
+37781207,2025,2,1,True,SK Super Nova → FS Jelgava,Virsliga,False
+37787315,2025/2026,2,1,True,Auxerre → Paris,Ligue 1,False
+37787359,2025/2026,2,1,False,National Bank of Egypt + Al Ahly,Premier League,False
+37788209,2025/2026,2,2,True,Alanyaspor → FC Augsburg,Super Lig → Bundesliga,True
+37904226,2025/2026,2,2,True,FC Luzern → Parma,Super League → Serie A,True
+37906758,2025/2026,2,2,False,FK Zeleznicar Pancevo + CF Estrela Amadora,Super Liga + Liga Portugal,True
+37912519,2025/2026,2,2,True,Olympiacos Piraeus → Rio Ave FC,Super League → Liga Portugal,True
+37915430,2025/2026,2,2,True,NEC Nijmegen → VVV-Venlo,Eredivisie → Eerste Divisie,True
+37915518,2025/2026,2,2,True,Górnik Zabrze → MFK Skalica,Ekstraklasa → Niké Liga,True
+37915521,2025/2026,2,2,True,HNK Hajduk Split → Udinese,1. HNL → Serie A,True
+37915710,2025/2026,2,2,True,De Graafschap → KV Mechelen,Eerste Divisie → Pro League,True
+37921852,2025,2,1,True,FC RFS → BFC Daugavpils,Virsliga,False
+37921981,2025/2026,2,1,True,FK Dukla Prague → SK Slavia Prague,Chance Liga,False
+37923324,2025/2026,2,2,False,Jong FC Utrecht + FC Utrecht,Eerste Divisie + Eredivisie,True
+37924015,2025,2,1,True,FS Jelgava → BFC Daugavpils,Virsliga,False
+37924102,2025/2026,2,2,True,Jong KAA Gent → KAA Gent,Challenger Pro League → Pro League,True
+37928897,2025/2026,2,2,True,Casa Pia AC → Galatasaray,Liga Portugal → Super Lig,True
+38202036,2025/2026,2,2,True,FC Ashdod → Cracovia,Ligat ha'Al → Ekstraklasa,True
+38204727,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True
+38207416,2025/2026,2,2,False,Jong Ajax + Ajax Amsterdam,Eerste Divisie + Eredivisie,True

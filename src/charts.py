@@ -18,6 +18,24 @@ JOIN_KEY = ["player_id", "season_id", "team_id"]
 REF_MARKER_COLOR = "#8A9088"
 
 
+def _club_display(row):
+    """Multi-club lineage (2026-09-09): prefer season_club_display (every contributing club, e.g.
+    "Derby County -> Rapid Vienna") over the single primary season_club, so a chart never implies
+    a cross-league transfer player's evidence came from only one club/league. See
+    data_loader_v2.load_players()."""
+    val = row.get("season_club_display")
+    if val is not None and pd.notna(val):
+        return val
+    return row.get("season_club")
+
+
+def _league_display(row):
+    val = row.get("league_label_display")
+    if val is not None and pd.notna(val):
+        return val
+    return row.get("league_label")
+
+
 def _display_label(row):
     """player_name alone isn't a safe chart identity -- 95 confirmed pairs of genuinely different
     players (different player_id) share the same displayed name in this database (e.g. three
@@ -25,7 +43,8 @@ def _display_label(row):
     that collision would visually merge two different people onto the same row or legend entry.
     Appending the club disambiguates using the same convention already used in the player-picker
     dropdowns (f"{name} — {club}")."""
-    return f'{row["player_name"]} ({row["season_club"]})' if pd.notna(row.get("season_club")) else row["player_name"]
+    club = _club_display(row)
+    return f'{row["player_name"]} ({club})' if pd.notna(club) else row["player_name"]
 
 
 def philosophy_comparison_figure(selected_rows, reference_df, reference_label):
@@ -56,7 +75,7 @@ def philosophy_comparison_figure(selected_rows, reference_df, reference_label):
         fig.add_trace(go.Scatter(
             x=xs, y=philosophies, mode="markers", marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
             name=_display_label(row),
-            customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"]]] * 3,
+            customdata=[[row["player_name"], _club_display(row), _league_display(row), row["primary_detailed_position"]]] * 3,
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>"
                 "%{customdata[3]}<br>%{y}: %{x:.1f}<extra></extra>"
@@ -205,7 +224,7 @@ def metric_range_figure(metric, metric_label, chart_rows, reference_df, mstats, 
             x=[val], y=[_display_label(row)], mode="markers",
             marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
             name=_display_label(row),
-            customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], val]],
+            customdata=[[row["player_name"], _club_display(row), _league_display(row), row["primary_detailed_position"], val]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"
                 f"{metric_label} ({mode_label}): " + "%{customdata[4]:.1f}<extra></extra>"
@@ -252,7 +271,7 @@ def scatter_metric_figure(metric_x, metric_y, label_x, label_y, chart_rows, refe
         fig.add_trace(go.Scatter(
             x=[x], y=[y], mode="markers", marker=dict(size=15, color=color, line=dict(width=1.5, color="white")),
             name=_display_label(row),
-            customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], x, y]],
+            customdata=[[row["player_name"], _club_display(row), _league_display(row), row["primary_detailed_position"], x, y]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"
                 f"{label_x}: " + "%{customdata[4]:.1f}<br>" + f"{label_y}: " + "%{customdata[5]:.1f}<extra></extra>"
@@ -305,7 +324,7 @@ def bubble_metric_figure(metric_x, metric_y, metric_size, label_x, label_y, labe
             x=[x], y=[y], mode="markers",
             marker=dict(size=size_px, color=color, line=dict(width=1.5, color="white"), opacity=0.85),
             name=_display_label(row),
-            customdata=[[row["player_name"], row["season_club"], row["league_label"], row["primary_detailed_position"], x, y, z]],
+            customdata=[[row["player_name"], _club_display(row), _league_display(row), row["primary_detailed_position"], x, y, z]],
             hovertemplate=(
                 "<b>%{customdata[0]}</b><br>%{customdata[1]} · %{customdata[2]}<br>%{customdata[3]}<br>"
                 f"{label_x}: " + "%{customdata[4]:.1f}<br>" + f"{label_y}: " + "%{customdata[5]:.1f}<br>"

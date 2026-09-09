@@ -1,7 +1,7 @@
 """
 UI/UX Round 2 (2026-08-30) -- result row + detail panel.
 
-Collapsed row: identity, club/league/minutes, selected-profile Final Score + Global Rank only --
+Collapsed row: identity, club/league/minutes, selected-profile Final Score + Profile Rank only --
 "Other Profiles" moved into the expanded panel (see render_detail_panel) so the recommendation
 list stays scannable.
 
@@ -49,10 +49,20 @@ def _identity_fields(row):
         nationality = f'{get_flag_html(nat_value)} {html.escape(nat_value)}'
     else:
         nationality = "nationality n/a"
-    club = html.escape(str(row["season_club"])) if pd.notna(row["season_club"]) else "—"
-    if pd.notna(row["league_label"]):
-        league_value = str(row["league_label"])
-        league_country = country_from_league_label(league_value)
+    # Multi-club lineage (2026-09-09): season_club_display/league_label_display show EVERY club
+    # that actually contributed evidence to this player-season (e.g. "Derby County -> Rapid
+    # Vienna"), never just the single primary club -- see data_loader_v2.load_players() and
+    # production/match_level/build_multi_club_lineage.py. Falls back to the plain season_club/
+    # league_label for the ~87% of player-seasons that are single-club (columns absent entirely
+    # when this row came from a caller that didn't go through load_players(), e.g. a raw CSV read).
+    club_field = row["season_club_display"] if "season_club_display" in row.index and pd.notna(row.get("season_club_display")) else row["season_club"]
+    league_field = row["league_label_display"] if "league_label_display" in row.index and pd.notna(row.get("league_label_display")) else row["league_label"]
+    club = html.escape(str(club_field)) if pd.notna(club_field) else "—"
+    if pd.notna(league_field):
+        league_value = str(league_field)
+        # Cross-league lineage: country flag isn't well-defined for a combined multi-league label,
+        # so it's shown without a single flag rather than a misleading one from only the first leg.
+        league_country = country_from_league_label(league_value) if " → " not in league_value else None
         league_flag = get_flag_html(league_country) if league_country else ""
         league = f'{league_flag} {html.escape(league_value)}' if league_flag else html.escape(league_value)
     else:
@@ -75,7 +85,7 @@ def render_result_row(rank_in_list, row, score_row, combo_label, position_label)
       <div class="ntpr-meta"><div class="l1">{club} · {league}</div><div>{minutes}</div></div>
       <div class="ntpr-gauge"><div class="num" style="color:{SCORE_COLOR}">{final_score:.0f}</div><div class="lab">Final Score</div>
         <div class="track"><div class="fill" style="width:{final_score:.0f}%; background:{SCORE_COLOR}"></div></div></div>
-      <div class="ntpr-gauge" title="Global Rank/Percentile: compares this player with every eligible player rated for this exact position + Style + Role Emphasis profile."><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{_ordinal(int(round(pctile)))} pctile</div>
+      <div class="ntpr-gauge" title="Profile Rank/Percentile: compares this player with every eligible player rated for this exact position + Style + Role Emphasis profile."><div class="num" style="color:var(--defensive)">#{int(score_row['rank'])}</div><div class="lab">{_ordinal(int(round(pctile)))} pctile</div>
         <div class="track"><div class="fill" style="width:{pctile:.0f}%; background:var(--defensive)"></div></div></div>
     </div>
     """
@@ -99,14 +109,14 @@ def _render_insight(insight):
 
 def render_other_profiles_compact(other_rows):
     """Compact Other Profiles table for INSIDE the expanded panel (moved out of the collapsed
-    row per the round-2 brief). Style | Emphasis | Final Score | Global Rank, visually secondary."""
+    row per the round-2 brief). Style | Emphasis | Final Score | Profile Rank, visually secondary."""
     if not other_rows:
         return ""
     header = (
         '<div style="display:grid; grid-template-columns: 1.2fr 1.6fr 0.7fr 1fr; gap:6px; '
         'font-size:10px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); '
         'padding-bottom:4px; border-bottom:1px solid var(--rule);">'
-        '<span>Style</span><span>Emphasis</span><span>Score</span><span>Global Rank</span></div>'
+        '<span>Style</span><span>Emphasis</span><span>Score</span><span>Profile Rank</span></div>'
     )
     rows = "".join(
         f'<div style="display:grid; grid-template-columns: 1.2fr 1.6fr 0.7fr 1fr; gap:6px; '
@@ -160,8 +170,8 @@ def render_detail_panel(row, score_row, combo_label, explanation, other_rows, wh
         <div class="ntpr-dan-score" style="border-color:{SCORE_COLOR}; background:var(--progression-tint);">
           <div class="lab" style="color:{SCORE_COLOR}">Final Score — {html.escape(combo_label)}</div>
           <div class="num">{score_row['final_score']:.1f}</div></div>
-        <div class="ntpr-dan-score fixed" title="Global Rank compares the player with every eligible player rated for this exact profile — the same position, Style, and Role Emphasis combination — not the whole database or just this position.">
-          <div class="lab">Global Rank</div>
+        <div class="ntpr-dan-score fixed" title="Profile Rank compares the player with every eligible player rated for this exact profile — the same position, Style, and Role Emphasis combination — not the whole database or just this position.">
+          <div class="lab">Profile Rank</div>
           <div class="num">#{int(score_row['rank'])}</div>
           <div class="fixedtag">of {int(score_row['population'])} eligible players rated for this exact profile ({html.escape(combo_label)}) — {_ordinal(int(round(pctile)))} percentile</div></div>
       </div>

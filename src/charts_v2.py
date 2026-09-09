@@ -15,7 +15,7 @@ player-name legend, rank labels above every bar, and a wasted 0-100 baseline whe
 high). A heatmap answers the actual question -- "how does each player compare across profiles" --
 more directly: rows are players (identity always visible, no legend needed), columns are the
 Styles genuinely comparable within one scoring group, color intensity makes each player's
-strongest/weakest profile jump out immediately, and Global Rank is a small in-cell annotation
+strongest/weakest profile jump out immediately, and Profile Rank is a small in-cell annotation
 rather than a separate label cluttering the chart.
 """
 import plotly.graph_objects as go
