@@ -83,3 +83,25 @@ def combo_id_for(position, style, emphasis_list):
 def nationality_options():
     df = load_players()
     return ["All Nationalities"] + sorted(df["nationality"].dropna().unique().tolist())
+
+
+# UI/UX Round 6 (2026-09-08) -- league filter, driven entirely by the canonical `league_label`
+# population already in players.csv rather than a hand-maintained list, so a database expansion
+# (new leagues added upstream) is reflected automatically the next time the dashboard data is
+# rebuilt -- no dashboard code change required to "add" a new league.
+@st.cache_data
+def league_options():
+    df = load_players()
+    return sorted(df["league_label"].dropna().unique().tolist())
+
+
+# The traditional European "Top 5" leagues, identified explicitly by their exact canonical
+# `league_label` values (not re-derived from division level, club strength, or any other proxy --
+# per the owner spec, Top 5 is a fixed, named list of these five competitions specifically).
+TOP5_LEAGUE_LABELS = [
+    "England 1 - Premier League",
+    "Spain 1 - La Liga",
+    "Germany 1 - Bundesliga",
+    "Italy 1 - Serie A",
+    "France 1 - Ligue 1",
+]

@@ -1,10 +1,19 @@
 """
-Dashboard data export -- V2/F50 migration (2026-08-29).
+Dashboard data export -- V2/F50 migration (2026-08-29); Project 1 Final Architecture migration
+(2026-09-07).
 
 Replaces the old V1 export (build_dashboard_data.py: Philosophy/Defensive/OwnDominance/Context
-Ability scores) with one built on the locked V2/F50 production output
+Ability scores) with one built on the production output
 (production/player_evaluation_v2/results/). The old script and its output files are NOT deleted
 here -- see the migration report for what was archived.
+
+Project 1 Final Architecture (2026-09-07, owner-approved): the old "F50" aggregation (multiplicative
+Opponent Multiplier + additive Own Level + second calibration) is RETIRED. `opponent_multiplier` no
+longer exists anywhere in the canonical production output -- it is replaced by the canonical
+Final Score components `opponent_level`, `own_club_level`, `minutes_score` (Final Score =
+0.40*Professional + 0.175*Opponent + 0.175*OwnClub + 0.25*Minutes). This script now exports those
+components directly, unchanged from `F50_full_population_scores.parquet` -- nothing is recomputed
+or recalibrated here.
 
 Produces:
   - players.csv        identity/demographic fields, ONE row per qualifying player-season, keyed
@@ -17,13 +26,14 @@ Produces:
                         display/eligibility per the owner's Part 1 decision -- NOT used for V2
                         scoring, which uses position_v2 exclusively).
   - f50_scores.csv      long format: (player_id, season_id, team_id, position, style, emphasis,
-                        combo_id, professional_score, opponent_multiplier, final_score, rank,
-                        population). This is the core data behind the new Position -> Style ->
-                        Emphasis recommendation UI -- one row per valid combination per player.
+                        combo_id, professional_score, opponent_level, own_club_level,
+                        minutes_score, final_score, rank, population). This is the core data behind
+                        the Position -> Style -> Emphasis recommendation UI -- one row per valid
+                        combination per player.
   - f50_registry.csv     the 192-combination registry (with the Defensive Mind rename already
                         applied), trimmed to what the UI's cascading selector needs.
 
-Every number here is read directly from the already-validated, already-locked V2/F50 production
+Every number here is read directly from the already-validated canonical production
 output -- nothing is recomputed or recalibrated in this script.
 """
 import sys, ast, sqlite3
@@ -119,7 +129,8 @@ def main():
           f"({len(full) - len(full2)} dropped, no resolvable chronology)")
 
     f50 = full2[["player_id", "season_id", "team_id", "combo_id", "position", "style", "emphasis",
-                 "professional_score", "opponent_multiplier", "final_score", "rank", "population"]]
+                 "professional_score", "opponent_level", "own_club_level", "minutes_score",
+                 "final_score", "rank", "population"]]
     f50.to_csv(OUT_DIR / "f50_scores.csv", index=False)
     print(f"f50_scores.csv: {len(f50)} rows")
 

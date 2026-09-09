@@ -105,28 +105,35 @@ STAGES = [
     ("09", "Opposition Strength",
      "For every player, the actual opponents faced across the season are looked up match by match, and their "
      "Club Level ratings are averaged, weighted by minutes played in each match. This is a real, measured "
-     "reflection of how strong the competition actually was -- not an assumption based on league reputation.",
+     "reflection of how strong the competition actually was -- not an assumption based on league reputation. "
+     "This counts for 17.5% of the Final Rating.",
      "Context", None),
 
-    ("10", "Accounting for opposition",
-     "A strong performance against significantly stronger opposition counts for more than the identical "
-     "performance against weaker opposition. The reverse also holds. This adjustment is applied on top of "
-     "Professional Performance, and is scaled so it can meaningfully shift a rating without ever being able to "
-     "manufacture a top rating out of a weak underlying performance.",
+    ("10", "Own club's level",
+     "A player's own club is rated on the same Club Level scale (weighted across clubs for a player who changed "
+     "clubs mid-season), reflecting the level he competes at week to week. This counts for another 17.5% of "
+     "the Final Rating -- together, Opposition Strength and Own Club Level make up 35% of the rating, split "
+     "evenly between them.",
      "Context",
      "This is a deliberate design choice: a lower Professional Performance rating earned against much stronger "
-     "opposition can legitimately outrate a higher Professional Performance rating earned against much weaker "
-     "opposition. That is intended, not an error — the tool is measuring performance in context, not raw output."),
+     "opposition, at a stronger club, can legitimately outrate a higher Professional Performance rating earned "
+     "against weaker opposition at a weaker club. That is intended, not an error — the tool is measuring "
+     "performance in context, not raw output."),
 
-    ("11", "Own club's level",
-     "A player's own club is rated on the same Club Level scale (weighted across clubs for a player who changed "
-     "clubs mid-season), and contributes additional context to the level at which he is currently competing.",
-     "Context", None),
+    ("11", "Season Minutes",
+     "How much of the season's available playing time a player actually delivered, legitimate minutes only "
+     "(phantom/placeholder appearances excluded, and dual-registration/reserve-team minutes correctly merged "
+     "with the parent club) -- as a share of the minutes his team had available over the same matches. This "
+     "counts for 25% of the Final Rating: a player who barely featured cannot out-rate one who delivered a "
+     "full, legitimate season on the strength of a few standout appearances alone.",
+     "Rating", None),
 
     ("12", "Final Rating",
-     "Professional Performance, the opposition-strength adjustment, and the player's own Club Level are combined "
-     "and rescaled onto a consistent 0-100 Final Rating for each position -- rank-preserving, with no artificial "
-     "clipping at the extremes. This is the number shown on the Recommendations page.",
+     "Professional Performance, Opposition Strength, Own Club Level, and Season Minutes are combined into the "
+     "Final Rating as a straightforward weighted blend -- 40% Professional Performance, 17.5% Opposition "
+     "Strength, 17.5% Own Club Level, 25% Season Minutes (i.e. 40% Performance / 35% Level / 25% Minutes). "
+     "No additional curve, cap, or rescaling is applied afterward -- players are ranked directly on this "
+     "value. This is the number shown on the Recommendations page.",
      "Rating", None),
 ]
 
@@ -148,6 +155,24 @@ for num, title, summary, tag, detail in STAGES:
         if detail:
             with st.expander("Show the detail"):
                 st.markdown(f'<p style="font-size:13px; color:var(--ink-muted);">{detail}</p>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class="ntpr-scope" style="margin-top:24px;">
+  <div class="ic">🛈</div>
+  <div>
+    <b>Top/Bottom Opponent charts (2026-09 update)</b>
+    <p>Separate from the Final Rating's Opposition Strength component above, the match-level comparison charts
+    let you filter a player's real underlying stats to matches against that club's own Top 3 or Bottom 3
+    opponents for that season. Every club is given exactly 3 Top opponents and 3 Bottom opponents (never a
+    variable number): the top 3 of that league-season's final table (or, for the small number of leagues with
+    no single reliable final table -- a genuine Apertura/Clausura split with no combined standings -- the
+    top/bottom 3 by the same Club Level rating used elsewhere on this page), excluding the club being evaluated
+    itself. A club that finishes in the top 3 or bottom 3 has its own set backfilled from 4th place / 4th-from-
+    bottom, so no club ever appears in its own Top/Bottom set. This replaces an earlier, variable-band-size
+    methodology; the Final Rating and every other locked calculation on this page are unaffected.</p>
+  </div>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("""
 <div class="ntpr-scope" style="margin-top:24px;">

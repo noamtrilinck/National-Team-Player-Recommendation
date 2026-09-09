@@ -16,6 +16,12 @@ position_quality,core,CB,,Aerial Duel Share,Aerial_Duel_Share
 position_quality,core,CB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
 position_quality,core,CB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
 position_quality,core,CB,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,CB,,Shots Total per90,Shots_Total_per90
+position_quality,core,CB,,Shot Accuracy %,Shot_Accuracy_pct
+position_quality,core,CB,,xG per Shot,xG_per_Shot
+position_quality,core,CB,,Shot Share,Shot_Share
+position_quality,core,CB,,xG Share,xG_Share
+position_quality,core,CB,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 style,core,CB,Control,Backward Pass Rate,Backward_Pass_Rate
 style,core,CB,Control,Backward Pass Share,Backward_Pass_Share
 style,core,CB,Control,Pass Share,Pass_Share
@@ -45,6 +51,12 @@ position_quality,core,FB,,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
 position_quality,core,FB,,Aerial Duel Success %,Aerial_Duel_Success_pct
 position_quality,core,FB,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
 position_quality,core,FB,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
+position_quality,core,FB,,Shots Total per90,Shots_Total_per90
+position_quality,core,FB,,Shot Accuracy %,Shot_Accuracy_pct
+position_quality,core,FB,,xG per Shot,xG_per_Shot
+position_quality,core,FB,,Shot Share,Shot_Share
+position_quality,core,FB,,xG Share,xG_Share
+position_quality,core,FB,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 position_quality,core,FB,,Total Crosses per90,Total_Crosses_per90
 position_quality,core,FB,,Cross Rate,Cross_Rate
 position_quality,core,FB,,Cross Accuracy %,Cross_Accuracy_pct
@@ -87,7 +99,10 @@ position_quality,core,WM,,Goal Conversion %,Goal_Conversion_pct
 position_quality,core,WM,,xG per Shot,xG_per_Shot
 position_quality,core,WM,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
 position_quality,core,WM,,Shot Share,Shot_Share
-position_quality,core,WM,,Goal Share Rel. Shot Share,Goal_Share_Rel_Shot_Share
+position_quality,core,WM,,xG Share,xG_Share
+position_quality,core,WM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,WM,,xGOT Minus xG per90,xGOT_Minus_xG_per90
+position_quality,core,WM,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
 position_quality,core,WM,,Total Crosses per90,Total_Crosses_per90
 position_quality,core,WM,,Cross Rate,Cross_Rate
 position_quality,core,WM,,Cross Accuracy %,Cross_Accuracy_pct
@@ -131,7 +146,13 @@ position_quality,core,Winger,,Ground Duel Attempt Share,Ground_Duel_Attempt_Shar
 position_quality,core,Winger,,Shots Total per90,Shots_Total_per90
 position_quality,core,Winger,,Shot Rate,Shot_Rate
 position_quality,core,Winger,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,Winger,,xG per Shot,xG_per_Shot
+position_quality,core,Winger,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
 position_quality,core,Winger,,Shot Share,Shot_Share
+position_quality,core,Winger,,xG Share,xG_Share
+position_quality,core,Winger,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,Winger,,xGOT Minus xG per90,xGOT_Minus_xG_per90
+position_quality,core,Winger,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
 position_quality,core,Winger,,Total Crosses per90,Total_Crosses_per90
 position_quality,core,Winger,,Cross Rate,Cross_Rate
 position_quality,core,Winger,,Cross Accuracy %,Cross_Accuracy_pct
@@ -168,6 +189,12 @@ position_quality,core,DM,,Aerial Duel Success %,Aerial_Duel_Success_pct
 position_quality,core,DM,,Ground Duel Attempts per90,Ground_Duel_Attempts_per90
 position_quality,core,DM,,Ground Duel Success % (reconstructed),Ground_Duel_Success_pct_(reconstructed)
 position_quality,core,DM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
+position_quality,core,DM,,Shots Total per90,Shots_Total_per90
+position_quality,core,DM,,Shot Accuracy %,Shot_Accuracy_pct
+position_quality,core,DM,,xG per Shot,xG_per_Shot
+position_quality,core,DM,,Shot Share,Shot_Share
+position_quality,core,DM,,xG Share,xG_Share
+position_quality,core,DM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 style,core,DM,Control,Backward Pass Rate,Backward_Pass_Rate
 style,core,DM,Control,Backward Pass Share,Backward_Pass_Share
 style,core,DM,Control,Pass Share,Pass_Share
@@ -200,6 +227,10 @@ position_quality,core,CM,,Ground Duel Success % (reconstructed),Ground_Duel_Succ
 position_quality,core,CM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
 position_quality,core,CM,,Shots Total per90,Shots_Total_per90
 position_quality,core,CM,,Shot Rate,Shot_Rate
+position_quality,core,CM,,xG per Shot,xG_per_Shot
+position_quality,core,CM,,Shot Share,Shot_Share
+position_quality,core,CM,,xG Share,xG_Share
+position_quality,core,CM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 position_quality,core,CM,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,CM,,Key Passes per90,Key_Passes_per90
 position_quality,core,CM,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
@@ -239,7 +270,13 @@ position_quality,core,AM,,Ground Duel Attempt Share,Ground_Duel_Attempt_Share
 position_quality,core,AM,,Shots Total per90,Shots_Total_per90
 position_quality,core,AM,,Shot Rate,Shot_Rate
 position_quality,core,AM,,Goal Conversion %,Goal_Conversion_pct
+position_quality,core,AM,,xG per Shot,xG_per_Shot
+position_quality,core,AM,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
 position_quality,core,AM,,Shot Share,Shot_Share
+position_quality,core,AM,,xG Share,xG_Share
+position_quality,core,AM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,AM,,xGOT Minus xG per90,xGOT_Minus_xG_per90
+position_quality,core,AM,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
 position_quality,core,AM,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,AM,,Key Passes per90,Key_Passes_per90
 position_quality,core,AM,,Key Pass Share,Key_Pass_Share
@@ -275,6 +312,11 @@ position_quality,core,CF,,Shot Accuracy %,Shot_Accuracy_pct
 position_quality,core,CF,,Goal Conversion %,Goal_Conversion_pct
 position_quality,core,CF,,xG per Shot,xG_per_Shot
 position_quality,core,CF,,xGOT per Shot on Target,xGOT_per_Shot_on_Target
+position_quality,core,CF,,Shot Share,Shot_Share
+position_quality,core,CF,,xG Share,xG_Share
+position_quality,core,CF,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,CF,,xGOT Minus xG per90,xGOT_Minus_xG_per90
+position_quality,core,CF,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
 position_quality,core,CF,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,CF,,Key Passes per90,Key_Passes_per90
 position_quality,core,CF,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct

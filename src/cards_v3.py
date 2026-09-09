@@ -159,11 +159,11 @@ def render_detail_panel(row, score_row, combo_label, explanation, other_rows, wh
         <div class="ntpr-dan-block"><h4>Areas to watch</h4><div class="ntpr-dan-list">{weaknesses_html}</div></div>
       </div>
       {render_other_profiles_compact(other_rows)}
-      <div class="ntpr-dan-note" style="margin-top:12px;"><b>How this rating works:</b> The final rating evaluates how
-      well this player performs in the selected football profile while accounting for the competitive environment
-      those performances were produced in. Performances against stronger opposition carry greater weight, and the
-      level of his current club provides additional context. There is no single "best player" score — the same
-      player can rate very differently under a different Style or Role Emphasis, which is exactly the point: this
-      tool matches players to the profile a team actually needs.</div>
+      <div class="ntpr-dan-note" style="margin-top:12px;"><b>How this rating works:</b> The final rating combines
+      how well this player performs in the selected football profile, the strength of the opposition and of his
+      own club across the season, and how much of the season's available playing time he actually delivered —
+      full detail on the exact weighting is on the Methodology page. There is no single "best player" score — the
+      same player can rate very differently under a different Style or Role Emphasis, which is exactly the
+      point: this tool matches players to the profile a team actually needs.</div>
     </div>
     """

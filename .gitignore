@@ -3,6 +3,11 @@ __pycache__/
 *.log
 .streamlit/secrets.toml
 
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
 # Superseded by match_level_stats.parquet (see optimize_match_level_storage.py) -- kept locally
 # as the regeneration source, but the 75MB long-format CSV has no reason to live in the repo.
 data/match_level_stats.csv

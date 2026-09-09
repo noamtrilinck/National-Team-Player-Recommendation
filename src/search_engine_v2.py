@@ -34,6 +34,20 @@ SIDE_POSITIONS = {
 SIDE_POSITION_ORDER = list(SIDE_POSITIONS.keys())
 ALL_GROUP8 = ["CB", "FB", "WM", "Winger", "DM", "CM", "AM", "CF"]
 
+# UI/UX Round 6 (2026-09-08) -- broad position-group layer, search/filter UX only. Maps onto the
+# SAME locked 11-way source taxonomy above (`SIDE_POSITIONS`), never redefines it: Defence =
+# CB+RB+LB, Midfield = DM+CM+AM+RM+LM, Attack = RW+LW+CF -- identical grouping to
+# `GROUP8_TO_BROAD` in dashboard/data/build_dashboard_data_v2.py (players.csv's own
+# `position_group_broad` column), so the search-side grouping and the already-shipped data-side
+# grouping are provably the same rule, not two independently-typed lists.
+BROAD_GROUPS = {
+    "Defence": ["Centre Back", "Right Back", "Left Back"],
+    "Midfield": ["Defensive Midfielder", "Central Midfielder", "Right Midfielder",
+                 "Left Midfielder", "Attacking Midfielder"],
+    "Attack": ["Right Winger", "Left Winger", "Centre Forward"],
+}
+BROAD_GROUP_ORDER = ["All Positions", "Defence", "Midfield", "Attack"]
+
 
 @dataclass
 class SearchPlan:

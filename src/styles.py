@@ -150,11 +150,15 @@ def build_css():
   .ntpr-gauge .track {{ height:3px; background:var(--surface-3); margin-top:6px; position:relative; }}
   .ntpr-gauge .fill {{ position:absolute; left:0; top:0; bottom:0; }}
 
-  /* ---- Player detail panel (Sprint 2) ---- */
-  .ntpr-toggle > button {{ background: var(--surface) !important; color: var(--ink-muted) !important;
-    border: 1px solid var(--border) !important; font-weight: 600 !important; padding: 6px 10px !important;
-    width: 100%; }}
-  .ntpr-toggle > button:hover {{ border-color: var(--accent) !important; color: var(--accent) !important; }}
+  /* ---- Player detail panel (Sprint 2; CTA redesigned UI/UX Round 6, 2026-09-08 -- item 7) ----
+     Was a tiny unlabeled ▲/▾-only square in a 0.05-width column, easily read as decoration rather
+     than a control. Now a full-width, icon+text button ("View Player Details") that reads as a
+     natural part of the result row, with a clear hover state and no other visual clutter added. */
+  .ntpr-toggle > button {{ background: var(--surface) !important; color: var(--accent) !important;
+    border: 1px solid var(--accent-tint) !important; font-weight: 600 !important; font-size: 12.5px !important;
+    padding: 8px 10px !important; width: 100%; white-space: nowrap; border-radius: 3px !important; }}
+  .ntpr-toggle > button:hover {{ background: var(--accent) !important; border-color: var(--accent) !important;
+    color: var(--on-accent) !important; }}
   .ntpr-panel {{ padding: 22px 18px 26px; background: var(--surface-2); border: 1px solid var(--border);
     border-top: none; margin-top: -1px; margin-bottom: 14px; }}
   .ntpr-dan-scores {{ display:flex; gap:10px; flex-wrap:wrap; }}

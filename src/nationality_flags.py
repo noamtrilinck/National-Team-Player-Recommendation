@@ -1,19 +1,30 @@
 """
-Nationality/country flag display. **Ported unchanged from the "Agent's Player to Club Model"
-project** (its `dashboard/nationality_flags.py`), which is the reference implementation for this
-flag system -- see that project's `docs/stage7_sprint7_8_nationality_flag_accuracy_lock.md` and
+Nationality/country flag display. **Ported from the "Agent's Player to Club Model" project**
+(its `dashboard/nationality_flags.py`), which is the reference implementation for this flag
+system -- see that project's `docs/stage7_sprint7_8_nationality_flag_accuracy_lock.md` and
 `docs/stage7_sprint7_9_unified_flag_system_lock.md` for the full development history (why each
-representation was chosen, what was tried and rejected). Verified directly before porting: this
-project's own 150 production `nationality` values are an exact match for the reference
-implementation's universe (see `dashboard/assets/flags/SOURCES.md`) -- nothing here was
-re-derived, only re-verified against this project's own data.
+representation was chosen, what was tried and rejected). At port time this project's 150
+production `nationality` values were an exact match for the reference implementation's universe.
 
-One deterministic, local, no-runtime-API mapping, ONE rendering system for all 150 known values:
+UPDATE (2026-09, missing-flags investigation): the production population has since grown to 163
+distinct `nationality` values across the (now 56-league) player pool. Auditing every value
+against this mapping found 15 with no flag: 2 were naming variants of an already-mapped country
+("Bosnia and Herzegovina" vs. the mapped "Bosnia-Herzegovina"; "Saint Lucia" vs. the mapped
+"St. Lucia") -- both are now separate keys pointing at the SAME existing SVG (no new asset, no
+canonical-data change, pure display-layer alias). The other 13 (Afghanistan, Botswana, China,
+Guatemala, Hong Kong, Libya, Malaysia, Oman, Qatar, South Sudan, Taiwan, United Arab Emirates,
+Vanuatu) were genuinely new nationalities absent from the original 150-value universe -- each
+given a real flag-icons (MIT, same source/style as the other 144) SVG under
+`assets/flags/countries/`, keyed the same way as every other ISO2 entry. No canonical
+`nationality` value was changed to make a flag render. The mapping now covers all 163 current
+values (166 keys, since a few countries are reachable under more than one spelling).
+
+One deterministic, local, no-runtime-API mapping, ONE rendering system for every known value:
 
     production nationality/country value -> display name -> local SVG asset -> rendered flag + name
 
 No Unicode flag emoji anywhere in this module or in the client-facing application -- every one of
-the 150 values resolves to a local SVG file under `assets/flags/`. No scattered per-country logic
+the 163 values resolves to a local SVG file under `assets/flags/`. No scattered per-country logic
 anywhere else in the app: `results_view.py` calls only `nationality_with_flag_text()` (plain-text
 contexts, e.g. `st.expander`'s label -- cannot render an image at all, see below) and
 `nationality_with_flag_html()` (HTML-capable contexts, e.g. a
@@ -22,7 +33,7 @@ in `NATIONALITY_REPRESENTATION`, and nowhere else.
 
 ## Two asset sources, one consistent rendering system
 
-144 of 150 values use a flag from **flag-icons** (github.com/lipis/flag-icons, MIT license --
+157 of 163 values use a flag from **flag-icons** (github.com/lipis/flag-icons, MIT license --
 verified directly against the repo's own LICENSE file), stored under `assets/flags/countries/
 <iso2>.svg`. This is a single, purpose-built, internally-consistent SVG set (every file normalized
 to the same 640x480 / 4:3 viewBox) rather than 144 individually-collected files of varying style --
@@ -44,10 +55,10 @@ system, regardless of which of the two sources a given flag came from.
 plain text only -- there is no way to show an `<img>` there. Rather than fake something in or
 degrade the HTML-capable contexts to match:
   - `nationality_with_flag_text()` -- plain country/nationality name, NO flag prefix, for every one
-    of the 150 values (Unicode is retired entirely, so there is no plain-text-safe flag left to
+    of the 163 values (Unicode is retired entirely, so there is no plain-text-safe flag left to
     show anywhere -- this is a deliberate, documented consequence of "one consistent system", not
     an oversight).
-  - `nationality_with_flag_html()` -- the real local SVG flag + the name, for every one of the 150
+  - `nationality_with_flag_html()` -- the real local SVG flag + the name, for every one of the 163
     values, used everywhere the rendering context can actually display an image.
 
 ## The six hand-sourced cases (preserved unchanged from Sprint 7.8 -- see that lock doc for the
@@ -99,10 +110,13 @@ NATIONALITY_REPRESENTATION: dict[str, str] = {
     "Barbados": "countries/bb.svg", "Belarus": "countries/by.svg", "Belgium": "countries/be.svg",
     "Benin": "countries/bj.svg", "Bermuda": "countries/bm.svg", "Bolivia": "countries/bo.svg",
     "Bonaire": "bonaire.svg",
-    "Bosnia-Herzegovina": "countries/ba.svg", "Brazil": "countries/br.svg", "Bulgaria": "countries/bg.svg",
+    "Bosnia-Herzegovina": "countries/ba.svg", "Bosnia and Herzegovina": "countries/ba.svg",
+    "Botswana": "countries/bw.svg",
+    "Brazil": "countries/br.svg", "Bulgaria": "countries/bg.svg",
     "Burkina Faso": "countries/bf.svg", "Burundi": "countries/bi.svg", "Cameroon": "countries/cm.svg",
     "Canada": "countries/ca.svg", "Cape Verde": "countries/cv.svg",
     "Central African Republic": "countries/cf.svg", "Chad": "countries/td.svg", "Chile": "countries/cl.svg",
+    "China": "countries/cn.svg",
     "Colombia": "countries/co.svg", "Comoros": "countries/km.svg", "Costa Rica": "countries/cr.svg",
     "Croatia": "countries/hr.svg", "Cuba": "countries/cu.svg", "Curaçao": "countries/cw.svg",
     "Cyprus": "countries/cy.svg", "Czech Republic": "countries/cz.svg", "DR Congo": "countries/cd.svg",
@@ -114,16 +128,19 @@ NATIONALITY_REPRESENTATION: dict[str, str] = {
     "French Guiana": "countries/gf.svg", "Gabon": "countries/ga.svg", "Gambia": "countries/gm.svg",
     "Georgia": "countries/ge.svg", "Germany": "countries/de.svg", "Ghana": "countries/gh.svg",
     "Greece": "countries/gr.svg", "Grenada": "countries/gd.svg", "Guadeloupe": "countries/gp.svg",
+    "Guatemala": "countries/gt.svg",
     "Guinea": "countries/gn.svg", "Guinea-Bissau": "countries/gw.svg", "Guyana": "countries/gy.svg",
-    "Haiti": "countries/ht.svg", "Honduras": "countries/hn.svg", "Hungary": "countries/hu.svg",
+    "Haiti": "countries/ht.svg", "Honduras": "countries/hn.svg", "Hong Kong": "countries/hk.svg",
+    "Hungary": "countries/hu.svg",
     "Iceland": "countries/is.svg", "Indonesia": "countries/id.svg", "Iran": "countries/ir.svg",
     "Iraq": "countries/iq.svg", "Israel": "countries/il.svg", "Italy": "countries/it.svg",
     "Ivory Coast": "countries/ci.svg", "Jamaica": "countries/jm.svg", "Japan": "countries/jp.svg",
     "Jordan": "countries/jo.svg", "Kazakhstan": "countries/kz.svg", "Kenya": "countries/ke.svg",
     "Kosovo": "kosovo.svg",
     "Latvia": "countries/lv.svg", "Lebanon": "countries/lb.svg", "Liberia": "countries/lr.svg",
+    "Libya": "countries/ly.svg",
     "Lithuania": "countries/lt.svg", "Luxembourg": "countries/lu.svg", "Madagascar": "countries/mg.svg",
-    "Malawi": "countries/mw.svg", "Mali": "countries/ml.svg", "Malta": "countries/mt.svg",
+    "Malawi": "countries/mw.svg", "Malaysia": "countries/my.svg", "Mali": "countries/ml.svg", "Malta": "countries/mt.svg",
     "Martinique": "countries/mq.svg", "Mauritania": "countries/mr.svg", "Mauritius": "countries/mu.svg",
     "Mexico": "countries/mx.svg", "Moldova": "countries/md.svg", "Mongolia": "countries/mn.svg",
     "Montenegro": "countries/me.svg", "Montserrat": "countries/ms.svg", "Morocco": "countries/ma.svg",
@@ -131,24 +148,34 @@ NATIONALITY_REPRESENTATION: dict[str, str] = {
     "New Zealand": "countries/nz.svg", "Niger": "countries/ne.svg", "Nigeria": "countries/ng.svg",
     "North Macedonia": "countries/mk.svg",
     "Northern Ireland": "northern_ireland_football.svg",
-    "Norway": "countries/no.svg", "Pakistan": "countries/pk.svg", "Palestine": "countries/ps.svg",
+    "Norway": "countries/no.svg", "Oman": "countries/om.svg", "Pakistan": "countries/pk.svg",
+    "Palestine": "countries/ps.svg",
     "Panama": "countries/pa.svg", "Paraguay": "countries/py.svg", "Peru": "countries/pe.svg",
     "Philippines": "countries/ph.svg", "Poland": "countries/pl.svg", "Portugal": "countries/pt.svg",
+    "Qatar": "countries/qa.svg",
     "Republic of Ireland": "countries/ie.svg", "Republic of the Congo": "countries/cg.svg",
     "Romania": "countries/ro.svg", "Russia": "countries/ru.svg", "Rwanda": "countries/rw.svg",
-    "Saint Kitts and Nevis": "countries/kn.svg", "Saudi Arabia": "countries/sa.svg",
+    "Saint Kitts and Nevis": "countries/kn.svg", "Saint Lucia": "countries/lc.svg",
+    "Saudi Arabia": "countries/sa.svg",
     "Scotland": "scotland.svg",
     "Senegal": "countries/sn.svg", "Serbia": "countries/rs.svg", "Sierra Leone": "countries/sl.svg",
     "Slovakia": "countries/sk.svg", "Slovenia": "countries/si.svg", "South Africa": "countries/za.svg",
-    "South Korea": "countries/kr.svg", "Spain": "countries/es.svg", "St. Lucia": "countries/lc.svg",
+    "South Korea": "countries/kr.svg", "South Sudan": "countries/ss.svg",
+    "Spain": "countries/es.svg", "St. Lucia": "countries/lc.svg",
     "Sudan": "countries/sd.svg", "Suriname": "countries/sr.svg", "Sweden": "countries/se.svg",
-    "Switzerland": "countries/ch.svg", "Syria": "countries/sy.svg", "Tanzania": "countries/tz.svg",
+    "Switzerland": "countries/ch.svg", "Syria": "countries/sy.svg", "Taiwan": "countries/tw.svg",
+    "Tanzania": "countries/tz.svg",
     "Thailand": "countries/th.svg", "Togo": "countries/tg.svg", "Trinidad and Tobago": "countries/tt.svg",
     "Tunisia": "countries/tn.svg", "Turkey": "countries/tr.svg", "Türkiye": "countries/tr.svg",
-    "Uganda": "countries/ug.svg", "Ukraine": "countries/ua.svg", "United States": "countries/us.svg",
-    "Uruguay": "countries/uy.svg", "Uzbekistan": "countries/uz.svg", "Venezuela": "countries/ve.svg",
+    "Uganda": "countries/ug.svg", "Ukraine": "countries/ua.svg",
+    "United Arab Emirates": "countries/ae.svg",
+    "United States": "countries/us.svg",
+    "Uruguay": "countries/uy.svg", "Uzbekistan": "countries/uz.svg",
+    "Vanuatu": "countries/vu.svg",
+    "Venezuela": "countries/ve.svg",
     "Wales": "wales.svg",
     "Zambia": "countries/zm.svg", "Zimbabwe": "countries/zw.svg",
+    "Afghanistan": "countries/af.svg",
 }
 
 HAND_SOURCED_NATIONALITIES = frozenset(
@@ -176,7 +203,7 @@ def get_flag_text(nationality: str) -> str:
 
 def get_flag_html(nationality: str, max_width_px: int = 22, max_height_px: int = 16) -> str:
     """HTML-safe flag `<img>` for use inside a `st.markdown(..., unsafe_allow_html=True)` call.
-    Every one of the 150 known nationality/country values resolves to a real local SVG here --
+    Every one of the 163 known nationality/country values resolves to a real local SVG here --
     `object-fit:contain` within a fixed max-width/height box means every flag, regardless of its
     native aspect ratio (a 1:2 English cross vs. a 1:1-ish compact design), renders at a
     consistent on-screen size without being stretched or cropped."""
@@ -199,7 +226,7 @@ def nationality_with_flag_text(nationality: str) -> str:
 def nationality_with_flag_html(nationality: str) -> str:
     """Ready-to-render HTML string for an HTML-capable context -- the local SVG flag `<img>` +
     the HTML-escaped name. Falls back to plain (escaped) text with no flag for any nationality
-    value NOT in the known 150 (defensive -- should not occur against real production data, but
+    value NOT in the known set (defensive -- should not occur against real production data, but
     must never surface a broken image, a raw filename, or a raw base64 string to the client)."""
     if not nationality:
         return ""

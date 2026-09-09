@@ -36,10 +36,13 @@ Shot Rate,Shot_Rate,Shooting,BEHAVIOUR
 Shooting Orientation,Shooting_Orientation,Shooting,BEHAVIOUR
 Shot Accuracy %,Shot_Accuracy_pct,Shooting,EXECUTION
 Goal Conversion %,Goal_Conversion_pct,Shooting,EXECUTION
-xG per Shot,xG_per_Shot,Shooting,EXECUTION
+xG per Shot,xG_per_Shot,Shooting,BEHAVIOUR
 xGOT per Shot on Target,xGOT_per_Shot_on_Target,Shooting,EXECUTION
 Shot Share,Shot_Share,Shooting,RESPONSIBILITY
-Goal Share Rel. Shot Share,Goal_Share_Rel_Shot_Share,Shooting,SPECIALISATION
+xG Share,xG_Share,Shooting,RESPONSIBILITY
+xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share,Shooting,SPECIALISATION
+xGOT Minus xG per90,xGOT_Minus_xG_per90,Shooting,EXECUTION
+Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share,Shooting,SPECIALISATION
 Total Crosses per90,Total_Crosses_per90,Wide Delivery / Crossing,VOLUME
 Cross Rate,Cross_Rate,Wide Delivery / Crossing,BEHAVIOUR
 Cross Accuracy %,Cross_Accuracy_pct,Wide Delivery / Crossing,EXECUTION

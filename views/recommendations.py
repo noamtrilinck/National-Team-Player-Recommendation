@@ -7,7 +7,7 @@ Back vs Left Back, etc.) is a display/filter distinction only -- the locked V2 8
 architecture is unchanged; see docs/v2_ui_redesign_round1.md.
 
 Card presentation now leads with Final Score + Global Rank for the selected profile only; internal
-components (Professional Score, Opponent Multiplier, Own Club Level) are not shown prominently.
+components (Professional Score, Opponent Level, Own Club Level) are not shown prominently.
 Player explanations are built from real Signal data in football language (explanation_engine_v2.py)
 rather than model-engineering contribution breakdowns.
 """
@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.data_loader import load_match_level_stats, METRIC_LABELS, MATCH_FILTERS, DISPLAY_MODE_COLUMN, load_filter_eligibility
 from src.data_loader_v2 import (
     load_players, load_f50_scores, load_f50_registry, nationality_options, style_display, emphasis_display,
+    league_options, TOP5_LEAGUE_LABELS,
 )
 from src import search_engine_v2 as se
 from src.cards_v3 import render_result_row, render_detail_panel
@@ -60,9 +61,10 @@ st.markdown("""
   <div class="ic">🛈</div>
   <div>
     <b>Database Scope</b>
-    <p>This recommendation engine covers a curated set of European leagues outside the top divisions of the
-    "big five" (Premier League, La Liga, Serie A, Bundesliga, Ligue 1) — built to help national teams identify
-    players in strong secondary European competitions.</p>
+    <p>This recommendation engine covers a curated, full-feed set of European (and a number of non-European)
+    leagues, including the traditional "Top 5" (Premier League, La Liga, Serie A, Bundesliga, Ligue 1) alongside
+    a broad range of other competitions. Use the <b>Top 5 Leagues</b> control below to include or exclude the
+    Top 5 from a search — useful when a team wants to focus specifically on players outside those five leagues.</p>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -75,19 +77,67 @@ if "pos_slot_ids" not in st.session_state:
     st.session_state["pos_slot_next_id"] = 1
     st.session_state["pos_slot_0"] = se.SIDE_POSITION_ORDER[0]
 
+ALL_LEAGUES = league_options()
+
 with st.container(border=True):
-    st.markdown('<div class="ntpr-controlbar-label" style="font-size:13px;">Nationality</div>', unsafe_allow_html=True)
+    # ---------------- League filters: Leagues -> Top 5 Include/Exclude ----------------
+    lg1, lg2 = st.columns([2.2, 1])
+    with lg1:
+        st.markdown('<div class="ntpr-controlbar-label" style="font-size:13px;">Leagues (leave empty for all)</div>', unsafe_allow_html=True)
+        # Default: nothing picked = every league in scope. Avoids pre-rendering all leagues'
+        # worth of chips (dead-space/clutter) when the common case is "search everything" --
+        # only narrows once the user actually picks specific leagues.
+        selected_leagues = st.multiselect(
+            "Leagues", ALL_LEAGUES, default=[], label_visibility="collapsed", key="v2_leagues",
+            help="Leave empty to search every league currently in scope. Pick one or more to narrow, or use the "
+                 "Top 5 Leagues control alongside it.")
+    with lg2:
+        st.markdown('<div class="ntpr-controlbar-label" style="font-size:13px;">Top 5 Leagues</div>', unsafe_allow_html=True)
+        top5_mode = st.radio(
+            "Top 5 Leagues", ["Include Top 5 Leagues", "Exclude Top 5 Leagues"],
+            label_visibility="collapsed", key="v2_top5_mode",
+            help="Top 5 = Premier League (England), La Liga (Spain), Bundesliga (Germany), Serie A (Italy), "
+                 "Ligue 1 (France).")
+
+    st.markdown('<div class="ntpr-controlbar-label" style="font-size:13px; margin-top:12px;">Nationality</div>', unsafe_allow_html=True)
     nationality = st.selectbox("Nationality", nationality_options(), label_visibility="collapsed", key="v2_nationality")
 
-    st.markdown('<div class="ntpr-controlbar-label" style="margin-top:12px;">Position(s)</div>', unsafe_allow_html=True)
-    all_positions_mode = st.checkbox("All Positions (regardless of role)", key="v2_all_positions")
+    # ---------------- Position hierarchy: broad group -> optional narrowing ----------------
+    st.markdown('<div class="ntpr-controlbar-label" style="margin-top:12px;">Position Group</div>', unsafe_allow_html=True)
+    broad_group = st.radio("Position Group", se.BROAD_GROUP_ORDER, horizontal=True,
+                            label_visibility="collapsed", key="v2_broad_group")
 
-    selected_ui_positions = []
-    if not all_positions_mode:
+    # A broad-group change must never leave a stale narrowing selection from a DIFFERENT group
+    # behind (item 6: "specific-position options shown beneath should only contain the selected
+    # group's positions" -- and duplicate/contradictory selection must remain impossible).
+    if st.session_state.get("v2_broad_group_prev") != broad_group:
+        st.session_state["pos_slot_ids"] = [0]
+        st.session_state["pos_slot_next_id"] = 1
+        st.session_state["v2_narrow"] = False
+        st.session_state["v2_broad_group_prev"] = broad_group
+
+    is_all_group = (broad_group == "All Positions")
+    # Narrowing pool: within the selected broad group (Defence/Midfield/Attack), or -- under "All
+    # Positions" -- the full 11-way taxonomy, which is exactly the pre-existing cross-group
+    # multi-position search (item 6: "existing multi-position search must remain available").
+    group_positions = se.SIDE_POSITION_ORDER if is_all_group else se.BROAD_GROUPS[broad_group]
+    narrow_label = ("Narrow to specific position(s)" if is_all_group
+                    else f"Narrow to specific position(s) within {broad_group}")
+
+    selected_ui_positions = list(group_positions)  # default: the whole group (or all 11) is searched as-is
+    narrow = st.checkbox(narrow_label, key="v2_narrow")
+    if narrow:
+        selected_ui_positions = []
         slot_ids = st.session_state["pos_slot_ids"]
         for i, sid in enumerate(list(slot_ids)):
-            already_taken = {st.session_state.get(f"pos_slot_{other}") for other in slot_ids if other != sid}
-            opts = [p for p in se.SIDE_POSITION_ORDER if p not in already_taken or p == st.session_state.get(f"pos_slot_{sid}")]
+            other_vals = {st.session_state.get(f"pos_slot_{other}") for other in slot_ids if other != sid}
+            opts = [p for p in group_positions if p not in other_vals]
+            # A slot's stored value can be stale/invalid here (wrong group after switching broad
+            # groups, or a duplicate freed up by another slot changing) -- reseed to the first
+            # still-available option rather than ever rendering a value outside `opts` (which
+            # Streamlit would silently reject) or letting a duplicate slip back in.
+            if st.session_state.get(f"pos_slot_{sid}") not in opts:
+                st.session_state[f"pos_slot_{sid}"] = opts[0] if opts else group_positions[0]
             pc, rc = st.columns([5, 1])
             with pc:
                 val = st.selectbox(f"Position {i+1}", opts, key=f"pos_slot_{sid}", label_visibility="collapsed")
@@ -97,12 +147,24 @@ with st.container(border=True):
                     if st.button("✕", key=f"pos_remove_{sid}", help="Remove this position"):
                         st.session_state["pos_slot_ids"] = [s for s in slot_ids if s != sid]
                         st.rerun()
-        if len(selected_ui_positions) < len(se.SIDE_POSITION_ORDER):
+        if len(selected_ui_positions) < len(group_positions):
             if st.button("+ Add Position", key="pos_add"):
                 new_id = st.session_state["pos_slot_next_id"]
                 st.session_state["pos_slot_next_id"] += 1
                 st.session_state["pos_slot_ids"].append(new_id)
                 st.rerun()
+        st.markdown(f'<div style="font-size:11px; color:var(--ink-faint); margin-top:2px;">'
+                    f'Searching {html.escape(" + ".join(selected_ui_positions))} only.</div>', unsafe_allow_html=True)
+    else:
+        group_desc = "every position" if is_all_group else f"all of {broad_group} ({', '.join(group_positions)})"
+        st.markdown(f'<div style="font-size:11px; color:var(--ink-faint); margin-top:2px;">'
+                    f'Searching {html.escape(group_desc)}. Tick the box above to narrow to one or more specific '
+                    f'positions.</div>', unsafe_allow_html=True)
+
+    # True "All Positions" (no scoring-group restriction at all) only applies when the broad group
+    # is All Positions AND no narrowing was chosen -- any narrowing, or any specific broad group,
+    # always resolves through the same side-specific plan_search logic used before this redesign.
+    all_positions_mode = is_all_group and not narrow
 
     plan = se.plan_search(selected_ui_positions, all_positions_mode)
 
@@ -133,7 +195,9 @@ with st.container(border=True):
 if generate:
     st.session_state["ntpr_query_v2"] = {
         "positions": selected_ui_positions, "all_positions": all_positions_mode,
+        "broad_group": broad_group,
         "style": style, "emphasis": emphasis, "nationality": nationality,
+        "leagues": selected_leagues, "top5_mode": top5_mode,
         "age_eligibility": age_eligibility, "count": count_choice,
     }
     for k in [k for k in st.session_state if k.startswith("players_auto_b") or k == "players_custom"]:
@@ -160,6 +224,13 @@ else:
 
     if query["nationality"] != "All Nationalities":
         df = df[df["nationality"] == query["nationality"]]
+    # League filters: the general Leagues multiselect narrows to whatever was picked (defaults to
+    # every league, i.e. a no-op), then Top 5 Include/Exclude is applied on top of that -- the two
+    # controls compose (AND), never override each other.
+    if query.get("leagues") and set(query["leagues"]) != set(ALL_LEAGUES):
+        df = df[df["league_label"].isin(query["leagues"])]
+    if query.get("top5_mode") == "Exclude Top 5 Leagues":
+        df = df[~df["league_label"].isin(TOP5_LEAGUE_LABELS)]
     if query["age_eligibility"] == "U-21":
         dob = pd.to_datetime(df["date_of_birth"], errors="coerce")
         df = df[dob > U21_CUTOFF]
@@ -174,6 +245,11 @@ else:
 
     combo_label = f'{style_display(query["style"])}' + (f' / {emphasis_display(query.get("emphasis") or ())}' if q_plan.mode == "single_full" else "")
     age_note = " · <b>U-21 eligible only</b>" if query["age_eligibility"] == "U-21" else ""
+    league_note = ""
+    if query.get("leagues") and set(query["leagues"]) != set(ALL_LEAGUES):
+        league_note += f' · <b>{len(query["leagues"])} of {len(ALL_LEAGUES)} leagues</b>'
+    if query.get("top5_mode") == "Exclude Top 5 Leagues":
+        league_note += ' · <b style="color:var(--accent)">Top 5 Leagues excluded</b>'
     cap_note = (f' &nbsp;·&nbsp; <span style="color:var(--direct)">showing the top {MAX_DISPLAYED_ROWS} of {total_matches} '
                 f'— narrow your search to see the rest</span>') if row_cap_applied else ""
     nationality_badge = (f'{get_flag_html(query["nationality"])} {html.escape(query["nationality"])}'
@@ -182,7 +258,7 @@ else:
     <div class="ntpr-contextbar">
       <div>Showing <b>{'All' if query['count']=='All' else 'Top ' + query['count']}</b> ·
         <b>{nationality_badge}</b> · <b>{html.escape(q_plan.label)}</b> ·
-        <b style="color:var(--progression)">{html.escape(combo_label)}</b>{age_note}
+        <b style="color:var(--progression)">{html.escape(combo_label)}</b>{age_note}{league_note}
         &nbsp;·&nbsp; {total_matches} eligible player{'s' if total_matches != 1 else ''} matched{cap_note}</div>
     </div>
     """, unsafe_allow_html=True)
@@ -200,14 +276,18 @@ else:
             position_label = next((ui for ui, (g8, _) in se.SIDE_POSITIONS.items()
                                     if g8 == row["position_v2"] and row["primary_detailed_position"] in se.SIDE_POSITIONS[ui][1]), row["position_v2"])
 
-            rcol, ccol, bcol = st.columns([0.90, 0.05, 0.05])
+            rcol, ccol, bcol = st.columns([0.68, 0.11, 0.21])
             with rcol:
                 st.markdown(render_result_row(i + 1, row, row, combo_label, position_label), unsafe_allow_html=True)
             with ccol:
                 st.checkbox("Compare", key=f"cmp_{row_key}", label_visibility="collapsed", help="Add to comparison charts")
             with bcol:
+                # UI/UX Round 6 (2026-09-08, item 7): replaced the unlabeled ▲/▾-only square with a
+                # clearly-worded, icon+text call to action -- same underlying expand/collapse
+                # mechanism (ntpr_expanded session state), just an understandable control.
                 st.markdown('<div class="ntpr-toggle">', unsafe_allow_html=True)
-                if st.button("▲" if is_open else "▾", key=f"tog_{row_key}"):
+                cta_label = "▲  Hide Player Details" if is_open else "🔎  View Player Details"
+                if st.button(cta_label, key=f"tog_{row_key}", help="Show scouting insights, other profiles, and charts for this player"):
                     st.session_state["ntpr_expanded"] = None if is_open else row_key
                     st.rerun()
                 st.markdown('</div>', unsafe_allow_html=True)
