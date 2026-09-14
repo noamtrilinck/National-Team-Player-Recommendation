@@ -11,9 +11,9 @@ Project 1 Final Architecture (2026-09-07, owner-approved): the old "F50" aggrega
 Opponent Multiplier + additive Own Level + second calibration) is RETIRED. `opponent_multiplier` no
 longer exists anywhere in the canonical production output -- it is replaced by the canonical
 Final Score components `opponent_level`, `own_club_level`, `minutes_score` (Final Score =
-0.40*Professional + 0.175*Opponent + 0.175*OwnClub + 0.25*Minutes). This script now exports those
-components directly, unchanged from `F50_full_population_scores.parquet` -- nothing is recomputed
-or recalibrated here.
+0.40*Professional + 0.20*Opponent + 0.20*OwnClub + 0.20*Minutes, re-locked 2026-09-14 -- was
+0.40/0.175/0.175/0.25). This script now exports those components directly, unchanged from
+`F50_full_population_scores.parquet` -- nothing is recomputed or recalibrated here.
 
 Produces:
   - players.csv        identity/demographic fields, ONE row per qualifying player-season, keyed

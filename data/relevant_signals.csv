@@ -1,4 +1,5 @@
 kind,role,position,key,signal_name,safe_name
+position_quality,core,CB,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
 position_quality,core,CB,,Tackles per90,Tackles_per90
 position_quality,core,CB,,Tackles Won %,Tackles_Won_pct
 position_quality,core,CB,,Tackle Share,Tackle_Share
@@ -22,6 +23,16 @@ position_quality,core,CB,,xG per Shot,xG_per_Shot
 position_quality,core,CB,,Shot Share,Shot_Share
 position_quality,core,CB,,xG Share,xG_Share
 position_quality,core,CB,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,CB,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,CB,,Cross Rate,Cross_Rate
+position_quality,core,CB,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,CB,,Cross Share,Cross_Share
+position_quality,core,CB,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,CB,,Key Passes per90,Key_Passes_per90
+position_quality,core,CB,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
+position_quality,core,CB,,Key Pass Conversion %,Key_Pass_Conversion_pct
+position_quality,core,CB,,Big Chance Created Share,Big_Chance_Created_Share
+position_quality,core,CB,,Key Pass Share,Key_Pass_Share
 style,core,CB,Control,Backward Pass Rate,Backward_Pass_Rate
 style,core,CB,Control,Backward Pass Share,Backward_Pass_Share
 style,core,CB,Control,Pass Share,Pass_Share
@@ -176,6 +187,7 @@ style,supporting,Winger,Direct,Long Balls per90,Long_Balls_per90
 style,supporting,Winger,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
 style_receiving,core,Winger,Direct,Aerial Duel Attempts per90,Aerial_Duel_Attempts_per90
 style_receiving,core,Winger,Direct,Aerial Duel Share,Aerial_Duel_Share
+position_quality,core,DM,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
 position_quality,core,DM,,Tackles per90,Tackles_per90
 position_quality,core,DM,,Tackle Share,Tackle_Share
 position_quality,core,DM,,Interceptions per90,Interceptions_per90
@@ -195,6 +207,16 @@ position_quality,core,DM,,xG per Shot,xG_per_Shot
 position_quality,core,DM,,Shot Share,Shot_Share
 position_quality,core,DM,,xG Share,xG_Share
 position_quality,core,DM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,DM,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,DM,,Cross Rate,Cross_Rate
+position_quality,core,DM,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,DM,,Cross Share,Cross_Share
+position_quality,core,DM,,Big Chances Created per90,Big_Chances_Created_per90
+position_quality,core,DM,,Key Passes per90,Key_Passes_per90
+position_quality,core,DM,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
+position_quality,core,DM,,Key Pass Conversion %,Key_Pass_Conversion_pct
+position_quality,core,DM,,Big Chance Created Share,Big_Chance_Created_Share
+position_quality,core,DM,,Key Pass Share,Key_Pass_Share
 style,core,DM,Control,Backward Pass Rate,Backward_Pass_Rate
 style,core,DM,Control,Backward Pass Share,Backward_Pass_Share
 style,core,DM,Control,Pass Share,Pass_Share
@@ -231,6 +253,10 @@ position_quality,core,CM,,xG per Shot,xG_per_Shot
 position_quality,core,CM,,Shot Share,Shot_Share
 position_quality,core,CM,,xG Share,xG_Share
 position_quality,core,CM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
+position_quality,core,CM,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,CM,,Cross Rate,Cross_Rate
+position_quality,core,CM,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,CM,,Cross Share,Cross_Share
 position_quality,core,CM,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,CM,,Key Passes per90,Key_Passes_per90
 position_quality,core,CM,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct
@@ -277,6 +303,10 @@ position_quality,core,AM,,xG Share,xG_Share
 position_quality,core,AM,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 position_quality,core,AM,,xGOT Minus xG per90,xGOT_Minus_xG_per90
 position_quality,core,AM,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
+position_quality,core,AM,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,AM,,Cross Rate,Cross_Rate
+position_quality,core,AM,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,AM,,Cross Share,Cross_Share
 position_quality,core,AM,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,AM,,Key Passes per90,Key_Passes_per90
 position_quality,core,AM,,Key Pass Share,Key_Pass_Share
@@ -296,6 +326,14 @@ style,core,AM,Direct,Directness Proxy,Directness_Proxy
 style,supporting,AM,Direct,Long Balls per90,Long_Balls_per90
 style,supporting,AM,Direct,Aerial Duel Success %,Aerial_Duel_Success_pct
 position_quality,core,CF,,Key Pass Share Relative to Pass Share,Key_Pass_Share_Relative_to_Pass_Share
+position_quality,core,CF,,Tackles per90,Tackles_per90
+position_quality,core,CF,,Tackles Won %,Tackles_Won_pct
+position_quality,core,CF,,Tackle Share,Tackle_Share
+position_quality,core,CF,,Tackle Share Rel. Ground Duel Attempt Share,Tackle_Share_Rel_Ground_Duel_Attempt_Share
+position_quality,core,CF,,Interceptions per90,Interceptions_per90
+position_quality,core,CF,,Interception Share,Interception_Share
+position_quality,core,CF,,Ball Recoveries per90,Ball_Recoveries_per90
+position_quality,core,CF,,Ball Recovery Share,Ball_Recovery_Share
 position_quality,core,CF,,Dribble Attempts per90,Dribble_Attempts_per90
 position_quality,core,CF,,Dribble Rate,Dribble_Rate
 position_quality,core,CF,,Dribble Success %,Dribble_Success_pct
@@ -317,6 +355,10 @@ position_quality,core,CF,,xG Share,xG_Share
 position_quality,core,CF,,xG Share Rel. Shot Share,xG_Share_Rel_Shot_Share
 position_quality,core,CF,,xGOT Minus xG per90,xGOT_Minus_xG_per90
 position_quality,core,CF,,Goal Share Minus xGOT Share,Goal_Share_Minus_xGOT_Share
+position_quality,core,CF,,Total Crosses per90,Total_Crosses_per90
+position_quality,core,CF,,Cross Rate,Cross_Rate
+position_quality,core,CF,,Cross Accuracy %,Cross_Accuracy_pct
+position_quality,core,CF,,Cross Share,Cross_Share
 position_quality,core,CF,,Big Chances Created per90,Big_Chances_Created_per90
 position_quality,core,CF,,Key Passes per90,Key_Passes_per90
 position_quality,core,CF,,Big Chance Creation Conversion %,Big_Chance_Creation_Conversion_pct

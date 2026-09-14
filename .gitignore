@@ -11,3 +11,10 @@ __pycache__/
 # Superseded by match_level_stats.parquet (see optimize_match_level_storage.py) -- kept locally
 # as the regeneration source, but the 75MB long-format CSV has no reason to live in the repo.
 data/match_level_stats.csv
+
+# Pre-migration audit backups (P1 Concept Relevance Audit / Final Score weight re-lock,
+# 2026-09-14) -- kept locally as the rollback/control artifacts for that research, not part of
+# the deployed app's runtime data.
+data/*.PRE_CONCEPT_AUDIT_BACKUP.csv
+data/*.PRE_WEIGHT_RELOCK_BACKUP.csv
+data/*.pre_*_backup.csv

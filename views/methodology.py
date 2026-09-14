@@ -107,13 +107,13 @@ STAGES = [
      "For every player, the actual opponents faced across the season are looked up match by match, and their "
      "Club Level ratings are averaged, weighted by minutes played in each match. This is a real, measured "
      "reflection of how strong the competition actually was -- not an assumption based on league reputation. "
-     "This counts for 17.5% of the Final Rating.",
+     "This counts for 20% of the Final Rating.",
      "Context", None),
 
     ("10", "Own club's level",
      "A player's own club is rated on the same Club Level scale (weighted across clubs for a player who changed "
-     "clubs mid-season), reflecting the level he competes at week to week. This counts for another 17.5% of "
-     "the Final Rating -- together, Opposition Strength and Own Club Level make up 35% of the rating, split "
+     "clubs mid-season), reflecting the level he competes at week to week. This counts for another 20% of "
+     "the Final Rating -- together, Opposition Strength and Own Club Level make up 40% of the rating, split "
      "evenly between them.",
      "Context",
      "This is a deliberate design choice: a lower Professional Performance rating earned against much stronger "
@@ -125,14 +125,14 @@ STAGES = [
      "How much of the season's available playing time a player actually delivered, legitimate minutes only "
      "(phantom/placeholder appearances excluded, and dual-registration/reserve-team minutes correctly merged "
      "with the parent club) -- as a share of the minutes his team had available over the same matches. This "
-     "counts for 25% of the Final Rating: a player who barely featured cannot out-rate one who delivered a "
+     "counts for 20% of the Final Rating: a player who barely featured cannot out-rate one who delivered a "
      "full, legitimate season on the strength of a few standout appearances alone.",
      "Rating", None),
 
     ("12", "Final Rating",
      "Professional Performance, Opposition Strength, Own Club Level, and Season Minutes are combined into the "
-     "Final Rating as a straightforward weighted blend -- 40% Professional Performance, 17.5% Opposition "
-     "Strength, 17.5% Own Club Level, 25% Season Minutes (i.e. 40% Performance / 35% Level / 25% Minutes). "
+     "Final Rating as a straightforward weighted blend -- 40% Professional Performance, 20% Opposition "
+     "Strength, 20% Own Club Level, 20% Season Minutes (i.e. 40% Performance / 40% Level / 20% Minutes). "
      "No additional curve, cap, or rescaling is applied afterward -- players are ranked directly on this "
      "value. This is the number shown on the Recommendations page.",
      "Rating", None),
