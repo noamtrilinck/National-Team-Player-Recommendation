@@ -195,3 +195,25 @@ def apply_side_filter(df, plan):
             sub = sub[sub["primary_detailed_position"].isin(raw_vals)]
         frames.append(sub)
     return pd.concat(frames, ignore_index=True) if frames else df.iloc[0:0]
+
+
+# ---------------------------------------------------------------------------------------------
+# Identity filters (2026-10-06, owner rules for V3 identity data). Moved out of
+# views/recommendations.py unchanged so they can be regression-tested directly.
+#   * Nationality: players carry exactly ONE production nationality (first listed); the filter is an
+#     exact match on that single value -- never a substring match on a multi-country string.
+#   * Age: a player whose DOB is unknown (NULL) has an unknown age. The player stays a normal search result
+#     when no age criterion is active ("Senior"), and NEVER qualifies for an age-restricted search ("U-21"):
+#     to_datetime(NULL) is NaT, which fails the cutoff test, so the row is excluded -- no age is ever imputed.
+# ---------------------------------------------------------------------------------------------
+def filter_by_nationality(df, nationality, all_label="All Nationalities"):
+    if nationality == all_label:
+        return df
+    return df[df["nationality"] == nationality]
+
+
+def filter_by_age_eligibility(df, age_eligibility, u21_cutoff):
+    if age_eligibility == "U-21":
+        dob = pd.to_datetime(df["date_of_birth"], errors="coerce")
+        return df[dob.notna() & (dob > u21_cutoff)]
+    return df

@@ -233,8 +233,7 @@ else:
     df = scores.merge(players, on=["player_id", "season_id", "team_id"], how="inner")
     df = se.apply_side_filter(df, q_plan)
 
-    if query["nationality"] != "All Nationalities":
-        df = df[df["nationality"] == query["nationality"]]
+    df = se.filter_by_nationality(df, query["nationality"])
     # League filters: the general Leagues multiselect narrows to whatever was picked (defaults to
     # every league, i.e. a no-op), then Top 5 Include/Exclude is applied on top of that -- the two
     # controls compose (AND), never override each other.
@@ -242,9 +241,8 @@ else:
         df = df[df["league_label"].isin(query["leagues"])]
     if query.get("top5_mode") == "Exclude Top 5 Leagues":
         df = df[~df["league_label"].isin(TOP5_LEAGUE_LABELS)]
-    if query["age_eligibility"] == "U-21":
-        dob = pd.to_datetime(df["date_of_birth"], errors="coerce")
-        df = df[dob > U21_CUTOFF]
+    # Unknown DOB/age: kept when no age criterion is active, excluded from U-21 (see search_engine_v2).
+    df = se.filter_by_age_eligibility(df, query["age_eligibility"], U21_CUTOFF)
 
     df = df.sort_values("final_score", ascending=False)
     total_matches = len(df)

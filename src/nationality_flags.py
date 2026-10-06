@@ -176,6 +176,16 @@ NATIONALITY_REPRESENTATION: dict[str, str] = {
     "Wales": "wales.svg",
     "Zambia": "countries/zm.svg", "Zimbabwe": "countries/zw.svg",
     "Afghanistan": "countries/af.svg",
+    # V3 population (2026-10-02): nationalities new to the 19,102-player V3 population -- same
+    # flag-icons 4x3 set (MIT), fetched from the published package (flags/4x3/<iso2>.svg).
+    "British Virgin Islands": "countries/vg.svg", "Eswatini": "countries/sz.svg",
+    "Lesotho": "countries/ls.svg", "New Caledonia": "countries/nc.svg", "Nicaragua": "countries/ni.svg",
+    "San Marino": "countries/sm.svg", "Sint Maarten": "countries/sx.svg", "Somalia": "countries/so.svg",
+    "Sri Lanka": "countries/lk.svg",
+    # V3 identity integration (2026-10-06): first-listed Transfermarkt nationality that SportMonks' countries table
+    # lacks (Data/v3_population SUPPLEMENTARY_COUNTRIES) -- same flag-icons 4x3 set (MIT, flag-icons@7.2.3 flags/4x3/tc.svg).
+    "Turks and Caicos Islands": "countries/tc.svg",
+    "São Tomé and Príncipe": "countries/st.svg",   # new to the population via the V3 TM nationality (flags/4x3/st.svg)
 }
 
 HAND_SOURCED_NATIONALITIES = frozenset(
