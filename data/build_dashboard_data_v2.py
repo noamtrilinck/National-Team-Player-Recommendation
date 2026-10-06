@@ -271,4 +271,10 @@ def build_signal_denominators(players):
 
 
 if __name__ == "__main__":
-    main()
+    if "--signal-denominators-only" in sys.argv:
+        # signal_denominators.csv reads the match-level chain's full_season output, which itself is
+        # scoped by the players.csv main() writes -- so the full sync is: main() -> match-level
+        # chain -> this. See production/player_evaluation_v2/run_full_pipeline.py DOWNSTREAM.
+        build_signal_denominators(pd.read_csv(OUT_DIR / "players.csv"))
+    else:
+        main()

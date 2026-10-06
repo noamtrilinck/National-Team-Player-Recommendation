@@ -36,8 +36,10 @@ src/
 data/
   build_dashboard_data_v2.py  Exports players.csv / f50_scores.csv / f50_registry.csv from
                                production/player_evaluation_v2 outputs -- never recomputes a score
+  build_match_level_exports.py      Exports match_level_stats.* / filter_eligibility.csv for the
+                                     current players.csv population (see below)
   optimize_match_level_storage.py   Reshapes match_level_stats.csv into a compact
-                                     wide-format Parquet (see below)
+                                     wide-format Parquet (called by the exporter)
   *.csv, *.parquet            The exported data itself
 ```
 
@@ -48,16 +50,19 @@ locked analytical engine) — nothing is recomputed inside the dashboard. Re-run
 underlying V2/F50 production output changes:
 
 ```
-python data/build_dashboard_data_v2.py
-python data/optimize_match_level_storage.py
+python production/player_evaluation_v2/run_full_pipeline.py --downstream-only   # from the project root
 ```
 
-The first script writes `players.csv`, `f50_scores.csv`, and `f50_registry.csv`. The second
-reshapes `match_level_stats.csv` (long format) into `match_level_stats.parquet` (wide format) — a
-pure storage optimization with a built-in round-trip check, unchanged from V1; the app reads the
-Parquet file, not the CSV. Both scripts use absolute paths into the parent research repository and
-are not meant to run in a deployed environment — only the exported data files under `data/` are
-needed there.
+That one command runs, in order: `data/build_dashboard_data_v2.py` (`players.csv`,
+`f50_scores.csv`, `f50_registry.csv`, `signal_*`) -> `production/match_level/run_match_level_pipeline.py`
+(Top/Bottom opponents, match qualification, filtered aggregates/eligibility/percentiles,
+`multi_club_lineage.csv`, then `data/build_match_level_exports.py` -> `match_level_stats.csv/.parquet`
+and `filter_eligibility.csv`) -> `build_dashboard_data_v2.py --signal-denominators-only`. The full
+`run_full_pipeline.py` (no flag) runs it automatically after scoring. Running only
+`optimize_match_level_storage.py` just reshapes whatever `match_level_stats.csv` already exists --
+it never refreshes the population (this is how the match-level files stayed on the 2026-09-09
+population through the V3 rebuilds). These scripts read the parent research repository and the
+local database; only the exported files under `data/` are needed in a deployed environment.
 
 ## Deploying to Streamlit Community Cloud
 
@@ -70,7 +75,7 @@ needed there.
    `.streamlit/config.toml` sets the theme to match the design tokens; no secrets are needed —
    there's no external API or database call at runtime, everything reads from the committed
    data files.
-4. First boot will be slower while `player_abilities.csv` and the Parquet file are parsed into
+4. First boot will be slower while `f50_scores.csv` and the Parquet files are parsed into
    `st.cache_data`; subsequent interactions are served from cache.
 
 ## Status

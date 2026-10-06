@@ -1,4 +1,15 @@
 """
+RETIRED (2026-10-06) -- V1 dashboard export. Do not run.
+
+Its main() reads the archived V1 master dataset / Philosophy / Ability outputs, which no longer
+describe the scored population. Current replacements:
+  - players.csv, f50_scores.csv, signal_*.csv  -> build_dashboard_data_v2.py
+  - match_level_stats.*, filter_eligibility.csv -> build_match_level_exports.py (run by
+    production/match_level/run_match_level_pipeline.py)
+  - player_abilities.csv / philosophy_weights.csv -> retired with the V1 Abilities/Philosophy
+    framework (no runtime consumer).
+Kept only as the historical record of the Sprint 1-3 export. Original docstring follows.
+
 Dashboard data export -- Sprint 1 + Sprint 2 scope.
 
 Produces, all sourced exclusively from already-locked production/ outputs (never recomputed
@@ -199,96 +210,9 @@ def build_weights():
           f"(should be empty): {unresolved_def}")
 
 
-def build_match_level_stats(scope):
-    """match_level_stats.csv (Sprint 3b): long format (player_id, season_id, team_id, filter_key,
-    metric, raw_value, per90_value, percentile_value) for the curated CHART_METRICS/PCT_METRICS
-    pool, across all 7 filter_keys -- feeds the 4 AI-selected real-metric comparison charts.
-    Deliberately never touches Ability/Philosophy/Defensive scores; these are real underlying
-    football stats only, sourced from the already-locked match-level filtering pipeline."""
-    # usecols narrows the read to exactly what's needed -- avoids pandas' mixed-dtype warning on
-    # columns like "source" that this export never touches, and cuts load time on a 50k-row file.
-    per90_cols = set(JOIN_KEY + ["filter_key"])
-    for m in CHART_METRICS:
-        per90_cols |= {m, f"{m}_per90"}
-    per90_cols |= set(PCT_METRICS)
-    per90 = pd.read_csv(MATCH_LEVEL / "player_season_unified_by_filter_with_per90.csv",
-                         usecols=lambda c: c in per90_cols)
-    pct_cols = set(JOIN_KEY + ["filter_key"]) | {f"{m}_percentile" for m in PCT_METRICS}
-    pct_cols |= {f"{m}_per90_percentile" for m in CHART_METRICS}
-    pct = pd.read_csv(MATCH_LEVEL / "player_season_filtered_percentiles.csv", usecols=lambda c: c in pct_cols)
-
-    key = ["player_id", "season_id", "team_id", "filter_key"]
-    per90 = per90.merge(scope, on=JOIN_KEY, how="inner")
-    pct = pct.merge(scope, on=JOIN_KEY, how="inner")
-    merged = per90.merge(pct, on=key, how="inner", suffixes=("", "_pctfile"))
-    print(f"\nmatch-level per90 rows in scope: {len(per90)}, percentile rows in scope: {len(pct)}, "
-          f"merged: {len(merged)}")
-
-    frames = []
-    for metric in CHART_METRICS:
-        raw_col, per90_col, pctile_col = metric, f"{metric}_per90", f"{metric}_per90_percentile"
-        if raw_col not in merged.columns or per90_col not in merged.columns or pctile_col not in merged.columns:
-            print(f"  SKIPPED (column missing): {metric}")
-            continue
-        sub = merged[key + [raw_col, per90_col, pctile_col]].rename(
-            columns={raw_col: "raw_value", per90_col: "per90_value", pctile_col: "percentile_value"})
-        sub["metric"] = metric
-        frames.append(sub)
-
-    for metric in PCT_METRICS:
-        raw_col, pctile_col = metric, f"{metric}_percentile"
-        if raw_col not in merged.columns or pctile_col not in merged.columns:
-            print(f"  SKIPPED (column missing): {metric}")
-            continue
-        # Percentage metrics (e.g. Accurate Pass %) don't have a meaningful "per 90" transform --
-        # they're already minutes-independent rates, so per90_value mirrors raw_value rather than
-        # being left null (keeps the Raw/Per90/Percentile display-mode toggle from erroring on
-        # these metrics; Raw and Per 90 will simply read identically for this subset).
-        sub = merged[key + [raw_col, pctile_col]].rename(
-            columns={raw_col: "raw_value", pctile_col: "percentile_value"})
-        sub["per90_value"] = sub["raw_value"]
-        sub["metric"] = metric
-        frames.append(sub[key + ["raw_value", "per90_value", "percentile_value", "metric"]])
-
-    out = pd.concat(frames, ignore_index=True)
-    for c in ("raw_value", "per90_value", "percentile_value"):
-        out[c] = out[c].round(2)
-    out_path = OUT_DIR / "match_level_stats.csv"
-    out.to_csv(out_path, index=False)
-    print(f"\nWrote {out_path}: {len(out)} rows, {out.metric.nunique()} metrics x "
-          f"{out.filter_key.nunique()} filter_keys x {out[JOIN_KEY].drop_duplicates().shape[0]} player-seasons")
-    print("Rows per filter_key:")
-    print(out.filter_key.value_counts().to_string())
-    print(f"\nNull raw/per90/percentile values (should be low -- real per-filter data-availability gaps, "
-          f"e.g. a player with 0 minutes Away): "
-          f"{out[['raw_value','per90_value','percentile_value']].isna().sum().to_dict()}")
-
-    full_season = out[out.filter_key == "full_season"]
-    coverage = full_season[JOIN_KEY].drop_duplicates().shape[0]
-    print(f"\nfull_season filter_key coverage: {coverage} of {len(scope)} players.csv player-seasons")
-
-
-def build_filter_eligibility(scope):
-    """UI/UX Round 5 (points 2-5, data audit) -- filter_eligibility.csv: exposes the ALREADY-
-    LOCKED, disclosed per-(player, filter) minimum-minutes gate from
-    production/match_level/build_filtered_eligibility.py (filter_definitions.MIN_MINUTES_BY_FILTER,
-    e.g. 270 minutes specifically against Top/Bottom-Opponent-band matches -- a genuinely
-    different, smaller sample than the player's overall season minutes). This is NOT a new
-    threshold and does NOT change which players are excluded from a filtered chart -- it only lets
-    the dashboard's "not shown" note say WHY precisely (no minutes at all vs that opponent
-    bracket, vs some minutes but below the reliability floor) instead of one generic message.
-    Confirmed via direct audit (docs/v2_ui_redesign_round5.md) that this exact, intentional,
-    evidence-based floor -- not a bug -- is what was previously reported as players having "no
-    match data available"."""
-    elig = pd.read_csv(MATCH_LEVEL / "player_season_filter_eligibility.csv",
-                        usecols=["player_id", "season_id", "team_id", "filter_key",
-                                 "minutes_played", "min_minutes_required", "meets_minimum_sample"])
-    elig = elig.merge(scope, on=JOIN_KEY, how="inner")
-    out_path = OUT_DIR / "filter_eligibility.csv"
-    elig.to_csv(out_path, index=False)
-    print(f"\nWrote {out_path}: {len(elig)} rows ({elig[JOIN_KEY].drop_duplicates().shape[0]} player-seasons "
-          f"x {elig.filter_key.nunique()} filters)")
+# build_match_level_stats / build_filter_eligibility moved to build_match_level_exports.py (2026-10-06).
+from build_match_level_exports import build_match_level_stats, build_filter_eligibility  # noqa: E402,F401
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit("build_dashboard_data.py is RETIRED (V1) -- see its module docstring for the current builders.")
